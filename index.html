@@ -1,0 +1,2370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="KHAN STRUCTURE — a context-driven smart money trading engine built on structure-first logic and realtime integrity."
+    />
+
+    <!-- Social previews (works online; offline-friendly relative image too) -->
+    <meta property="og:title" content="KHAN STRUCTURE — Trade With Structure" />
+    <meta
+      property="og:description"
+      content="Context-driven Smart Money Engine. HTF bias alignment. Structure-confirmed execution."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://khanstructure.trade" />
+    <meta property="og:image" content="KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#070A12" />
+    <link rel="canonical" href="https://khanstructure.trade" />
+
+    <!-- Offline assets -->
+    <link rel="icon" type="image/png" href="khan_logo_transparent.png" />
+    <link rel="preload" as="image" href="khan_logo_transparent.png" />
+    <link rel="preload" as="image" href="KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png" />
+
+    <title>KHAN STRUCTURE — Trade With Structure</title>
+
+    <style>
+      :root {
+        --bg: #070a12;
+        --bg2: #0b0f22;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.7);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --gold: #f2c14e;
+        --purple: #7b3ff2;
+        --purple2: #b36bff;
+        --line: rgba(255, 255, 255, 0.12);
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+        --radius: 20px;
+        --radius2: 28px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        scroll-behavior: smooth;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          'Apple Color Emoji',
+          'Segoe UI Emoji';
+        color: var(--text);
+        background:
+          radial-gradient(1200px 700px at 20% 10%, rgba(123, 63, 242, 0.32), transparent 60%),
+          radial-gradient(900px 520px at 90% 20%, rgba(242, 193, 78, 0.16), transparent 55%),
+          radial-gradient(900px 520px at 60% 100%, rgba(179, 107, 255, 0.18), transparent 55%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+
+      /* Top nav */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: linear-gradient(180deg, rgba(7, 10, 18, 0.8) 0%, rgba(7, 10, 18, 0.4) 100%);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 14px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: unset;
+      }
+      .brand img {
+        height: 38px;
+        width: auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .nav-links a {
+        padding: 9px 8px;
+        border-radius: 12px;
+        white-space: nowrap;
+      }
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+      }
+
+      .nav-cta {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 14px;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        transition:
+          transform 0.12s ease,
+          background 0.12s ease,
+          border-color 0.12s ease;
+        user-select: none;
+        white-space: nowrap;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .btn-primary {
+        border: 1px solid rgba(242, 193, 78, 0.45);
+        background: linear-gradient(180deg, rgba(242, 193, 78, 0.26) 0%, rgba(123, 63, 242, 0.18) 100%);
+        box-shadow: 0 16px 40px rgba(123, 63, 242, 0.18);
+      }
+      .btn-primary:hover {
+        border-color: rgba(242, 193, 78, 0.72);
+      }
+
+      /* TradingView highlight CTA */
+      .btn-tv {
+        border: 1px solid rgba(179, 107, 255, 0.55);
+        background: linear-gradient(180deg, rgba(179, 107, 255, 0.22) 0%, rgba(242, 193, 78, 0.16) 100%);
+        box-shadow: 0 18px 46px rgba(179, 107, 255, 0.18);
+      }
+      .btn-tv:hover {
+        border-color: rgba(179, 107, 255, 0.82);
+      }
+
+      .btn-tv .tv-badge {
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.82);
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+        font-weight: 650;
+        font-size: 13px;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 56px 0 20px;
+        position: relative;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: 24px;
+        align-items: stretch;
+      }
+      .hero-left {
+        padding: 26px 0;
+      }
+      h1 {
+        margin: 14px 0 12px;
+        font-size: clamp(34px, 4.6vw, 56px);
+        letter-spacing: -0.02em;
+        line-height: 1.02;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, var(--gold) 0%, var(--purple2) 55%, rgba(255, 255, 255, 0.92) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .sub {
+        font-size: 17px;
+        line-height: 1.55;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 18px 0 10px;
+      }
+      .trust {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 14px;
+        color: var(--muted2);
+        font-weight: 650;
+        font-size: 13px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 99px;
+        background: rgba(242, 193, 78, 0.88);
+        box-shadow: 0 0 22px rgba(242, 193, 78, 0.55);
+      }
+
+      .hero-right {
+        border-radius: var(--radius2);
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: var(--shadow);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+      }
+      .cover {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        filter: saturate(1.05);
+        opacity: 0.85;
+        transform: scale(1.02);
+      }
+      .cover-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(800px 420px at 70% 20%, rgba(242, 193, 78, 0.25), transparent 52%),
+          radial-gradient(800px 420px at 20% 30%, rgba(123, 63, 242, 0.28), transparent 55%),
+          linear-gradient(180deg, rgba(7, 10, 18, 0.1) 0%, rgba(7, 10, 18, 0.72) 70%, rgba(7, 10, 18, 0.92) 100%);
+      }
+      .hero-card {
+        position: relative;
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 18px;
+        gap: 10px;
+      }
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .metric {
+        padding: 14px 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .metric .k {
+        font-size: 12px;
+        color: var(--muted2);
+        font-weight: 700;
+      }
+      .metric .v {
+        margin-top: 6px;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      /* Sections */
+      section {
+        padding: 54px 0;
+      }
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 70ch;
+        line-height: 1.5;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(242, 193, 78, 0.35);
+        background: rgba(242, 193, 78, 0.1);
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 750;
+        font-size: 13px;
+        width: fit-content;
+        margin-bottom: 10px;
+      }
+      .icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(22px 22px at 30% 30%, rgba(242, 193, 78, 0.35), rgba(123, 63, 242, 0.22));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+        font-weight: 900;
+      }
+
+      /* Steps */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .step {
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .step .n {
+        font-size: 12px;
+        color: var(--muted2);
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+      .step .t {
+        margin-top: 8px;
+        font-weight: 850;
+      }
+      .step .d {
+        margin-top: 6px;
+        color: var(--muted);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      /* Testimonials */
+      .testimonial {
+        height: 100%;
+      }
+      .testimonial .rating {
+        color: var(--gold);
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+      .testimonial .q {
+        color: var(--text);
+        line-height: 1.62;
+        font-size: 15px;
+      }
+      .testimonial .who {
+        margin-top: 14px;
+        color: var(--muted2);
+        font-weight: 760;
+        font-size: 13px;
+      }
+      .list {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        display: grid;
+        gap: 8px;
+      }
+      .list li {
+        line-height: 1.55;
+      }
+
+      /* FAQ */
+      .faq-item {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        border-radius: var(--radius);
+        padding: 14px 16px;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+      }
+      .faq-item summary {
+        cursor: pointer;
+        font-weight: 780;
+        color: var(--text);
+        list-style: none;
+        line-height: 1.4;
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-item p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .faq-item[open] {
+        border-color: rgba(242, 193, 78, 0.3);
+        background: linear-gradient(180deg, rgba(242, 193, 78, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+      }
+
+      /* Support */
+      .link-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .link-list a {
+        color: rgba(255, 255, 255, 0.86);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        line-height: 1.45;
+      }
+      .warn {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(242, 193, 78, 0.32);
+        background: rgba(242, 193, 78, 0.08);
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      /* CTA */
+      .cta {
+        border-radius: var(--radius2);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background:
+          radial-gradient(900px 380px at 20% 30%, rgba(123, 63, 242, 0.28), transparent 60%),
+          radial-gradient(900px 380px at 80% 40%, rgba(242, 193, 78, 0.18), transparent 58%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        box-shadow: var(--shadow);
+      }
+      .cta-inner {
+        padding: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .cta h3 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+      }
+      .cta p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.5;
+        max-width: 72ch;
+      }
+
+      /* Footer */
+      footer {
+        padding: 34px 0 52px;
+        color: var(--muted2);
+      }
+      .foot {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        border-top: 1px solid var(--line);
+        padding-top: 20px;
+      }
+      .foot small {
+        display: block;
+        line-height: 1.5;
+      }
+      .foot a {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .foot a:hover {
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      /* Mobile drawer */
+      .nav-burger {
+        display: none;
+        padding: 12px 14px;
+        font-weight: 900;
+      }
+      .drawer {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(8px);
+        display: none;
+        z-index: 200;
+      }
+      .drawer-panel {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: min(420px, 92vw);
+        background: linear-gradient(180deg, rgba(7, 10, 18, 0.98) 0%, rgba(11, 15, 34, 0.98) 100%);
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .drawer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .drawer-brand img {
+        height: 34px;
+        width: auto;
+        display: block;
+      }
+      .drawer-close {
+        padding: 12px 14px;
+      }
+      .drawer-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .drawer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .drawer-links a {
+        padding: 12px 12px;
+        border-radius: 14px;
+        color: rgba(255, 255, 255, 0.86);
+        font-weight: 800;
+      }
+      .drawer-links a:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .drawer-cta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .drawer-note {
+        margin-top: auto;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      body.drawer-open {
+        overflow: hidden;
+      }
+      body.drawer-open .drawer {
+        display: block;
+      }
+
+      /* Subtle premium motion */
+      @keyframes glowPulse {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 0 rgba(123, 63, 242, 0));
+        }
+        50% {
+          filter: drop-shadow(0 0 18px rgba(123, 63, 242, 0.26));
+        }
+      }
+      .hero-right {
+        animation: glowPulse 6.5s ease-in-out infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-right {
+          animation: none;
+        }
+      }
+
+      /* Reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-card {
+          height: 380px;
+        }
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-cta a {
+          display: none;
+        }
+        .nav-burger {
+          display: inline-flex;
+        }
+        .brand {
+          min-width: unset;
+        }
+      }
+
+      /* Examples gallery */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .shot {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+        cursor: zoom-in;
+        position: relative;
+      }
+      .shot img {
+        width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.96;
+        transform: scale(1.01);
+      }
+      .shot .cap {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        right: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 10px;
+        pointer-events: none;
+      }
+      .cap .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(7, 10, 18, 0.62);
+        backdrop-filter: blur(10px);
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 850;
+        font-size: 13px;
+      }
+      .cap .note {
+        color: rgba(255, 255, 255, 0.74);
+        font-weight: 750;
+        font-size: 12px;
+        text-align: right;
+        line-height: 1.25;
+        text-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      }
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        z-index: 9999;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox .frame {
+        max-width: min(1200px, 96vw);
+        max-height: 92vh;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(7, 10, 18, 0.55);
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+        position: relative;
+      }
+      .lightbox img {
+        width: 100%;
+        height: auto;
+        display: block;
+        max-height: 92vh;
+        object-fit: contain;
+        background: rgba(0, 0, 0, 0.15);
+      }
+      .lightbox .x {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 900;
+        cursor: pointer;
+        user-select: none;
+      }
+      @media (max-width: 980px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+        .cap .note {
+          text-align: left;
+        }
+      }
+
+      /* Video */
+      .video-card {
+        border-radius: var(--radius2);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background:
+          radial-gradient(900px 380px at 20% 30%, rgba(123, 63, 242, 0.2), transparent 60%),
+          radial-gradient(900px 380px at 80% 40%, rgba(242, 193, 78, 0.14), transparent 58%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+        box-shadow: var(--shadow);
+        padding: 14px;
+      }
+      .video {
+        width: 100%;
+        display: block;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.22);
+      }
+      .video-note {
+        margin-top: 10px;
+        color: var(--muted2);
+        font-weight: 650;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      /* Scroll-to-top */
+      .toTop {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 9998;
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(7, 10, 18, 0.55);
+        backdrop-filter: blur(12px);
+        color: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+        cursor: pointer;
+        user-select: none;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .toTop:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(242, 193, 78, 0.35);
+        transform: translateY(6px);
+      }
+      .toTop.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .toTop span {
+        font-weight: 950;
+        font-size: 18px;
+        line-height: 1;
+      }
+      @media (max-width: 980px) {
+        .toTop {
+          right: 14px;
+          bottom: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <div class="nav">
+      <div class="container">
+        <div class="nav-inner">
+          <div class="brand">
+            <img src="khan_logo_transparent.png" alt="KHAN STRUCTURE" />
+          </div>
+
+          <div class="nav-links" aria-label="Primary">
+            <a href="#how" data-i18n="nav.how">How It Works</a>
+            <a href="#video" data-i18n="nav.video">Demo</a>
+            <a href="#features" data-i18n="nav.features">Features</a>
+            <a href="#examples" data-i18n="nav.examples">Examples</a>
+            <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+            <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
+            <a href="#community" data-i18n="community.pill">Community</a>
+            <a href="#pricing" data-i18n="nav.pricing">Pro</a>
+          </div>
+
+          <div class="nav-cta">
+            <button class="btn" id="langMN" type="button" aria-label="Монгол">MN</button>
+            <button class="btn" id="langEN" type="button" aria-label="English">EN</button>
+            <button class="btn nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false">
+              ☰
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE DRAWER -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-panel">
+        <div class="drawer-top">
+          <div class="drawer-brand">
+            <img src="khan_logo_transparent.png" alt="KHAN STRUCTURE" />
+          </div>
+          <button class="btn drawer-close" id="drawerClose" type="button" aria-label="Close">✕</button>
+        </div>
+
+        <div class="drawer-actions">
+          <button class="btn" id="langMN_m" type="button">MN</button>
+          <button class="btn" id="langEN_m" type="button">EN</button>
+        </div>
+
+        <nav class="drawer-links" aria-label="Mobile">
+          <a href="#how" data-i18n="nav.how">How It Works</a>
+          <a href="#video" data-i18n="nav.video">Demo</a>
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#examples" data-i18n="nav.examples">Examples</a>
+          <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+          <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
+          <a href="#community" data-i18n="community.pill">Community</a>
+          <a href="#pricing" data-i18n="nav.pricing">Pro</a>
+        </nav>
+
+        <div class="drawer-cta">
+          <a class="btn" href="#pricing" data-i18n="nav.viewAccess">View Pricing</a>
+          <a class="btn btn-primary" href="#support" data-i18n="nav.supportCta">Contact Support</a>
+        </div>
+
+        <div class="drawer-note">
+          <small data-i18n="footer.disclaimer">Disclaimer: Educational use only. Not financial advice.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="chip" data-i18n="hero.chip">⚡ Structured Smart Money Framework</div>
+            <h1 data-i18n="hero.h1">Trade with structure.<br />Stay disciplined in execution.</h1>
+            <p class="sub" data-i18n="hero.sub">
+              KHAN STRUCTURE helps you define higher-timeframe context, wait for confirmation, and execute with a clear
+              risk plan.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#pricing" data-i18n="hero.getAccess" data-track="hero_get_access"
+                >View Pricing</a
+              >
+              <a class="btn" href="#how" data-i18n="hero.seeFramework">How It Works</a>
+              <a
+                class="btn btn-tv"
+                href="https://www.tradingview.com/v/Q6FLX3sc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="hero.tradingview"
+                data-track="hero_view_tradingview"
+                >Open on TradingView <span class="tv-badge">LIVE</span></a
+              >
+            </div>
+
+            <div class="trust">
+              <span class="dot" aria-hidden="true"></span>
+              <span data-i18n="hero.trust"
+                >Process-first logic • Real-time behavior matches backtest study • No repaint tricks</span
+              >
+            </div>
+          </div>
+
+          <div class="hero-right" role="img" aria-label="KHAN STRUCTURE visual">
+            <div
+              class="cover"
+              style="background-image: url('KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png')"
+            ></div>
+            <div class="cover-overlay"></div>
+            <div class="hero-card">
+              <div class="hero-metrics">
+                <div class="metric">
+                  <div class="k" data-i18n="metric.framework.k">Context</div>
+                  <div class="v" data-i18n="metric.framework.v">HTF → LTF Alignment</div>
+                </div>
+                <div class="metric">
+                  <div class="k" data-i18n="metric.execution.k">Execution</div>
+                  <div class="v" data-i18n="metric.execution.v">Entry + SL + Targets</div>
+                </div>
+                <div class="metric">
+                  <div class="k" data-i18n="metric.integrity.k">Integrity</div>
+                  <div class="v" data-i18n="metric.integrity.v">No Hindsight Tricks</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- VIDEO -->
+    <section id="video">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="video.pill">Live Demo</div>
+            <h2 data-i18n="video.h2">See a short live walkthrough.</h2>
+          </div>
+          <p data-i18n="video.p">
+            From market context to entry and risk map. Recorded from a real session with no hindsight edits.
+          </p>
+        </div>
+
+        <div class="video-card">
+          <video
+            class="video"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+            preload="metadata"
+            poster="KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png"
+            aria-label="KHAN STRUCTURE demo video"
+          >
+            <source src="demo.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="how.pill">Process</div>
+            <h2 data-i18n="how.h2">A process you can follow every session.</h2>
+          </div>
+          <p data-i18n="how.p">
+            Define direction, wait for structure confirmation, then execute with a pre-mapped risk plan.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="n" data-i18n="steps.1.n">STEP 01</div>
+            <div class="t" data-i18n="steps.1.t">Define HTF direction</div>
+            <div class="d" data-i18n="steps.1.d">Set market bias first before looking for entries.</div>
+          </div>
+          <div class="step">
+            <div class="n" data-i18n="steps.2.n">STEP 02</div>
+            <div class="t" data-i18n="steps.2.t">Wait for confirmation</div>
+            <div class="d" data-i18n="steps.2.d">Enter only after structure confirms.</div>
+          </div>
+          <div class="step">
+            <div class="n" data-i18n="steps.3.n">STEP 03</div>
+            <div class="t" data-i18n="steps.3.t">Read liquidity reaction</div>
+            <div class="d" data-i18n="steps.3.d">Use sweeps and reactions to filter weak setups.</div>
+          </div>
+          <div class="step">
+            <div class="n" data-i18n="steps.4.n">STEP 04</div>
+            <div class="t" data-i18n="steps.4.t">Execute with risk map</div>
+            <div class="d" data-i18n="steps.4.d">Each setup includes entry, stop loss, and targets.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="features.pill">Core Features</div>
+            <h2 data-i18n="features.h2">Built for clarity and discipline.</h2>
+          </div>
+          <p data-i18n="features.p">Designed to support decision quality, not signal chasing.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">↗</div>
+            <h3 data-i18n="feat.1.h">Higher-timeframe context</h3>
+            <p data-i18n="feat.1.p">Stay aligned with the main market direction.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⛓</div>
+            <h3 data-i18n="feat.2.h">Confirmed entries</h3>
+            <p data-i18n="feat.2.p">Signals appear after structure confirmation, not random volatility.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◎</div>
+            <h3 data-i18n="feat.3.h">Liquidity context</h3>
+            <p data-i18n="feat.3.p">Identify sweeps and reactions around key levels.</p>
+          </div>
+        </div>
+
+        <div style="height: 14px"></div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">⛨</div>
+            <h3 data-i18n="feat.4.h">Entry + SL + Targets</h3>
+            <p data-i18n="feat.4.p">A clear plan for disciplined trade management.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚙</div>
+            <h3 data-i18n="feat.5.h">Clean workflow</h3>
+            <p data-i18n="feat.5.p">Lite stays simple. Pro adds depth without noise.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◆</div>
+            <h3 data-i18n="feat.6.h">Process over Prediction</h3>
+            <p data-i18n="feat.6.p">Focus on repeatable execution, not guessing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LITE VS PRO -->
+    <section id="compare">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="compare.pill">Lite vs Pro</div>
+            <h2 data-i18n="compare.h2">Choose the setup that fits your workflow.</h2>
+          </div>
+          <p data-i18n="compare.p">Start simple with Lite, then move to Pro when you need structured execution depth.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="compare.lite.h">Lite (Public)</h3>
+            <p data-i18n="compare.lite.p">Best for learning the core process and validating chart context.</p>
+            <ul class="list">
+              <li data-i18n="compare.lite.1">Core market structure view</li>
+              <li data-i18n="compare.lite.2">Clean, lightweight interface</li>
+              <li data-i18n="compare.lite.3">Manual execution workflow</li>
+              <li data-i18n="compare.lite.4">Good for process practice</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-i18n="compare.pro.h">Pro (Invite Only)</h3>
+            <p data-i18n="compare.pro.p">Built for traders who want deeper structure tools and disciplined execution support.</p>
+            <ul class="list">
+              <li data-i18n="compare.pro.1">Advanced structure modules</li>
+              <li data-i18n="compare.pro.2">Detailed risk map and target planning</li>
+              <li data-i18n="compare.pro.3">Structured alert workflow</li>
+              <li data-i18n="compare.pro.4">Priority access to updates</li>
+              <li data-i18n="compare.pro.5">Limited to 100 active members</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIT -->
+    <section id="fit">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="fit.pill">Who It Is For</div>
+            <h2 data-i18n="fit.h2">Clear expectations from the start.</h2>
+          </div>
+          <p data-i18n="fit.p">This helps the right traders get value and avoids mismatched expectations.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="fit.for.h">Best fit for</h3>
+            <ul class="list">
+              <li data-i18n="fit.for.1">Traders who follow a rules-based process</li>
+              <li data-i18n="fit.for.2">People who value risk management over hype</li>
+              <li data-i18n="fit.for.3">Users willing to wait for confirmation</li>
+              <li data-i18n="fit.for.4">Traders improving consistency, not gambling</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-i18n="fit.not.h">Not ideal for</h3>
+            <ul class="list">
+              <li data-i18n="fit.not.1">Users expecting instant win signals</li>
+              <li data-i18n="fit.not.2">Overtrading without a plan</li>
+              <li data-i18n="fit.not.3">Ignoring stop-loss discipline</li>
+              <li data-i18n="fit.not.4">Looking for guaranteed profits</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK START -->
+    <section id="quickstart">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="quick.pill">Quick Start</div>
+            <h2 data-i18n="quick.h2">Start in under 10 minutes.</h2>
+          </div>
+          <p data-i18n="quick.p">A simple checklist to go from setup to first structured review.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="quick.1.h">1) Open the chart setup</h3>
+            <p data-i18n="quick.1.p">Load KHAN STRUCTURE and select your market and timeframe.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="quick.2.h">2) Define HTF context</h3>
+            <p data-i18n="quick.2.p">Set directional bias first. Skip entries that fight the main context.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="quick.3.h">3) Wait for structure confirmation</h3>
+            <p data-i18n="quick.3.p">Only plan entries when structure and liquidity behavior align.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="quick.4.h">4) Execute with risk map</h3>
+            <p data-i18n="quick.4.p">Use the mapped entry, stop, and targets. Review and log your session.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLES -->
+    <section id="examples">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="examples.pill">Market Examples</div>
+            <h2 data-i18n="examples.h2">Real charts. Clear process.</h2>
+          </div>
+          <p data-i18n="examples.p">
+            Real chart examples across Crypto, FX, and Gold. Focused on context, structure confirmation, and risk
+            mapping.
+          </p>
+        </div>
+
+        <div class="gallery" aria-label="KHAN STRUCTURE examples">
+          <div class="shot" data-src="example_xau.png">
+            <img src="example_xau.png" alt="XAUUSD example" loading="lazy" />
+            <div class="cap">
+              <div class="label" data-i18n="examples.xau.label">XAU (Gold) • 15m</div>
+              <div class="note" data-i18n="examples.note">Context → Confirmation → Execution</div>
+            </div>
+          </div>
+
+          <div class="shot" data-src="example_btc.png">
+            <img src="example_btc.png" alt="BTCUSDT example" loading="lazy" />
+            <div class="cap">
+              <div class="label" data-i18n="examples.btc.label">BTC • 15m</div>
+              <div class="note" data-i18n="examples.note">Context → Confirmation → Execution</div>
+            </div>
+          </div>
+
+          <div class="shot" data-src="example_fx.png">
+            <img src="example_fx.png" alt="FX example" loading="lazy" />
+            <div class="cap">
+              <div class="label" data-i18n="examples.fx.label">FX • 15m</div>
+              <div class="note" data-i18n="examples.note">Context → Confirmation → Execution</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 14px"></div>
+
+        <div class="card">
+          <h3 data-i18n="examples.card.h">Need the full framework?</h3>
+          <p data-i18n="examples.card.p">
+            Review the live chart first. If this framework fits your process, apply for Pro access.
+          </p>
+          <p style="margin-top: 12px; color: var(--muted2); line-height: 1.5">
+            <a href="#pricing" data-i18n="examples.card.btn2">See Pricing</a> ·
+            <a href="#support" data-i18n="nav.apply">Apply</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="reviews.pill">Member Feedback</div>
+            <h2 data-i18n="reviews.h2">What members say after using KHAN STRUCTURE.</h2>
+          </div>
+          <p data-i18n="reviews.p">Feedback focused on process quality, risk discipline, and live execution.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card testimonial">
+            <div class="rating" aria-label="5 out of 5">★★★★★</div>
+            <p class="q" data-i18n="rev.1.q">“I stopped taking random trades. The framework tells me when to wait.”</p>
+            <p class="who" data-i18n="rev.1.who">M. Erdene — Crypto trader</p>
+          </article>
+          <article class="card testimonial">
+            <div class="rating" aria-label="5 out of 5">★★★★★</div>
+            <p class="q" data-i18n="rev.2.q">“The entry, stop, and target map made my execution much cleaner.”</p>
+            <p class="who" data-i18n="rev.2.who">A. Bat — FX trader</p>
+          </article>
+          <article class="card testimonial">
+            <div class="rating" aria-label="5 out of 5">★★★★★</div>
+            <p class="q" data-i18n="rev.3.q">“Live behavior matched what I studied. That consistency built trust.”</p>
+            <p class="who" data-i18n="rev.3.who">N. Tseren — Gold trader</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTEGRITY -->
+    <section id="integrity">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="integrity.pill">Integrity First</div>
+            <h2 data-i18n="integrity.h2">Transparent behavior in live markets.</h2>
+          </div>
+          <p data-i18n="integrity.p">What you study should match what you see in real time.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="int.1.h">Realtime = Backtest mindset</h3>
+            <p data-i18n="int.1.p">The same logic is intended for live execution and historical review.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="int.2.h">Context first</h3>
+            <p data-i18n="int.2.p">Risk is taken only when context and structure align.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL PAID PRODUCT / LIMITED INVITE -->
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="pro.pill">Paid Pro Access</div>
+            <h2 data-i18n="pro.h2">Limited seats. Quality first.</h2>
+          </div>
+          <p data-i18n="pro.p">
+            KHAN STRUCTURE Pro is a paid framework for traders who want a structured, rules-based process.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="pro.c1.h">What Pro includes</h3>
+            <p data-i18n="pro.c1.p">
+              Advanced structure tools, detailed risk mapping, and structured alert workflows for serious execution.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="pro.c2.h">Limited to 100 active members</h3>
+            <p data-i18n="pro.c2.p">
+              Membership is capped to keep quality high. When full, new applications move to a waitlist.
+            </p>
+          </div>
+        </div>
+
+        <div style="height: 18px"></div>
+
+        <div class="card" style="text-align: center">
+          <h3 data-i18n="pro.apply.h">Apply for Limited Pro Access</h3>
+          <p style="margin-bottom: 16px; color: var(--muted)" data-i18n="pro.apply.p">
+            Applications are reviewed before approval.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap">
+            <a class="btn btn-primary" href="#support" data-i18n="pro.apply.btn" data-track="pricing_apply_now"
+              >Contact Support</a
+            >
+          </div>
+        </div>
+
+        <div style="height: 30px"></div>
+
+        <!-- USDT PAYMENT SECTION -->
+        <div
+          class="card"
+          style="
+            border: 1px solid rgba(242, 193, 78, 0.35);
+            background: linear-gradient(180deg, rgba(242, 193, 78, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+          "
+        >
+          <h3 style="margin-bottom: 12px" data-i18n="usdt.h3">💳 USDT Payment (BEP20 - BNB Smart Chain)</h3>
+          <p style="color: var(--muted); margin-bottom: 16px">
+            <span data-i18n="usdt.p"
+              >Founder pricing: <strong>$39 / month (USDT)</strong><br />
+              <span style="color: var(--gold); font-weight: 700">Limited to first 100 members</span><br />
+              Network: <strong>BEP20 (BNB Smart Chain)</strong><br />
+              Access is manually verified within 24 hours.</span
+            >
+          </p>
+
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center">
+            <div>
+              <img
+                src="usdt_qr.png"
+                alt="USDT QR"
+                style="max-width: 180px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12)"
+              />
+            </div>
+            <div style="flex: 1; min-width: 260px">
+              <p style="font-size: 14px; word-break: break-all; margin: 0">
+                <strong><span data-i18n="usdt.wallet">Wallet Address:</span></strong>
+              </p>
+              <p style="font-size: 14px; word-break: break-all; margin: 8px 0 12px">
+                <code id="usdtWallet">0x73fd00cdbc844b49dee042d46afbfcd18fa8a21b</code>
+              </p>
+              <button class="btn" id="copyWallet" type="button" data-i18n="usdt.copy" data-track="pricing_copy_wallet">
+                Copy address
+              </button>
+              <p style="margin-top: 12px; color: var(--muted); font-size: 14px">
+                <span data-i18n="usdt.warn"
+                  >⚠️ Send exactly <strong>$39 USDT</strong> using the <strong>BEP20</strong> network only.<br />Using
+                  the wrong network can cause permanent loss.</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <div
+            style="
+              margin-top: 20px;
+              padding: 16px;
+              border-radius: 16px;
+              background: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+          >
+            <h4 style="margin: 0 0 8px" data-i18n="usdt.after.h">After payment, send:</h4>
+            <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6">
+              <span data-i18n="usdt.after.p"
+                >• Transaction Hash (TxID)<br />
+                • Your Telegram username<br />
+                • Email (optional)<br /><br />
+                Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted
+                after on-chain confirmation.</span
+              >
+            </p>
+          </div>
+          <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap">
+            <a
+              class="btn btn-primary"
+              href="https://t.me/+C4aXFu5iwZ02MDc9"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="usdt.submit"
+              data-track="pricing_submit_telegram"
+              >Submit on Telegram</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="faq.pill">FAQ</div>
+            <h2 data-i18n="faq.h2">Common questions before you apply.</h2>
+          </div>
+          <p data-i18n="faq.p">Straight answers on access, payment, support, and expectations.</p>
+        </div>
+
+        <div class="grid-2">
+          <details class="faq-item">
+            <summary data-i18n="faq.1.q">How long does access verification take?</summary>
+            <p data-i18n="faq.1.a">Most payments are verified within 24 hours after on-chain confirmation.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.2.q">What payment network should I use?</summary>
+            <p data-i18n="faq.2.a">Use USDT on BEP20 only. Using the wrong network can cause permanent loss.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.3.q">Is this suitable for beginners?</summary>
+            <p data-i18n="faq.3.a">Yes, if you are willing to follow a process and risk rules with patience.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.4.q">Do you guarantee profits?</summary>
+            <p data-i18n="faq.4.a">No. This is an educational framework focused on disciplined execution.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.5.q">What happens when Pro is full?</summary>
+            <p data-i18n="faq.5.a">New applications go to a waitlist until a seat opens.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.6.q">How do I get support?</summary>
+            <p data-i18n="faq.6.a">Use official Telegram channels listed below. Never trust impersonator accounts.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section id="support">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="support.pill">Support</div>
+            <h2 data-i18n="support.h2">Official links and support policy.</h2>
+          </div>
+          <p data-i18n="support.p">Use only official channels for payment submission, updates, and help.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="support.links.h">Official channels</h3>
+            <p data-i18n="support.links.p">Choose the channel that matches your language and purpose.</p>
+            <div class="link-list">
+              <a href="https://t.me/+C4aXFu5iwZ02MDc9" target="_blank" rel="noopener noreferrer"
+                >KHAN STRUCTURE GLOBAL</a
+              >
+              <a href="https://t.me/+xt1g7AG5VQg2MjJl" target="_blank" rel="noopener noreferrer"
+                >KHAN STRUCTURE GLOBAL CHAT</a
+              >
+              <a href="https://t.me/+v3lD__ST8WdjM2Jl" target="_blank" rel="noopener noreferrer"
+                >KHAN STRUCTURE MN</a
+              >
+              <a href="https://t.me/+ljjxStXBi4Y2Yjk9" target="_blank" rel="noopener noreferrer"
+                >KHAN STRUCTURE MN CHAT</a
+              >
+              <a href="https://t.me/+j0-ET375S8lkYzI1" target="_blank" rel="noopener noreferrer"
+                >KHAN STRUCTURE FREE ALERT ROOM</a
+              >
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="support.policy.h">Support policy</h3>
+            <p data-i18n="support.policy.p">For safe onboarding and account security, please follow these rules:</p>
+            <ul class="list">
+              <li data-i18n="support.policy.1">Verification and access are handled in order of submission.</li>
+              <li data-i18n="support.policy.2">Response target is within 24 hours on business days.</li>
+              <li data-i18n="support.policy.3">Only trust links and wallet address shown on this page.</li>
+            </ul>
+            <div class="warn" data-i18n="support.warn">
+              Anti-scam notice: Admins will never DM first to ask for payment details.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY (TELEGRAM) -->
+    <section id="community">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="community.pill">Community</div>
+            <h2 data-i18n="community.h2">Join the KHAN STRUCTURE channels</h2>
+          </div>
+          <p data-i18n="community.p">Choose your language channel for alerts, discussion, and updates.</p>
+        </div>
+
+        <!-- Fallback: shows all 5 even if JS is blocked -->
+        <div class="grid-3" id="telegram-links">
+          <div class="card">
+            <h3>KHAN STRUCTURE GLOBAL</h3>
+            <p>
+              <a href="https://t.me/+C4aXFu5iwZ02MDc9" target="_blank" rel="noopener noreferrer"
+                >https://t.me/+C4aXFu5iwZ02MDc9</a
+              >
+            </p>
+          </div>
+          <div class="card">
+            <h3>KHAN STRUCTURE GLOBAL CHAT</h3>
+            <p>
+              <a href="https://t.me/+xt1g7AG5VQg2MjJl" target="_blank" rel="noopener noreferrer"
+                >https://t.me/+xt1g7AG5VQg2MjJl</a
+              >
+            </p>
+          </div>
+          <div class="card">
+            <h3>KHAN STRUCTURE MN</h3>
+            <p>
+              <a href="https://t.me/+v3lD__ST8WdjM2Jl" target="_blank" rel="noopener noreferrer"
+                >https://t.me/+v3lD__ST8WdjM2Jl</a
+              >
+            </p>
+          </div>
+          <div class="card">
+            <h3>KHAN STRUCTURE MN CHAT</h3>
+            <p>
+              <a href="https://t.me/+ljjxStXBi4Y2Yjk9" target="_blank" rel="noopener noreferrer"
+                >https://t.me/+ljjxStXBi4Y2Yjk9</a
+              >
+            </p>
+          </div>
+          <div class="card">
+            <h3>KHAN STRUCTURE FREE ALERT ROOM</h3>
+            <p>
+              <a href="https://t.me/+j0-ET375S8lkYzI1" target="_blank" rel="noopener noreferrer"
+                >https://t.me/+j0-ET375S8lkYzI1</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div>
+            <strong style="color: rgba(255, 255, 255, 0.86)">KHAN STRUCTURE</strong>
+            <small data-i18n="footer.tagline">Structure-first Smart Money Framework</small>
+            <small style="margin-top: 10px" data-i18n="footer.disclaimer"
+              >Disclaimer: Educational use only. Not financial advice.</small
+            >
+          </div>
+          <div>
+            <small>
+              <a href="#how" data-i18n="nav.how">How It Works</a>
+              <a href="#video" data-i18n="nav.video">Demo</a> ·
+              <a href="#features" data-i18n="nav.features">Features</a>
+              <a href="#examples" data-i18n="nav.examples">Examples</a> ·
+              <a href="#reviews" data-i18n="nav.reviews">Reviews</a> ·
+              <a href="#integrity" data-i18n="nav.integrity">Integrity</a> ·
+              <a href="#community" data-i18n="community.pill">Community</a>
+            </small>
+            <small style="margin-top: 10px">© <span id="y"></span> KHAN STRUCTURE. All rights reserved.</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Footer year
+      document.getElementById('y').textContent = new Date().getFullYear();
+
+      // Telegram data (we show a language-specific set)
+      const telegramData = {
+        en: [
+          { name: 'KHAN STRUCTURE GLOBAL', url: 'https://t.me/+C4aXFu5iwZ02MDc9' },
+          { name: 'KHAN STRUCTURE GLOBAL CHAT', url: 'https://t.me/+xt1g7AG5VQg2MjJl' },
+          { name: 'KHAN STRUCTURE FREE ALERT ROOM', url: 'https://t.me/+j0-ET375S8lkYzI1' },
+        ],
+        mn: [
+          { name: 'KHAN STRUCTURE MN', url: 'https://t.me/+v3lD__ST8WdjM2Jl' },
+          { name: 'KHAN STRUCTURE MN CHAT', url: 'https://t.me/+ljjxStXBi4Y2Yjk9' },
+          { name: 'KHAN STRUCTURE FREE ALERT ROOM', url: 'https://t.me/+j0-ET375S8lkYzI1' },
+        ],
+      };
+
+      function normalizeLang(v) {
+        const x = (v || '').toString().toLowerCase();
+        if (x === 'mn' || x === 'mongolian') return 'mn';
+        if (x === 'en' || x === 'english') return 'en';
+        return null;
+      }
+
+      function trackEvent(name, params = {}) {
+        try {
+          if (typeof window.gtag === 'function') window.gtag('event', name, params);
+          if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, params));
+        } catch (e) {}
+      }
+
+      function renderTelegram(lang) {
+        const normalized = normalizeLang(lang) || 'en';
+        const container = document.getElementById('telegram-links');
+        if (!container) return;
+        container.innerHTML = '';
+        (telegramData[normalized] || telegramData.en).forEach((item) => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          const title = document.createElement('h3');
+          title.textContent = item.name;
+
+          const body = document.createElement('p');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = item.url;
+          link.setAttribute('data-track', 'telegram_open_channel');
+
+          body.appendChild(link);
+          card.appendChild(title);
+          card.appendChild(body);
+          container.appendChild(card);
+        });
+      }
+
+      // --- Simple i18n (MN/EN) ---
+      const i18n = {
+        en: {
+          'nav.how': 'How It Works',
+          'nav.features': 'Features',
+          'nav.reviews': 'Reviews',
+          'nav.integrity': 'Integrity',
+          'nav.pricing': 'Pricing',
+          'nav.video': 'Demo',
+          'video.pill': 'Live Demo',
+          'video.h2': 'See a short live walkthrough.',
+          'video.p': 'From market context to entry and risk map. Recorded from a real session with no hindsight edits.',
+          'video.note': '',
+          'nav.access': 'Access',
+          'nav.viewAccess': 'View Pricing',
+          'nav.apply': 'Apply',
+          'nav.supportCta': 'Contact Support',
+          'nav.community': 'Community',
+          'examples.card.btn2': 'See Pricing',
+          'examples.card.btn': 'Open TradingView <span class="tv-badge">LIVE</span>',
+          'examples.card.p': 'Review the live chart first. If this framework fits your process, apply for Pro access.',
+          'examples.card.h': 'Need the full framework?',
+          'examples.fx.label': 'FX • 15m',
+          'examples.btc.label': 'BTC • 15m',
+          'examples.xau.label': 'XAU (Gold) • 15m',
+          'examples.note': 'Context → Confirmation → Execution',
+          'examples.p':
+            'Real chart examples across Crypto, FX, and Gold. Focused on context, structure confirmation, and risk mapping.',
+          'examples.h2': 'Real charts. Clear process.',
+          'examples.pill': 'Market Examples',
+          'nav.examples': 'Examples',
+          'reviews.pill': 'Member Feedback',
+          'reviews.h2': 'What members say after using KHAN STRUCTURE.',
+          'reviews.p': 'Feedback focused on process quality, risk discipline, and live execution.',
+          'rev.1.q': '“I stopped taking random trades. The framework tells me when to wait.”',
+          'rev.1.who': 'M. Erdene — Crypto trader',
+          'rev.2.q': '“The entry, stop, and target map made my execution much cleaner.”',
+          'rev.2.who': 'A. Bat — FX trader',
+          'rev.3.q': '“Live behavior matched what I studied. That consistency built trust.”',
+          'rev.3.who': 'N. Tseren — Gold trader',
+          'compare.pill': 'Lite vs Pro',
+          'compare.h2': 'Choose the setup that fits your workflow.',
+          'compare.p': 'Start simple with Lite, then move to Pro when you need structured execution depth.',
+          'compare.lite.h': 'Lite (Public)',
+          'compare.lite.p': 'Best for learning the core process and validating chart context.',
+          'compare.lite.1': 'Core market structure view',
+          'compare.lite.2': 'Clean, lightweight interface',
+          'compare.lite.3': 'Manual execution workflow',
+          'compare.lite.4': 'Good for process practice',
+          'compare.pro.h': 'Pro (Invite Only)',
+          'compare.pro.p': 'Built for traders who want deeper structure tools and disciplined execution support.',
+          'compare.pro.1': 'Advanced structure modules',
+          'compare.pro.2': 'Detailed risk map and target planning',
+          'compare.pro.3': 'Structured alert workflow',
+          'compare.pro.4': 'Priority access to updates',
+          'compare.pro.5': 'Limited to 100 active members',
+          'fit.pill': 'Who It Is For',
+          'fit.h2': 'Clear expectations from the start.',
+          'fit.p': 'This helps the right traders get value and avoids mismatched expectations.',
+          'fit.for.h': 'Best fit for',
+          'fit.for.1': 'Traders who follow a rules-based process',
+          'fit.for.2': 'People who value risk management over hype',
+          'fit.for.3': 'Users willing to wait for confirmation',
+          'fit.for.4': 'Traders improving consistency, not gambling',
+          'fit.not.h': 'Not ideal for',
+          'fit.not.1': 'Users expecting instant win signals',
+          'fit.not.2': 'Overtrading without a plan',
+          'fit.not.3': 'Ignoring stop-loss discipline',
+          'fit.not.4': 'Looking for guaranteed profits',
+          'quick.pill': 'Quick Start',
+          'quick.h2': 'Start in under 10 minutes.',
+          'quick.p': 'A simple checklist to go from setup to first structured review.',
+          'quick.1.h': '1) Open the chart setup',
+          'quick.1.p': 'Load KHAN STRUCTURE and select your market and timeframe.',
+          'quick.2.h': '2) Define HTF context',
+          'quick.2.p': 'Set directional bias first. Skip entries that fight the main context.',
+          'quick.3.h': '3) Wait for structure confirmation',
+          'quick.3.p': 'Only plan entries when structure and liquidity behavior align.',
+          'quick.4.h': '4) Execute with risk map',
+          'quick.4.p': 'Use the mapped entry, stop, and targets. Review and log your session.',
+          'faq.pill': 'FAQ',
+          'faq.h2': 'Common questions before you apply.',
+          'faq.p': 'Straight answers on access, payment, support, and expectations.',
+          'faq.1.q': 'How long does access verification take?',
+          'faq.1.a': 'Most payments are verified within 24 hours after on-chain confirmation.',
+          'faq.2.q': 'What payment network should I use?',
+          'faq.2.a': 'Use USDT on BEP20 only. Using the wrong network can cause permanent loss.',
+          'faq.3.q': 'Is this suitable for beginners?',
+          'faq.3.a': 'Yes, if you are willing to follow a process and risk rules with patience.',
+          'faq.4.q': 'Do you guarantee profits?',
+          'faq.4.a': 'No. This is an educational framework focused on disciplined execution.',
+          'faq.5.q': 'What happens when Pro is full?',
+          'faq.5.a': 'New applications go to a waitlist until a seat opens.',
+          'faq.6.q': 'How do I get support?',
+          'faq.6.a': 'Use official Telegram channels listed below. Never trust impersonator accounts.',
+          'support.pill': 'Support',
+          'support.h2': 'Official links and support policy.',
+          'support.p': 'Use only official channels for payment submission, updates, and help.',
+          'support.links.h': 'Official channels',
+          'support.links.p': 'Choose the channel that matches your language and purpose.',
+          'support.policy.h': 'Support policy',
+          'support.policy.p': 'For safe onboarding and account security, please follow these rules:',
+          'support.policy.1': 'Verification and access are handled in order of submission.',
+          'support.policy.2': 'Response target is within 24 hours on business days.',
+          'support.policy.3': 'Only trust links and wallet address shown on this page.',
+          'support.warn': 'Anti-scam notice: Admins will never DM first to ask for payment details.',
+          'hero.tradingview': 'Open on TradingView <span class="tv-badge">LIVE</span>',
+          'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
+
+          'hero.chip': '⚡ Structured Smart Money Framework',
+          'hero.h1': 'Trade with structure.<br />Stay disciplined in execution.',
+          'hero.sub':
+            'KHAN STRUCTURE helps you define higher-timeframe context, wait for confirmation, and execute with a clear risk plan.',
+          'hero.getAccess': 'View Pricing',
+          'hero.seeFramework': 'How It Works',
+          'hero.trust': 'Process-first logic • Real-time behavior matches backtest study • No repaint tricks',
+
+          'metric.framework.k': 'Context',
+          'metric.framework.v': 'HTF → LTF Alignment',
+          'metric.execution.k': 'Execution',
+          'metric.execution.v': 'Entry + SL + Targets',
+          'metric.integrity.k': 'Integrity',
+          'metric.integrity.v': 'No Hindsight Tricks',
+
+          'how.pill': 'Process',
+          'how.h2': 'A process you can follow every session.',
+          'how.p': 'Define direction, wait for structure confirmation, then execute with a pre-mapped risk plan.',
+
+          'features.pill': 'Core Features',
+          'features.h2': 'Built for clarity and discipline.',
+          'features.p': 'Designed to support decision quality, not signal chasing.',
+
+          'integrity.pill': 'Integrity First',
+          'integrity.h2': 'Transparent behavior in live markets.',
+          'integrity.p': 'What you study should match what you see in real time.',
+
+          'cta.h3': 'Ready to start?',
+          'cta.p': 'Start with Lite. Apply for Pro when you need structured alerts and advanced tools.',
+          'cta.viewLite': 'View Lite',
+          'cta.applyPro': 'Apply for Pro',
+
+          'community.pill': 'Community',
+          'community.h2': 'Join the KHAN STRUCTURE channels',
+          'community.p': 'Choose your language channel for alerts, discussion, and updates.',
+
+          // Pro / Paid
+          'pro.pill': 'Paid Pro Access',
+          'pro.h2': 'Limited seats. Quality first.',
+          'pro.p': 'KHAN STRUCTURE Pro is a paid framework for traders who want a structured, rules-based process.',
+          'pro.c1.h': 'What Pro includes',
+          'pro.c1.p':
+            'Advanced structure tools, detailed risk mapping, and structured alert workflows for serious execution.',
+          'pro.c2.h': 'Limited to 100 active members',
+          'pro.c2.p': 'Membership is capped to keep quality high. When full, new applications move to a waitlist.',
+          'pro.apply.h': 'Apply for Limited Pro Access',
+          'pro.apply.p': 'Applications are reviewed before approval.',
+          'pro.apply.btn': 'Contact Support',
+
+          // USDT
+          'usdt.h3': '💳 USDT Payment (BEP20 - BNB Smart Chain)',
+          'usdt.p':
+            'Founder pricing: <strong>$39 / month (USDT)</strong><br/><span style="color:var(--gold); font-weight:700;">Limited to first 100 members</span><br/>Network: <strong>BEP20 (BNB Smart Chain)</strong><br/>Access is manually verified within 24 hours.',
+          'usdt.wallet': 'Wallet Address:',
+          'usdt.copy': 'Copy address',
+          'usdt.copied': 'Copied',
+          'usdt.submit': 'Submit on Telegram',
+          'usdt.warn':
+            '⚠️ Send exactly <strong>$39 USDT</strong> using the <strong>BEP20</strong> network only.<br/>Using the wrong network can cause permanent loss.',
+          'usdt.after.h': 'After payment, send:',
+          'usdt.after.p':
+            '• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
+
+          'footer.tagline': 'Structure-first Smart Money Framework',
+          'footer.disclaimer': 'Disclaimer: Educational use only. Not financial advice.',
+
+          'steps.1.n': 'STEP 01',
+          'steps.1.t': 'Define HTF direction',
+          'steps.1.d': 'Set market bias first before looking for entries.',
+          'steps.2.n': 'STEP 02',
+          'steps.2.t': 'Wait for confirmation',
+          'steps.2.d': 'Enter only after structure confirms.',
+          'steps.3.n': 'STEP 03',
+          'steps.3.t': 'Read liquidity reaction',
+          'steps.3.d': 'Use sweeps and reactions to filter weak setups.',
+          'steps.4.n': 'STEP 04',
+          'steps.4.t': 'Execute with risk map',
+          'steps.4.d': 'Each setup includes entry, stop loss, and targets.',
+
+          'feat.1.h': 'Higher-timeframe context',
+          'feat.1.p': 'Stay aligned with the main market direction.',
+          'feat.2.h': 'Confirmed entries',
+          'feat.2.p': 'Signals appear after structure confirmation, not random volatility.',
+          'feat.3.h': 'Liquidity context',
+          'feat.3.p': 'Identify sweeps and reactions around key levels.',
+          'feat.4.h': 'Entry + SL + Targets',
+          'feat.4.p': 'A clear plan for disciplined trade management.',
+          'feat.5.h': 'Clean workflow',
+          'feat.5.p': 'Lite stays simple. Pro adds depth without noise.',
+          'feat.6.h': 'Process over prediction',
+          'feat.6.p': 'Focus on repeatable execution, not guessing.',
+
+          'int.1.h': 'Realtime = Backtest mindset',
+          'int.1.p': 'The same logic is intended for live execution and historical review.',
+          'int.2.h': 'Context first',
+          'int.2.p': 'Risk is taken only when context and structure align.',
+          'pricing.title':
+            'Early Founders Access — $39 / month (Limited to 100 members. Billing is monthly. Cancel anytime.)',
+        },
+        mn: {
+          'nav.how': 'Яаж ажиллах вэ',
+          'nav.features': 'Онцлогууд',
+          'nav.reviews': 'Сэтгэгдэл',
+          'nav.integrity': 'Итгэлцэл',
+          'nav.pricing': 'Үнийн санал',
+          'nav.video': 'Демо',
+          'video.pill': 'Live Demo',
+          'video.h2': 'Богино live демо үзээрэй.',
+          'video.p': 'Зах зээлийн контекстээс entry, risk map хүртэлх алхмууд. Бодит session, hindsight засваргүй.',
+          'video.note': 'Offline зөвлөмж: <b>demo.mp4</b> файлыг <b>index.html</b>-тэй ижил хавтсанд тавина уу.',
+          'nav.access': 'Хандалт',
+          'nav.viewAccess': 'Үнийг үзэх',
+          'nav.apply': 'Хүсэлт илгээх',
+          'nav.supportCta': 'Support руу орох',
+          'nav.community': 'Нийгэмлэг',
+          'examples.card.btn2': 'Үнийг үзэх',
+          'examples.card.btn': 'TradingView нээх <span class="tv-badge">LIVE</span>',
+          'examples.card.p': 'Эхлээд TradingView дээр live chart-аа үзээрэй. Таарвал Pro хандалтад хүсэлт өгнө үү.',
+          'examples.card.h': 'Бүрэн framework хэрэгтэй юу?',
+          'examples.fx.label': 'FX • 15м',
+          'examples.btc.label': 'BTC • 15м',
+          'examples.xau.label': 'XAU (Алт) • 15м',
+          'examples.note': 'Контекст → Баталгаажуулалт → Гүйцэтгэл',
+          'examples.p':
+            'Crypto, FX, Gold-ийн бодит жишээнүүд. Контекст, structure баталгаажуулалт, risk map-г харуулна.',
+          'examples.h2': 'Бодит график. Тодорхой процесс.',
+          'examples.pill': 'Зах зээлийн жишээ',
+          'nav.examples': 'Жишээ',
+          'reviews.pill': 'Харилцагчийн сэтгэгдэл',
+          'reviews.h2': 'KHAN STRUCTURE ашигласны дараах хэрэглэгчдийн сэтгэгдэл.',
+          'reviews.p': 'Процесс, эрсдэлийн сахилга бат, бодит гүйцэтгэл дээр төвлөрсөн сэтгэгдлүүд.',
+          'rev.1.q': '“Санамсаргүй оролтууд багассан. Энэ framework надад хэзээ хүлээхийг ойлгомжтой болгосон.”',
+          'rev.1.who': 'М. Эрдэнэ — Crypto trader',
+          'rev.2.q': '“Entry, stop, target зураглалтай болсноор гүйцэтгэл илүү цэвэр болсон.”',
+          'rev.2.who': 'А. Бат — FX trader',
+          'rev.3.q': '“Судалсан зүйл live дээр давхцаж харагддаг нь итгэлийг их нэмсэн.”',
+          'rev.3.who': 'Н. Цэрэн — Gold trader',
+          'compare.pill': 'Lite vs Pro',
+          'compare.h2': 'Өөрийн workflow-д тохирох хувилбараа сонгоорой.',
+          'compare.p': 'Lite-оос энгийнээр эхлээд, илүү гүн хэрэгсэл хэрэгтэй үед Pro руу шилжинэ.',
+          'compare.lite.h': 'Lite (Нээлттэй)',
+          'compare.lite.p': 'Үндсэн процессыг ойлгож, chart контекстээ баталгаажуулахад тохиромжтой.',
+          'compare.lite.1': 'Үндсэн market structure харагдац',
+          'compare.lite.2': 'Хөнгөн, цэвэр интерфэйс',
+          'compare.lite.3': 'Manual execution workflow',
+          'compare.lite.4': 'Процессын дадалд тохиромжтой',
+          'compare.pro.h': 'Pro (Урилгатай)',
+          'compare.pro.p': 'Илүү гүн structure хэрэгсэл болон сахилга баттай гүйцэтгэл хүссэн трейдерүүдэд.',
+          'compare.pro.1': 'Нэмэлт structure модулиуд',
+          'compare.pro.2': 'Нарийвчилсан risk map ба target төлөвлөлт',
+          'compare.pro.3': 'Structured alert workflow',
+          'compare.pro.4': 'Шинэчлэлтийн priority хандалт',
+          'compare.pro.5': 'Нэгэн зэрэг 100 идэвхтэй гишүүн',
+          'fit.pill': 'Хэнд Тохирох Вэ',
+          'fit.h2': 'Эхнээсээ тод хүлээлттэй байя.',
+          'fit.p': 'Зөв хэрэглэгч зөв үнэ цэн авахад тусалж, буруу хүлээлтийг багасгана.',
+          'fit.for.h': 'Илүү тохиромжтой хэрэглэгч',
+          'fit.for.1': 'Дүрэмтэй, процесс дагаж trade хийдэг хүмүүс',
+          'fit.for.2': 'Хэт хөөрлөөс илүү risk удирдлагад төвлөрдөг хүмүүс',
+          'fit.for.3': 'Баталгаажуулалтыг хүлээж чаддаг хэрэглэгч',
+          'fit.for.4': 'Аз туршилт биш, тогтвортой гүйцэтгэл сайжруулах зорилготой хүмүүс',
+          'fit.not.h': 'Тохиромж муутай хэрэглэгч',
+          'fit.not.1': 'Шууд ашиг өгөх дохио хайдаг хэрэглэгч',
+          'fit.not.2': 'Төлөвлөгөөгүй overtrade хийдэг хүмүүс',
+          'fit.not.3': 'Stop-loss сахилгагүй хандлага',
+          'fit.not.4': 'Баталгаатай ашиг хайдаг хэрэглэгч',
+          'quick.pill': 'Quick Start',
+          'quick.h2': '10 минутын дотор эхлээрэй.',
+          'quick.p': 'Setup-ээс эхний бүтэцтэй review хүртэлх энгийн checklist.',
+          'quick.1.h': '1) Chart setup-аа нээх',
+          'quick.1.p': 'KHAN STRUCTURE-ээ ачаалаад market/timeframe-аа сонгоно.',
+          'quick.2.h': '2) HTF контекст тогтоох',
+          'quick.2.p': 'Эхлээд чиглэлээ тогтооно. Үндсэн урсгалын эсрэг оролтыг алгасна.',
+          'quick.3.h': '3) Structure баталгаажуулалт хүлээх',
+          'quick.3.p': 'Structure ба liquidity зан үйл давхцсан үед л оролт төлөвлөнө.',
+          'quick.4.h': '4) Risk map-тай гүйцэтгэх',
+          'quick.4.p': 'Entry, stop, target зураглалаа мөрдөж session review хийнэ.',
+          'faq.pill': 'FAQ',
+          'faq.h2': 'Хүсэлт өгөхөөс өмнөх түгээмэл асуултууд.',
+          'faq.p': 'Хандалт, төлбөр, support, хүлээлтийн талаар товч хариултууд.',
+          'faq.1.q': 'Хандалтын баталгаажуулалт хэдий хугацаа авах вэ?',
+          'faq.1.a': 'Ихэнх төлбөр on-chain баталгаажсаны дараа 24 цагийн дотор шалгагдана.',
+          'faq.2.q': 'Ямар сүлжээгээр төлбөр хийх вэ?',
+          'faq.2.a': 'Зөвхөн BEP20 сүлжээгээр USDT илгээнэ. Буруу сүлжээ ашиглавал алдагдал үүсч болно.',
+          'faq.3.q': 'Анхан шатны хүмүүст тохирох уу?',
+          'faq.3.a': 'Тийм. Гэхдээ процесс, эрсдэлийн дүрмээ сахиж ажиллах шаардлагатай.',
+          'faq.4.q': 'Ашиг баталгаатай юу?',
+          'faq.4.a': 'Үгүй. Энэ нь сахилга баттай гүйцэтгэлд чиглэсэн сургалтын framework.',
+          'faq.5.q': 'Pro дүүрвэл яах вэ?',
+          'faq.5.a': 'Шинэ хүсэлтүүд waiting list-д орж, сул суудал гарахад дарааллаар нээгдэнэ.',
+          'faq.6.q': 'Support-оо хаанаас авах вэ?',
+          'faq.6.a': 'Доорх албан ёсны Telegram сувгуудыг ашиглана. Хуурамч аккаунтаас болгоомжил.',
+          'support.pill': 'Support',
+          'support.h2': 'Албан ёсны линк ба support бодлого.',
+          'support.p': 'Төлбөр баталгаажуулалт, шинэчлэлт, тусламжийг зөвхөн албан сувгаар авна.',
+          'support.links.h': 'Албан ёсны сувгууд',
+          'support.links.p': 'Өөрийн хэл болон зорилгодоо тохирох сувгаа сонгоорой.',
+          'support.policy.h': 'Support бодлого',
+          'support.policy.p': 'Аюулгүй onboarding болон аккаунт хамгаалалтын үүднээс дараахыг мөрдөнө:',
+          'support.policy.1': 'Баталгаажуулалт ба хандалт нь ирсэн дарааллаар хийгдэнэ.',
+          'support.policy.2': 'Хариу өгөх зорилтот хугацаа ажлын өдөрт 24 цагийн дотор.',
+          'support.policy.3': 'Зөвхөн энэ хуудсан дээрх линк, хэтэвчийн хаягт итгэнэ.',
+          'support.warn': 'Anti-scam: Админууд төлбөр авах гэж эхэлж DM бичихгүй.',
+          'hero.tradingview': 'TradingView дээр нээх <span class="tv-badge">LIVE</span>',
+          'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
+          'hero.chip': '⚡ Төлөвлөгөөтэй Smart Money framework',
+          'hero.h1': 'Structure-тай trade хий.<br />Сахилга баттай гүйцэтгэ.',
+          'hero.sub':
+            'KHAN STRUCTURE нь өндөр timeframe-ийн чиглэлийг тодорхойлж, баталгаажуулалт хүлээгээд, эрсдэлийн зураглалтай ороход тусална.',
+          'hero.getAccess': 'Үнийг үзэх',
+          'hero.seeFramework': 'Процессыг үзэх',
+          'hero.trust': 'Процесс дээр төвлөрсөн • Бодит цагийн зан үйл = backtest ойлголт • Repaint, hindsight трикгүй',
+          'metric.framework.k': 'Контекст',
+          'metric.framework.v': 'HTF → LTF уялдаа',
+          'metric.execution.k': 'Гүйцэтгэл',
+          'metric.execution.v': 'Entry + SL + Targets',
+          'metric.integrity.k': 'Итгэлцэл',
+          'metric.integrity.v': 'Hindsight трикгүй',
+          'how.pill': 'Процесс',
+          'how.h2': 'Өдөр бүр дагаж болох энгийн процесс.',
+          'how.p': 'Эхлээд чиглэл тогтооно. Дараа нь structure баталгаажуулна. Эцэст нь risk map-тай гүйцэтгэнэ.',
+          'features.pill': 'Онцлогууд',
+          'features.h2': 'Тодорхой, сахилга баттай trade-д зориулсан.',
+          'features.p': 'Дохио хөөцөлдөх биш, шийдвэрийн чанарыг сайжруулахад төвлөрсөн.',
+          'integrity.pill': 'Итгэлцэл',
+          'integrity.h2': 'Бодит зах зээл дээр ил тод зан үйл.',
+          'integrity.p': 'Судалсантай чинь live дээр харж байгаа зүйл таарах ёстой.',
+          'cta.h3': 'Эхлэхэд бэлэн үү?',
+          'cta.p': 'Lite-оос эхэл. Илүү хэрэгсэл хэрэгтэй бол Pro-д хүсэлт өг.',
+          'cta.viewLite': 'Lite үзэх',
+          'cta.applyPro': 'Pro хүсэлт өгөх',
+          'community.pill': 'Нийгэмлэг',
+          'community.h2': 'KHAN STRUCTURE сувгууд',
+          'community.p': 'Өөрийн хэлний сувагт нэгдэж alert, хэлэлцүүлэг, шинэчлэлтээ аваарай.',
+          'pro.pill': 'Pro төлбөртэй хандалт',
+          'pro.h2': 'Хязгаарлагдмал суудал. Чанарт төвлөрнө.',
+          'pro.p':
+            'KHAN STRUCTURE Pro нь дүрэмтэй, бүтэцтэй trade хийх хүсэлтэй хүмүүст зориулсан төлбөртэй framework.',
+          'pro.c1.h': 'Pro-д юу багтах вэ',
+          'pro.c1.p': 'Нэмэлт structure хэрэгслүүд, нарийвчилсан risk map, structured alert workflow.',
+          'pro.c2.h': 'Нэгэн зэрэг 100 идэвхтэй гишүүн',
+          'pro.c2.p': 'Гишүүнчлэл 100-аар хязгаарлагдана. Дүүрсэн үед шинэ хүсэлтүүд waiting list-д орно.',
+          'pro.apply.h': 'Pro хандалтад хүсэлт өгөх',
+          'pro.apply.p': 'Бүх хүсэлтийг шалгаж баталгаажуулна.',
+          'pro.apply.btn': 'Support руу орох',
+          'usdt.h3': '💳 USDT төлбөр (BEP20 - BNB Smart Chain)',
+          'usdt.p':
+            'Founder үнэ: <strong>$39 / сар (USDT)</strong><br/><span style="color:var(--gold); font-weight:700;">Эхний 100 гишүүнд</span><br/>Сүлжээ: <strong>BEP20 (BNB Smart Chain)</strong><br/>Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
+          'usdt.wallet': 'Хэтэвчийн хаяг:',
+          'usdt.copy': 'Хаяг хуулах',
+          'usdt.copied': 'Хуулагдлаа',
+          'usdt.submit': 'Telegram-ээр илгээх',
+          'usdt.warn':
+            '⚠️ Зөвхөн <strong>BEP20</strong> сүлжээгээр яг <strong>$39 USDT</strong> илгээнэ үү.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
+          'usdt.after.h': 'Төлбөр хийсний дараа илгээх мэдээлэл:',
+          'usdt.after.p':
+            '• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
+          'footer.tagline': 'Контекстэд суурилсан Smart Money framework',
+          'footer.disclaimer': 'Анхааруулга: Зөвхөн сургалтын зорилготой. Санхүүгийн зөвлөгөө биш.',
+          'steps.1.n': 'АЛХАМ 01',
+          'steps.1.t': 'Өндөр TF чиглэл тогтоох',
+          'steps.1.d': 'Entry хайхаас өмнө үндсэн чиглэлээ тогтоо.',
+          'steps.2.n': 'АЛХАМ 02',
+          'steps.2.t': 'Баталгаажуулалт хүлээх',
+          'steps.2.d': 'Structure баталгаажсаны дараа л оролт хий.',
+          'steps.3.n': 'АЛХАМ 03',
+          'steps.3.t': 'Ликвидитийн реакцыг унших',
+          'steps.3.d': 'Sweep ба реакцаар сул setup-уудыг шүүнэ.',
+          'steps.4.n': 'АЛХАМ 04',
+          'steps.4.t': 'Risk map-тай гүйцэтгэх',
+          'steps.4.d': 'Setup бүр entry, stop loss, target-тай байна.',
+          'feat.1.h': 'Өндөр timeframe контекст',
+          'feat.1.p': 'Зах зээлийн үндсэн урсгалтай нийцүүлнэ.',
+          'feat.2.h': 'Баталгаатай entry',
+          'feat.2.p': 'Signal нь structure баталгаажсаны дараа гарна.',
+          'feat.3.h': 'Ликвидити контекст',
+          'feat.3.p': 'Чухал бүсийн sweep/реакцыг ялгаж харуулна.',
+          'feat.4.h': 'Entry + SL + Targets',
+          'feat.4.p': 'Гүйлгээг удирдах тодорхой зураглал.',
+          'feat.5.h': 'Цэвэр workflow',
+          'feat.5.p': 'Lite нь энгийн. Pro нь илүү гүн хэрэгслийг эмхтэй нэмнэ.',
+          'feat.6.h': 'Таамгаас илүү процесс',
+          'feat.6.p': 'Таамаглах биш, давтагдах гүйцэтгэлд төвлөрнө.',
+          'int.1.h': 'Бодит цаг = Backtest сэтгэлгээ',
+          'int.1.p': 'Live ба backtest-д ижил логик ашиглахаар зохиогдсон.',
+          'int.2.h': 'Эхлээд контекст',
+          'int.2.p': 'Контекст ба structure давхцсан үед л эрсдэл авна.',
+          'nav.pro': 'Pro',
+        },
+      };
+
+      function setLang(lang, updateUrl = true) {
+        const normalized = normalizeLang(lang) || 'en';
+        const dict = i18n[normalized] || i18n.en;
+
+        document.documentElement.setAttribute('lang', normalized === 'mn' ? 'mn' : 'en');
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] != null) {
+            el.innerHTML = dict[key];
+            el.removeAttribute('data-i18n-missing');
+          } else {
+            // Fallback to EN if missing in MN
+            const fallback = i18n.en && i18n.en[key] != null ? i18n.en[key] : null;
+            if (fallback != null) el.innerHTML = fallback;
+            el.setAttribute('data-i18n-missing', '1');
+          }
+        });
+
+        localStorage.setItem('khan_lang', normalized);
+
+        // Warn once if MN missing keys (helps keep MN/EN in sync)
+        try {
+          if (normalized === 'mn') {
+            const warned = JSON.parse(localStorage.getItem('khan_i18n_warned') || '{}');
+            document.querySelectorAll('[data-i18n-missing="1"]').forEach((el) => {
+              const k = el.getAttribute('data-i18n');
+              if (k && !warned[k]) {
+                console.warn('[KHAN i18n] Missing MN key, using EN fallback:', k);
+                warned[k] = 1;
+              }
+            });
+            localStorage.setItem('khan_i18n_warned', JSON.stringify(warned));
+          }
+        } catch (e) {}
+
+        // Reflect language in URL: ?lang=mn / ?lang=en
+        if (updateUrl) {
+          try {
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', normalized);
+            window.history.replaceState({}, '', url);
+          } catch (e) {
+            /* ignore */
+          }
+        }
+
+        // Render Telegram cards for the selected language
+        renderTelegram(normalized);
+
+        // Button states
+        const mnBtn = document.getElementById('langMN');
+        const enBtn = document.getElementById('langEN');
+        if (mnBtn && enBtn) {
+          const activeStyle = 'border-color: rgba(242,193,78,.55); background: rgba(242,193,78,.10)';
+          const idleStyle = 'border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.06)';
+          mnBtn.style.cssText = normalized === 'mn' ? activeStyle : idleStyle;
+          enBtn.style.cssText = normalized === 'en' ? activeStyle : idleStyle;
+        }
+      }
+
+      document.getElementById('langMN')?.addEventListener('click', () => setLang('mn', true));
+      document.getElementById('langEN')?.addEventListener('click', () => setLang('en', true));
+
+      // Init order: URL param > saved preference > default
+      const urlLang = normalizeLang(new URLSearchParams(window.location.search).get('lang'));
+      const saved = normalizeLang(localStorage.getItem('khan_lang'));
+      const initial = urlLang || saved || 'en';
+      setLang(initial, urlLang ? false : true);
+
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest('[data-track]');
+        if (!target) return;
+        trackEvent(target.getAttribute('data-track') || 'ui_click', {
+          href: target.getAttribute('href') || '',
+          id: target.id || '',
+        });
+      });
+
+      // Wallet quick copy
+      const copyWalletBtn = document.getElementById('copyWallet');
+      const usdtWalletEl = document.getElementById('usdtWallet');
+
+      async function copyWalletAddress(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        let ok = false;
+        try {
+          ok = document.execCommand('copy');
+        } catch (e) {
+          ok = false;
+        }
+        ta.remove();
+        return ok;
+      }
+
+      copyWalletBtn?.addEventListener('click', async () => {
+        const address = (usdtWalletEl?.textContent || '').trim();
+        if (!address) return;
+
+        const lang = normalizeLang(document.documentElement.getAttribute('lang')) || 'en';
+        const dict = i18n[lang] || i18n.en;
+        const copyText = dict['usdt.copy'] || i18n.en['usdt.copy'] || 'Copy address';
+        const copiedText = dict['usdt.copied'] || i18n.en['usdt.copied'] || 'Copied';
+
+        const ok = await copyWalletAddress(address);
+        if (!ok) return;
+
+        copyWalletBtn.textContent = copiedText;
+        trackEvent('wallet_copy_success', { wallet: 'usdt_bep20' });
+        window.setTimeout(() => {
+          copyWalletBtn.textContent = copyText;
+        }, 1300);
+      });
+
+      // --- Mobile drawer ---
+      const drawer = document.getElementById('drawer');
+      const burger = document.getElementById('navBurger');
+      const closeBtn = document.getElementById('drawerClose');
+
+      function openDrawer() {
+        document.body.classList.add('drawer-open');
+        drawer?.setAttribute('aria-hidden', 'false');
+        burger?.setAttribute('aria-expanded', 'true');
+      }
+      function closeDrawer() {
+        document.body.classList.remove('drawer-open');
+        drawer?.setAttribute('aria-hidden', 'true');
+        burger?.setAttribute('aria-expanded', 'false');
+      }
+
+      burger?.addEventListener('click', () => {
+        if (document.body.classList.contains('drawer-open')) closeDrawer();
+        else openDrawer();
+      });
+      closeBtn?.addEventListener('click', closeDrawer);
+      drawer?.addEventListener('click', (e) => {
+        if (e.target === drawer) closeDrawer();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDrawer();
+      });
+      document.querySelectorAll('.drawer-links a').forEach((a) => a.addEventListener('click', closeDrawer));
+      document.getElementById('langMN_m')?.addEventListener('click', () => {
+        document.getElementById('langMN')?.click();
+        closeDrawer();
+      });
+      document.getElementById('langEN_m')?.addEventListener('click', () => {
+        document.getElementById('langEN')?.click();
+        closeDrawer();
+      });
+
+      // --- Reveal animations ---
+      const revealTargets = Array.from(document.querySelectorAll('.card, .step, .metric, .cta, .section-head, .chip'));
+      revealTargets.forEach((el) => el.classList.add('reveal'));
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((en) => {
+              if (en.isIntersecting) {
+                en.target.classList.add('in');
+                io.unobserve(en.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        revealTargets.forEach((el) => io.observe(el));
+      } else {
+        revealTargets.forEach((el) => el.classList.add('in'));
+      }
+    </script>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="frame" role="dialog" aria-label="Image preview">
+        <div class="x" id="lbClose" aria-label="Close">✕</div>
+        <img id="lbImg" src="" alt="Preview" />
+      </div>
+    </div>
+
+    <script>
+      // Gallery lightbox (offline-friendly)
+      document.addEventListener('DOMContentLoaded', () => {
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lbImg');
+        const closeBtn = document.getElementById('lbClose');
+
+        const open = (src) => {
+          if (!lb || !lbImg) return;
+          lbImg.src = src;
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden', 'false');
+        };
+        const close = () => {
+          if (!lb || !lbImg) return;
+          lb.classList.remove('open');
+          lb.setAttribute('aria-hidden', 'true');
+          lbImg.src = '';
+        };
+
+        // Click any .shot (or children) to open
+        document.querySelectorAll('.shot').forEach((card) => {
+          card.addEventListener('click', () => {
+            const src = card.getAttribute('data-src');
+            if (src) open(src);
+          });
+        });
+
+        closeBtn && closeBtn.addEventListener('click', close);
+        lb &&
+          lb.addEventListener('click', (e) => {
+            if (e.target === lb) close();
+          });
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') close();
+        });
+      });
+    </script>
+
+    <!-- Scroll to top -->
+    <button class="toTop" id="toTop" type="button" aria-label="Scroll to top" title="Top">
+      <span>↑</span>
+    </button>
+
+    <script>
+      // Scroll-to-top button
+      document.addEventListener('DOMContentLoaded', () => {
+        const toTopBtn = document.getElementById('toTop');
+        if (!toTopBtn) return;
+
+        const toggle = () => {
+          const y = window.scrollY || document.documentElement.scrollTop || 0;
+          if (y > 520) toTopBtn.classList.add('show');
+          else toTopBtn.classList.remove('show');
+        };
+
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+
+        toTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    </script>
+  </body>
+</html>
