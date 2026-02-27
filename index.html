@@ -966,17 +966,16 @@
         <div class="hero-grid">
           <div class="hero-left">
             <div class="chip" data-i18n="hero.chip">⚡ Structured Smart Money Framework</div>
-            <h1 data-i18n="hero.h1">Trade with structure.<br />Stay disciplined in execution.</h1>
+            <h1 data-i18n="hero.h1"><span class="gradient-text">Trade with structure.</span><br />Stay disciplined in execution.</h1>
             <p class="sub" data-i18n="hero.sub">
               KHAN STRUCTURE helps you define higher-timeframe context, wait for confirmation, and execute with a clear
               risk plan.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#pricing" data-i18n="hero.getAccess" data-track="hero_get_access"
-                >View Pricing</a
+              <a class="btn btn-primary" href="#ea" data-i18n="hero.eaSuggest" data-track="hero_view_ea"
+                >See KHAN STRUCTURE EA</a
               >
-              <a class="btn" href="#how" data-i18n="hero.seeFramework">How It Works</a>
               <a
                 class="btn btn-tv"
                 href="https://www.tradingview.com/v/Q6FLX3sc/"
@@ -1050,6 +1049,44 @@
           >
             <source src="demo.mp4" type="video/mp4" />
           </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- EA SUGGESTIONS -->
+    <section id="ea">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="ea.pill">KHAN STRUCTURE EA</div>
+            <h2 data-i18n="ea.h2">MetaTrader 5 дээр ашиглах KHAN STRUCTURE EA багц.</h2>
+          </div>
+          <p data-i18n="ea.p">
+            Энэ нь EA хөгжүүлэх санал биш. Хэрэглэгчдэд шууд ашиглуулахаар санал болгож буй KHAN STRUCTURE EA шийдлүүд.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon" aria-hidden="true">↗</div>
+            <h3 data-i18n="ea.card1.h">KHAN STRUCTURE Entry EA</h3>
+            <p data-i18n="ea.card1.p">
+              HTF чиглэл ба structure баталгаажсан үед entry, stop-loss, target-ийг дүрмийн дагуу байршуулна.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">◎</div>
+            <h3 data-i18n="ea.card2.h">KHAN STRUCTURE Session EA</h3>
+            <p data-i18n="ea.card2.p">
+              London/New York session дээр setup-уудыг шүүж, баталгаатай үед л оролт хийнэ.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">⚙</div>
+            <h3 data-i18n="ea.card3.h">KHAN STRUCTURE Risk EA</h3>
+            <p data-i18n="ea.card3.p">
+              Risk %-аар lot size тооцоолж, break-even болон partial TP-г удирдана.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -1823,12 +1860,22 @@
           'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
 
           'hero.chip': '⚡ Structured Smart Money Framework',
-          'hero.h1': 'Trade with structure.<br />Stay disciplined in execution.',
+          'hero.h1': '<span class="gradient-text">Trade with structure.</span><br />Stay disciplined in execution.',
           'hero.sub':
             'KHAN STRUCTURE helps you define higher-timeframe context, wait for confirmation, and execute with a clear risk plan.',
           'hero.getAccess': 'View Pricing',
           'hero.seeFramework': 'How It Works',
+          'hero.eaSuggest': 'See KHAN STRUCTURE EA',
           'hero.trust': 'Process-first logic • Real-time behavior matches backtest study • No repaint tricks',
+          'ea.pill': 'KHAN STRUCTURE EA',
+          'ea.h2': 'KHAN STRUCTURE EA package for MetaTrader 5 users.',
+          'ea.p': 'This is not an EA development proposal. These are KHAN STRUCTURE EA solutions offered for users to run.',
+          'ea.card1.h': 'KHAN STRUCTURE Entry EA',
+          'ea.card1.p': 'Places entry, stop-loss, and target by rule after higher-timeframe direction and structure confirmation.',
+          'ea.card2.h': 'KHAN STRUCTURE Session EA',
+          'ea.card2.p': 'Filters setups during London/New York sessions and executes only when confirmation is valid.',
+          'ea.card3.h': 'KHAN STRUCTURE Risk EA',
+          'ea.card3.p': 'Calculates lot size by risk %, and manages break-even plus partial TP to protect discipline.',
 
           'metric.framework.k': 'Context',
           'metric.framework.v': 'HTF → LTF Alignment',
@@ -2028,12 +2075,22 @@
           'hero.tradingview': 'TradingView дээр нээх <span class="tv-badge">LIVE</span>',
           'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
           'hero.chip': '⚡ Төлөвлөгөөтэй Smart Money framework',
-          'hero.h1': 'Structure-тай trade хий.<br />Сахилга баттай гүйцэтгэ.',
+          'hero.h1': '<span class="gradient-text">Structure-тай trade хий.</span><br />Сахилга баттай гүйцэтгэ.',
           'hero.sub':
             'KHAN STRUCTURE нь өндөр timeframe-ийн чиглэлийг тодорхойлж, баталгаажуулалт хүлээгээд, эрсдэлийн зураглалтай ороход тусална.',
           'hero.getAccess': 'Үнийг үзэх',
           'hero.seeFramework': 'Процессыг үзэх',
+          'hero.eaSuggest': 'KHAN STRUCTURE EA үзэх',
           'hero.trust': 'Процесс дээр төвлөрсөн • Бодит цагийн зан үйл = backtest ойлголт • Repaint, hindsight трикгүй',
+          'ea.pill': 'KHAN STRUCTURE EA',
+          'ea.h2': 'MetaTrader 5 дээр ашиглах KHAN STRUCTURE EA багц.',
+          'ea.p': 'Энэ нь EA хөгжүүлэх санал биш. Хэрэглэгчдэд шууд ашиглуулахаар санал болгож буй KHAN STRUCTURE EA шийдлүүд.',
+          'ea.card1.h': 'KHAN STRUCTURE Entry EA',
+          'ea.card1.p': 'HTF чиглэл ба structure баталгаажсан үед entry, stop-loss, target-ийг дүрмийн дагуу байршуулна.',
+          'ea.card2.h': 'KHAN STRUCTURE Session EA',
+          'ea.card2.p': 'London/New York session дээр setup-уудыг шүүж, баталгаатай үед л оролт хийнэ.',
+          'ea.card3.h': 'KHAN STRUCTURE Risk EA',
+          'ea.card3.p': 'Risk %-аар lot size тооцоолж, break-even болон partial TP-г удирдана.',
           'metric.framework.k': 'Контекст',
           'metric.framework.v': 'HTF → LTF уялдаа',
           'metric.execution.k': 'Гүйцэтгэл',
