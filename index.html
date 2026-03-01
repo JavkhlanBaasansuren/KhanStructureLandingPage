@@ -1631,14 +1631,29 @@
               <a href="https://www.facebook.com/khanstructure" target="_blank" rel="noopener noreferrer"
                 >Facebook - KHAN STRUCTURE</a
               >
-              <a href="https://t.me/+v3lD__ST8WdjM2Jl" target="_blank" rel="noopener noreferrer"
-                >KHAN STRUCTURE MN</a
+              <a
+                id="supportTelegramMain"
+                href="https://t.me/+C4aXFu5iwZ02MDc9"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="support.telegram.main"
+                >Telegram: Khan Structure</a
               >
-              <a href="https://t.me/+ljjxStXBi4Y2Yjk9" target="_blank" rel="noopener noreferrer"
-                >KHAN STRUCTURE MN CHAT</a
+              <a
+                id="supportTelegramChat"
+                href="https://t.me/+xt1g7AG5VQg2MjJl"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="support.telegram.chat"
+                >Telegram Chat: Khan Structure</a
               >
-              <a href="https://t.me/+j0-ET375S8lkYzI1" target="_blank" rel="noopener noreferrer"
-                >KHAN STRUCTURE FREE ALERT ROOM</a
+              <a
+                id="supportTelegramAlert"
+                href="https://t.me/+j0-ET375S8lkYzI1"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="support.telegram.alert"
+                >Telegram Alerts: Khan Structure</a
               >
             </div>
           </article>
@@ -1656,11 +1671,12 @@
             </div>
             <a
               class="btn btn-primary support-cta"
-              href="https://t.me/+v3lD__ST8WdjM2Jl"
+              id="supportTelegramCta"
+              href="https://t.me/+C4aXFu5iwZ02MDc9"
               target="_blank"
               rel="noopener noreferrer"
               data-i18n="support.cta"
-              >Open KHAN STRUCTURE MN</a
+              >Open Telegram</a
             >
           </article>
         </div>
@@ -1791,13 +1807,16 @@
           'support.p': 'Use only official Instagram, Facebook, and Telegram channels for updates and support.',
           'support.links.h': 'Official channels',
           'support.links.p': 'Verify channel names and join only through official links.',
+          'support.telegram.main': 'Telegram: Khan Structure',
+          'support.telegram.chat': 'Telegram Chat: Khan Structure',
+          'support.telegram.alert': 'Telegram Alerts: Khan Structure',
           'support.policy.h': 'Support policy',
           'support.policy.p': 'To keep onboarding and account safety clear, follow these rules:',
           'support.policy.1': 'Requests are processed first-come, first-served after on-chain confirmation.',
           'support.policy.2': 'Response target is within 24 business hours.',
           'support.policy.3': 'Trust only links and wallet details shown on this page.',
           'support.warn': 'Anti-scam: Admins never DM first for payment or wallet details.',
-          'support.cta': 'Open KHAN STRUCTURE MN',
+          'support.cta': 'Open Telegram',
           'hero.tradingview': 'Open on TradingView <span class="tv-badge">LIVE</span>',
           'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
 
@@ -1989,13 +2008,16 @@
           'support.p': 'Шинэчлэлт, дэмжлэгээ зөвхөн албан Instagram, Facebook, Telegram сувгуудаас авна.',
           'support.links.h': 'Албан сувгууд',
           'support.links.p': 'Сувгийн нэрийг нягтлаад зөвхөн албан линкээр нэгдэнэ.',
+          'support.telegram.main': 'Telegram: Khan Structure',
+          'support.telegram.chat': 'Telegram Chat: Khan Structure',
+          'support.telegram.alert': 'Telegram Alerts: Khan Structure',
           'support.policy.h': 'Дэмжлэгийн бодлого',
           'support.policy.p': 'Onboarding ба аккаунтын аюулгүй байдлын тулд дараах дүрмийг мөрдөнө:',
           'support.policy.1': 'Хүсэлтүүд on-chain баталгаажсаны дараа ирсэн дарааллаар боловсруулагдана.',
           'support.policy.2': 'Хариу өгөх зорилтот хугацаа ажлын 24 цаг.',
           'support.policy.3': 'Зөвхөн энэ хуудсан дээрх линк болон хэтэвчийн мэдээлэлд итгэ.',
           'support.warn': 'Anti-scam: Админууд төлбөр эсвэл wallet мэдээлэл нэхэж эхэлж DM бичихгүй.',
-          'support.cta': 'KHAN STRUCTURE MN \u0440\u0443\u0443 \u043e\u0440\u043e\u0445',
+          'support.cta': 'Telegram \u0440\u0443\u0443 \u043e\u0440\u043e\u0445',
           'hero.tradingview': 'TradingView дээр нээх <span class="tv-badge">LIVE</span>',
           'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
           'hero.chip': '⚡ Төлөвлөгөөтэй Smart Money framework',
@@ -2099,6 +2121,30 @@
         },
       };
 
+      const supportTelegramByLang = {
+        en: {
+          main: 'https://t.me/+C4aXFu5iwZ02MDc9',
+          chat: 'https://t.me/+xt1g7AG5VQg2MjJl',
+          cta: 'https://t.me/+C4aXFu5iwZ02MDc9',
+        },
+        mn: {
+          main: 'https://t.me/+v3lD__ST8WdjM2Jl',
+          chat: 'https://t.me/+ljjxStXBi4Y2Yjk9',
+          cta: 'https://t.me/+v3lD__ST8WdjM2Jl',
+        },
+      };
+
+      function syncSupportTelegramLinks(lang) {
+        const normalized = normalizeLang(lang) || 'en';
+        const links = supportTelegramByLang[normalized] || supportTelegramByLang.en;
+        const mainEl = document.getElementById('supportTelegramMain');
+        const chatEl = document.getElementById('supportTelegramChat');
+        const ctaEl = document.getElementById('supportTelegramCta');
+        if (mainEl) mainEl.setAttribute('href', links.main);
+        if (chatEl) chatEl.setAttribute('href', links.chat);
+        if (ctaEl) ctaEl.setAttribute('href', links.cta);
+      }
+
       function setLang(lang, updateUrl = true) {
         const normalized = normalizeLang(lang) || 'en';
         const dict = i18n[normalized] || i18n.en;
@@ -2116,6 +2162,7 @@
             el.setAttribute('data-i18n-missing', '1');
           }
         });
+        syncSupportTelegramLinks(normalized);
 
         localStorage.setItem('khan_lang', normalized);
 
