@@ -1,8 +1,7 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
@@ -77,34 +76,10 @@
           radial-gradient(900px 520px at 60% 100%, rgba(179, 107, 255, 0.18), transparent 55%),
           linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
         overflow-x: hidden;
-        color-scheme: dark;
       }
       a {
         color: inherit;
         text-decoration: none;
-      }
-      a:focus-visible,
-      button:focus-visible,
-      .shot:focus-visible {
-        outline: 2px solid rgba(242, 193, 78, 0.95);
-        outline-offset: 3px;
-      }
-      .skip-link {
-        position: fixed;
-        left: 14px;
-        top: 10px;
-        z-index: 10000;
-        transform: translateY(-180%);
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(242, 193, 78, 0.45);
-        background: rgba(7, 10, 18, 0.95);
-        color: rgba(255, 255, 255, 0.94);
-        font-weight: 750;
-        transition: transform 0.16s ease;
-      }
-      .skip-link:focus-visible {
-        transform: translateY(0);
       }
       .container {
         max-width: var(--max);
@@ -151,21 +126,10 @@
         padding: 9px 8px;
         border-radius: 12px;
         white-space: nowrap;
-        border: 1px solid transparent;
-        transition:
-          background 0.14s ease,
-          border-color 0.14s ease,
-          color 0.14s ease;
       }
       .nav-links a:hover {
         background: rgba(255, 255, 255, 0.06);
         color: var(--text);
-      }
-      .nav-links a.is-active,
-      .drawer-links a.is-active {
-        color: var(--text);
-        border-color: rgba(242, 193, 78, 0.34);
-        background: rgba(242, 193, 78, 0.12);
       }
 
       .nav-cta {
@@ -307,10 +271,8 @@
       .cover {
         position: absolute;
         inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+        background-size: cover;
+        background-position: center;
         filter: saturate(1.05);
         opacity: 0.85;
         transform: scale(1.02);
@@ -358,9 +320,6 @@
       section {
         padding: 54px 0;
       }
-      section[id] {
-        scroll-margin-top: 92px;
-      }
       .section-head {
         display: flex;
         align-items: flex-end;
@@ -397,10 +356,6 @@
         padding: 18px;
         box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
       }
-      .card.has-platform-tag {
-        position: relative;
-        padding-bottom: 44px;
-      }
       .card h3 {
         margin: 0 0 8px;
         font-size: 16px;
@@ -436,20 +391,6 @@
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
         font-weight: 900;
       }
-      .platform-tag {
-        position: absolute;
-        right: 14px;
-        bottom: 12px;
-        padding: 5px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(6, 12, 26, 0.72);
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
 
       /* Steps */
       .steps {
@@ -462,9 +403,6 @@
         border-radius: 18px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.05);
-        min-height: 156px;
-        display: flex;
-        flex-direction: column;
       }
       .step .n {
         font-size: 12px;
@@ -686,11 +624,6 @@
         border-radius: 14px;
         color: rgba(255, 255, 255, 0.86);
         font-weight: 800;
-        border: 1px solid transparent;
-        transition:
-          background 0.14s ease,
-          border-color 0.14s ease,
-          color 0.14s ease;
       }
       .drawer-links a:hover {
         background: rgba(255, 255, 255, 0.06);
@@ -760,9 +693,6 @@
         .steps {
           grid-template-columns: 1fr;
         }
-        section[id] {
-          scroll-margin-top: 84px;
-        }
         .nav-links {
           display: none;
         }
@@ -774,9 +704,6 @@
         }
         .brand {
           min-width: unset;
-        }
-        .reviews-grid > :nth-child(n + 4) {
-          display: none;
         }
       }
 
@@ -867,9 +794,6 @@
         background: rgba(0, 0, 0, 0.15);
       }
       .lightbox .x {
-        appearance: none;
-        padding: 0;
-        font: inherit;
         position: absolute;
         top: 10px;
         right: 10px;
@@ -972,25 +896,18 @@
     </style>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- NAV -->
-    <nav class="nav" aria-label="Primary">
+    <div class="nav">
       <div class="container">
         <div class="nav-inner">
           <div class="brand">
-            <img
-              src="khan_logo_transparent.png"
-              alt="KHAN STRUCTURE"
-              width="768"
-              height="415"
-              decoding="async"
-            />
+            <img src="khan_logo_transparent.png" alt="KHAN STRUCTURE" />
           </div>
 
           <div class="nav-links" aria-label="Primary">
             <a href="#how" data-i18n="nav.how">How It Works</a>
             <a href="#video" data-i18n="nav.video">Demo</a>
-            <a href="#ea" data-i18n="nav.features">Features</a>
+            <a href="#features" data-i18n="nav.features">Features</a>
             <a href="#examples" data-i18n="nav.examples">Examples</a>
             <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
             <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
@@ -998,35 +915,24 @@
           </div>
 
           <div class="nav-cta">
-            <button class="btn" id="langMN" type="button" aria-label="Mongolian">MN</button>
+            <button class="btn" id="langMN" type="button" aria-label="Монгол">MN</button>
             <button class="btn" id="langEN" type="button" aria-label="English">EN</button>
-            <button
-              class="btn nav-burger"
-              id="navBurger"
-              type="button"
-              aria-label="Menu"
-              aria-expanded="false"
-              aria-controls="drawer"
-            >&#9776;</button>
+            <button class="btn nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false">
+              ☰
+            </button>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
 
     <!-- MOBILE DRAWER -->
-    <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="drawer" id="drawer" aria-hidden="true">
       <div class="drawer-panel">
         <div class="drawer-top">
           <div class="drawer-brand">
-            <img
-              src="khan_logo_transparent.png"
-              alt="KHAN STRUCTURE"
-              width="768"
-              height="415"
-              decoding="async"
-            />
+            <img src="khan_logo_transparent.png" alt="KHAN STRUCTURE" />
           </div>
-          <button class="btn drawer-close" id="drawerClose" type="button" aria-label="Close">&#10005;</button>
+          <button class="btn drawer-close" id="drawerClose" type="button" aria-label="Close">✕</button>
         </div>
 
         <div class="drawer-actions">
@@ -1037,7 +943,7 @@
         <nav class="drawer-links" aria-label="Mobile">
           <a href="#how" data-i18n="nav.how">How It Works</a>
           <a href="#video" data-i18n="nav.video">Demo</a>
-          <a href="#ea" data-i18n="nav.features">Features</a>
+          <a href="#features" data-i18n="nav.features">Features</a>
           <a href="#examples" data-i18n="nav.examples">Examples</a>
           <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
           <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
@@ -1055,17 +961,16 @@
       </div>
     </div>
 
-    <main id="main-content" tabindex="-1">
     <!-- HERO -->
     <header class="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-left">
             <div class="chip" data-i18n="hero.chip">⚡ Structured Smart Money Framework</div>
-            <h1 data-i18n="hero.h1"><span class="gradient-text">Trade with Structure.</span><br />Execute with discipline.</h1>
+            <h1 data-i18n="hero.h1"><span class="gradient-text">Trade with structure.</span><br />Stay disciplined in execution.</h1>
             <p class="sub" data-i18n="hero.sub">
-              KHAN STRUCTURE helps define the broader higher-timeframe direction, then supports planned entries with
-              calculated risk after confirmed signals.
+              KHAN STRUCTURE helps you define higher-timeframe context, wait for confirmation, and execute with a clear
+              risk plan.
             </p>
 
             <div class="hero-actions">
@@ -1092,15 +997,10 @@
           </div>
 
           <div class="hero-right" role="img" aria-label="KHAN STRUCTURE visual">
-            <img
+            <div
               class="cover"
-              src="KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png"
-              alt=""
-              width="2048"
-              height="1365"
-              fetchpriority="high"
-              decoding="async"
-            />
+              style="background-image: url('KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png')"
+            ></div>
             <div class="cover-overlay"></div>
             <div class="hero-card">
               <div class="hero-metrics">
@@ -1154,97 +1054,40 @@
       </div>
     </section>
 
-    <!-- EA + MQL5 FEATURES -->
+    <!-- EA SUGGESTIONS -->
     <section id="ea">
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="pill" data-i18n="ea.pill">Core логик</div>
-            <h2 data-i18n="ea.h2">TradingView ба MT5 EA-ийн нэгдсэн core логик</h2>
+            <div class="pill" data-i18n="ea.pill">KHAN STRUCTURE EA</div>
+            <h2 data-i18n="ea.h2">MetaTrader 5 дээр ашиглах KHAN STRUCTURE EA багц.</h2>
           </div>
           <p data-i18n="ea.p">
-            TradingView KHAN STRUCTURE script ба MT5 EA нь context -> confirmation -> entry/risk map ижил core логикоор ажиллана. Бодит session дээр hindsight засваргүй.
+            Энэ нь EA хөгжүүлэх санал биш. Хэрэглэгчдэд шууд ашиглуулахаар санал болгож буй KHAN STRUCTURE EA шийдлүүд.
           </p>
         </div>
         <div class="grid-3">
-          <article class="card has-platform-tag">
+          <article class="card">
             <div class="icon" aria-hidden="true">↗</div>
             <h3 data-i18n="ea.card1.h">KHAN STRUCTURE Entry EA</h3>
             <p data-i18n="ea.card1.p">
-              HTF/LTF context, SR pivot, regime shift, premium/discount location дээр тулгуурлан чиглэл тогтооно.
+              HTF чиглэл ба structure баталгаажсан үед entry, stop-loss, target-ийг дүрмийн дагуу байршуулна.
             </p>
-            <div class="platform-tag" data-i18n="ea.card1.tag">TV + MT5</div>
           </article>
-          <article class="card has-platform-tag">
+          <article class="card">
             <div class="icon" aria-hidden="true">◎</div>
             <h3 data-i18n="ea.card2.h">KHAN STRUCTURE Session EA</h3>
             <p data-i18n="ea.card2.p">
-              Entry нь structure, session window, volatility, мөн optional footprint flow давхцах үед л зөвшөөрөгдөнө.
+              London/New York session дээр setup-уудыг шүүж, баталгаатай үед л оролт хийнэ.
             </p>
-            <div class="platform-tag" data-i18n="ea.card2.tag">TV + MT5</div>
           </article>
-          <article class="card has-platform-tag">
+          <article class="card">
             <div class="icon" aria-hidden="true">⚙</div>
             <h3 data-i18n="ea.card3.h">KHAN STRUCTURE Risk EA</h3>
             <p data-i18n="ea.card3.p">
-              Risk map нь entry дээр SL, TP1/TP2/TP3 шатлалтайгаар тогтож, дараа нь дүрмээр удирдагдана.
+              Risk %-аар lot size тооцоолж, break-even болон partial TP-г удирдана.
             </p>
-            <div class="platform-tag" data-i18n="ea.card3.tag">TV + MT5</div>
           </article>
-        </div>
-
-        <div style="height: 18px"></div>
-
-        <div class="section-head">
-          <div>
-            <div class="pill" data-i18n="features.pill">Feature матриц</div>
-            <h2 data-i18n="features.h2">Платформ тус бүрийн боломж</h2>
-          </div>
-          <p data-i18n="features.p">TV (TradingView), MT5 (MetaTrader 5)</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card has-platform-tag">
-            <div class="icon">↻</div>
-            <h3 data-i18n="feat.1.h">Auto Trade (MT5 EA)</h3>
-            <p data-i18n="feat.1.p">MT5 EA supports rule-based auto trade execution (Ghost/Real/Both). TradingView side remains signal/alert driven.</p>
-            <div class="platform-tag" data-i18n="feat.1.tag">MT5</div>
-          </div>
-          <div class="card has-platform-tag">
-            <div class="icon">◐</div>
-            <h3 data-i18n="feat.2.h">Auto Profile Engine</h3>
-            <p data-i18n="feat.2.p">Auto TF Profile and Asset Auto Resolver adapt parameters by timeframe and symbol type.</p>
-            <div class="platform-tag" data-i18n="feat.2.tag">TV + MT5</div>
-          </div>
-          <div class="card has-platform-tag">
-            <div class="icon">◎</div>
-            <h3 data-i18n="feat.3.h">Pending Fill Modes</h3>
-            <p data-i18n="feat.3.p">Retest, LimitEQ, and MarketClose fill logic is supported in the execution engine.</p>
-            <div class="platform-tag" data-i18n="feat.3.tag">TV + MT5</div>
-          </div>
-        </div>
-
-        <div style="height: 14px"></div>
-
-        <div class="grid-3">
-          <div class="card has-platform-tag">
-            <div class="icon">▦</div>
-            <h3 data-i18n="feat.4.h">Live Stats Board</h3>
-            <p data-i18n="feat.4.p">Displays MODE, T/W/L, WR, TP2|W, TP3|TP2, and RR(F/H/N) on-chart.</p>
-            <div class="platform-tag" data-i18n="feat.4.tag">TV + MT5</div>
-          </div>
-          <div class="card has-platform-tag">
-            <div class="icon">⌂</div>
-            <h3 data-i18n="feat.5.h">Context Status Panel</h3>
-            <p data-i18n="feat.5.p">Shows ACTIVE/PENDING, profile, side, RR NOW, PD, flow, and block reason in real time.</p>
-            <div class="platform-tag" data-i18n="feat.5.tag">TV + MT5</div>
-          </div>
-          <div class="card has-platform-tag">
-            <div class="icon">⚙</div>
-            <h3 data-i18n="feat.6.h">Alert Engine</h3>
-            <p data-i18n="feat.6.p">Bar-close alerts for ENTRY, TP1/TP2/TP3, and SL with symbol/side/price context.</p>
-            <div class="platform-tag" data-i18n="feat.6.tag">TV + MT5</div>
-          </div>
         </div>
       </div>
     </section>
@@ -1281,8 +1124,96 @@
           <div class="step">
             <div class="n" data-i18n="steps.4.n">STEP 04</div>
             <div class="t" data-i18n="steps.4.t">Execute with risk map</div>
-            <div class="d" data-i18n="steps.4.d">Each setup includes entry, stop-loss, and targets.</div>
+            <div class="d" data-i18n="steps.4.d">Each setup includes entry, stop loss, and targets.</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="features.pill">Core Features</div>
+            <h2 data-i18n="features.h2">Built for clarity and discipline.</h2>
+          </div>
+          <p data-i18n="features.p">Designed to support decision quality, not signal chasing.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">↗</div>
+            <h3 data-i18n="feat.1.h">Higher-timeframe context</h3>
+            <p data-i18n="feat.1.p">Stay aligned with the main market direction.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⛓</div>
+            <h3 data-i18n="feat.2.h">Confirmed entries</h3>
+            <p data-i18n="feat.2.p">Signals appear after structure confirmation, not random volatility.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◎</div>
+            <h3 data-i18n="feat.3.h">Liquidity context</h3>
+            <p data-i18n="feat.3.p">Identify sweeps and reactions around key levels.</p>
+          </div>
+        </div>
+
+        <div style="height: 14px"></div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">⛨</div>
+            <h3 data-i18n="feat.4.h">Entry + SL + Targets</h3>
+            <p data-i18n="feat.4.p">A clear plan for disciplined trade management.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚙</div>
+            <h3 data-i18n="feat.5.h">Clean workflow</h3>
+            <p data-i18n="feat.5.p">Lite stays simple. Pro adds depth without noise.</p>
+          </div>
+          <div class="card">
+            <div class="icon">◆</div>
+            <h3 data-i18n="feat.6.h">Process over Prediction</h3>
+            <p data-i18n="feat.6.p">Focus on repeatable execution, not guessing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LITE VS PRO -->
+    <section id="compare">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="compare.pill">Lite vs Pro</div>
+            <h2 data-i18n="compare.h2">Choose the setup that fits your workflow.</h2>
+          </div>
+          <p data-i18n="compare.p">Start simple with Lite, then move to Pro when you need structured execution depth.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="compare.lite.h">Lite (Public)</h3>
+            <p data-i18n="compare.lite.p">Best for learning the core process and validating chart context.</p>
+            <ul class="list">
+              <li data-i18n="compare.lite.1">Core market structure view</li>
+              <li data-i18n="compare.lite.2">Clean, lightweight interface</li>
+              <li data-i18n="compare.lite.3">Manual execution workflow</li>
+              <li data-i18n="compare.lite.4">Good for process practice</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-i18n="compare.pro.h">Pro (Invite Only)</h3>
+            <p data-i18n="compare.pro.p">Built for traders who want deeper structure tools and disciplined execution support.</p>
+            <ul class="list">
+              <li data-i18n="compare.pro.1">Advanced structure modules</li>
+              <li data-i18n="compare.pro.2">Detailed risk map and target planning</li>
+              <li data-i18n="compare.pro.3">Structured alert workflow</li>
+              <li data-i18n="compare.pro.4">Priority access to updates</li>
+              <li data-i18n="compare.pro.5">Limited to 100 active members</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -1292,30 +1223,62 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="pill" data-i18n="fit.pill">Fit Check</div>
-            <h2 data-i18n="fit.h2">Is this workflow right for you?</h2>
+            <div class="pill" data-i18n="fit.pill">Who It Is For</div>
+            <h2 data-i18n="fit.h2">Clear expectations from the start.</h2>
           </div>
-          <p data-i18n="fit.p">Built for rules-based execution, confirmation, and risk discipline.</p>
+          <p data-i18n="fit.p">This helps the right traders get value and avoids mismatched expectations.</p>
         </div>
 
         <div class="grid-2">
           <article class="card">
-            <h3 data-i18n="fit.for.h">Good fit</h3>
+            <h3 data-i18n="fit.for.h">Best fit for</h3>
             <ul class="list">
-              <li data-i18n="fit.for.1">Follows a rules-based process</li>
-              <li data-i18n="fit.for.2">Prioritizes risk management over hype</li>
-              <li data-i18n="fit.for.3">Can wait for confirmation</li>
-              <li data-i18n="fit.for.4">Focuses on consistency over gambling</li>
+              <li data-i18n="fit.for.1">Traders who follow a rules-based process</li>
+              <li data-i18n="fit.for.2">People who value risk management over hype</li>
+              <li data-i18n="fit.for.3">Users willing to wait for confirmation</li>
+              <li data-i18n="fit.for.4">Traders improving consistency, not gambling</li>
             </ul>
           </article>
           <article class="card">
-            <h3 data-i18n="fit.not.h">Not a fit yet</h3>
+            <h3 data-i18n="fit.not.h">Not ideal for</h3>
             <ul class="list">
-              <li data-i18n="fit.not.1">Expects instant win signals</li>
-              <li data-i18n="fit.not.2">Overtrades without a plan</li>
-              <li data-i18n="fit.not.3">Does not follow stop-loss discipline</li>
-              <li data-i18n="fit.not.4">Seeks guaranteed profits</li>
+              <li data-i18n="fit.not.1">Users expecting instant win signals</li>
+              <li data-i18n="fit.not.2">Overtrading without a plan</li>
+              <li data-i18n="fit.not.3">Ignoring stop-loss discipline</li>
+              <li data-i18n="fit.not.4">Looking for guaranteed profits</li>
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK START -->
+    <section id="quickstart">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="pill" data-i18n="quick.pill">Quick Start</div>
+            <h2 data-i18n="quick.h2">Start in under 10 minutes.</h2>
+          </div>
+          <p data-i18n="quick.p">A simple checklist to go from setup to first structured review.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 data-i18n="quick.1.h">1) Open the chart setup</h3>
+            <p data-i18n="quick.1.p">Load KHAN STRUCTURE and select your market and timeframe.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="quick.2.h">2) Define HTF context</h3>
+            <p data-i18n="quick.2.p">Set directional bias first. Skip entries that fight the main context.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="quick.3.h">3) Wait for structure confirmation</h3>
+            <p data-i18n="quick.3.p">Only plan entries when structure and liquidity behavior align.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="quick.4.h">4) Execute with risk map</h3>
+            <p data-i18n="quick.4.p">Use the mapped entry, stop, and targets. Review and log your session.</p>
           </article>
         </div>
       </div>
@@ -1337,14 +1300,7 @@
 
         <div class="gallery" aria-label="KHAN STRUCTURE examples">
           <div class="shot" data-src="example_xau.png">
-            <img
-              src="example_xau.png"
-              alt="XAUUSD example"
-              loading="lazy"
-              decoding="async"
-              width="2007"
-              height="1141"
-            />
+            <img src="example_xau.png" alt="XAUUSD example" loading="lazy" />
             <div class="cap">
               <div class="label" data-i18n="examples.xau.label">XAU (Gold) • 15m</div>
               <div class="note" data-i18n="examples.note">Context → Confirmation → Execution</div>
@@ -1352,14 +1308,7 @@
           </div>
 
           <div class="shot" data-src="example_btc.png">
-            <img
-              src="example_btc.png"
-              alt="BTCUSDT example"
-              loading="lazy"
-              decoding="async"
-              width="2007"
-              height="1141"
-            />
+            <img src="example_btc.png" alt="BTCUSDT example" loading="lazy" />
             <div class="cap">
               <div class="label" data-i18n="examples.btc.label">BTC • 15m</div>
               <div class="note" data-i18n="examples.note">Context → Confirmation → Execution</div>
@@ -1367,19 +1316,25 @@
           </div>
 
           <div class="shot" data-src="example_fx.png">
-            <img
-              src="example_fx.png"
-              alt="FX example"
-              loading="lazy"
-              decoding="async"
-              width="2007"
-              height="1141"
-            />
+            <img src="example_fx.png" alt="FX example" loading="lazy" />
             <div class="cap">
               <div class="label" data-i18n="examples.fx.label">FX • 15m</div>
               <div class="note" data-i18n="examples.note">Context → Confirmation → Execution</div>
             </div>
           </div>
+        </div>
+
+        <div style="height: 14px"></div>
+
+        <div class="card">
+          <h3 data-i18n="examples.card.h">Need the full framework?</h3>
+          <p data-i18n="examples.card.p">
+            Review the live chart first. If this framework fits your process, apply for Pro access.
+          </p>
+          <p style="margin-top: 12px; color: var(--muted2); line-height: 1.5">
+            <a href="#pricing" data-i18n="examples.card.btn2">See Pricing</a> ·
+            <a href="#support" data-i18n="nav.apply">Apply</a>
+          </p>
         </div>
       </div>
     </section>
@@ -1395,7 +1350,7 @@
           <p data-i18n="reviews.p">Feedback focused on process quality, risk discipline, and live execution.</p>
         </div>
 
-        <div class="grid-3 reviews-grid">
+        <div class="grid-3">
           <article class="card testimonial">
             <div class="rating" aria-label="5 out of 5">★★★★★</div>
             <p class="q" data-i18n="rev.1.q">“I stopped taking random trades. The framework tells me when to wait.”</p>
@@ -1411,21 +1366,6 @@
             <p class="q" data-i18n="rev.3.q">“Live behavior matched what I studied. That consistency built trust.”</p>
             <p class="who" data-i18n="rev.3.who">N. Tseren — Gold trader</p>
           </article>
-          <article class="card testimonial">
-            <div class="rating" aria-label="5 out of 5">★★★★★</div>
-            <p class="q" data-i18n="rev.4.q">“Waiting for confirmation cut my overtrades.”</p>
-            <p class="who" data-i18n="rev.4.who">S. Nomin — Index trader</p>
-          </article>
-          <article class="card testimonial">
-            <div class="rating" aria-label="5 out of 5">★★★★★</div>
-            <p class="q" data-i18n="rev.5.q">“Session and volatility filters kept me out of weak setups.”</p>
-            <p class="who" data-i18n="rev.5.who">B. Temuulen — FX trader</p>
-          </article>
-          <article class="card testimonial">
-            <div class="rating" aria-label="5 out of 5">★★★★★</div>
-            <p class="q" data-i18n="rev.6.q">“The risk map made exits mechanical, not emotional.”</p>
-            <p class="who" data-i18n="rev.6.who">T. Gan-Erdene — Crypto trader</p>
-          </article>
         </div>
       </div>
     </section>
@@ -1435,20 +1375,20 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="pill" data-i18n="integrity.pill">Integrity</div>
-            <h2 data-i18n="integrity.h2">What you see live should match backtest.</h2>
+            <div class="pill" data-i18n="integrity.pill">Integrity First</div>
+            <h2 data-i18n="integrity.h2">Transparent behavior in live markets.</h2>
           </div>
-          <p data-i18n="integrity.p">No hindsight edits. Same rules for live execution.</p>
+          <p data-i18n="integrity.p">What you study should match what you see in real time.</p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <h3 data-i18n="int.1.h">Live = Backtest logic</h3>
-            <p data-i18n="int.1.p">Signals, entries, and risk maps use the same rules in live and backtest.</p>
+            <h3 data-i18n="int.1.h">Realtime = Backtest mindset</h3>
+            <p data-i18n="int.1.p">The same logic is intended for live execution and historical review.</p>
           </div>
           <div class="card">
-            <h3 data-i18n="int.2.h">Context first, then entry</h3>
-            <p data-i18n="int.2.p">Risk is taken only after context and structure are confirmed.</p>
+            <h3 data-i18n="int.2.h">Context first</h3>
+            <p data-i18n="int.2.p">Risk is taken only when context and structure align.</p>
           </div>
         </div>
       </div>
@@ -1459,10 +1399,45 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <div class="pill" data-i18n="pay.pill">Payment</div>
-            <h2 data-i18n="pay.h2">Choose your plan and pay</h2>
+            <div class="pill" data-i18n="pro.pill">Paid Pro Access</div>
+            <h2 data-i18n="pro.h2">Limited seats. Quality first.</h2>
+          </div>
+          <p data-i18n="pro.p">
+            KHAN STRUCTURE Pro is a paid framework for traders who want a structured, rules-based process.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 data-i18n="pro.c1.h">What Pro includes</h3>
+            <p data-i18n="pro.c1.p">
+              Advanced structure tools, detailed risk mapping, and structured alert workflows for serious execution.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="pro.c2.h">Limited to 100 active members</h3>
+            <p data-i18n="pro.c2.p">
+              Membership is capped to keep quality high. When full, new applications move to a waitlist.
+            </p>
           </div>
         </div>
+
+        <div style="height: 18px"></div>
+
+        <div class="card" style="text-align: center">
+          <h3 data-i18n="pro.apply.h">Apply for Limited Pro Access</h3>
+          <p style="margin-bottom: 16px; color: var(--muted)" data-i18n="pro.apply.p">
+            Applications are reviewed before approval.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap">
+            <a class="btn btn-primary" href="#support" data-i18n="pro.apply.btn" data-track="pricing_apply_now"
+              >Contact Support</a
+            >
+          </div>
+        </div>
+
+        <div style="height: 30px"></div>
 
         <!-- USDT PAYMENT SECTION -->
         <div
@@ -1473,37 +1448,20 @@
           "
         >
           <h3 style="margin-bottom: 12px" data-i18n="usdt.h3">💳 USDT Payment (BEP20 - BNB Smart Chain)</h3>
-          <p style="color: var(--muted); margin-bottom: 16px" data-i18n="usdt.p">
-            One transfer address for both plans. Choose your plan amount and send via BEP20. Verification is manual
-            within 24 hours.
+          <p style="color: var(--muted); margin-bottom: 16px">
+            <span data-i18n="usdt.p"
+              >Founder pricing: <strong>$39 / month (USDT)</strong><br />
+              <span style="color: var(--gold); font-weight: 700">Limited to first 100 members</span><br />
+              Network: <strong>BEP20 (BNB Smart Chain)</strong><br />
+              Access is manually verified within 24 hours.</span
+            >
           </p>
-
-          <div class="grid-2" style="margin-bottom: 16px">
-            <div class="card" style="padding: 14px">
-              <h4 style="margin: 0 0 8px" data-i18n="usdt.plan.tv.h">
-                Trading View KHAN STRUCTURE PRO v2 - Multi-Layer Smart Money Decision Engine — $29 / сар (USDT)
-              </h4>
-              <p style="margin: 0; color: var(--muted)" data-i18n="usdt.plan.tv.p">
-                TradingView invite script. Limit: 100 users.
-              </p>
-            </div>
-            <div class="card" style="padding: 14px">
-              <h4 style="margin: 0 0 8px" data-i18n="usdt.plan.mt5.h">KHAN STRUCTURE EA (MetaTrader 5) — $39 / сар (USDT)</h4>
-              <p style="margin: 0; color: var(--muted)" data-i18n="usdt.plan.mt5.p">
-                MetaTrader 5 EA license. Unlimited users.
-              </p>
-            </div>
-          </div>
 
           <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center">
             <div>
               <img
                 src="usdt_qr.png"
                 alt="USDT QR"
-                loading="lazy"
-                decoding="async"
-                width="115"
-                height="112"
                 style="max-width: 180px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12)"
               />
             </div>
@@ -1519,9 +1477,8 @@
               </button>
               <p style="margin-top: 12px; color: var(--muted); font-size: 14px">
                 <span data-i18n="usdt.warn"
-                  >⚠️ Send the exact amount for your selected plan: <strong>$29</strong> (TV) or
-                  <strong>$39</strong> (MT5 EA), using <strong>BEP20</strong> only.<br />Using the wrong network can
-                  cause permanent loss.</span
+                  >⚠️ Send exactly <strong>$39 USDT</strong> using the <strong>BEP20</strong> network only.<br />Using
+                  the wrong network can cause permanent loss.</span
                 >
               </p>
             </div>
@@ -1539,8 +1496,7 @@
             <h4 style="margin: 0 0 8px" data-i18n="usdt.after.h">After payment, send:</h4>
             <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6">
               <span data-i18n="usdt.after.p"
-                >• Selected plan (Trading View invite script or Meta Trader 5 EA)<br />
-                • Transaction Hash (TxID)<br />
+                >• Transaction Hash (TxID)<br />
                 • Your Telegram username<br />
                 • Email (optional)<br /><br />
                 Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted
@@ -1571,7 +1527,7 @@
             <div class="pill" data-i18n="faq.pill">FAQ</div>
             <h2 data-i18n="faq.h2">Common questions before you apply.</h2>
           </div>
-          <p data-i18n="faq.p">Straight answers on access, pricing, payment, support, and expectations.</p>
+          <p data-i18n="faq.p">Straight answers on access, payment, support, and expectations.</p>
         </div>
 
         <div class="grid-2">
@@ -1592,18 +1548,12 @@
             <p data-i18n="faq.4.a">No. This is an educational framework focused on disciplined execution.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq.5.q">What happens when the TradingView invite script is full?</summary>
-            <p data-i18n="faq.5.a">TradingView invite script is capped at 100 users. MT5 EA license has no user cap.</p>
+            <summary data-i18n="faq.5.q">What happens when Pro is full?</summary>
+            <p data-i18n="faq.5.a">New applications go to a waitlist until a seat opens.</p>
           </details>
           <details class="faq-item">
             <summary data-i18n="faq.6.q">How do I get support?</summary>
-            <p data-i18n="faq.6.a">Use official Telegram channels listed below. Be careful of impersonator accounts.</p>
-          </details>
-          <details class="faq-item">
-            <summary data-i18n="faq.7.q">How much does each plan cost?</summary>
-            <p data-i18n="faq.7.a">
-              Trading View invite script: $29/month. Meta Trader 5 EA: $39/month. Pay with USDT on BEP20.
-            </p>
+            <p data-i18n="faq.6.a">Use official Telegram channels listed below. Never trust impersonator accounts.</p>
           </details>
         </div>
       </div>
@@ -1645,14 +1595,14 @@
 
           <article class="card">
             <h3 data-i18n="support.policy.h">Support policy</h3>
-            <p data-i18n="support.policy.p">To keep onboarding and account safety clear, follow these rules:</p>
+            <p data-i18n="support.policy.p">For safe onboarding and account security, please follow these rules:</p>
             <ul class="list">
-              <li data-i18n="support.policy.1">Requests are processed first-come, first-served after on-chain confirmation.</li>
-              <li data-i18n="support.policy.2">Response target is within 24 business hours.</li>
-              <li data-i18n="support.policy.3">Trust only links and wallet details shown on this page.</li>
+              <li data-i18n="support.policy.1">Verification and access are handled in order of submission.</li>
+              <li data-i18n="support.policy.2">Response target is within 24 hours on business days.</li>
+              <li data-i18n="support.policy.3">Only trust links and wallet address shown on this page.</li>
             </ul>
             <div class="warn" data-i18n="support.warn">
-              Anti-scam: Admins never DM first for payment or wallet details.
+              Anti-scam notice: Admins will never DM first to ask for payment details.
             </div>
             <a
               class="btn btn-primary support-cta"
@@ -1666,8 +1616,6 @@
         </div>
       </div>
     </section>
-
-    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -1683,13 +1631,13 @@
           <div>
             <small>
               <a href="#how" data-i18n="nav.how">How It Works</a>
-              <a href="#video" data-i18n="nav.video">Demo</a> |
-              <a href="#ea" data-i18n="nav.features">Features</a>
-              <a href="#examples" data-i18n="nav.examples">Examples</a> |
-              <a href="#reviews" data-i18n="nav.reviews">Reviews</a> |
-              <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
+              <a href="#video" data-i18n="nav.video">Demo</a> ·
+              <a href="#features" data-i18n="nav.features">Features</a>
+              <a href="#examples" data-i18n="nav.examples">Examples</a> ·
+              <a href="#reviews" data-i18n="nav.reviews">Reviews</a> ·
+              <a href="#integrity" data-i18n="nav.integrity">Integrity</a> ·
             </small>
-            <small style="margin-top: 10px">(c) <span id="y"></span> KHAN STRUCTURE. All rights reserved.</small>
+            <small style="margin-top: 10px">© <span id="y"></span> KHAN STRUCTURE. All rights reserved.</small>
           </div>
         </div>
       </div>
@@ -1717,7 +1665,7 @@
       const i18n = {
         en: {
           'nav.how': 'How It Works',
-          'nav.features': 'EA + Features',
+          'nav.features': 'Features',
           'nav.reviews': 'Reviews',
           'nav.integrity': 'Integrity',
           'nav.pricing': 'Pricing',
@@ -1731,6 +1679,10 @@
           'nav.apply': 'Apply',
           'nav.supportCta': 'Contact Support',
           'nav.community': 'Community',
+          'examples.card.btn2': 'See Pricing',
+          'examples.card.btn': 'Open TradingView <span class="tv-badge">LIVE</span>',
+          'examples.card.p': 'Review the live chart first. If this framework fits your process, apply for Pro access.',
+          'examples.card.h': 'Need the full framework?',
           'examples.fx.label': 'FX • 15m',
           'examples.btc.label': 'BTC • 15m',
           'examples.xau.label': 'XAU (Gold) • 15m',
@@ -1749,28 +1701,49 @@
           'rev.2.who': 'A. Bat — FX trader',
           'rev.3.q': '“Live behavior matched what I studied. That consistency built trust.”',
           'rev.3.who': 'N. Tseren — Gold trader',
-          'rev.4.q': '“Waiting for confirmation cut my overtrades.”',
-          'rev.4.who': 'S. Nomin — Index trader',
-          'rev.5.q': '“Session and volatility filters kept me out of weak setups.”',
-          'rev.5.who': 'B. Temuulen — FX trader',
-          'rev.6.q': '“The risk map made exits mechanical, not emotional.”',
-          'rev.6.who': 'T. Gan-Erdene — Crypto trader',
-          'fit.pill': 'Fit Check',
-          'fit.h2': 'Is this workflow right for you?',
-          'fit.p': 'Built for rules-based execution, confirmation, and risk discipline.',
-          'fit.for.h': 'Good fit',
-          'fit.for.1': 'Follows a rules-based process',
-          'fit.for.2': 'Prioritizes risk management over hype',
-          'fit.for.3': 'Can wait for confirmation',
-          'fit.for.4': 'Focuses on consistency over gambling',
-          'fit.not.h': 'Not a fit yet',
-          'fit.not.1': 'Expects instant win signals',
-          'fit.not.2': 'Overtrades without a plan',
-          'fit.not.3': 'Does not follow stop-loss discipline',
-          'fit.not.4': 'Seeks guaranteed profits',
+          'compare.pill': 'Lite vs Pro',
+          'compare.h2': 'Choose the setup that fits your workflow.',
+          'compare.p': 'Start simple with Lite, then move to Pro when you need structured execution depth.',
+          'compare.lite.h': 'Lite (Public)',
+          'compare.lite.p': 'Best for learning the core process and validating chart context.',
+          'compare.lite.1': 'Core market structure view',
+          'compare.lite.2': 'Clean, lightweight interface',
+          'compare.lite.3': 'Manual execution workflow',
+          'compare.lite.4': 'Good for process practice',
+          'compare.pro.h': 'Pro (Invite Only)',
+          'compare.pro.p': 'Built for traders who want deeper structure tools and disciplined execution support.',
+          'compare.pro.1': 'Advanced structure modules',
+          'compare.pro.2': 'Detailed risk map and target planning',
+          'compare.pro.3': 'Structured alert workflow',
+          'compare.pro.4': 'Priority access to updates',
+          'compare.pro.5': 'Limited to 100 active members',
+          'fit.pill': 'Who It Is For',
+          'fit.h2': 'Clear expectations from the start.',
+          'fit.p': 'This helps the right traders get value and avoids mismatched expectations.',
+          'fit.for.h': 'Best fit for',
+          'fit.for.1': 'Traders who follow a rules-based process',
+          'fit.for.2': 'People who value risk management over hype',
+          'fit.for.3': 'Users willing to wait for confirmation',
+          'fit.for.4': 'Traders improving consistency, not gambling',
+          'fit.not.h': 'Not ideal for',
+          'fit.not.1': 'Users expecting instant win signals',
+          'fit.not.2': 'Overtrading without a plan',
+          'fit.not.3': 'Ignoring stop-loss discipline',
+          'fit.not.4': 'Looking for guaranteed profits',
+          'quick.pill': 'Quick Start',
+          'quick.h2': 'Start in under 10 minutes.',
+          'quick.p': 'A simple checklist to go from setup to first structured review.',
+          'quick.1.h': '1) Open the chart setup',
+          'quick.1.p': 'Load KHAN STRUCTURE and select your market and timeframe.',
+          'quick.2.h': '2) Define HTF context',
+          'quick.2.p': 'Set directional bias first. Skip entries that fight the main context.',
+          'quick.3.h': '3) Wait for structure confirmation',
+          'quick.3.p': 'Only plan entries when structure and liquidity behavior align.',
+          'quick.4.h': '4) Execute with risk map',
+          'quick.4.p': 'Use the mapped entry, stop, and targets. Review and log your session.',
           'faq.pill': 'FAQ',
           'faq.h2': 'Common questions before you apply.',
-          'faq.p': 'Straight answers on access, pricing, payment, support, and expectations.',
+          'faq.p': 'Straight answers on access, payment, support, and expectations.',
           'faq.1.q': 'How long does access verification take?',
           'faq.1.a': 'Most payments are verified within 24 hours after on-chain confirmation.',
           'faq.2.q': 'What payment network should I use?',
@@ -1779,49 +1752,41 @@
           'faq.3.a': 'Yes, if you are willing to follow a process and risk rules with patience.',
           'faq.4.q': 'Do you guarantee profits?',
           'faq.4.a': 'No. This is an educational framework focused on disciplined execution.',
-          'faq.5.q': 'What happens when the TradingView invite script is full?',
-          'faq.5.a': 'TradingView invite script is capped at 100 users. MT5 EA license has no user cap.',
+          'faq.5.q': 'What happens when Pro is full?',
+          'faq.5.a': 'New applications go to a waitlist until a seat opens.',
           'faq.6.q': 'How do I get support?',
-          'faq.6.a': 'Use official Telegram channels listed below. Be careful of impersonator accounts.',
-          'faq.7.q': 'How much does each plan cost?',
-          'faq.7.a':
-            'Trading View invite script: $29/month. Meta Trader 5 EA: $39/month. Pay with USDT on BEP20.',
+          'faq.6.a': 'Use official Telegram channels listed below. Never trust impersonator accounts.',
           'support.pill': 'Support',
-          'support.h2': 'Official channels and support policy.',
-          'support.p': 'Use only official Instagram, Facebook, and Telegram channels for updates and support.',
+          'support.h2': 'Official links and support policy.',
+          'support.p': 'Use only official channels for payment submission, updates, and help.',
           'support.links.h': 'Official channels',
-          'support.links.p': 'Verify channel names and join only through official links.',
+          'support.links.p': 'Choose the channel that matches your language and purpose.',
           'support.policy.h': 'Support policy',
-          'support.policy.p': 'To keep onboarding and account safety clear, follow these rules:',
-          'support.policy.1': 'Requests are processed first-come, first-served after on-chain confirmation.',
-          'support.policy.2': 'Response target is within 24 business hours.',
-          'support.policy.3': 'Trust only links and wallet details shown on this page.',
-          'support.warn': 'Anti-scam: Admins never DM first for payment or wallet details.',
-          'support.cta': 'Open KHAN STRUCTURE MN',
+          'support.policy.p': 'For safe onboarding and account security, please follow these rules:',
+          'support.policy.1': 'Verification and access are handled in order of submission.',
+          'support.policy.2': 'Response target is within 24 hours on business days.',
+          'support.policy.3': 'Only trust links and wallet address shown on this page.',
+          'support.warn': 'Anti-scam notice: Admins will never DM first to ask for payment details.',
           'hero.tradingview': 'Open on TradingView <span class="tv-badge">LIVE</span>',
           'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
 
           'hero.chip': '⚡ Structured Smart Money Framework',
-          'hero.h1': '<span class="gradient-text">Trade with Structure.</span><br />Execute with discipline.',
+          'hero.h1': '<span class="gradient-text">Trade with structure.</span><br />Stay disciplined in execution.',
           'hero.sub':
-            'KHAN STRUCTURE helps define the broader higher-timeframe direction, then supports planned entries with calculated risk after confirmed signals.',
+            'KHAN STRUCTURE helps you define higher-timeframe context, wait for confirmation, and execute with a clear risk plan.',
           'hero.getAccess': 'View Pricing',
           'hero.seeFramework': 'How It Works',
           'hero.eaSuggest': 'See KHAN STRUCTURE EA',
           'hero.trust': 'Process-first logic • Real-time behavior matches backtest study • No repaint tricks',
-          'ea.pill': 'Core Logic',
-          'ea.h2': 'Shared core logic for TradingView and MT5 EA',
-          'ea.p':
-            'TradingView KHAN STRUCTURE script and MT5 EA run the same core flow: context -> confirmation -> entry/risk map, in live sessions without hindsight edits.',
+          'ea.pill': 'KHAN STRUCTURE EA',
+          'ea.h2': 'KHAN STRUCTURE EA package for MetaTrader 5 users.',
+          'ea.p': 'This is not an EA development proposal. These are KHAN STRUCTURE EA solutions offered for users to run.',
           'ea.card1.h': 'KHAN STRUCTURE Entry EA',
-          'ea.card1.p': 'Builds bias from HTF/LTF context, SR pivots, regime shift, and premium/discount location.',
-          'ea.card1.tag': 'TV + MT5',
+          'ea.card1.p': 'Places entry, stop-loss, and target by rule after higher-timeframe direction and structure confirmation.',
           'ea.card2.h': 'KHAN STRUCTURE Session EA',
-          'ea.card2.p': 'Entry is allowed only when confirmation aligns: structure, session window, volatility, and optional footprint flow.',
-          'ea.card2.tag': 'TV + MT5',
+          'ea.card2.p': 'Filters setups during London/New York sessions and executes only when confirmation is valid.',
           'ea.card3.h': 'KHAN STRUCTURE Risk EA',
-          'ea.card3.p': 'Risk map is fixed at entry with SL and TP1/TP2/TP3 staging, then managed by rules.',
-          'ea.card3.tag': 'TV + MT5',
+          'ea.card3.p': 'Calculates lot size by risk %, and manages break-even plus partial TP to protect discipline.',
 
           'metric.framework.k': 'Context',
           'metric.framework.v': 'HTF → LTF Alignment',
@@ -1834,43 +1799,49 @@
           'how.h2': 'A process you can follow every session.',
           'how.p': 'Define direction, wait for structure confirmation, then execute with a pre-mapped risk plan.',
 
-          'features.pill': 'Feature Matrix',
-          'features.h2': 'Capability map by platform',
-          'features.p': 'TV (TradingView), MT5 (MetaTrader 5)',
+          'features.pill': 'Core Features',
+          'features.h2': 'Built for clarity and discipline.',
+          'features.p': 'Designed to support decision quality, not signal chasing.',
 
-          'integrity.pill': 'Integrity',
-          'integrity.h2': 'What you see live should match backtest.',
-          'integrity.p': 'No hindsight edits. Same rules for live execution.',
+          'integrity.pill': 'Integrity First',
+          'integrity.h2': 'Transparent behavior in live markets.',
+          'integrity.p': 'What you study should match what you see in real time.',
 
           'cta.h3': 'Ready to start?',
-          'cta.p': 'Pro access is available now. Apply when you need structured alerts and advanced tools.',
-          'cta.viewLite': 'View Pro',
+          'cta.p': 'Start with Lite. Apply for Pro when you need structured alerts and advanced tools.',
+          'cta.viewLite': 'View Lite',
           'cta.applyPro': 'Apply for Pro',
 
           'community.pill': 'Community',
           'community.h2': 'Join the KHAN STRUCTURE channels',
           'community.p': 'Choose your language channel for alerts, discussion, and updates.',
 
-          'pay.pill': 'Payment',
-          'pay.h2': 'Choose your plan and pay',
+          // Pro / Paid
+          'pro.pill': 'Paid Pro Access',
+          'pro.h2': 'Limited seats. Quality first.',
+          'pro.p': 'KHAN STRUCTURE Pro is a paid framework for traders who want a structured, rules-based process.',
+          'pro.c1.h': 'What Pro includes',
+          'pro.c1.p':
+            'Advanced structure tools, detailed risk mapping, and structured alert workflows for serious execution.',
+          'pro.c2.h': 'Limited to 100 active members',
+          'pro.c2.p': 'Membership is capped to keep quality high. When full, new applications move to a waitlist.',
+          'pro.apply.h': 'Apply for Limited Pro Access',
+          'pro.apply.p': 'Applications are reviewed before approval.',
+          'pro.apply.btn': 'Contact Support',
 
           // USDT
           'usdt.h3': '💳 USDT Payment (BEP20 - BNB Smart Chain)',
           'usdt.p':
-            'One transfer address for both plans. Choose your plan amount and send via BEP20. Verification is manual within 24 hours.',
-          'usdt.plan.tv.h': 'Trading View KHAN STRUCTURE PRO v2 - Multi-Layer Smart Money Decision Engine — $29 / сар (USDT)',
-          'usdt.plan.tv.p': 'TradingView invite script. Limit: 100 users.',
-          'usdt.plan.mt5.h': 'KHAN STRUCTURE EA (MetaTrader 5) — $39 / сар (USDT)',
-          'usdt.plan.mt5.p': 'MetaTrader 5 EA license. Unlimited users.',
+            'Founder pricing: <strong>$39 / month (USDT)</strong><br/><span style="color:var(--gold); font-weight:700;">Limited to first 100 members</span><br/>Network: <strong>BEP20 (BNB Smart Chain)</strong><br/>Access is manually verified within 24 hours.',
           'usdt.wallet': 'Wallet Address:',
           'usdt.copy': 'Copy address',
           'usdt.copied': 'Copied',
           'usdt.submit': 'Submit on Telegram',
           'usdt.warn':
-            '⚠️ Send the exact amount for your selected plan: <strong>$29</strong> (TV) or <strong>$39</strong> (MT5 EA), using <strong>BEP20</strong> only.<br/>Using the wrong network can cause permanent loss.',
+            '⚠️ Send exactly <strong>$39 USDT</strong> using the <strong>BEP20</strong> network only.<br/>Using the wrong network can cause permanent loss.',
           'usdt.after.h': 'After payment, send:',
           'usdt.after.p':
-            '• Selected plan (Trading View invite script or Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
+            '• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
 
           'footer.tagline': 'Structure-first Smart Money Framework',
           'footer.disclaimer': 'Disclaimer: Educational use only. Not financial advice.',
@@ -1886,37 +1857,31 @@
           'steps.3.d': 'Use sweeps and reactions to filter weak setups.',
           'steps.4.n': 'STEP 04',
           'steps.4.t': 'Execute with risk map',
-          'steps.4.d': 'Each setup includes entry, stop-loss, and targets.',
+          'steps.4.d': 'Each setup includes entry, stop loss, and targets.',
 
-          'feat.1.h': 'Auto Trade (MT5 EA)',
-          'feat.1.p': 'MT5 EA supports rule-based auto trade execution (Ghost/Real/Both). TradingView side remains signal/alert driven.',
-          'feat.1.tag': 'MT5',
-          'feat.2.h': 'Auto Profile Engine',
-          'feat.2.p': 'Auto TF Profile and Asset Auto Resolver adapt parameters by timeframe and symbol type.',
-          'feat.2.tag': 'TV + MT5',
-          'feat.3.h': 'Pending Fill Modes',
-          'feat.3.p': 'Retest, LimitEQ, and MarketClose fill logic is supported in the execution engine.',
-          'feat.3.tag': 'TV + MT5',
-          'feat.4.h': 'Live Stats Board',
-          'feat.4.p': 'Displays MODE, T/W/L, WR, TP2|W, TP3|TP2, and RR(F/H/N) on-chart.',
-          'feat.4.tag': 'TV + MT5',
-          'feat.5.h': 'Context Status Panel',
-          'feat.5.p': 'Shows ACTIVE/PENDING, profile, side, RR NOW, PD, flow, and block reason in real time.',
-          'feat.5.tag': 'TV + MT5',
-          'feat.6.h': 'Alert Engine',
-          'feat.6.p': 'Bar-close alerts for ENTRY, TP1/TP2/TP3, and SL with symbol/side/price context.',
-          'feat.6.tag': 'TV + MT5',
+          'feat.1.h': 'Higher-timeframe context',
+          'feat.1.p': 'Stay aligned with the main market direction.',
+          'feat.2.h': 'Confirmed entries',
+          'feat.2.p': 'Signals appear after structure confirmation, not random volatility.',
+          'feat.3.h': 'Liquidity context',
+          'feat.3.p': 'Identify sweeps and reactions around key levels.',
+          'feat.4.h': 'Entry + SL + Targets',
+          'feat.4.p': 'A clear plan for disciplined trade management.',
+          'feat.5.h': 'Clean workflow',
+          'feat.5.p': 'Lite stays simple. Pro adds depth without noise.',
+          'feat.6.h': 'Process over prediction',
+          'feat.6.p': 'Focus on repeatable execution, not guessing.',
 
-          'int.1.h': 'Live = Backtest logic',
-          'int.1.p': 'Signals, entries, and risk maps use the same rules in live and backtest.',
-          'int.2.h': 'Context first, then entry',
-          'int.2.p': 'Risk is taken only after context and structure are confirmed.',
+          'int.1.h': 'Realtime = Backtest mindset',
+          'int.1.p': 'The same logic is intended for live execution and historical review.',
+          'int.2.h': 'Context first',
+          'int.2.p': 'Risk is taken only when context and structure align.',
           'pricing.title':
-            'Early Founders Access — TV Indicator $29 / month (100 active subscriptions), MT5 EA $39 / month (no seat cap). Billing is monthly. Cancel anytime.',
+            'Early Founders Access — $39 / month (Limited to 100 members. Billing is monthly. Cancel anytime.)',
         },
         mn: {
           'nav.how': 'Яаж ажиллах вэ',
-          'nav.features': 'EA + Онцлогууд',
+          'nav.features': 'Онцлогууд',
           'nav.reviews': 'Сэтгэгдэл',
           'nav.integrity': 'Итгэлцэл',
           'nav.pricing': 'Үнийн санал',
@@ -1930,6 +1895,10 @@
           'nav.apply': 'Хүсэлт илгээх',
           'nav.supportCta': 'Support руу орох',
           'nav.community': 'Нийгэмлэг',
+          'examples.card.btn2': 'Үнийг үзэх',
+          'examples.card.btn': 'TradingView нээх <span class="tv-badge">LIVE</span>',
+          'examples.card.p': 'Эхлээд TradingView дээр live chart-аа үзээрэй. Таарвал Pro хандалтад хүсэлт өгнө үү.',
+          'examples.card.h': 'Бүрэн framework хэрэгтэй юу?',
           'examples.fx.label': 'FX • 15м',
           'examples.btc.label': 'BTC • 15м',
           'examples.xau.label': 'XAU (Алт) • 15м',
@@ -1948,77 +1917,91 @@
           'rev.2.who': 'А. Бат — FX trader',
           'rev.3.q': '“Судалсан зүйл live дээр давхцаж харагддаг нь итгэлийг их нэмсэн.”',
           'rev.3.who': 'Н. Цэрэн — Gold trader',
-          'rev.4.q': '“Баталгаажуулалт хүлээдэг болсноор overtrade эрс багассан.”',
-          'rev.4.who': 'С. Номин — Index trader',
-          'rev.5.q': '“Session ба volatility шүүлтүүр сул setup-уудаас хол байлгасан.”',
-          'rev.5.who': 'Б. Тэмүүлэн — FX trader',
-          'rev.6.q': '“Risk map гарснаар гаралт сэтгэл хөдлөлгүй, дүрэмтэй болсон.”',
-          'rev.6.who': 'Т. Ган-Эрдэнэ — Crypto trader',
-          'fit.pill': 'Тохирох Эсэх',
-          'fit.h2': 'Таны trading хэв маягт тохирох эсэх',
-          'fit.p': 'Энэ framework нь дүрэмт execution, баталгаажуулалт, risk discipline-д суурилна.',
-          'fit.for.h': 'Тохиромжтой',
-          'fit.for.1': 'Дүрэмт процесс мөрддөг',
-          'fit.for.2': 'Risk удирдлагыг нэгд тавьдаг',
-          'fit.for.3': 'Баталгаажуулалт хүлээж чаддаг',
-          'fit.for.4': 'Тогтвортой гүйцэтгэлд төвлөрдөг',
-          'fit.not.h': 'Одоогоор тохиромжгүй',
-          'fit.not.1': 'Шууд win signal хүлээдэг',
-          'fit.not.2': 'Төлөвлөгөөгүй overtrade хийдэг',
-          'fit.not.3': 'Stop-loss сахилга мөрддөггүй',
-          'fit.not.4': 'Баталгаатай ашиг амласан шийдэл хайдаг',
+          'compare.pill': 'Lite vs Pro',
+          'compare.h2': 'Өөрийн workflow-д тохирох хувилбараа сонгоорой.',
+          'compare.p': 'Lite-оос энгийнээр эхлээд, илүү гүн хэрэгсэл хэрэгтэй үед Pro руу шилжинэ.',
+          'compare.lite.h': 'Lite (Нээлттэй)',
+          'compare.lite.p': 'Үндсэн процессыг ойлгож, chart контекстээ баталгаажуулахад тохиромжтой.',
+          'compare.lite.1': 'Үндсэн market structure харагдац',
+          'compare.lite.2': 'Хөнгөн, цэвэр интерфэйс',
+          'compare.lite.3': 'Manual execution workflow',
+          'compare.lite.4': 'Процессын дадалд тохиромжтой',
+          'compare.pro.h': 'Pro (Урилгатай)',
+          'compare.pro.p': 'Илүү гүн structure хэрэгсэл болон сахилга баттай гүйцэтгэл хүссэн трейдерүүдэд.',
+          'compare.pro.1': 'Нэмэлт structure модулиуд',
+          'compare.pro.2': 'Нарийвчилсан risk map ба target төлөвлөлт',
+          'compare.pro.3': 'Structured alert workflow',
+          'compare.pro.4': 'Шинэчлэлтийн priority хандалт',
+          'compare.pro.5': 'Нэгэн зэрэг 100 идэвхтэй гишүүн',
+          'fit.pill': 'Хэнд Тохирох Вэ',
+          'fit.h2': 'Эхнээсээ тод хүлээлттэй байя.',
+          'fit.p': 'Зөв хэрэглэгч зөв үнэ цэн авахад тусалж, буруу хүлээлтийг багасгана.',
+          'fit.for.h': 'Илүү тохиромжтой хэрэглэгч',
+          'fit.for.1': 'Дүрэмтэй, процесс дагаж trade хийдэг хүмүүс',
+          'fit.for.2': 'Хэт хөөрлөөс илүү risk удирдлагад төвлөрдөг хүмүүс',
+          'fit.for.3': 'Баталгаажуулалтыг хүлээж чаддаг хэрэглэгч',
+          'fit.for.4': 'Аз туршилт биш, тогтвортой гүйцэтгэл сайжруулах зорилготой хүмүүс',
+          'fit.not.h': 'Тохиромж муутай хэрэглэгч',
+          'fit.not.1': 'Шууд ашиг өгөх дохио хайдаг хэрэглэгч',
+          'fit.not.2': 'Төлөвлөгөөгүй overtrade хийдэг хүмүүс',
+          'fit.not.3': 'Stop-loss сахилгагүй хандлага',
+          'fit.not.4': 'Баталгаатай ашиг хайдаг хэрэглэгч',
+          'quick.pill': 'Quick Start',
+          'quick.h2': '10 минутын дотор эхлээрэй.',
+          'quick.p': 'Setup-ээс эхний бүтэцтэй review хүртэлх энгийн checklist.',
+          'quick.1.h': '1) Chart setup-аа нээх',
+          'quick.1.p': 'KHAN STRUCTURE-ээ ачаалаад market/timeframe-аа сонгоно.',
+          'quick.2.h': '2) HTF контекст тогтоох',
+          'quick.2.p': 'Эхлээд чиглэлээ тогтооно. Үндсэн урсгалын эсрэг оролтыг алгасна.',
+          'quick.3.h': '3) Structure баталгаажуулалт хүлээх',
+          'quick.3.p': 'Structure ба liquidity зан үйл давхцсан үед л оролт төлөвлөнө.',
+          'quick.4.h': '4) Risk map-тай гүйцэтгэх',
+          'quick.4.p': 'Entry, stop, target зураглалаа мөрдөж session review хийнэ.',
           'faq.pill': 'FAQ',
           'faq.h2': 'Хүсэлт өгөхөөс өмнөх түгээмэл асуултууд.',
-          'faq.p': 'Хандалт, үнэ, төлбөр, дэмжлэг, хүлээлтийн талаар товч хариултууд.',
+          'faq.p': 'Хандалт, төлбөр, support, хүлээлтийн талаар товч хариултууд.',
           'faq.1.q': 'Хандалтын баталгаажуулалт хэдий хугацаа авах вэ?',
           'faq.1.a': 'Ихэнх төлбөр on-chain баталгаажсаны дараа 24 цагийн дотор шалгагдана.',
           'faq.2.q': 'Ямар сүлжээгээр төлбөр хийх вэ?',
-          'faq.2.a': 'Зөвхөн BEP20 сүлжээгээр USDT илгээнэ. Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
+          'faq.2.a': 'Зөвхөн BEP20 сүлжээгээр USDT илгээнэ. Буруу сүлжээ ашиглавал алдагдал үүсч болно.',
           'faq.3.q': 'Анхан шатны хүмүүст тохирох уу?',
           'faq.3.a': 'Тийм. Гэхдээ процесс, эрсдэлийн дүрмээ сахиж ажиллах шаардлагатай.',
           'faq.4.q': 'Ашиг баталгаатай юу?',
           'faq.4.a': 'Үгүй. Энэ нь сахилга баттай гүйцэтгэлд чиглэсэн сургалтын framework.',
-          'faq.5.q': 'TradingView invite script дүүрвэл яах вэ?',
-          'faq.5.a': 'TradingView invite script нь 100 хэрэглэгчийн хязгаартай. Meta Trader 5 EA license нь хэрэглэгчийн тоонд хязгааргүй.',
-          'faq.6.q': 'Дэмжлэгээ хаанаас авах вэ?',
+          'faq.5.q': 'Pro дүүрвэл яах вэ?',
+          'faq.5.a': 'Шинэ хүсэлтүүд waiting list-д орж, сул суудал гарахад дарааллаар нээгдэнэ.',
+          'faq.6.q': 'Support-оо хаанаас авах вэ?',
           'faq.6.a': 'Доорх албан ёсны Telegram сувгуудыг ашиглана. Хуурамч аккаунтаас болгоомжил.',
-          'faq.7.q': 'Багц бүрийн үнэ хэд вэ?',
-          'faq.7.a': 'Trading View invite script: $29/сар. Meta Trader 5 EA: $39/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
-          'support.pill': 'Дэмжлэг',
-          'support.h2': 'Албан сувгууд ба дэмжлэгийн бодлого.',
-          'support.p': 'Шинэчлэлт, дэмжлэгээ зөвхөн албан Instagram, Facebook, Telegram сувгуудаас авна.',
-          'support.links.h': 'Албан сувгууд',
-          'support.links.p': 'Сувгийн нэрийг нягтлаад зөвхөн албан линкээр нэгдэнэ.',
-          'support.policy.h': 'Дэмжлэгийн бодлого',
-          'support.policy.p': 'Onboarding ба аккаунтын аюулгүй байдлын тулд дараах дүрмийг мөрдөнө:',
-          'support.policy.1': 'Хүсэлтүүд on-chain баталгаажсаны дараа ирсэн дарааллаар боловсруулагдана.',
-          'support.policy.2': 'Хариу өгөх зорилтот хугацаа ажлын 24 цаг.',
-          'support.policy.3': 'Зөвхөн энэ хуудсан дээрх линк болон хэтэвчийн мэдээлэлд итгэ.',
-          'support.warn': 'Anti-scam: Админууд төлбөр эсвэл wallet мэдээлэл нэхэж эхэлж DM бичихгүй.',
-          'support.cta': 'KHAN STRUCTURE MN \u0440\u0443\u0443 \u043e\u0440\u043e\u0445',
+          'support.pill': 'Support',
+          'support.h2': 'Албан ёсны линк ба support бодлого.',
+          'support.p': 'Төлбөр баталгаажуулалт, шинэчлэлт, тусламжийг зөвхөн албан сувгаар авна.',
+          'support.links.h': 'Албан ёсны сувгууд',
+          'support.links.p': 'Өөрийн хэл болон зорилгодоо тохирох сувгаа сонгоорой.',
+          'support.policy.h': 'Support бодлого',
+          'support.policy.p': 'Аюулгүй onboarding болон аккаунт хамгаалалтын үүднээс дараахыг мөрдөнө:',
+          'support.policy.1': 'Баталгаажуулалт ба хандалт нь ирсэн дарааллаар хийгдэнэ.',
+          'support.policy.2': 'Хариу өгөх зорилтот хугацаа ажлын өдөрт 24 цагийн дотор.',
+          'support.policy.3': 'Зөвхөн энэ хуудсан дээрх линк, хэтэвчийн хаягт итгэнэ.',
+          'support.warn': 'Anti-scam: Админууд төлбөр авах гэж эхэлж DM бичихгүй.',
           'hero.tradingview': 'TradingView дээр нээх <span class="tv-badge">LIVE</span>',
           'nav.tradingview': 'TradingView <span class="tv-badge">LIVE</span>',
           'hero.chip': '⚡ Төлөвлөгөөтэй Smart Money framework',
-          'hero.h1': '<span class="gradient-text">Structure-тай хамт trade хий.</span><br />Сахилга баттай гүйцэтгэ.',
+          'hero.h1': '<span class="gradient-text">Structure-тай trade хий.</span><br />Сахилга баттай гүйцэтгэ.',
           'hero.sub':
-            'KHAN STRUCTURE нь өндөр timeframe-ийн ерөнхий чиглэлийг тодорхойлж, баталгаажсан дохионы дараа эрсдэлийг тооцоолсон, төлөвлөгөөтэй оролт хийхэд тусална.',
+            'KHAN STRUCTURE нь өндөр timeframe-ийн чиглэлийг тодорхойлж, баталгаажуулалт хүлээгээд, эрсдэлийн зураглалтай ороход тусална.',
           'hero.getAccess': 'Үнийг үзэх',
           'hero.seeFramework': 'Процессыг үзэх',
           'hero.eaSuggest': 'KHAN STRUCTURE EA үзэх',
           'hero.trust': 'Процесс дээр төвлөрсөн • Бодит цагийн зан үйл = backtest ойлголт • Repaint, hindsight трикгүй',
-          'ea.pill': 'Core логик',
-          'ea.h2': 'TradingView ба MT5 EA-ийн нэгдсэн core логик',
-          'ea.p':
-            'TradingView KHAN STRUCTURE script ба MT5 EA нь context -> confirmation -> entry/risk map ижил core логикоор ажиллана. Бодит session дээр hindsight засваргүй.',
+          'ea.pill': 'KHAN STRUCTURE EA',
+          'ea.h2': 'MetaTrader 5 дээр ашиглах KHAN STRUCTURE EA багц.',
+          'ea.p': 'Энэ нь EA хөгжүүлэх санал биш. Хэрэглэгчдэд шууд ашиглуулахаар санал болгож буй KHAN STRUCTURE EA шийдлүүд.',
           'ea.card1.h': 'KHAN STRUCTURE Entry EA',
-          'ea.card1.p': 'HTF/LTF context, SR pivot, regime shift, premium/discount location дээр тулгуурлан чиглэл тогтооно.',
-          'ea.card1.tag': 'TV + MT5',
+          'ea.card1.p': 'HTF чиглэл ба structure баталгаажсан үед entry, stop-loss, target-ийг дүрмийн дагуу байршуулна.',
           'ea.card2.h': 'KHAN STRUCTURE Session EA',
-          'ea.card2.p': 'Entry нь structure, session window, volatility, мөн optional footprint flow давхцах үед л зөвшөөрөгдөнө.',
-          'ea.card2.tag': 'TV + MT5',
+          'ea.card2.p': 'London/New York session дээр setup-уудыг шүүж, баталгаатай үед л оролт хийнэ.',
           'ea.card3.h': 'KHAN STRUCTURE Risk EA',
-          'ea.card3.p': 'Risk map нь entry дээр SL, TP1/TP2/TP3 шатлалтайгаар тогтож, дараа нь дүрмээр удирдагдана.',
-          'ea.card3.tag': 'TV + MT5',
+          'ea.card3.p': 'Risk %-аар lot size тооцоолж, break-even болон partial TP-г удирдана.',
           'metric.framework.k': 'Контекст',
           'metric.framework.v': 'HTF → LTF уялдаа',
           'metric.execution.k': 'Гүйцэтгэл',
@@ -2027,74 +2010,73 @@
           'metric.integrity.v': 'Hindsight трикгүй',
           'how.pill': 'Процесс',
           'how.h2': 'Өдөр бүр дагаж болох энгийн процесс.',
-          'how.p': 'Эхлээд чиглэл тогтооно. Дараа нь structure-г баталгаажуулна. Эцэст нь risk map-аар гүйцэтгэнэ.',
-          'features.pill': 'Feature матриц',
-          'features.h2': 'Платформ тус бүрийн боломж',
-          'features.p': 'TV (TradingView), MT5 (MetaTrader 5)',
-          'integrity.pill': 'Ил тод байдал',
-          'integrity.h2': 'Live дээр харсан нь backtest-тэй нийцнэ.',
-          'integrity.p': 'Hindsight засваргүй. Нэг дүрмээр бодит гүйцэтгэлд ашиглана.',
+          'how.p': 'Эхлээд чиглэл тогтооно. Дараа нь structure баталгаажуулна. Эцэст нь risk map-тай гүйцэтгэнэ.',
+          'features.pill': 'Онцлогууд',
+          'features.h2': 'Тодорхой, сахилга баттай trade-д зориулсан.',
+          'features.p': 'Дохио хөөцөлдөх биш, шийдвэрийн чанарыг сайжруулахад төвлөрсөн.',
+          'integrity.pill': 'Итгэлцэл',
+          'integrity.h2': 'Бодит зах зээл дээр ил тод зан үйл.',
+          'integrity.p': 'Судалсантай чинь live дээр харж байгаа зүйл таарах ёстой.',
           'cta.h3': 'Эхлэхэд бэлэн үү?',
-          'cta.p': 'Одоогоор Pro хандалт нээлттэй. Structured alert ба advanced tools хэрэгтэй бол хүсэлт өг.',
-          'cta.viewLite': 'Pro үзэх',
+          'cta.p': 'Lite-оос эхэл. Илүү хэрэгсэл хэрэгтэй бол Pro-д хүсэлт өг.',
+          'cta.viewLite': 'Lite үзэх',
           'cta.applyPro': 'Pro хүсэлт өгөх',
           'community.pill': 'Нийгэмлэг',
           'community.h2': 'KHAN STRUCTURE сувгууд',
           'community.p': 'Өөрийн хэлний сувагт нэгдэж alert, хэлэлцүүлэг, шинэчлэлтээ аваарай.',
-          'pay.pill': 'Төлбөр',
-          'pay.h2': 'Багцаа сонгоод төлбөрөө хийнэ үү',
+          'pro.pill': 'Pro төлбөртэй хандалт',
+          'pro.h2': 'Хязгаарлагдмал суудал. Чанарт төвлөрнө.',
+          'pro.p':
+            'KHAN STRUCTURE Pro нь дүрэмтэй, бүтэцтэй trade хийх хүсэлтэй хүмүүст зориулсан төлбөртэй framework.',
+          'pro.c1.h': 'Pro-д юу багтах вэ',
+          'pro.c1.p': 'Нэмэлт structure хэрэгслүүд, нарийвчилсан risk map, structured alert workflow.',
+          'pro.c2.h': 'Нэгэн зэрэг 100 идэвхтэй гишүүн',
+          'pro.c2.p': 'Гишүүнчлэл 100-аар хязгаарлагдана. Дүүрсэн үед шинэ хүсэлтүүд waiting list-д орно.',
+          'pro.apply.h': 'Pro хандалтад хүсэлт өгөх',
+          'pro.apply.p': 'Бүх хүсэлтийг шалгаж баталгаажуулна.',
+          'pro.apply.btn': 'Support руу орох',
           'usdt.h3': '💳 USDT төлбөр (BEP20 - BNB Smart Chain)',
           'usdt.p':
-            'Сонгосон багцын дүнгээр BEP20 сүлжээгээр илгээнэ. Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
-          'usdt.plan.tv.h': 'Trading View KHAN STRUCTURE PRO v2 - Multi-Layer Smart Money Decision Engine — $29 / сар (USDT)',
-          'usdt.plan.tv.p': 'TradingView invite script. Хязгаар: 100 хэрэглэгч.',
-          'usdt.plan.mt5.h': 'KHAN STRUCTURE EA (MetaTrader 5) — $39 / сар (USDT)',
-          'usdt.plan.mt5.p': 'MetaTrader 5 EA license. Хэрэглэгчийн тоо хязгааргүй.',
+            'Founder үнэ: <strong>$39 / сар (USDT)</strong><br/><span style="color:var(--gold); font-weight:700;">Эхний 100 гишүүнд</span><br/>Сүлжээ: <strong>BEP20 (BNB Smart Chain)</strong><br/>Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
           'usdt.wallet': 'Хэтэвчийн хаяг:',
           'usdt.copy': 'Хаяг хуулах',
           'usdt.copied': 'Хуулагдлаа',
           'usdt.submit': 'Telegram-ээр илгээх',
           'usdt.warn':
-            '⚠️ Сонгосон багцын дүнг илгээнэ үү: <strong>$29</strong> (TradingView invite script) эсвэл <strong>$39</strong> (Meta Trader 5 EA), зөвхөн <strong>BEP20</strong> сүлжээгээр.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
+            '⚠️ Зөвхөн <strong>BEP20</strong> сүлжээгээр яг <strong>$39 USDT</strong> илгээнэ үү.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
           'usdt.after.h': 'Төлбөр хийсний дараа илгээх мэдээлэл:',
           'usdt.after.p':
-            '• Сонгосон багц (Trading View invite script эсвэл Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
+            '• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
           'footer.tagline': 'Контекстэд суурилсан Smart Money framework',
           'footer.disclaimer': 'Анхааруулга: Зөвхөн сургалтын зорилготой. Санхүүгийн зөвлөгөө биш.',
           'steps.1.n': 'АЛХАМ 01',
           'steps.1.t': 'Өндөр TF чиглэл тогтоох',
-          'steps.1.d': 'Оролт хайхаас өмнө үндсэн чиглэлээ тогтоо.',
+          'steps.1.d': 'Entry хайхаас өмнө үндсэн чиглэлээ тогтоо.',
           'steps.2.n': 'АЛХАМ 02',
           'steps.2.t': 'Баталгаажуулалт хүлээх',
-          'steps.2.d': 'Structure-г баталгаажсаны дараа л оролт хий.',
+          'steps.2.d': 'Structure баталгаажсаны дараа л оролт хий.',
           'steps.3.n': 'АЛХАМ 03',
           'steps.3.t': 'Ликвидитийн реакцыг унших',
           'steps.3.d': 'Sweep ба реакцаар сул setup-уудыг шүүнэ.',
           'steps.4.n': 'АЛХАМ 04',
           'steps.4.t': 'Risk map-тай гүйцэтгэх',
-          'steps.4.d': 'Setup бүр entry, stop-loss, target-тай байна.',
-          'feat.1.h': 'Auto Trade (MT5 EA)',
-          'feat.1.p': 'MT5 EA дээр дүрэмт auto trade execution (Ghost/Real/Both) ажиллана. TradingView тал нь signal/alert урсгалтай.',
-          'feat.1.tag': 'MT5',
-          'feat.2.h': 'Auto Profile Engine',
-          'feat.2.p': 'Auto TF Profile болон Asset Auto Resolver нь timeframe ба symbol төрлөөр параметрийг тааруулна.',
-          'feat.2.tag': 'TV + MT5',
-          'feat.3.h': 'Pending Fill горимууд',
-          'feat.3.p': 'Retest, LimitEQ, MarketClose fill логик нь execution engine дотор дэмжигдсэн.',
-          'feat.3.tag': 'TV + MT5',
-          'feat.4.h': 'Live Stats самбар',
-          'feat.4.p': 'Chart дээр MODE, T/W/L, WR, TP2|W, TP3|TP2, RR(F/H/N)-ийг шууд харуулна.',
-          'feat.4.tag': 'TV + MT5',
-          'feat.5.h': 'Context статус панел',
-          'feat.5.p': 'ACTIVE/PENDING, profile, side, RR NOW, PD, flow, block reason-ийг real-time харуулна.',
-          'feat.5.tag': 'TV + MT5',
-          'feat.6.h': 'Alert engine',
-          'feat.6.p': 'Bar-close дээр ENTRY, TP1/TP2/TP3, SL alert-ийг symbol/side/price мэдээлэлтэй илгээнэ.',
-          'feat.6.tag': 'TV + MT5',
-          'int.1.h': 'Ижил логик',
-          'int.1.p': 'Signal, entry, risk map нь live ба backtest-д ижил нөхцлөөр тооцогдоно.',
+          'steps.4.d': 'Setup бүр entry, stop loss, target-тай байна.',
+          'feat.1.h': 'Өндөр timeframe контекст',
+          'feat.1.p': 'Зах зээлийн үндсэн урсгалтай нийцүүлнэ.',
+          'feat.2.h': 'Баталгаатай entry',
+          'feat.2.p': 'Signal нь structure баталгаажсаны дараа гарна.',
+          'feat.3.h': 'Ликвидити контекст',
+          'feat.3.p': 'Чухал бүсийн sweep/реакцыг ялгаж харуулна.',
+          'feat.4.h': 'Entry + SL + Targets',
+          'feat.4.p': 'Гүйлгээг удирдах тодорхой зураглал.',
+          'feat.5.h': 'Цэвэр workflow',
+          'feat.5.p': 'Lite нь энгийн. Pro нь илүү гүн хэрэгслийг эмхтэй нэмнэ.',
+          'feat.6.h': 'Таамгаас илүү процесс',
+          'feat.6.p': 'Таамаглах биш, давтагдах гүйцэтгэлд төвлөрнө.',
+          'int.1.h': 'Бодит цаг = Backtest сэтгэлгээ',
+          'int.1.p': 'Live ба backtest-д ижил логик ашиглахаар зохиогдсон.',
           'int.2.h': 'Эхлээд контекст',
-          'int.2.p': 'Контекст ба structure батлагдсаны дараа л оролт хийдэг.',
+          'int.2.p': 'Контекст ба structure давхцсан үед л эрсдэл авна.',
           'nav.pro': 'Pro',
         },
       };
@@ -2223,59 +2205,16 @@
       const drawer = document.getElementById('drawer');
       const burger = document.getElementById('navBurger');
       const closeBtn = document.getElementById('drawerClose');
-      const drawerFocusableSelector = 'a[href], button:not([disabled])';
-      let drawerRestoreFocusEl = null;
-
-      function getDrawerFocusable() {
-        if (!drawer) return [];
-        return Array.from(drawer.querySelectorAll(drawerFocusableSelector)).filter((el) => {
-          if (!(el instanceof HTMLElement)) return false;
-          return !el.hasAttribute('disabled') && el.tabIndex !== -1;
-        });
-      }
-
-      function handleDrawerKeydown(e) {
-        if (!document.body.classList.contains('drawer-open')) return;
-
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          closeDrawer();
-          return;
-        }
-        if (e.key !== 'Tab') return;
-
-        const focusable = getDrawerFocusable();
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        const active = document.activeElement;
-
-        if (e.shiftKey && active === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && active === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
 
       function openDrawer() {
-        drawerRestoreFocusEl = document.activeElement instanceof HTMLElement ? document.activeElement : null;
         document.body.classList.add('drawer-open');
         drawer?.setAttribute('aria-hidden', 'false');
         burger?.setAttribute('aria-expanded', 'true');
-        document.addEventListener('keydown', handleDrawerKeydown);
-        const focusable = getDrawerFocusable();
-        (focusable[0] || closeBtn || burger)?.focus();
       }
       function closeDrawer() {
         document.body.classList.remove('drawer-open');
         drawer?.setAttribute('aria-hidden', 'true');
         burger?.setAttribute('aria-expanded', 'false');
-        document.removeEventListener('keydown', handleDrawerKeydown);
-        if (drawerRestoreFocusEl && typeof drawerRestoreFocusEl.focus === 'function') {
-          drawerRestoreFocusEl.focus();
-        }
       }
 
       burger?.addEventListener('click', () => {
@@ -2286,8 +2225,8 @@
       drawer?.addEventListener('click', (e) => {
         if (e.target === drawer) closeDrawer();
       });
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 980 && document.body.classList.contains('drawer-open')) closeDrawer();
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDrawer();
       });
       document.querySelectorAll('.drawer-links a').forEach((a) => a.addEventListener('click', closeDrawer));
       document.getElementById('langMN_m')?.addEventListener('click', () => {
@@ -2298,58 +2237,6 @@
         document.getElementById('langEN')?.click();
         closeDrawer();
       });
-
-      // --- Active section links ---
-      const navAnchors = Array.from(document.querySelectorAll('.nav-links a[href^="#"], .drawer-links a[href^="#"]'));
-      const navHashes = Array.from(
-        new Set(
-          navAnchors
-            .map((a) => a.getAttribute('href'))
-            .filter((href) => href && href.length > 1 && href.startsWith('#')),
-        ),
-      );
-      const navSections = navHashes.map((hash) => document.querySelector(hash)).filter(Boolean);
-
-      function setActiveNav(hash) {
-        navAnchors.forEach((a) => {
-          const isActive = a.getAttribute('href') === hash;
-          a.classList.toggle('is-active', isActive);
-          if (isActive) a.setAttribute('aria-current', 'location');
-          else a.removeAttribute('aria-current');
-        });
-      }
-
-      navAnchors.forEach((a) => {
-        a.addEventListener('click', () => {
-          const hash = a.getAttribute('href');
-          if (hash) setActiveNav(hash);
-        });
-      });
-
-      const initialHash = window.location.hash && navHashes.includes(window.location.hash) ? window.location.hash : '';
-      if (initialHash) setActiveNav(initialHash);
-
-      if ('IntersectionObserver' in window && navSections.length) {
-        const visibleSections = new Map();
-        const navObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const hash = `#${entry.target.id}`;
-              if (entry.isIntersecting) visibleSections.set(hash, entry.intersectionRatio);
-              else visibleSections.delete(hash);
-            });
-
-            if (!visibleSections.size) return;
-            const next = Array.from(visibleSections.entries()).sort((a, b) => b[1] - a[1])[0][0];
-            setActiveNav(next);
-          },
-          {
-            rootMargin: '-35% 0px -55% 0px',
-            threshold: [0.05, 0.2, 0.4, 0.6],
-          },
-        );
-        navSections.forEach((section) => navObserver.observe(section));
-      }
 
       // --- Reveal animations ---
       const revealTargets = Array.from(document.querySelectorAll('.card, .step, .metric, .cta, .section-head, .chip'));
@@ -2373,9 +2260,9 @@
     </script>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
-      <div class="frame">
-        <button class="x" id="lbClose" type="button" aria-label="Close preview">&#10005;</button>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="frame" role="dialog" aria-label="Image preview">
+        <div class="x" id="lbClose" aria-label="Close">✕</div>
         <img id="lbImg" src="" alt="Preview" />
       </div>
     </div>
@@ -2386,47 +2273,25 @@
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lbImg');
         const closeBtn = document.getElementById('lbClose');
-        let lightboxRestoreFocusEl = null;
 
-        const open = (src, triggerEl) => {
+        const open = (src) => {
           if (!lb || !lbImg) return;
-          lightboxRestoreFocusEl = triggerEl instanceof HTMLElement ? triggerEl : document.activeElement;
           lbImg.src = src;
           lb.classList.add('open');
           lb.setAttribute('aria-hidden', 'false');
-          closeBtn?.focus();
         };
         const close = () => {
           if (!lb || !lbImg) return;
           lb.classList.remove('open');
           lb.setAttribute('aria-hidden', 'true');
           lbImg.src = '';
-          if (lightboxRestoreFocusEl && typeof lightboxRestoreFocusEl.focus === 'function') {
-            lightboxRestoreFocusEl.focus();
-          }
         };
 
         // Click any .shot (or children) to open
         document.querySelectorAll('.shot').forEach((card) => {
-          if (!(card instanceof HTMLElement)) return;
-          card.setAttribute('role', 'button');
-          card.setAttribute('tabindex', '0');
-          const previewAlt = card.querySelector('img')?.getAttribute('alt');
-          if (previewAlt) {
-            card.setAttribute('aria-label', `Open ${previewAlt}`);
-          }
-
-          const openFromCard = () => {
+          card.addEventListener('click', () => {
             const src = card.getAttribute('data-src');
-            if (src) open(src, card);
-          };
-
-          card.addEventListener('click', openFromCard);
-          card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              openFromCard();
-            }
+            if (src) open(src);
           });
         });
 
@@ -2443,7 +2308,7 @@
 
     <!-- Scroll to top -->
     <button class="toTop" id="toTop" type="button" aria-label="Scroll to top" title="Top">
-      <span>&#8593;</span>
+      <span>↑</span>
     </button>
 
     <script>
@@ -2451,7 +2316,6 @@
       document.addEventListener('DOMContentLoaded', () => {
         const toTopBtn = document.getElementById('toTop');
         if (!toTopBtn) return;
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         const toggle = () => {
           const y = window.scrollY || document.documentElement.scrollTop || 0;
@@ -2463,10 +2327,9 @@
         window.addEventListener('scroll', toggle, { passive: true });
 
         toTopBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       });
     </script>
   </body>
 </html>
-
