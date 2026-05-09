@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бидний тухай — OUL Telecom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            oul: {
+              navy:   '#0F1141',
+              ink:    '#070827',
+              blue:   '#3D3F8C',
+              sky:    '#7DB7E4',
+              glow:   '#A8D4F0',
+              yellow: '#FFEC19',
+              sale:   '#E11D2E',
+              paper:  '#F7F8FB',
+              mist:   '#EDEFF5',
+              line:   '#D9DCE5',
+              slate:  '#5A607A',
+            }
+          },
+          fontFamily: {
+            display: ['"Oswald"', 'sans-serif'],
+            sans:    ['"Roboto"', 'system-ui', 'sans-serif'],
+          },
+          backgroundImage: {
+            'oul-gradient': 'linear-gradient(135deg, #0F1141 0%, #3D3F8C 50%, #7DB7E4 100%)',
+          },
+          maxWidth: { content: '1500px' },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Roboto', system-ui, sans-serif; background: #F7F8FB; color: #0F1141; }
+    .content-container { max-width: 1500px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+    @media (min-width: 1024px) { .content-container { padding-left: 2rem; padding-right: 2rem; } }
+  </style>
+</head>
+<body class="text-oul-navy">
+
+<!-- Demo banner -->
+<div class="bg-oul-yellow text-oul-navy text-center text-xs py-2 font-bold uppercase tracking-widest">
+  📋 Demo / Зөвхөн харуулах зориулалттай
+</div>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="bg-oul-ink text-white text-xs">
+  <div class="content-container py-2 flex items-center justify-between">
+    <div class="flex items-center gap-5">
+      <a class="flex items-center gap-1 hover:text-oul-yellow"><span>📞</span> 7000 9086</a>
+      <a class="hidden sm:flex items-center gap-1 hover:text-oul-yellow"><span>✉️</span> eshop@oultelecom.mn</a>
+    </div>
+    <div class="flex items-center gap-5">
+      <a class="hidden lg:inline text-oul-yellow font-semibold">Бидний тухай</a>
+      <a class="hidden lg:inline hover:text-oul-yellow">Байгууллагад</a>
+      <a class="hidden lg:inline hover:text-oul-yellow">Харьцуулах</a>
+      <a class="flex items-center gap-1 hover:text-oul-yellow">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        Сайн уу, хэрэглэгч
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="bg-white border-b border-oul-line">
+  <div class="content-container py-4 flex items-center gap-6">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-oul-gradient flex items-center justify-center">
+        <span class="font-display italic font-bold text-white">OL</span>
+      </div>
+      <div class="hidden sm:block leading-tight">
+        <div class="font-display italic font-bold text-xl lg:text-2xl text-oul-navy tracking-wide">OUL TELECOM</div>
+        <div class="text-[10px] text-oul-slate uppercase tracking-widest">Технологийн дэлгүүр</div>
+      </div>
+    </a>
+    <button class="hidden lg:flex items-center gap-2 bg-oul-navy text-white px-5 py-2.5 font-display uppercase text-sm rounded-md hover:bg-oul-blue transition">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+      БҮХ АНГИЛАЛ
+    </button>
+    <button class="flex-1 flex items-center gap-3 bg-oul-mist border border-oul-line rounded-md px-4 py-2.5 text-left hover:border-oul-blue transition">
+      <svg class="w-5 h-5 text-oul-slate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+      <span class="text-oul-slate text-sm flex-1">Бүтээгдэхүүн, ангилал, брэнд хайх ...</span>
+    </button>
+    <div class="flex items-center gap-4 lg:gap-6 ml-auto">
+      <a class="hidden lg:flex flex-col items-center text-xs text-oul-slate hover:text-oul-navy">
+        <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"/></svg>
+        Хадгалсан
+      </a>
+      <a class="font-semibold flex items-center gap-2 text-oul-navy">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        Сагс (0)
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ QUICK LINKS BAR ============ -->
+<nav class="bg-oul-mist border-b border-oul-line hidden lg:block">
+  <div class="content-container">
+    <ul class="flex items-center gap-1">
+      <li><a class="block px-4 py-3 text-sm font-medium text-oul-navy hover:text-oul-blue">🆕 Шинэ</a></li>
+      <li><a class="block px-4 py-3 text-sm font-medium text-oul-navy hover:text-oul-blue">Брэндүүд</a></li>
+      <li><a class="block px-4 py-3 text-sm font-bold text-oul-sale">🔥 ХЯМДРАЛ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden bg-oul-navy text-white">
+  <div class="absolute inset-0 bg-gradient-to-br from-oul-navy via-oul-blue/40 to-oul-navy"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_85%_30%,#FFEC19_0%,transparent_55%)] opacity-15"></div>
+  <div class="absolute inset-0 opacity-[0.08]" style="background-image: repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 14px);"></div>
+  <div class="relative content-container py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <span class="inline-block bg-oul-yellow text-oul-navy text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-4">Бидний тухай</span>
+      <h1 class="font-display italic font-bold uppercase text-4xl lg:text-6xl leading-tight mb-4">OUL Telecom LLC</h1>
+      <p class="text-lg lg:text-xl text-oul-glow leading-relaxed">
+        Хамтын хүч амжилт. Технологийн шийдлээр Монголын зах зээлд чанарыг эрхэмлэн үйлчилж байна.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="content-container -mt-10 mb-12 relative z-10">
+  <div class="bg-white border border-oul-line rounded-md shadow-lg grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-oul-line">
+    <div class="px-6 py-6 text-center">
+      <div class="font-display italic font-bold text-3xl lg:text-4xl text-oul-navy">10+</div>
+      <div class="text-xs text-oul-slate mt-1 uppercase tracking-wider">Жилийн туршлага</div>
+    </div>
+    <div class="px-6 py-6 text-center">
+      <div class="font-display italic font-bold text-3xl lg:text-4xl text-oul-navy">500+</div>
+      <div class="text-xs text-oul-slate mt-1 uppercase tracking-wider">Хамтран ажилладаг байгууллага</div>
+    </div>
+    <div class="px-6 py-6 text-center">
+      <div class="font-display italic font-bold text-3xl lg:text-4xl text-oul-navy">50+</div>
+      <div class="text-xs text-oul-slate mt-1 uppercase tracking-wider">Албан ёсны брэнд түнш</div>
+    </div>
+    <div class="px-6 py-6 text-center">
+      <div class="font-display italic font-bold text-3xl lg:text-4xl text-oul-navy">24/7</div>
+      <div class="text-xs text-oul-slate mt-1 uppercase tracking-wider">Үйлчилгээ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION / VISION ============ -->
+<section class="content-container my-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="border-l-4 border-oul-yellow pl-6">
+      <h2 class="font-display italic font-bold uppercase text-xs tracking-widest text-oul-blue mb-2">Алсын хараа</h2>
+      <p class="font-display italic font-bold uppercase text-2xl lg:text-3xl text-oul-navy leading-tight">
+        Технологийн шийдлээр Монголын бизнесийг олон улсын түвшинд хүргэнэ.
+      </p>
+    </div>
+    <div class="border-l-4 border-oul-navy pl-6">
+      <h2 class="font-display italic font-bold uppercase text-xs tracking-widest text-oul-blue mb-2">Эрхэм зорилго</h2>
+      <p class="font-display italic font-bold uppercase text-2xl lg:text-3xl text-oul-navy leading-tight">
+        Чанартай, баталгаатай, хямд бүтээгдэхүүн үйлчилгээгээр хэрэглэгчдэд үнэ цэнэ нэмэгдүүлэх.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES ============ -->
+<section class="bg-oul-mist py-16">
+  <div class="content-container">
+    <div class="text-center mb-10">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-oul-blue mb-2">Үнэ цэнэ</span>
+      <h2 class="font-display italic font-bold uppercase text-3xl text-oul-navy">Биднийг тодорхойлох зүйлс</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white border border-oul-line rounded-md p-6 hover:shadow-lg transition">
+        <div class="text-4xl mb-3">🛡️</div>
+        <h3 class="font-display italic font-bold uppercase text-lg text-oul-navy mb-2">Чанар</h3>
+        <p class="text-sm text-oul-slate leading-relaxed">Зөвхөн албан ёсны баталгаатай, эх үйлдвэрлэгчээс шууд импортолсон бараа.</p>
+      </div>
+      <div class="bg-white border border-oul-line rounded-md p-6 hover:shadow-lg transition">
+        <div class="text-4xl mb-3">🤝</div>
+        <h3 class="font-display italic font-bold uppercase text-lg text-oul-navy mb-2">Хамтын хүч</h3>
+        <p class="text-sm text-oul-slate leading-relaxed">Хэрэглэгч, түнш, ажилтан гурвалсан үнэ цэнэт харилцаа.</p>
+      </div>
+      <div class="bg-white border border-oul-line rounded-md p-6 hover:shadow-lg transition">
+        <div class="text-4xl mb-3">⚡</div>
+        <h3 class="font-display italic font-bold uppercase text-lg text-oul-navy mb-2">Технологи</h3>
+        <p class="text-sm text-oul-slate leading-relaxed">Шинэ технологийг Монголын зах зээлд хамгийн түрүүнд нэвтрүүлнэ.</p>
+      </div>
+      <div class="bg-white border border-oul-line rounded-md p-6 hover:shadow-lg transition">
+        <div class="text-4xl mb-3">🎯</div>
+        <h3 class="font-display italic font-bold uppercase text-lg text-oul-navy mb-2">Найдвартай</h3>
+        <p class="text-sm text-oul-slate leading-relaxed">Хүлээлгэн өгсөн зүйлээ цаг хугацаандаа, бүрэн биелүүлнэ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="content-container my-16">
+  <div class="text-center mb-10">
+    <span class="inline-block text-xs font-bold uppercase tracking-widest text-oul-blue mb-2">Түүхэн замнал</span>
+    <h2 class="font-display italic font-bold uppercase text-3xl text-oul-navy">Бидний хөгжлийн зам</h2>
+  </div>
+  <ol class="relative border-l-2 border-oul-line ml-4 md:ml-8 space-y-8 max-w-3xl">
+    <li class="ml-6 relative">
+      <span class="absolute -left-[35px] w-5 h-5 bg-oul-yellow border-4 border-white rounded-full"></span>
+      <div class="text-xs font-bold uppercase tracking-wider text-oul-blue">20XX</div>
+      <h3 class="font-display italic font-bold text-xl text-oul-navy mt-1">Үүсгэн байгуулагдсан</h3>
+      <p class="text-sm text-oul-slate mt-1 leading-relaxed">OUL Telecom LLC үүсгэн байгуулагдаж, Улаанбаатар хотноо үйл ажиллагаагаа эхэлсэн.</p>
+    </li>
+    <li class="ml-6 relative">
+      <span class="absolute -left-[35px] w-5 h-5 bg-oul-yellow border-4 border-white rounded-full"></span>
+      <div class="text-xs font-bold uppercase tracking-wider text-oul-blue">20XX</div>
+      <h3 class="font-display italic font-bold text-xl text-oul-navy mt-1">Олон улсын түншлэл</h3>
+      <p class="text-sm text-oul-slate mt-1 leading-relaxed">Hikvision, Microsoft, Kaspersky зэрэг олон улсын тэргүүлэгч брэндүүдтэй албан ёсны түншлэл.</p>
+    </li>
+    <li class="ml-6 relative">
+      <span class="absolute -left-[35px] w-5 h-5 bg-oul-yellow border-4 border-white rounded-full"></span>
+      <div class="text-xs font-bold uppercase tracking-wider text-oul-blue">20XX</div>
+      <h3 class="font-display italic font-bold text-xl text-oul-navy mt-1">Шинэ салбар нээлттэй</h3>
+      <p class="text-sm text-oul-slate mt-1 leading-relaxed">Үйлчилгээний шинэ салбар, мэргэжлийн борлуулалтын хэлтэс байгуулсан.</p>
+    </li>
+    <li class="ml-6 relative">
+      <span class="absolute -left-[35px] w-5 h-5 bg-oul-yellow border-4 border-white rounded-full"></span>
+      <div class="text-xs font-bold uppercase tracking-wider text-oul-blue">20XX</div>
+      <h3 class="font-display italic font-bold text-xl text-oul-navy mt-1">Цахим худалдаа</h3>
+      <p class="text-sm text-oul-slate mt-1 leading-relaxed">OUL Telecom онлайн дэлгүүр нээгдэж, хэрэглэгчдэд хүргэлтийн үйлчилгээ үзүүлж эхэлсэн.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="bg-oul-mist py-16">
+  <div class="content-container">
+    <div class="text-center mb-10">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-oul-blue mb-2">Манай баг</span>
+      <h2 class="font-display italic font-bold uppercase text-3xl text-oul-navy mb-2">Технологийн мэргэжилтнүүд</h2>
+      <p class="text-sm text-oul-slate max-w-xl mx-auto">
+        Туршлагатай инженер, борлуулагч, мэргэжилтний бүрэлдэхүүнтэй баг таны асуудлыг шийдвэрлэхэд бэлэн.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white border border-oul-line rounded-md p-5 text-center">
+        <div class="w-20 h-20 rounded-full bg-oul-mist mx-auto mb-3 flex items-center justify-center text-3xl text-oul-slate">👤</div>
+        <div class="font-semibold text-oul-navy">— Овог Нэр —</div>
+        <div class="text-xs text-oul-slate mt-1">— Албан тушаал —</div>
+      </div>
+      <div class="bg-white border border-oul-line rounded-md p-5 text-center">
+        <div class="w-20 h-20 rounded-full bg-oul-mist mx-auto mb-3 flex items-center justify-center text-3xl text-oul-slate">👤</div>
+        <div class="font-semibold text-oul-navy">— Овог Нэр —</div>
+        <div class="text-xs text-oul-slate mt-1">— Албан тушаал —</div>
+      </div>
+      <div class="bg-white border border-oul-line rounded-md p-5 text-center">
+        <div class="w-20 h-20 rounded-full bg-oul-mist mx-auto mb-3 flex items-center justify-center text-3xl text-oul-slate">👤</div>
+        <div class="font-semibold text-oul-navy">— Овог Нэр —</div>
+        <div class="text-xs text-oul-slate mt-1">— Албан тушаал —</div>
+      </div>
+      <div class="bg-white border border-oul-line rounded-md p-5 text-center">
+        <div class="w-20 h-20 rounded-full bg-oul-mist mx-auto mb-3 flex items-center justify-center text-3xl text-oul-slate">👤</div>
+        <div class="font-semibold text-oul-navy">— Овог Нэр —</div>
+        <div class="text-xs text-oul-slate mt-1">— Албан тушаал —</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT CTA ============ -->
+<section class="content-container my-16">
+  <div class="bg-oul-navy text-white rounded-md overflow-hidden relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-oul-navy via-oul-blue/30 to-oul-navy"></div>
+    <div class="relative px-6 md:px-10 py-10 md:py-12 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
+      <div>
+        <h2 class="font-display italic font-bold uppercase text-2xl md:text-3xl mb-2">Хамтран ажиллахаар бэлэн үү?</h2>
+        <p class="text-oul-glow">Бидэнтэй холбогдож, бизнестээ зориулсан тусгай саналаа авч үзээрэй.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a class="bg-oul-yellow text-oul-navy font-bold uppercase tracking-wider px-6 py-3 rounded hover:bg-white transition whitespace-nowrap cursor-pointer">B2B үнийн санал</a>
+        <a href="tel:+97670009086" class="border-2 border-white text-white font-bold uppercase tracking-wider px-6 py-3 rounded hover:bg-white hover:text-oul-navy transition whitespace-nowrap">7000 9086</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-oul-navy text-white mt-16">
+  <div class="border-b border-oul-blue/40">
+    <div class="content-container py-8">
+      <div class="max-w-4xl mx-auto bg-oul-blue/20 border border-oul-blue/60 rounded-md px-7 py-6">
+        <div class="grid grid-cols-1 md:grid-cols-[auto_1fr_minmax(0,420px)] items-center gap-6">
+          <div class="hidden md:flex w-12 h-12 rounded-full bg-oul-yellow/20 border border-oul-yellow/50 items-center justify-center text-oul-yellow">✉️</div>
+          <div>
+            <h3 class="font-display italic font-bold uppercase text-base text-oul-yellow tracking-widest">Шинэ санал хүлээн авах</h3>
+            <p class="text-sm text-oul-glow mt-0.5">Хямдрал, шинэ бараа, онцгой саналыг түрүүнд имэйлээр.</p>
+          </div>
+          <form class="flex items-stretch gap-2 w-full" onsubmit="event.preventDefault(); alert('Демо: ' + this.email.value);">
+            <input name="email" type="email" required placeholder="example@email.com" class="flex-1 min-w-0 px-3 py-2.5 rounded text-sm bg-white text-oul-navy outline-none border-2 border-transparent focus:border-oul-yellow"/>
+            <button class="bg-oul-yellow text-oul-navy font-bold uppercase tracking-wider text-sm px-4 py-2.5 rounded hover:bg-white transition whitespace-nowrap">Бүртгүүлэх</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-container py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div>
+      <a href="index.html" class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-oul-gradient flex items-center justify-center"><span class="font-display italic font-bold text-white text-xl">OL</span></div>
+        <div class="font-display italic font-bold text-xl">OUL TELECOM LLC</div>
+      </a>
+      <p class="text-sm text-oul-glow leading-relaxed">Хамтын хүч амжилт. Технологийн шийдлээр Монголын зах зээлд чанарыг эрхэмлэн үйлчилнэ.</p>
+      <div class="flex gap-3 mt-5">
+        <a class="w-9 h-9 bg-oul-blue rounded-full flex items-center justify-center hover:bg-oul-yellow hover:text-oul-navy transition cursor-pointer"><span class="text-sm font-bold">f</span></a>
+        <a class="w-9 h-9 bg-oul-blue rounded-full flex items-center justify-center hover:bg-oul-yellow hover:text-oul-navy transition cursor-pointer"><span class="text-sm font-bold">in</span></a>
+        <a class="w-9 h-9 bg-oul-blue rounded-full flex items-center justify-center hover:bg-oul-yellow hover:text-oul-navy transition cursor-pointer"><span class="text-sm font-bold">▶</span></a>
+        <a class="w-9 h-9 bg-oul-blue rounded-full flex items-center justify-center hover:bg-oul-yellow hover:text-oul-navy transition cursor-pointer"><span class="text-sm font-bold">@</span></a>
+      </div>
+    </div>
+    <div>
+      <h3 class="font-display italic font-bold uppercase text-sm mb-4 text-oul-yellow">Ангилал</h3>
+      <ul class="space-y-2 text-sm text-oul-glow">
+        <li><a class="hover:text-white cursor-pointer">Компьютер</a></li>
+        <li><a class="hover:text-white cursor-pointer">Принтер</a></li>
+        <li><a class="hover:text-white cursor-pointer">Гар утас, Таблет</a></li>
+        <li><a class="hover:text-white cursor-pointer">Сүлжээний төхөөрөмж</a></li>
+        <li><a class="hover:text-white cursor-pointer">Хяналтын камер</a></li>
+        <li><a class="hover:text-white cursor-pointer">Аудио</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-display italic font-bold uppercase text-sm mb-4 text-oul-yellow">Үйлчилгээ</h3>
+      <ul class="space-y-2 text-sm text-oul-glow">
+        <li><a class="hover:text-white cursor-pointer">Бидний тухай</a></li>
+        <li><a class="hover:text-white cursor-pointer">Байгууллагад (B2B)</a></li>
+        <li><a class="hover:text-white cursor-pointer">Бараа харьцуулах</a></li>
+        <li><a class="hover:text-white cursor-pointer">Хадгалсан бараа</a></li>
+        <li><a class="hover:text-white cursor-pointer">Үйлчилгээний нөхцөл</a></li>
+        <li><a class="hover:text-white cursor-pointer">Хүргэлтийн нөхцөл</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-display italic font-bold uppercase text-sm mb-4 text-oul-yellow">Холбоо барих</h3>
+      <ul class="space-y-3 text-sm text-oul-glow">
+        <li class="flex items-start gap-2"><span>📍</span><span>Улаанбаатар хот, СБД, Их сургуулийн гудамж...</span></li>
+        <li class="flex items-center gap-2"><span>📞</span><a class="hover:text-white">7000 9086</a></li>
+        <li class="flex items-center gap-2"><span>✉️</span><a class="hover:text-white">eshop@oultelecom.mn</a></li>
+        <li class="flex items-center gap-2"><span>🕒</span><span>Даваа-Бямба: 09:00 - 20:00</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-oul-blue/40">
+    <div class="content-container py-5 text-center text-xs text-oul-glow">
+      © 2026 OUL Telecom LLC. Бүх эрх хуулиар хамгаалагдсан.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
