@@ -28,7 +28,7 @@
     <meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
 
     <meta name="theme-color" content="#0a0e14" />
-    <link rel="canonical" id="canonicalLink" href="https://khanstructure.com/" />
+    <link rel="canonical" href="https://khanstructure.com/" />
     <link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
     <link rel="alternate" hreflang="mn" href="https://khanstructure.com/?lang=mn" />
 
@@ -1704,7 +1704,7 @@
             <img
               class="cover"
               src="khan_sniper_cover.jpg"
-              alt=""
+              alt="KHAN STRUCTURE — KhanSniperPro indicator on TradingView showing trend-flip entry, HTF confluence, and TP1–TP4 ladder on XAU"
               width="1600"
               height="1066"
               fetchpriority="high"
@@ -2185,7 +2185,7 @@
         <div class="pricing-grid">
           <article class="plan-card">
             <div class="plan-name" data-i18n="plan.lite.name">TradingView · Lite</div>
-            <div class="plan-headline" data-i18n="plan.lite.head">KhanSniper Lite</div>
+            <h3 class="plan-headline" data-i18n="plan.lite.head">KhanSniper Lite</h3>
             <div class="plan-price">
               <span class="num">$15</span>
               <span class="per" data-i18n="plan.per">/ month</span>
@@ -2207,7 +2207,7 @@
           <article class="plan-card featured">
             <div class="plan-popular" data-i18n="plan.popular">Most popular</div>
             <div class="plan-name" data-i18n="plan.pro.name">TradingView · Pro</div>
-            <div class="plan-headline" data-i18n="plan.pro.head">KhanSniper Pro + Real Boost</div>
+            <h3 class="plan-headline" data-i18n="plan.pro.head">KhanSniper Pro + Real Boost</h3>
             <div class="plan-price">
               <span class="num">$20</span>
               <span class="per" data-i18n="plan.per">/ month</span>
@@ -2230,7 +2230,7 @@
           <article class="plan-card beta">
             <div class="plan-beta-badge" data-i18n="plan.ea.badge">Beta · Demo</div>
             <div class="plan-name" data-i18n="plan.ea.name">MetaTrader 5 EA</div>
-            <div class="plan-headline" data-i18n="plan.ea.head">Real Boost EA</div>
+            <h3 class="plan-headline" data-i18n="plan.ea.head">Real Boost EA</h3>
             <div class="plan-price">
               <span class="num" data-i18n="plan.ea.price">TBD</span>
               <span class="per" data-i18n="plan.ea.per">price after beta</span>
@@ -2267,7 +2267,7 @@
             <div>
               <img
                 src="usdt_qr.png"
-                alt="USDT QR"
+                alt="USDT BEP20 wallet QR code for KHAN STRUCTURE subscription payment"
                 loading="lazy"
                 decoding="async"
                 width="115"
@@ -3170,19 +3170,10 @@
           }
         }
 
-        // Self-referencing canonical: match current URL so each language
-        // version is its own canonical (resolves Lighthouse canonical-vs-hreflang flag).
-        try {
-          const canon = document.getElementById('canonicalLink');
-          if (canon) {
-            const cur = new URL(window.location.href);
-            const lang = cur.searchParams.get('lang');
-            const base = 'https://khanstructure.com/';
-            canon.setAttribute('href', lang === 'mn' ? base + '?lang=mn' : base);
-          }
-        } catch (e) {
-          /* ignore */
-        }
+        // Note: canonical stays static at the master URL so that it does NOT
+        // match any hreflang alternate (Lighthouse audit fails when canonical
+        // equals an hreflang location). Google consolidates ?lang=mn into the
+        // canonical via hreflang hints — this is the recommended pattern.
 
         // Button states
         const mnBtn = document.getElementById('langMN');
