@@ -8,16 +8,6 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
     <xhtml:link rel="alternate" hreflang="mn" href="https://khanstructure.com/?lang=mn" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://khanstructure.com/" />
-  </url>
-  <url>
-    <loc>https://khanstructure.com/?lang=en</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="mn" href="https://khanstructure.com/?lang=mn" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://khanstructure.com/" />
   </url>
   <url>
     <loc>https://khanstructure.com/?lang=mn</loc>
@@ -26,6 +16,17 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
     <xhtml:link rel="alternate" hreflang="mn" href="https://khanstructure.com/?lang=mn" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://khanstructure.com/" />
+  </url>
+  <url>
+    <loc>https://khanstructure.com/privacy.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/terms.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

@@ -28,10 +28,9 @@
     <meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
 
     <meta name="theme-color" content="#0a0e14" />
-    <link rel="canonical" href="https://khanstructure.com/" />
+    <link rel="canonical" id="canonicalLink" href="https://khanstructure.com/" />
     <link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
     <link rel="alternate" hreflang="mn" href="https://khanstructure.com/?lang=mn" />
-    <link rel="alternate" hreflang="x-default" href="https://khanstructure.com/" />
 
     <!-- Icons / favicons -->
     <link rel="icon" type="image/png" sizes="any" href="khan_logo_transparent.png" />
@@ -3169,6 +3168,20 @@
           } catch (e) {
             /* ignore */
           }
+        }
+
+        // Self-referencing canonical: match current URL so each language
+        // version is its own canonical (resolves Lighthouse canonical-vs-hreflang flag).
+        try {
+          const canon = document.getElementById('canonicalLink');
+          if (canon) {
+            const cur = new URL(window.location.href);
+            const lang = cur.searchParams.get('lang');
+            const base = 'https://khanstructure.com/';
+            canon.setAttribute('href', lang === 'mn' ? base + '?lang=mn' : base);
+          }
+        } catch (e) {
+          /* ignore */
         }
 
         // Button states
