@@ -43,12 +43,12 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "TradingView Pro — Trend Flip Engine",
-          "price": "29.00",
+          "name": "KhanSniper Lite — TradingView",
+          "price": "15.00",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "29.00",
+            "price": "15.00",
             "priceCurrency": "USD",
             "billingDuration": "P1M",
             "billingIncrement": 1,
@@ -60,18 +60,25 @@
         },
         {
           "@type": "Offer",
-          "name": "MT5 EA — Real Boost Pack",
-          "price": "39.00",
+          "name": "KhanSniper Pro + Real Boost — TradingView",
+          "price": "20.00",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "39.00",
+            "price": "20.00",
             "priceCurrency": "USD",
             "billingDuration": "P1M",
             "billingIncrement": 1,
             "unitCode": "MON"
           },
-          "availability": "https://schema.org/InStock",
+          "availability": "https://schema.org/LimitedAvailability",
+          "inventoryLevel": { "@type": "QuantitativeValue", "value": 100 },
+          "url": "https://khanstructure.trade/#pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "MT5 EA — Real Boost (Beta)",
+          "availability": "https://schema.org/PreOrder",
           "url": "https://khanstructure.trade/#pricing"
         }
       ]
@@ -120,7 +127,7 @@
         {
           "@type": "Question",
           "name": "How much does each plan cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "TradingView invite script: $29/month. MT5 EA: $39/month. Pay with USDT on BEP20." }
+          "acceptedAnswer": { "@type": "Answer", "text": "KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. MT5 EA Real Boost is currently in beta — pricing announced after live testing. Pay with USDT on BEP20." }
         },
         {
           "@type": "Question",
@@ -133,16 +140,20 @@
 
     <style>
       :root {
-        --bg: #070a12;
-        --bg2: #0b0f22;
-        --text: rgba(255, 255, 255, 0.92);
-        --muted: rgba(255, 255, 255, 0.7);
-        --muted2: rgba(255, 255, 255, 0.66);
-        --gold: #f2c14e;
-        --purple: #7b3ff2;
-        --purple2: #b36bff;
-        --line: rgba(255, 255, 255, 0.12);
-        --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+        --bg: #0a0e14;
+        --bg2: #0d1218;
+        --text: rgba(255, 255, 255, 0.94);
+        --muted: rgba(255, 255, 255, 0.72);
+        --muted2: rgba(255, 255, 255, 0.62);
+        --gold: #ff9c1a;          /* Bloomberg amber */
+        --purple: #d97706;        /* deep amber (legacy var name) */
+        --purple2: #ffc266;       /* light amber for metallic gradient */
+        --slate: #1f2937;
+        --slate2: #334155;
+        --success: #00d18f;
+        --danger: #f6465d;
+        --line: rgba(255, 255, 255, 0.10);
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
         --radius: 20px;
         --radius2: 28px;
         --max: 1120px;
@@ -173,9 +184,9 @@
           'Segoe UI Emoji';
         color: var(--text);
         background:
-          radial-gradient(1200px 700px at 20% 10%, rgba(123, 63, 242, 0.32), transparent 60%),
-          radial-gradient(900px 520px at 90% 20%, rgba(242, 193, 78, 0.16), transparent 55%),
-          radial-gradient(900px 520px at 60% 100%, rgba(179, 107, 255, 0.18), transparent 55%),
+          radial-gradient(1200px 700px at 20% 10%, rgba(31, 41, 55, 0.32), transparent 60%),
+          radial-gradient(900px 520px at 90% 20%, rgba(255, 156, 26, 0.16), transparent 55%),
+          radial-gradient(900px 520px at 60% 100%, rgba(74, 98, 128, 0.18), transparent 55%),
           linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
         overflow-x: hidden;
         color-scheme: dark;
@@ -187,7 +198,7 @@
       a:focus-visible,
       button:focus-visible,
       .shot:focus-visible {
-        outline: 2px solid rgba(242, 193, 78, 0.95);
+        outline: 2px solid rgba(255, 156, 26, 0.95);
         outline-offset: 3px;
       }
       .skip-link {
@@ -198,7 +209,7 @@
         transform: translateY(-180%);
         padding: 10px 12px;
         border-radius: 12px;
-        border: 1px solid rgba(242, 193, 78, 0.45);
+        border: 1px solid rgba(255, 156, 26, 0.45);
         background: rgba(7, 10, 18, 0.95);
         color: rgba(255, 255, 255, 0.94);
         font-weight: 750;
@@ -270,8 +281,8 @@
       .nav-links a.is-active,
       .drawer-links a.is-active {
         color: var(--text);
-        border-color: rgba(242, 193, 78, 0.34);
-        background: rgba(242, 193, 78, 0.12);
+        border-color: rgba(255, 156, 26, 0.34);
+        background: rgba(255, 156, 26, 0.12);
       }
 
       .nav-cta {
@@ -306,22 +317,22 @@
         border-color: rgba(255, 255, 255, 0.18);
       }
       .btn-primary {
-        border: 1px solid rgba(242, 193, 78, 0.45);
-        background: linear-gradient(180deg, rgba(242, 193, 78, 0.26) 0%, rgba(123, 63, 242, 0.18) 100%);
-        box-shadow: 0 16px 40px rgba(123, 63, 242, 0.18);
+        border: 1px solid rgba(255, 156, 26, 0.45);
+        background: linear-gradient(180deg, rgba(255, 156, 26, 0.26) 0%, rgba(31, 41, 55, 0.18) 100%);
+        box-shadow: 0 16px 40px rgba(31, 41, 55, 0.18);
       }
       .btn-primary:hover {
-        border-color: rgba(242, 193, 78, 0.72);
+        border-color: rgba(255, 156, 26, 0.72);
       }
 
       /* TradingView highlight CTA */
       .btn-tv {
-        border: 1px solid rgba(179, 107, 255, 0.55);
-        background: linear-gradient(180deg, rgba(179, 107, 255, 0.22) 0%, rgba(242, 193, 78, 0.16) 100%);
-        box-shadow: 0 18px 46px rgba(179, 107, 255, 0.18);
+        border: 1px solid rgba(74, 98, 128, 0.55);
+        background: linear-gradient(180deg, rgba(74, 98, 128, 0.22) 0%, rgba(255, 156, 26, 0.16) 100%);
+        box-shadow: 0 18px 46px rgba(74, 98, 128, 0.18);
       }
       .btn-tv:hover {
-        border-color: rgba(179, 107, 255, 0.82);
+        border-color: rgba(74, 98, 128, 0.82);
       }
 
       .btn-tv .tv-badge {
@@ -398,8 +409,8 @@
         width: 8px;
         height: 8px;
         border-radius: 99px;
-        background: rgba(242, 193, 78, 0.88);
-        box-shadow: 0 0 22px rgba(242, 193, 78, 0.55);
+        background: rgba(255, 156, 26, 0.88);
+        box-shadow: 0 0 22px rgba(255, 156, 26, 0.55);
       }
 
       .hero-right {
@@ -425,8 +436,8 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(800px 420px at 70% 20%, rgba(242, 193, 78, 0.25), transparent 52%),
-          radial-gradient(800px 420px at 20% 30%, rgba(123, 63, 242, 0.28), transparent 55%),
+          radial-gradient(800px 420px at 70% 20%, rgba(255, 156, 26, 0.25), transparent 52%),
+          radial-gradient(800px 420px at 20% 30%, rgba(31, 41, 55, 0.28), transparent 55%),
           linear-gradient(180deg, rgba(7, 10, 18, 0.1) 0%, rgba(7, 10, 18, 0.72) 70%, rgba(7, 10, 18, 0.92) 100%);
       }
       .hero-card {
@@ -523,8 +534,8 @@
         gap: 10px;
         padding: 8px 12px;
         border-radius: 999px;
-        border: 1px solid rgba(242, 193, 78, 0.35);
-        background: rgba(242, 193, 78, 0.1);
+        border: 1px solid rgba(255, 156, 26, 0.35);
+        background: rgba(255, 156, 26, 0.1);
         color: rgba(255, 255, 255, 0.85);
         font-weight: 750;
         font-size: 13px;
@@ -537,7 +548,7 @@
         border-radius: 12px;
         display: grid;
         place-items: center;
-        background: radial-gradient(22px 22px at 30% 30%, rgba(242, 193, 78, 0.35), rgba(123, 63, 242, 0.22));
+        background: radial-gradient(22px 22px at 30% 30%, rgba(255, 156, 26, 0.35), rgba(31, 41, 55, 0.22));
         border: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
         font-weight: 900;
@@ -646,8 +657,8 @@
         line-height: 1.6;
       }
       .faq-item[open] {
-        border-color: rgba(242, 193, 78, 0.3);
-        background: linear-gradient(180deg, rgba(242, 193, 78, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+        border-color: rgba(255, 156, 26, 0.3);
+        background: linear-gradient(180deg, rgba(255, 156, 26, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
       }
 
       /* Support */
@@ -666,8 +677,8 @@
         margin-top: 12px;
         padding: 12px;
         border-radius: 14px;
-        border: 1px solid rgba(242, 193, 78, 0.32);
-        background: rgba(242, 193, 78, 0.08);
+        border: 1px solid rgba(255, 156, 26, 0.32);
+        background: rgba(255, 156, 26, 0.08);
         color: rgba(255, 255, 255, 0.88);
         line-height: 1.5;
         font-size: 14px;
@@ -682,8 +693,8 @@
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.14);
         background:
-          radial-gradient(900px 380px at 20% 30%, rgba(123, 63, 242, 0.28), transparent 60%),
-          radial-gradient(900px 380px at 80% 40%, rgba(242, 193, 78, 0.18), transparent 58%),
+          radial-gradient(900px 380px at 20% 30%, rgba(31, 41, 55, 0.28), transparent 60%),
+          radial-gradient(900px 380px at 80% 40%, rgba(255, 156, 26, 0.18), transparent 58%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
         box-shadow: var(--shadow);
       }
@@ -717,10 +728,10 @@
       .stat-card {
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(242, 193, 78, 0.22);
+        border: 1px solid rgba(255, 156, 26, 0.22);
         background:
-          radial-gradient(120px 80px at 50% 0%, rgba(242, 193, 78, 0.18), transparent 70%),
-          linear-gradient(180deg, rgba(242, 193, 78, 0.06) 0%, rgba(123, 63, 242, 0.04) 100%);
+          radial-gradient(120px 80px at 50% 0%, rgba(255, 156, 26, 0.18), transparent 70%),
+          linear-gradient(180deg, rgba(255, 156, 26, 0.06) 0%, rgba(31, 41, 55, 0.04) 100%);
         border-radius: var(--radius);
         padding: 22px 18px;
         text-align: center;
@@ -801,8 +812,8 @@
       .tf-tab.is-active {
         color: rgba(26, 15, 0, 0.96);
         background: linear-gradient(90deg, var(--gold) 0%, var(--purple2) 100%);
-        border-color: rgba(242, 193, 78, 0.7);
-        box-shadow: 0 8px 22px rgba(242, 193, 78, 0.22);
+        border-color: rgba(255, 156, 26, 0.7);
+        box-shadow: 0 8px 22px rgba(255, 156, 26, 0.22);
       }
 
       /* Pricing trust strip */
@@ -816,8 +827,8 @@
       .pricing-trust .chip {
         padding: 6px 12px;
         font-size: 12px;
-        background: rgba(242, 193, 78, 0.07);
-        border-color: rgba(242, 193, 78, 0.28);
+        background: rgba(255, 156, 26, 0.07);
+        border-color: rgba(255, 156, 26, 0.28);
       }
       .pricing-trust .chip strong {
         color: var(--gold);
@@ -828,9 +839,10 @@
       /* Pricing comparison */
       .pricing-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
         margin-bottom: 18px;
+        align-items: stretch;
       }
       .plan-card {
         position: relative;
@@ -843,11 +855,11 @@
         box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
       }
       .plan-card.featured {
-        border-color: rgba(242, 193, 78, 0.5);
+        border-color: rgba(255, 156, 26, 0.5);
         background:
-          radial-gradient(540px 220px at 50% 0%, rgba(242, 193, 78, 0.14), transparent 60%),
-          linear-gradient(180deg, rgba(242, 193, 78, 0.08) 0%, rgba(123, 63, 242, 0.05) 100%);
-        box-shadow: 0 22px 60px rgba(123, 63, 242, 0.22);
+          radial-gradient(540px 220px at 50% 0%, rgba(255, 156, 26, 0.14), transparent 60%),
+          linear-gradient(180deg, rgba(255, 156, 26, 0.08) 0%, rgba(31, 41, 55, 0.05) 100%);
+        box-shadow: 0 22px 60px rgba(31, 41, 55, 0.22);
       }
       .plan-popular {
         position: absolute;
@@ -855,14 +867,14 @@
         right: 22px;
         padding: 6px 12px;
         border-radius: 999px;
-        border: 1px solid rgba(242, 193, 78, 0.65);
+        border: 1px solid rgba(255, 156, 26, 0.65);
         background: linear-gradient(90deg, var(--gold) 0%, var(--purple2) 100%);
         color: #1a0f00;
         font-size: 11px;
         font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        box-shadow: 0 8px 22px rgba(242, 193, 78, 0.30);
+        box-shadow: 0 8px 22px rgba(255, 156, 26, 0.30);
       }
       .plan-name {
         font-size: 13px;
@@ -922,7 +934,7 @@
         display: inline-grid;
         place-items: center;
         border-radius: 999px;
-        background: rgba(242, 193, 78, 0.18);
+        background: rgba(255, 156, 26, 0.18);
         color: var(--gold);
         font-size: 12px;
         font-weight: 900;
@@ -946,6 +958,44 @@
         line-height: 1.45;
       }
 
+      /* Beta / waitlist plan variant */
+      .plan-card.beta {
+        border-color: rgba(255, 255, 255, 0.08);
+        background:
+          repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.012) 0 12px,
+            transparent 12px 24px
+          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+      }
+      .plan-beta-badge {
+        position: absolute;
+        top: -12px;
+        right: 22px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .plan-card.beta .plan-price .num {
+        font-size: 22px;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+      .plan-card.beta .plan-price .per {
+        color: var(--muted2);
+      }
+
       /* Light card variant for visual hierarchy */
       .card-soft {
         border: 1px solid rgba(255, 255, 255, 0.10);
@@ -967,7 +1017,7 @@
         display: grid;
         place-items: center;
         border: 1px solid rgba(255, 255, 255, 0.16);
-        background: linear-gradient(135deg, rgba(242, 193, 78, 0.34), rgba(123, 63, 242, 0.34));
+        background: linear-gradient(135deg, rgba(255, 156, 26, 0.34), rgba(31, 41, 55, 0.34));
         color: rgba(255, 255, 255, 0.96);
         font-weight: 900;
         font-size: 13px;
@@ -1123,10 +1173,10 @@
       @keyframes glowPulse {
         0%,
         100% {
-          filter: drop-shadow(0 0 0 rgba(123, 63, 242, 0));
+          filter: drop-shadow(0 0 0 rgba(255, 156, 26, 0));
         }
         50% {
-          filter: drop-shadow(0 0 18px rgba(123, 63, 242, 0.26));
+          filter: drop-shadow(0 0 18px rgba(255, 156, 26, 0.22));
         }
       }
       .hero-right {
@@ -1207,7 +1257,7 @@
           border-radius: 18px;
           background: rgba(7, 10, 18, 0.92);
           backdrop-filter: blur(14px);
-          border: 1px solid rgba(242, 193, 78, 0.32);
+          border: 1px solid rgba(255, 156, 26, 0.32);
           box-shadow: 0 22px 50px rgba(0, 0, 0, 0.5);
         }
         .mobile-cta-bar .btn {
@@ -1340,8 +1390,8 @@
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.14);
         background:
-          radial-gradient(900px 380px at 20% 30%, rgba(123, 63, 242, 0.2), transparent 60%),
-          radial-gradient(900px 380px at 80% 40%, rgba(242, 193, 78, 0.14), transparent 58%),
+          radial-gradient(900px 380px at 20% 30%, rgba(31, 41, 55, 0.2), transparent 60%),
+          radial-gradient(900px 380px at 80% 40%, rgba(255, 156, 26, 0.14), transparent 58%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
         box-shadow: var(--shadow);
         padding: 14px;
@@ -1390,7 +1440,7 @@
       }
       .toTop:hover {
         background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(242, 193, 78, 0.35);
+        border-color: rgba(255, 156, 26, 0.35);
         transform: translateY(6px);
       }
       .toTop.show {
@@ -1412,7 +1462,7 @@
     </style>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n="skip.content">Skip to content</a>
     <!-- NAV -->
     <nav class="nav" aria-label="Primary">
       <div class="container">
@@ -2005,50 +2055,73 @@
         <div class="pricing-trust" aria-label="Trust strip">
           <span class="chip"><strong>+8.37%</strong> <span data-i18n="trust.chip1">12-month net (XAU 1H)</span></span>
           <span class="chip"><strong>82%+</strong> <span data-i18n="trust.chip2">win rate across 15m/1H/4H</span></span>
-          <span class="chip"><strong>24h</strong> <span data-i18n="trust.chip3">USDT BEP20 verification</span></span>
-          <span class="chip"><strong>100</strong> <span data-i18n="trust.chip4">TradingView seats (limited)</span></span>
+          <span class="chip"><strong>$15</strong> <span data-i18n="trust.chip3">Lite tier starts here</span></span>
+          <span class="chip"><strong>24h</strong> <span data-i18n="trust.chip4">USDT BEP20 verification</span></span>
         </div>
 
         <div class="pricing-grid">
           <article class="plan-card">
-            <div class="plan-name" data-i18n="plan.tv.name">TradingView</div>
-            <div class="plan-headline" data-i18n="plan.tv.head">Trend Flip Engine</div>
+            <div class="plan-name" data-i18n="plan.lite.name">TradingView · Lite</div>
+            <div class="plan-headline" data-i18n="plan.lite.head">KhanSniper Lite</div>
             <div class="plan-price">
-              <span class="num">$29</span>
+              <span class="num">$15</span>
               <span class="per" data-i18n="plan.per">/ month</span>
             </div>
             <ul class="plan-features">
-              <li data-i18n="plan.tv.f1">Supertrend trend-flip entries on chart timeframe</li>
-              <li data-i18n="plan.tv.f2">HTF Trend Filter (1H–1W) drops counter-trend signals</li>
-              <li data-i18n="plan.tv.f3">Pre-signal heads-up at 0.4×ATR before flip</li>
-              <li data-i18n="plan.tv.f4">4-level TP (TP1–TP4) with breakeven + runner lock</li>
-              <li data-i18n="plan.tv.f5">Asset auto-tune for XAU / Crypto / FX</li>
-              <li data-i18n="plan.tv.f6">12-month on-chart stats panel</li>
-              <li class="x" data-i18n="plan.tv.f7">No automated execution (alerts only)</li>
+              <li data-i18n="plan.lite.f1">Supertrend trend-flip entries</li>
+              <li data-i18n="plan.lite.f2">HTF Trend Filter (1H–1W)</li>
+              <li data-i18n="plan.lite.f3">Pre-signal heads-up (0.4×ATR)</li>
+              <li data-i18n="plan.lite.f4">4-level TP + runner lock</li>
+              <li data-i18n="plan.lite.f5">Asset auto-tune (XAU / Crypto / FX)</li>
+              <li class="x" data-i18n="plan.lite.f6">No 12-month stats panel</li>
+              <li class="x" data-i18n="plan.lite.f7">No Real Boost gating filters</li>
+              <li class="x" data-i18n="plan.lite.f8">No automated execution</li>
             </ul>
-            <a class="btn plan-cta" href="#usdt-pay" data-i18n="plan.tv.cta" data-track="pricing_select_tv">Choose TradingView</a>
-            <div class="plan-meta" data-i18n="plan.tv.meta">TradingView invite script. Limit: 100 active subscriptions.</div>
+            <a class="btn plan-cta" href="#usdt-pay" data-i18n="plan.lite.cta" data-track="pricing_select_lite">Choose Lite</a>
+            <div class="plan-meta" data-i18n="plan.lite.meta">TradingView invite script. Limit: 100 active subscriptions.</div>
           </article>
 
           <article class="plan-card featured">
             <div class="plan-popular" data-i18n="plan.popular">Most popular</div>
-            <div class="plan-name" data-i18n="plan.mt5.name">MetaTrader 5 EA</div>
-            <div class="plan-headline" data-i18n="plan.mt5.head">Real Boost Pack</div>
+            <div class="plan-name" data-i18n="plan.pro.name">TradingView · Pro</div>
+            <div class="plan-headline" data-i18n="plan.pro.head">KhanSniper Pro + Real Boost</div>
             <div class="plan-price">
-              <span class="num">$39</span>
+              <span class="num">$20</span>
               <span class="per" data-i18n="plan.per">/ month</span>
             </div>
             <ul class="plan-features">
-              <li data-i18n="plan.mt5.f1">Everything in the Trend Flip Engine</li>
-              <li data-i18n="plan.mt5.f2">Automated execution (Ghost / Real / Both)</li>
-              <li data-i18n="plan.mt5.f3">Frankfurt-NY session filter + Friday cutoff</li>
-              <li data-i18n="plan.mt5.f4">News blackout window (NFP / CPI / FOMC)</li>
-              <li data-i18n="plan.mt5.f5">D1 EMA-200 confluence (optional)</li>
-              <li data-i18n="plan.mt5.f6">Premium/discount entry bias</li>
-              <li data-i18n="plan.mt5.f7">Unlimited users — no seat cap</li>
+              <li data-i18n="plan.pro.f1">Everything in Lite</li>
+              <li data-i18n="plan.pro.fStats">12-month on-chart stats panel</li>
+              <li data-i18n="plan.pro.f2">Frankfurt-NY session filter</li>
+              <li data-i18n="plan.pro.f3">News blackout (NFP / CPI / FOMC)</li>
+              <li data-i18n="plan.pro.f4">Friday cutoff (no weekend gap risk)</li>
+              <li data-i18n="plan.pro.f5">D1 EMA-200 confluence (optional)</li>
+              <li data-i18n="plan.pro.f6">Premium/discount entry bias</li>
+              <li data-i18n="plan.pro.f7">Block weak-follow flips</li>
+              <li class="x" data-i18n="plan.pro.f8">No automated execution (alerts only)</li>
             </ul>
-            <a class="btn btn-primary plan-cta" href="#usdt-pay" data-i18n="plan.mt5.cta" data-track="pricing_select_mt5">Choose MT5 EA</a>
-            <div class="plan-meta" data-i18n="plan.mt5.meta">MT5 EA license. Includes the trend-line core plus Real Boost gating.</div>
+            <a class="btn btn-primary plan-cta" href="#usdt-pay" data-i18n="plan.pro.cta" data-track="pricing_select_pro">Choose Pro</a>
+            <div class="plan-meta" data-i18n="plan.pro.meta">TradingView invite script with Real Boost filters enabled. Limit: 100 active subscriptions.</div>
+          </article>
+
+          <article class="plan-card beta">
+            <div class="plan-beta-badge" data-i18n="plan.ea.badge">Beta · Demo</div>
+            <div class="plan-name" data-i18n="plan.ea.name">MetaTrader 5 EA</div>
+            <div class="plan-headline" data-i18n="plan.ea.head">Real Boost EA</div>
+            <div class="plan-price">
+              <span class="num" data-i18n="plan.ea.price">TBD</span>
+              <span class="per" data-i18n="plan.ea.per">price after beta</span>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.ea.f1">Everything in Pro</li>
+              <li data-i18n="plan.ea.f2"><strong>Automated execution</strong> (Ghost / Real / Both)</li>
+              <li data-i18n="plan.ea.f3">Tested on real-money XAU EA</li>
+              <li data-i18n="plan.ea.f4">MetaTrader 5 broker integration</li>
+              <li data-i18n="plan.ea.f5">No TradingView seat cap</li>
+              <li class="x" data-i18n="plan.ea.f6">Currently in live testing — limited beta access</li>
+            </ul>
+            <a class="btn plan-cta" href="#support" data-i18n="plan.ea.cta" data-track="pricing_join_waitlist">Join waitlist</a>
+            <div class="plan-meta" data-i18n="plan.ea.meta">MT5 EA. Live-testing phase — pricing announced after beta. Contact support to request demo access.</div>
           </article>
         </div>
 
@@ -2057,14 +2130,14 @@
           id="usdt-pay"
           class="card"
           style="
-            border: 1px solid rgba(242, 193, 78, 0.35);
-            background: linear-gradient(180deg, rgba(242, 193, 78, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 156, 26, 0.35);
+            background: linear-gradient(180deg, rgba(255, 156, 26, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
           "
         >
           <h3 style="margin-bottom: 12px" data-i18n="usdt.h3">💳 USDT Payment (BEP20 - BNB Smart Chain)</h3>
           <p style="color: var(--muted); margin-bottom: 16px" data-i18n="usdt.p">
-            One transfer address for both plans. Choose your plan amount and send via BEP20. Verification is manual
-            within 24 hours.
+            One transfer address for both TradingView plans. Send the exact amount for your selected plan via BEP20.
+            Verification is manual within 24 hours. (MT5 EA is in beta — request access via support.)
           </p>
 
           <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center">
@@ -2091,8 +2164,8 @@
               </button>
               <p style="margin-top: 12px; color: var(--muted); font-size: 14px">
                 <span data-i18n="usdt.warn"
-                  >⚠️ Send the exact amount for your selected plan: <strong>$29</strong> (TV) or
-                  <strong>$39</strong> (MT5 EA), using <strong>BEP20</strong> only.<br />Using the wrong network can
+                  >⚠️ Send the exact amount for your selected plan: <strong>$15</strong> (Lite) or
+                  <strong>$20</strong> (Pro), using <strong>BEP20</strong> only.<br />Using the wrong network can
                   cause permanent loss.</span
                 >
               </p>
@@ -2111,7 +2184,7 @@
             <h4 style="margin: 0 0 8px" data-i18n="usdt.after.h">After payment, send:</h4>
             <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6">
               <span data-i18n="usdt.after.p"
-                >• Selected plan (Trading View invite script or Meta Trader 5 EA)<br />
+                >• Selected plan (Lite $15 or Pro $20)<br />
                 • Transaction Hash (TxID)<br />
                 • Your Telegram username<br />
                 • Email (optional)<br /><br />
@@ -2123,7 +2196,7 @@
           <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap">
             <a
               class="btn btn-primary"
-              href="https://t.me/+C4aXFu5iwZ02MDc9"
+              href="https://t.me/+v3lD__ST8WdjM2Jl"
               target="_blank"
               rel="noopener noreferrer"
               data-i18n="usdt.submit"
@@ -2178,7 +2251,8 @@
           <details class="faq-item">
             <summary data-i18n="faq.7.q">How much does each plan cost?</summary>
             <p data-i18n="faq.7.a">
-              Trading View invite script: $29/month. Meta Trader 5 EA: $39/month. Pay with USDT on BEP20.
+              KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay
+              with USDT on BEP20. The MT5 EA is currently in beta — pricing announced after live testing.
             </p>
           </details>
           <details class="faq-item">
@@ -2208,11 +2282,11 @@
             <h3 data-i18n="support.links.h">Official channels</h3>
             <p data-i18n="support.links.p">Verify channel names and join only through official links.</p>
             <div class="link-list">
-              <a href="https://www.instagram.com/khanstructuresmc/" target="_blank" rel="noopener noreferrer"
-                >Instagram - @khanstructuresmc</a
+              <a href="https://www.instagram.com/khan_sniper_pro/" target="_blank" rel="noopener noreferrer"
+                >Instagram - @khan_sniper_pro</a
               >
-              <a href="https://www.facebook.com/khanstructure" target="_blank" rel="noopener noreferrer"
-                >Facebook - KHAN STRUCTURE</a
+              <a href="https://www.facebook.com/khanstructurepro" target="_blank" rel="noopener noreferrer"
+                >Facebook - KHAN STRUCTURE Pro</a
               >
               <a
                 id="supportTelegramMain"
@@ -2294,7 +2368,7 @@
               <a href="#reviews" data-i18n="nav.reviews">Reviews</a> |
               <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
             </small>
-            <small style="margin-top: 10px">(c) <span id="y"></span> KHAN STRUCTURE. All rights reserved.</small>
+            <small style="margin-top: 10px">(c) <span id="y"></span> KHAN STRUCTURE. <span data-i18n="footer.rights">All rights reserved.</span></small>
           </div>
         </div>
       </div>
@@ -2398,7 +2472,7 @@
           'faq.6.a': 'Use official Telegram channels listed below. Be careful of impersonator accounts.',
           'faq.7.q': 'How much does each plan cost?',
           'faq.7.a':
-            'Trading View invite script: $29/month. Meta Trader 5 EA: $39/month. Pay with USDT on BEP20.',
+            'KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay with USDT on BEP20. The MT5 EA is currently in beta — pricing announced after live testing.',
           'faq.8.q': 'Can I cancel? Are refunds available?',
           'faq.8.a':
             'Cancel anytime — billing is monthly, so you keep full access until the end of the current billing cycle. No partial-month refunds, but no auto-renewal lock-in either.',
@@ -2498,45 +2572,64 @@
           'plan.per': '/ month',
           'trust.chip1': '12-month net (XAU 1H)',
           'trust.chip2': 'win rate across 15m/1H/4H',
-          'trust.chip3': 'USDT BEP20 verification',
-          'trust.chip4': 'TradingView seats (limited)',
-          'plan.tv.name': 'TradingView',
-          'plan.tv.head': 'Trend Flip Engine',
-          'plan.tv.f1': 'Supertrend trend-flip entries on chart timeframe',
-          'plan.tv.f2': 'HTF Trend Filter (1H–1W) drops counter-trend signals',
-          'plan.tv.f3': 'Pre-signal heads-up at 0.4×ATR before flip',
-          'plan.tv.f4': '4-level TP (TP1–TP4) with breakeven + runner lock',
-          'plan.tv.f5': 'Asset auto-tune for XAU / Crypto / FX',
-          'plan.tv.f6': '12-month on-chart stats panel',
-          'plan.tv.f7': 'No automated execution (alerts only)',
-          'plan.tv.cta': 'Choose TradingView',
-          'plan.tv.meta': 'TradingView invite script. Limit: 100 active subscriptions.',
-          'plan.mt5.name': 'MetaTrader 5 EA',
-          'plan.mt5.head': 'Real Boost Pack',
-          'plan.mt5.f1': 'Everything in the Trend Flip Engine',
-          'plan.mt5.f2': 'Automated execution (Ghost / Real / Both)',
-          'plan.mt5.f3': 'Frankfurt-NY session filter + Friday cutoff',
-          'plan.mt5.f4': 'News blackout window (NFP / CPI / FOMC)',
-          'plan.mt5.f5': 'D1 EMA-200 confluence (optional)',
-          'plan.mt5.f6': 'Premium/discount entry bias',
-          'plan.mt5.f7': 'Unlimited users — no seat cap',
-          'plan.mt5.cta': 'Choose MT5 EA',
-          'plan.mt5.meta': 'MT5 EA license. Includes the trend-line core plus Real Boost gating.',
+          'trust.chip3': 'Lite tier starts here',
+          'trust.chip4': 'USDT BEP20 verification',
+
+          'plan.lite.name': 'TradingView · Lite',
+          'plan.lite.head': 'KhanSniper Lite',
+          'plan.lite.f1': 'Supertrend trend-flip entries',
+          'plan.lite.f2': 'HTF Trend Filter (1H–1W)',
+          'plan.lite.f3': 'Pre-signal heads-up (0.4×ATR)',
+          'plan.lite.f4': '4-level TP + runner lock',
+          'plan.lite.f5': 'Asset auto-tune (XAU / Crypto / FX)',
+          'plan.lite.f6': 'No 12-month stats panel',
+          'plan.lite.f7': 'No Real Boost gating filters',
+          'plan.lite.f8': 'No automated execution',
+          'plan.lite.cta': 'Choose Lite',
+          'plan.lite.meta': 'TradingView invite script. Limit: 100 active subscriptions.',
+
+          'plan.pro.name': 'TradingView · Pro',
+          'plan.pro.head': 'KhanSniper Pro + Real Boost',
+          'plan.pro.f1': 'Everything in Lite',
+          'plan.pro.fStats': '12-month on-chart stats panel',
+          'plan.pro.f2': 'Frankfurt-NY session filter',
+          'plan.pro.f3': 'News blackout (NFP / CPI / FOMC)',
+          'plan.pro.f4': 'Friday cutoff (no weekend gap risk)',
+          'plan.pro.f5': 'D1 EMA-200 confluence (optional)',
+          'plan.pro.f6': 'Premium/discount entry bias',
+          'plan.pro.f7': 'Block weak-follow flips',
+          'plan.pro.f8': 'No automated execution (alerts only)',
+          'plan.pro.cta': 'Choose Pro',
+          'plan.pro.meta': 'TradingView invite script with Real Boost filters enabled. Limit: 100 active subscriptions.',
+
+          'plan.ea.badge': 'Beta · Demo',
+          'plan.ea.name': 'MetaTrader 5 EA',
+          'plan.ea.head': 'Real Boost EA',
+          'plan.ea.price': 'TBD',
+          'plan.ea.per': 'price after beta',
+          'plan.ea.f1': 'Everything in Pro',
+          'plan.ea.f2': '<strong>Automated execution</strong> (Ghost / Real / Both)',
+          'plan.ea.f3': 'Tested on real-money XAU EA',
+          'plan.ea.f4': 'MetaTrader 5 broker integration',
+          'plan.ea.f5': 'No TradingView seat cap',
+          'plan.ea.f6': 'Currently in live testing — limited beta access',
+          'plan.ea.cta': 'Join waitlist',
+          'plan.ea.meta': 'MT5 EA. Live-testing phase — pricing announced after beta. Contact support to request demo access.',
 
           // USDT
           'usdt.h3': '💳 USDT Payment (BEP20 - BNB Smart Chain)',
           'usdt.p':
             'One transfer address for both plans. Choose your plan amount and send via BEP20. Verification is manual within 24 hours.',
-          'usdt.plan.tv.h': 'TradingView KHAN STRUCTURE Pro — Trend Flip Engine — $29 / month (USDT)',
-          'usdt.plan.tv.p': 'TradingView invite script: Supertrend + HTF filter, pre-signal, 4-level TP, asset auto-tune. Limit: 100 users.',
-          'usdt.plan.mt5.h': 'KHAN STRUCTURE EA — Real Boost Pack (MT5) — $39 / month (USDT)',
-          'usdt.plan.mt5.p': 'MT5 EA license: session/news/Friday filters, D1 EMA-200 confluence, premium/discount bias. Unlimited users.',
+          'usdt.plan.lite.h': 'KhanSniper Lite (TradingView) — $15 / month (USDT)',
+          'usdt.plan.lite.p': 'TradingView invite script: Supertrend trend-flip core, HTF filter, pre-signal, 4-level TP, asset auto-tune. Limit: 100 users.',
+          'usdt.plan.pro.h': 'KhanSniper Pro + Real Boost (TradingView) — $20 / month (USDT)',
+          'usdt.plan.pro.p': 'Everything in Lite + 12-month stats panel + Real Boost gating (session/news/Friday filters, D1 EMA-200, premium/discount bias). Limit: 100 users.',
           'usdt.wallet': 'Wallet Address:',
           'usdt.copy': 'Copy address',
           'usdt.copied': 'Copied',
           'usdt.submit': 'Submit on Telegram',
           'usdt.warn':
-            '⚠️ Send the exact amount for your selected plan: <strong>$29</strong> (TV) or <strong>$39</strong> (MT5 EA), using <strong>BEP20</strong> only.<br/>Using the wrong network can cause permanent loss.',
+            '⚠️ Send the exact amount for your selected plan: <strong>$15</strong> (Lite) or <strong>$20</strong> (Pro), using <strong>BEP20</strong> only.<br/>Using the wrong network can cause permanent loss.',
           'usdt.after.h': 'After payment, send:',
           'usdt.after.p':
             '• Selected plan (Trading View invite script or Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
@@ -2580,8 +2673,11 @@
           'int.1.p': 'Signals, entries, and risk maps use the same rules in live and backtest.',
           'int.2.h': 'HTF confluence first, then flip',
           'int.2.p': 'Risk is taken only after the HTF Supertrend agrees with the chart-TF flip.',
+          'nav.pro': 'Pro',
+          'skip.content': 'Skip to content',
+          'footer.rights': 'All rights reserved.',
           'pricing.title':
-            'Early Founders Access — TradingView Trend Flip Engine $29 / month (100 active subscriptions), MT5 Real Boost Pack $39 / month (no seat cap). Billing is monthly. Cancel anytime.',
+            'Early Founders Access — KhanSniper Lite $15 / month, KhanSniper Pro + Real Boost $20 / month (TradingView, 100 active subscriptions each). MT5 EA Real Boost is in live testing — pricing announced after beta. Monthly billing. Cancel anytime.',
         },
         mn: {
           'nav.how': 'Яаж ажиллах вэ',
@@ -2660,7 +2756,7 @@
           'faq.6.q': 'Дэмжлэгээ хаанаас авах вэ?',
           'faq.6.a': 'Доорх албан ёсны Telegram сувгуудыг ашиглана. Хуурамч аккаунтаас болгоомжил.',
           'faq.7.q': 'Багц бүрийн үнэ хэд вэ?',
-          'faq.7.a': 'Trading View invite script: $29/сар. Meta Trader 5 EA: $39/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
+          'faq.7.a': 'KhanSniper Lite (TradingView): $15/сар. KhanSniper Pro + Real Boost (TradingView): $20/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ. MT5 EA нь одоогоор beta-д явж байгаа — live test-ийн дараа үнэ зарлагдана.',
           'faq.8.q': 'Цуцлах, буцаан олголт байгаа юу?',
           'faq.8.a': 'Хэдийд ч цуцалж болно — сарын төлбөртэй тул одоогийн billing cycle дуустал бүрэн хандалттай хэвээр байна. Хагас сарын буцаан олголт байхгүй, гэхдээ авто-сунгалтын lock байхгүй.',
           'support.pill': 'Дэмжлэг',
@@ -2751,43 +2847,62 @@
           'plan.per': '/ сар',
           'trust.chip1': '12-сарын net (XAU 1H)',
           'trust.chip2': '15м/1H/4H хожлын дундаж',
-          'trust.chip3': 'USDT BEP20 баталгаажуулалт',
-          'trust.chip4': 'TradingView суудал (хязгаартай)',
-          'plan.tv.name': 'TradingView',
-          'plan.tv.head': 'Trend Flip Engine',
-          'plan.tv.f1': 'Chart timeframe дээрх Supertrend trend-flip оролт',
-          'plan.tv.f2': 'HTF Trend Filter (1H–1W) counter-trend signal-уудыг шүүнэ',
-          'plan.tv.f3': 'Flip-ээс 0.4×ATR өмнө сэрэмжлүүлэх pre-signal',
-          'plan.tv.f4': '4-түвшний TP (TP1–TP4), breakeven + runner lock',
-          'plan.tv.f5': 'XAU / Crypto / FX-д зориулсан asset auto-tune',
-          'plan.tv.f6': 'Chart дээр 12-сарын stats panel',
-          'plan.tv.f7': 'Автомат гүйцэтгэлгүй (зөвхөн alert)',
-          'plan.tv.cta': 'TradingView сонгох',
-          'plan.tv.meta': 'TradingView invite script. Хязгаар: 100 идэвхтэй subscription.',
-          'plan.mt5.name': 'MetaTrader 5 EA',
-          'plan.mt5.head': 'Real Boost Pack',
-          'plan.mt5.f1': 'Trend Flip Engine-н бүх боломж',
-          'plan.mt5.f2': 'Автомат гүйцэтгэл (Ghost / Real / Both)',
-          'plan.mt5.f3': 'Frankfurt-NY session filter + Friday cutoff',
-          'plan.mt5.f4': 'News blackout цонх (NFP / CPI / FOMC)',
-          'plan.mt5.f5': 'D1 EMA-200 confluence (сонголтоор)',
-          'plan.mt5.f6': 'Premium/discount entry bias',
-          'plan.mt5.f7': 'Хэрэглэгчийн тоонд хязгааргүй',
-          'plan.mt5.cta': 'MT5 EA сонгох',
-          'plan.mt5.meta': 'MT5 EA license. Trend-line core + Real Boost шүүлтүүр багтсан.',
+          'trust.chip3': 'Lite tier-ийн эхлэл',
+          'trust.chip4': 'USDT BEP20 баталгаажуулалт',
+
+          'plan.lite.name': 'TradingView · Lite',
+          'plan.lite.head': 'KhanSniper Lite',
+          'plan.lite.f1': 'Supertrend trend-flip оролт',
+          'plan.lite.f2': 'HTF Trend Filter (1H–1W)',
+          'plan.lite.f3': 'Pre-signal сэрэмжлүүлэг (0.4×ATR)',
+          'plan.lite.f4': '4-түвшний TP + runner lock',
+          'plan.lite.f5': 'Asset auto-tune (XAU / Crypto / FX)',
+          'plan.lite.f6': '12-сарын stats panel байхгүй',
+          'plan.lite.f7': 'Real Boost шүүлтүүр байхгүй',
+          'plan.lite.f8': 'Автомат гүйцэтгэл байхгүй',
+          'plan.lite.cta': 'Lite сонгох',
+          'plan.lite.meta': 'TradingView invite script. Хязгаар: 100 идэвхтэй subscription.',
+
+          'plan.pro.name': 'TradingView · Pro',
+          'plan.pro.head': 'KhanSniper Pro + Real Boost',
+          'plan.pro.f1': 'Lite-ын бүх боломж',
+          'plan.pro.fStats': 'Chart дээрх 12-сарын stats panel',
+          'plan.pro.f2': 'Frankfurt-NY session filter',
+          'plan.pro.f3': 'News blackout (NFP / CPI / FOMC)',
+          'plan.pro.f4': 'Friday cutoff (амралтын зайны эрсдэлгүй)',
+          'plan.pro.f5': 'D1 EMA-200 confluence (сонголтоор)',
+          'plan.pro.f6': 'Premium/discount entry bias',
+          'plan.pro.f7': 'Weak-follow flip-ийг блоклоно',
+          'plan.pro.f8': 'Автомат гүйцэтгэл байхгүй (зөвхөн alert)',
+          'plan.pro.cta': 'Pro сонгох',
+          'plan.pro.meta': 'Real Boost шүүлтүүр идэвхжсэн TradingView invite script. Хязгаар: 100 идэвхтэй subscription.',
+
+          'plan.ea.badge': 'Beta · Demo',
+          'plan.ea.name': 'MetaTrader 5 EA',
+          'plan.ea.head': 'Real Boost EA',
+          'plan.ea.price': 'TBD',
+          'plan.ea.per': 'beta-ийн дараах үнэ',
+          'plan.ea.f1': 'Pro-н бүх боломж',
+          'plan.ea.f2': '<strong>Автомат гүйцэтгэл</strong> (Ghost / Real / Both)',
+          'plan.ea.f3': 'Бодит мөнгөтэй XAU EA дээр туршигдсан',
+          'plan.ea.f4': 'MetaTrader 5 broker integration',
+          'plan.ea.f5': 'TradingView суудлын хязгааргүй',
+          'plan.ea.f6': 'Live test шатанд — beta access хязгаартай',
+          'plan.ea.cta': 'Хүлээгдэгчид нэгдэх',
+          'plan.ea.meta': 'MT5 EA. Live test шат — beta-ийн дараа үнэ зарлагдана. Demo access авахдаа support-той холбогдоно уу.',
           'usdt.h3': '💳 USDT төлбөр (BEP20 - BNB Smart Chain)',
           'usdt.p':
             'Сонгосон багцын дүнгээр BEP20 сүлжээгээр илгээнэ. Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
-          'usdt.plan.tv.h': 'TradingView KHAN STRUCTURE Pro — Trend Flip Engine — $29 / сар (USDT)',
-          'usdt.plan.tv.p': 'TradingView invite script: Supertrend + HTF filter, pre-signal, 4-түвшний TP, asset auto-tune. Хязгаар: 100 хэрэглэгч.',
-          'usdt.plan.mt5.h': 'KHAN STRUCTURE EA — Real Boost Pack (MT5) — $39 / сар (USDT)',
-          'usdt.plan.mt5.p': 'MT5 EA license: session/news/Friday filter, D1 EMA-200 confluence, premium/discount bias. Хэрэглэгчийн тоо хязгааргүй.',
+          'usdt.plan.lite.h': 'KhanSniper Lite (TradingView) — $15 / сар (USDT)',
+          'usdt.plan.lite.p': 'TradingView invite script: Supertrend trend-flip core, HTF filter, pre-signal, 4-түвшний TP, asset auto-tune. Хязгаар: 100 хэрэглэгч.',
+          'usdt.plan.pro.h': 'KhanSniper Pro + Real Boost (TradingView) — $20 / сар (USDT)',
+          'usdt.plan.pro.p': 'Lite-ын бүх боломж + 12-сарын stats panel + Real Boost (session/news/Friday filter, D1 EMA-200, premium/discount bias). Хязгаар: 100 хэрэглэгч.',
           'usdt.wallet': 'Хэтэвчийн хаяг:',
           'usdt.copy': 'Хаяг хуулах',
           'usdt.copied': 'Хуулагдлаа',
           'usdt.submit': 'Telegram-ээр илгээх',
           'usdt.warn':
-            '⚠️ Сонгосон багцын дүнг илгээнэ үү: <strong>$29</strong> (TradingView invite script) эсвэл <strong>$39</strong> (Meta Trader 5 EA), зөвхөн <strong>BEP20</strong> сүлжээгээр.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
+            '⚠️ Сонгосон багцын дүнг илгээнэ үү: <strong>$15</strong> (Lite) эсвэл <strong>$20</strong> (Pro), зөвхөн <strong>BEP20</strong> сүлжээгээр.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
           'usdt.after.h': 'Төлбөр хийсний дараа илгээх мэдээлэл:',
           'usdt.after.p':
             '• Сонгосон багц (Trading View invite script эсвэл Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
@@ -2828,6 +2943,10 @@
           'int.2.h': 'Эхлээд HTF confluence, дараа нь flip',
           'int.2.p': 'HTF Supertrend chart-TF flip-тэй тохирсны дараа л эрсдэл авдаг.',
           'nav.pro': 'Pro',
+          'skip.content': 'Үндсэн хэсэгт очих',
+          'footer.rights': 'Бүх эрх хуулиар хамгаалагдсан.',
+          'pricing.title':
+            'Early Founders хандалт — KhanSniper Lite $15/сар, KhanSniper Pro + Real Boost $20/сар (TradingView, тус бүр 100 идэвхтэй subscription). MT5 EA Real Boost live test шатанд — beta-ийн дараа үнэ зарлагдана. Сарын төлбөртэй. Хэдийд ч цуцалж болно.',
         },
       };
 
@@ -2906,7 +3025,7 @@
         const mnBtn = document.getElementById('langMN');
         const enBtn = document.getElementById('langEN');
         if (mnBtn && enBtn) {
-          const activeStyle = 'border-color: rgba(242,193,78,.55); background: rgba(242,193,78,.10)';
+          const activeStyle = 'border-color: rgba(255,156,26,.55); background: rgba(255,156,26,.10)';
           const idleStyle = 'border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.06)';
           mnBtn.style.cssText = normalized === 'mn' ? activeStyle : idleStyle;
           enBtn.style.cssText = normalized === 'en' ? activeStyle : idleStyle;
