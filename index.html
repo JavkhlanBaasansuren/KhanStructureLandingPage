@@ -474,16 +474,33 @@
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.06);
+        text-align: center;
       }
       .metric .k {
-        font-size: 12px;
+        font-size: 11px;
         color: var(--muted2);
-        font-weight: 700;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
       .metric .v {
         margin-top: 6px;
-        font-size: 16px;
-        font-weight: 800;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--purple2) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1.1;
+      }
+      .hero-metrics-foot {
+        margin-top: 10px;
+        font-size: 11px;
+        color: var(--muted2);
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 0.04em;
       }
 
       /* Sections */
@@ -1074,6 +1091,53 @@
         display: none;
       }
 
+      /* Cookie consent banner */
+      .cookie-banner {
+        position: fixed;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        z-index: 200;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 156, 26, 0.32);
+        background: rgba(7, 10, 18, 0.96);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.5);
+        display: none;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--text);
+      }
+      .cookie-banner.is-visible {
+        display: flex;
+      }
+      .cookie-banner p {
+        flex: 1 1 260px;
+        margin: 0;
+        color: var(--muted);
+      }
+      .cookie-banner a {
+        color: var(--gold);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .cookie-banner-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .cookie-banner .btn {
+        padding: 9px 14px;
+        font-size: 13px;
+      }
+
       /* Footer */
       footer {
         padding: 34px 0 52px;
@@ -1401,6 +1465,7 @@
 
       /* Video */
       .video-card {
+        position: relative;
         border-radius: var(--radius2);
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1417,6 +1482,45 @@
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(0, 0, 0, 0.22);
+      }
+      .video-play {
+        position: absolute;
+        inset: 14px;
+        border-radius: 16px;
+        border: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.55) 100%);
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        cursor: pointer;
+        font-weight: 800;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        transition:
+          background 0.18s ease,
+          opacity 0.2s ease;
+      }
+      .video-play > span:first-child {
+        width: 70px;
+        height: 70px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--gold), var(--purple2));
+        color: #1a0f00;
+        font-size: 28px;
+        line-height: 1;
+        box-shadow: 0 16px 40px rgba(255, 156, 26, 0.32);
+      }
+      .video-play:hover {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+      }
+      .video-card.is-playing .video-play {
+        opacity: 0;
+        pointer-events: none;
       }
       .video-note {
         margin-top: 10px;
@@ -1611,18 +1715,19 @@
             <div class="hero-card">
               <div class="hero-metrics">
                 <div class="metric">
-                  <div class="k" data-i18n="metric.framework.k">Context</div>
-                  <div class="v" data-i18n="metric.framework.v">HTF → LTF Alignment</div>
+                  <div class="k" data-i18n="metric.win.k">Win Rate</div>
+                  <div class="v">82.2%</div>
                 </div>
                 <div class="metric">
-                  <div class="k" data-i18n="metric.execution.k">Execution</div>
-                  <div class="v" data-i18n="metric.execution.v">4-Level TP + Runner Lock</div>
+                  <div class="k" data-i18n="metric.net.k">Net Return</div>
+                  <div class="v">+8.37%</div>
                 </div>
                 <div class="metric">
-                  <div class="k" data-i18n="metric.integrity.k">Integrity</div>
-                  <div class="v" data-i18n="metric.integrity.v">No Hindsight Tricks</div>
+                  <div class="k" data-i18n="metric.trades.k">Trades</div>
+                  <div class="v">101</div>
                 </div>
               </div>
+              <div class="hero-metrics-foot" data-i18n="metric.foot">XAU 1H · 12-month rolling · see live numbers ↓</div>
             </div>
           </div>
         </div>
@@ -1699,20 +1804,23 @@
           </p>
         </div>
 
-        <div class="video-card">
+        <div class="video-card" id="videoCard">
           <video
             class="video"
-            autoplay
+            id="demoVideo"
             muted
-            loop
             playsinline
             controls
-            preload="metadata"
+            preload="none"
             poster="demo_poster.jpg"
             aria-label="KHAN STRUCTURE demo video"
           >
             <source src="demo.mp4" type="video/mp4" />
           </video>
+          <button class="video-play" id="videoPlayBtn" type="button" aria-label="Play demo">
+            <span aria-hidden="true">▶</span>
+            <span class="video-play-label" data-i18n="video.play">Play demo</span>
+          </button>
         </div>
       </div>
     </section>
@@ -2358,6 +2466,17 @@
 
     </main>
 
+    <!-- COOKIE CONSENT BANNER -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+      <p data-i18n="cookie.text">
+        We use minimal analytics to improve the site. No cross-site tracking. See our <a href="privacy.html">Privacy Policy</a>.
+      </p>
+      <div class="cookie-banner-actions">
+        <button class="btn" id="cookieReject" type="button" data-i18n="cookie.reject">Reject</button>
+        <button class="btn btn-primary" id="cookieAccept" type="button" data-i18n="cookie.accept">Accept</button>
+      </div>
+    </div>
+
     <!-- MOBILE STICKY CTA BAR -->
     <div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
       <a class="btn" href="#numbers" data-i18n="cta.bar.numbers" data-track="cta_bar_numbers">See numbers</a>
@@ -2384,6 +2503,10 @@
               <a href="#ea" data-i18n="nav.features">Features</a> |
               <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
               <a href="#integrity" data-i18n="nav.integrity">Integrity</a>
+            </small>
+            <small style="margin-top: 10px">
+              <a href="privacy.html" data-i18n="footer.privacy">Privacy</a> |
+              <a href="terms.html" data-i18n="footer.terms">Terms</a>
             </small>
             <small style="margin-top: 10px">(c) <span id="y"></span> KHAN STRUCTURE. <span data-i18n="footer.rights">All rights reserved.</span></small>
           </div>
@@ -2422,6 +2545,7 @@
           'video.pill': 'Live Demo',
           'video.h2': 'See a short live walkthrough.',
           'video.p': 'From the trend flip to the 4-level TP map. Recorded from a real session with no hindsight edits.',
+          'video.play': 'Play demo',
           'video.note': '',
           'nav.access': 'Access',
           'nav.viewAccess': 'View Pricing',
@@ -2533,12 +2657,10 @@
           'ea.card3.p': 'Frankfurt-NY session window, news blackout, Friday cutoff, optional D1 EMA-200 confluence, and premium/discount entry bias — the same gating used in our real-money XAU EA.',
           'ea.card3.tag': 'TV + MT5',
 
-          'metric.framework.k': 'Context',
-          'metric.framework.v': 'HTF → LTF Alignment',
-          'metric.execution.k': 'Execution',
-          'metric.execution.v': '4-Level TP + Runner Lock',
-          'metric.integrity.k': 'Integrity',
-          'metric.integrity.v': 'No Hindsight Tricks',
+          'metric.win.k': 'Win Rate',
+          'metric.net.k': 'Net Return',
+          'metric.trades.k': 'Trades · 12mo',
+          'metric.foot': 'XAU 1H · 12-month rolling · see live numbers ↓',
 
           'how.pill': 'Process',
           'how.h2': 'A process you can follow every session.',
@@ -2654,6 +2776,11 @@
 
           'footer.tagline': 'Trend-Line Execution Framework',
           'footer.disclaimer': 'Disclaimer: Educational use only. Not financial advice.',
+          'footer.privacy': 'Privacy',
+          'footer.terms': 'Terms',
+          'cookie.text': 'We use minimal analytics to improve the site. No cross-site tracking. See our <a href="privacy.html">Privacy Policy</a>.',
+          'cookie.accept': 'Accept',
+          'cookie.reject': 'Reject',
 
           'steps.1.n': 'STEP 01',
           'steps.1.t': 'Define HTF direction',
@@ -2708,6 +2835,7 @@
           'video.pill': 'Live Demo',
           'video.h2': 'Богино live демо үзээрэй.',
           'video.p': 'Trend flip-ээс 4-түвшний TP зураглал хүртэлх алхмууд. Бодит session, hindsight засваргүй.',
+          'video.play': 'Демо тоглуулах',
           'video.note': 'Offline зөвлөмж: <b>demo.mp4</b> файлыг <b>index.html</b>-тэй ижил хавтсанд тавина уу.',
           'nav.access': 'Хандалт',
           'nav.viewAccess': 'Үнийг үзэх',
@@ -2815,12 +2943,10 @@
           'ea.card3.h': 'Real Boost (Pro tier)',
           'ea.card3.p': 'Frankfurt-NY session, news blackout, Friday cutoff, D1 EMA-200 confluence, premium/discount entry bias — энэ нь манай бодит мөнгөтэй XAU EA-ийн ашигладаг шүүлтүүртэй ижил.',
           'ea.card3.tag': 'TV + MT5',
-          'metric.framework.k': 'Контекст',
-          'metric.framework.v': 'HTF → LTF уялдаа',
-          'metric.execution.k': 'Гүйцэтгэл',
-          'metric.execution.v': '4-түвшний TP + Runner Lock',
-          'metric.integrity.k': 'Итгэлцэл',
-          'metric.integrity.v': 'Hindsight трикгүй',
+          'metric.win.k': 'Хожлын хувь',
+          'metric.net.k': 'Net орлого',
+          'metric.trades.k': 'Trade · 12 сар',
+          'metric.foot': 'XAU 1H · 12-сарын rolling · live тоонуудыг доор ↓',
           'how.pill': 'Процесс',
           'how.h2': 'Өдөр бүр дагаж болох энгийн процесс.',
           'how.p': 'Чиглэлээ тогтоо, trend flip-ийг хүлээ, filter-ээр баталгаажуул, дараа нь 4-түвшний TP-той гүйцэтгэ.',
@@ -2927,6 +3053,11 @@
             '• Сонгосон багц (Trading View invite script эсвэл Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
           'footer.tagline': 'Чиг хандлагын гүйцэтгэлийн framework',
           'footer.disclaimer': 'Анхааруулга: Зөвхөн сургалтын зорилготой. Санхүүгийн зөвлөгөө биш.',
+          'footer.privacy': 'Нууцлал',
+          'footer.terms': 'Үйлчилгээний нөхцөл',
+          'cookie.text': 'Бид зөвхөн хязгаарлагдмал analytics ашиглан сайтаа сайжруулдаг. Cross-site tracking байхгүй. <a href="privacy.html">Нууцлалын бодлого</a>-ыг үзнэ үү.',
+          'cookie.accept': 'Зөвшөөрөх',
+          'cookie.reject': 'Татгалзах',
           'steps.1.n': 'АЛХАМ 01',
           'steps.1.t': 'Өндөр TF чиглэл тогтоох',
           'steps.1.d': 'Оролт хайхаас өмнө өндөр timeframe-ийн Supertrend чиглэлээ түгжинэ.',
@@ -3114,6 +3245,72 @@
       const initial = urlLang || saved || 'en';
       setLang(initial, urlLang ? false : true);
       applyTfStats(currentTf);
+
+      // --- Demo video click-to-play (perf: avoid eager 11.5MB autoplay) ---
+      (function () {
+        const card = document.getElementById('videoCard');
+        const video = document.getElementById('demoVideo');
+        const btn = document.getElementById('videoPlayBtn');
+        if (!card || !video || !btn) return;
+        function play() {
+          card.classList.add('is-playing');
+          video.setAttribute('preload', 'auto');
+          video.play().catch(() => {});
+          trackEvent('video_play', { source: 'demo_overlay' });
+        }
+        btn.addEventListener('click', play);
+        video.addEventListener('play', () => card.classList.add('is-playing'));
+        video.addEventListener('pause', () => {
+          if (video.ended || video.currentTime === 0) card.classList.remove('is-playing');
+        });
+      })();
+
+      // --- Cookie consent + analytics gate ---
+      // Stores 'khan_cookie_consent' = 'granted' | 'denied' in localStorage.
+      // Analytics (GA4) is only loaded when user explicitly accepts.
+      // To enable GA4: replace GA_MEASUREMENT_ID below with your G-XXXXXXXXXX id.
+      (function () {
+        const KEY = 'khan_cookie_consent';
+        const GA_MEASUREMENT_ID = ''; // <-- paste your G-XXXXXXXXXX here to enable Google Analytics 4
+        const banner = document.getElementById('cookieBanner');
+        const accept = document.getElementById('cookieAccept');
+        const reject = document.getElementById('cookieReject');
+        const stored = localStorage.getItem(KEY);
+
+        function loadGA() {
+          if (!GA_MEASUREMENT_ID) return;
+          if (window.gtag) return; // already loaded
+          const s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+        }
+        function hideBanner() { banner?.classList.remove('is-visible'); }
+        function showBanner() { banner?.classList.add('is-visible'); }
+
+        if (stored === 'granted') {
+          loadGA();
+        } else if (stored === 'denied') {
+          // user previously declined — stay out
+        } else {
+          // first visit — show banner
+          showBanner();
+        }
+        accept?.addEventListener('click', () => {
+          localStorage.setItem(KEY, 'granted');
+          hideBanner();
+          loadGA();
+          trackEvent('cookie_consent', { value: 'granted' });
+        });
+        reject?.addEventListener('click', () => {
+          localStorage.setItem(KEY, 'denied');
+          hideBanner();
+        });
+      })();
 
       document.addEventListener('click', (e) => {
         const target = e.target.closest('[data-track]');
