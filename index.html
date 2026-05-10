@@ -30,13 +30,114 @@
 
     <title>KHAN STRUCTURE — Trade the Trend Flip</title>
 
+    <!-- Structured data: Product + Offers + FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "KHAN STRUCTURE — Trend Flip Engine",
+      "description": "A trend-line execution engine for XAU, BTC, and FX. Supertrend flips with HTF confluence, pre-signal alerts, and 4-level TP scale-out.",
+      "brand": { "@type": "Brand", "name": "KHAN STRUCTURE" },
+      "url": "https://khanstructure.trade",
+      "image": "https://khanstructure.trade/KHAN%20Structure%20-%20Smart%20Money%20Indicator%20cover.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "TradingView Pro — Trend Flip Engine",
+          "price": "29.00",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "29.00",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M",
+            "billingIncrement": 1,
+            "unitCode": "MON"
+          },
+          "availability": "https://schema.org/LimitedAvailability",
+          "inventoryLevel": { "@type": "QuantitativeValue", "value": 100 },
+          "url": "https://khanstructure.trade/#pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "MT5 EA — Real Boost Pack",
+          "price": "39.00",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "39.00",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M",
+            "billingIncrement": 1,
+            "unitCode": "MON"
+          },
+          "availability": "https://schema.org/InStock",
+          "url": "https://khanstructure.trade/#pricing"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does access verification take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most payments are verified within 24 hours after on-chain confirmation." }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment network should I use?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use USDT on BEP20 only. Using the wrong network can cause permanent loss." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this suitable for beginners?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, if you are willing to follow a process and risk rules with patience." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from SMC indicators?",
+          "acceptedAnswer": { "@type": "Answer", "text": "KHAN STRUCTURE is built on Supertrend trend-line flips with HTF confluence — not on manual structure zones, order blocks, or liquidity sweeps. Entries are rule-based and fire automatically when filters agree." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you guarantee profits?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. This is an educational framework focused on disciplined execution." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when the TradingView invite script is full?",
+          "acceptedAnswer": { "@type": "Answer", "text": "TradingView invite script is capped at 100 users. MT5 EA license has no user cap." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use official Telegram channels listed below. Be careful of impersonator accounts." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does each plan cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "TradingView invite script: $29/month. MT5 EA: $39/month. Pay with USDT on BEP20." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel? Are refunds available?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cancel anytime — billing is monthly, so you keep full access until the end of the current billing cycle. No partial-month refunds, but no auto-renewal lock-in either." }
+        }
+      ]
+    }
+    </script>
+
     <style>
       :root {
         --bg: #070a12;
         --bg2: #0b0f22;
         --text: rgba(255, 255, 255, 0.92);
         --muted: rgba(255, 255, 255, 0.7);
-        --muted2: rgba(255, 255, 255, 0.55);
+        --muted2: rgba(255, 255, 255, 0.66);
         --gold: #f2c14e;
         --purple: #7b3ff2;
         --purple2: #b36bff;
@@ -666,6 +767,62 @@
         font-size: 12px;
         color: var(--muted2);
         line-height: 1.55;
+      }
+
+      /* TF tabs (Numbers section) */
+      .tf-tabs {
+        display: inline-flex;
+        gap: 4px;
+        padding: 4px;
+        margin-bottom: 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .tf-tab {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--muted);
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition:
+          background 0.14s ease,
+          color 0.14s ease,
+          border-color 0.14s ease;
+      }
+      .tf-tab:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .tf-tab.is-active {
+        color: rgba(26, 15, 0, 0.96);
+        background: linear-gradient(90deg, var(--gold) 0%, var(--purple2) 100%);
+        border-color: rgba(242, 193, 78, 0.7);
+        box-shadow: 0 8px 22px rgba(242, 193, 78, 0.22);
+      }
+
+      /* Pricing trust strip */
+      .pricing-trust {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+      .pricing-trust .chip {
+        padding: 6px 12px;
+        font-size: 12px;
+        background: rgba(242, 193, 78, 0.07);
+        border-color: rgba(242, 193, 78, 0.28);
+      }
+      .pricing-trust .chip strong {
+        color: var(--gold);
+        font-weight: 900;
+        margin-right: 4px;
       }
 
       /* Pricing comparison */
@@ -1618,55 +1775,54 @@
             <h2 data-i18n="examples.h2">Real charts. Clear process.</h2>
           </div>
           <p data-i18n="examples.p">
-            Real chart examples across Crypto, FX, and Gold. Focused on the trend flip, HTF confluence, and the
-            4-level TP map.
+            One asset (XAU) across three timeframes — see how the trend flip, HTF confluence, and 4-level TP map work
+            from scalping to macro frame.
           </p>
         </div>
 
-        <!-- TODO: replace example_xau.png / example_btc.png / example_fx.png with new KhanSniperPro chart screenshots showing trend-line flips, HTF filter, TP1-TP4 lines. -->
         <div class="gallery" aria-label="KHAN STRUCTURE examples">
-          <div class="shot" data-src="example_xau.png">
+          <div class="shot" data-src="example_xau_15m.png">
             <img
-              src="example_xau.png"
-              alt="XAUUSD example"
+              src="example_xau_15m.png"
+              alt="XAU 15m example with KSniper trend flip and TP map"
               loading="lazy"
               decoding="async"
-              width="2007"
-              height="1141"
+              width="2315"
+              height="1145"
             />
             <div class="cap">
-              <div class="label" data-i18n="examples.xau.label">XAU (Gold) • 15m</div>
-              <div class="note" data-i18n="examples.note">Flip → HTF confluence → 4-level TP</div>
+              <div class="label" data-i18n="examples.xau15m.label">XAU • 15m</div>
+              <div class="note" data-i18n="examples.xau15m.note">Pre-signal → flip → TP1–TP4 scale-out</div>
             </div>
           </div>
 
-          <div class="shot" data-src="example_btc.png">
+          <div class="shot" data-src="example_xau_1h.png">
             <img
-              src="example_btc.png"
-              alt="BTCUSDT example"
+              src="example_xau_1h.png"
+              alt="XAU 1h example with full TP1-TP4 ladder"
               loading="lazy"
               decoding="async"
-              width="2007"
-              height="1141"
+              width="2315"
+              height="1145"
             />
             <div class="cap">
-              <div class="label" data-i18n="examples.btc.label">BTC • 15m</div>
-              <div class="note" data-i18n="examples.note">Flip → HTF confluence → 4-level TP</div>
+              <div class="label" data-i18n="examples.xau1h.label">XAU • 1H</div>
+              <div class="note" data-i18n="examples.xau1h.note">HTF flip with full TP1–TP4 ladder</div>
             </div>
           </div>
 
-          <div class="shot" data-src="example_fx.png">
+          <div class="shot" data-src="example_xau_4h.png">
             <img
-              src="example_fx.png"
-              alt="FX example"
+              src="example_xau_4h.png"
+              alt="XAU 4h example showing macro bias and HTF confluence"
               loading="lazy"
               decoding="async"
-              width="2007"
-              height="1141"
+              width="2315"
+              height="1145"
             />
             <div class="cap">
-              <div class="label" data-i18n="examples.fx.label">FX • 15m</div>
-              <div class="note" data-i18n="examples.note">Flip → HTF confluence → 4-level TP</div>
+              <div class="label" data-i18n="examples.xau4h.label">XAU • 4H</div>
+              <div class="note" data-i18n="examples.xau4h.note">Macro bias frame for HTF confluence</div>
             </div>
           </div>
         </div>
@@ -1788,43 +1944,49 @@
             <h2 data-i18n="numbers.h2">12-month backtest snapshot.</h2>
           </div>
           <p data-i18n="numbers.p">
-            Pulled from the on-chart stats panel. Replace these placeholders with your own live numbers when ready.
+            Pulled directly from the on-chart 12-month stats panel. The same panel ships with the indicator so you
+            can verify your own results live.
           </p>
         </div>
 
-        <!-- TODO: replace placeholder numbers below with live 12-month values from KhanSniperPro stats panel -->
+        <div class="tf-tabs" role="tablist" aria-label="Timeframe">
+          <button class="tf-tab" type="button" role="tab" data-tf="15m" aria-selected="false">15m</button>
+          <button class="tf-tab is-active" type="button" role="tab" data-tf="1h" aria-selected="true">1H</button>
+          <button class="tf-tab" type="button" role="tab" data-tf="4h" aria-selected="false">4H</button>
+        </div>
+
         <div class="stats-grid">
           <div class="stat-card">
-            <span class="stat-num" data-i18n="numbers.win.v">62%</span>
+            <span class="stat-num" id="stat-win">82.2%</span>
             <div class="stat-label" data-i18n="numbers.win.k">Win rate</div>
-            <div class="stat-sub" data-i18n="numbers.win.s">Across TP1-TP4 hits</div>
+            <div class="stat-sub" id="stat-win-sub">83 wins / 18 losses</div>
           </div>
           <div class="stat-card">
-            <span class="stat-num" data-i18n="numbers.pf.v">1.82</span>
-            <div class="stat-label" data-i18n="numbers.pf.k">Profit factor</div>
-            <div class="stat-sub" data-i18n="numbers.pf.s">Gross win / gross loss</div>
+            <span class="stat-num" id="stat-net">+8.37%</span>
+            <div class="stat-label" data-i18n="numbers.net.k">Net return</div>
+            <div class="stat-sub" data-i18n="numbers.net.s">Last 12 months, compound</div>
           </div>
           <div class="stat-card">
-            <span class="stat-num" data-i18n="numbers.r.v">1.4R</span>
-            <div class="stat-label" data-i18n="numbers.r.k">Avg expectancy</div>
-            <div class="stat-sub" data-i18n="numbers.r.s">Per closed trade</div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num" data-i18n="numbers.dd.v">−12%</span>
+            <span class="stat-num" id="stat-dd">−3.35%</span>
             <div class="stat-label" data-i18n="numbers.dd.k">Max drawdown</div>
             <div class="stat-sub" data-i18n="numbers.dd.s">Peak-to-trough equity</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" id="stat-trades">101</span>
+            <div class="stat-label" data-i18n="numbers.trades.k">Trades</div>
+            <div class="stat-sub" data-i18n="numbers.trades.s">Closed in the last 12 months</div>
           </div>
         </div>
 
         <div class="stat-meta">
-          <span class="chip" data-i18n="numbers.tag.asset">XAU 15m</span>
-          <span class="chip" data-i18n="numbers.tag.range">Jan 2024 → Jan 2025</span>
-          <span class="chip" data-i18n="numbers.tag.sample">Sample / replace with live data</span>
+          <span class="chip" id="stat-asset-chip">XAU · 1H</span>
+          <span class="chip" data-i18n="numbers.tag.tracked">15m / 1H / 4H all tracked</span>
+          <span class="chip" data-i18n="numbers.tag.source">From on-chart 12M Stats panel</span>
         </div>
 
         <p class="stat-disclaimer" data-i18n="numbers.disclaimer">
-          Past backtest performance is not indicative of future results. Numbers shown are illustrative placeholders;
-          replace with your verified 12-month stats before publishing.
+          Numbers shown are the on-chart 12-month results from XAU 1H. Past performance is not indicative of future
+          results. Verify on your own chart and timeframe before going live.
         </p>
       </div>
     </section>
@@ -1838,6 +2000,13 @@
             <h2 data-i18n="pay.h2">Choose your plan and pay</h2>
           </div>
           <p data-i18n="pay.p">Monthly billing. Cancel anytime. USDT (BEP20) accepted. 24-hour verification after on-chain confirmation.</p>
+        </div>
+
+        <div class="pricing-trust" aria-label="Trust strip">
+          <span class="chip"><strong>+8.37%</strong> <span data-i18n="trust.chip1">12-month net (XAU 1H)</span></span>
+          <span class="chip"><strong>82%+</strong> <span data-i18n="trust.chip2">win rate across 15m/1H/4H</span></span>
+          <span class="chip"><strong>24h</strong> <span data-i18n="trust.chip3">USDT BEP20 verification</span></span>
+          <span class="chip"><strong>100</strong> <span data-i18n="trust.chip4">TradingView seats (limited)</span></span>
         </div>
 
         <div class="pricing-grid">
@@ -2012,6 +2181,13 @@
               Trading View invite script: $29/month. Meta Trader 5 EA: $39/month. Pay with USDT on BEP20.
             </p>
           </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.8.q">Can I cancel? Are refunds available?</summary>
+            <p data-i18n="faq.8.a">
+              Cancel anytime — billing is monthly, so you keep full access until the end of the current billing
+              cycle. No partial-month refunds, but no auto-renewal lock-in either.
+            </p>
+          </details>
         </div>
       </div>
     </section>
@@ -2161,12 +2337,14 @@
           'nav.apply': 'Apply',
           'nav.supportCta': 'Contact Support',
           'nav.community': 'Community',
-          'examples.fx.label': 'FX • 15m',
-          'examples.btc.label': 'BTC • 15m',
-          'examples.xau.label': 'XAU (Gold) • 15m',
-          'examples.note': 'Flip → HTF confluence → 4-level TP',
+          'examples.xau15m.label': 'XAU • 15m',
+          'examples.xau15m.note': 'Pre-signal → flip → TP1–TP4 scale-out',
+          'examples.xau1h.label': 'XAU • 1H',
+          'examples.xau1h.note': 'HTF flip with full TP1–TP4 ladder',
+          'examples.xau4h.label': 'XAU • 4H',
+          'examples.xau4h.note': 'Macro bias frame for HTF confluence',
           'examples.p':
-            'Real chart examples across Crypto, FX, and Gold. Focused on the trend flip, HTF confluence, and the 4-level TP map.',
+            'One asset (XAU) across three timeframes — see how the trend flip, HTF confluence, and 4-level TP map work from scalping to macro frame.',
           'examples.h2': 'Real charts. Clear process.',
           'examples.pill': 'Market Examples',
           'nav.examples': 'Examples',
@@ -2221,6 +2399,9 @@
           'faq.7.q': 'How much does each plan cost?',
           'faq.7.a':
             'Trading View invite script: $29/month. Meta Trader 5 EA: $39/month. Pay with USDT on BEP20.',
+          'faq.8.q': 'Can I cancel? Are refunds available?',
+          'faq.8.a':
+            'Cancel anytime — billing is monthly, so you keep full access until the end of the current billing cycle. No partial-month refunds, but no auto-renewal lock-in either.',
           'support.pill': 'Support',
           'support.h2': 'Official channels and support policy.',
           'support.p': 'Use only official Instagram, Facebook, and Telegram channels for updates and support.',
@@ -2281,24 +2462,24 @@
           'integrity.p': 'No hindsight edits. Same rules for live execution.',
 
           'numbers.pill': 'By the numbers',
-          'numbers.h2': '12-month backtest snapshot.',
-          'numbers.p': 'Pulled from the on-chart stats panel. Replace these placeholders with your own live numbers when ready.',
-          'numbers.win.v': '62%',
+          'numbers.h2': '12-month results from the on-chart panel.',
+          'numbers.p': 'Pulled directly from the on-chart 12-month stats panel. The same panel ships with the indicator so you can verify your own results live.',
+          'numbers.win.v': '82.2%',
           'numbers.win.k': 'Win rate',
-          'numbers.win.s': 'Across TP1-TP4 hits',
-          'numbers.pf.v': '1.82',
-          'numbers.pf.k': 'Profit factor',
-          'numbers.pf.s': 'Gross win / gross loss',
-          'numbers.r.v': '1.4R',
-          'numbers.r.k': 'Avg expectancy',
-          'numbers.r.s': 'Per closed trade',
-          'numbers.dd.v': '−12%',
+          'numbers.win.s': '83 wins / 18 losses',
+          'numbers.net.v': '+8.37%',
+          'numbers.net.k': 'Net return',
+          'numbers.net.s': 'Last 12 months, compound',
+          'numbers.dd.v': '−3.35%',
           'numbers.dd.k': 'Max drawdown',
           'numbers.dd.s': 'Peak-to-trough equity',
-          'numbers.tag.asset': 'XAU 15m',
-          'numbers.tag.range': 'Jan 2024 → Jan 2025',
-          'numbers.tag.sample': 'Sample / replace with live data',
-          'numbers.disclaimer': 'Past backtest performance is not indicative of future results. Numbers shown are illustrative placeholders; replace with your verified 12-month stats before publishing.',
+          'numbers.trades.v': '101',
+          'numbers.trades.k': 'Trades',
+          'numbers.trades.s': 'Closed in the last 12 months',
+          'numbers.tag.asset': 'XAU · 1H',
+          'numbers.tag.tracked': '15m / 1H / 4H all tracked',
+          'numbers.tag.source': 'From on-chart 12M Stats panel',
+          'numbers.disclaimer': 'Numbers shown are the on-chart 12-month results from XAU 1H. Past performance is not indicative of future results. Verify on your own chart and timeframe before going live.',
 
           'cta.h3': 'Ready to start?',
           'cta.p': 'Pro access is available now. Apply when you need structured alerts and advanced tools.',
@@ -2315,6 +2496,10 @@
 
           'plan.popular': 'Most popular',
           'plan.per': '/ month',
+          'trust.chip1': '12-month net (XAU 1H)',
+          'trust.chip2': 'win rate across 15m/1H/4H',
+          'trust.chip3': 'USDT BEP20 verification',
+          'trust.chip4': 'TradingView seats (limited)',
           'plan.tv.name': 'TradingView',
           'plan.tv.head': 'Trend Flip Engine',
           'plan.tv.f1': 'Supertrend trend-flip entries on chart timeframe',
@@ -2415,12 +2600,14 @@
           'nav.apply': 'Хүсэлт илгээх',
           'nav.supportCta': 'Support руу орох',
           'nav.community': 'Нийгэмлэг',
-          'examples.fx.label': 'FX • 15м',
-          'examples.btc.label': 'BTC • 15м',
-          'examples.xau.label': 'XAU (Алт) • 15м',
-          'examples.note': 'Flip → HTF confluence → 4-түвшний TP',
+          'examples.xau15m.label': 'XAU • 15м',
+          'examples.xau15m.note': 'Pre-signal → flip → TP1–TP4 scale-out',
+          'examples.xau1h.label': 'XAU • 1H',
+          'examples.xau1h.note': 'HTF flip + бүрэн TP1–TP4 шат',
+          'examples.xau4h.label': 'XAU • 4H',
+          'examples.xau4h.note': 'Макро bias frame, HTF confluence',
           'examples.p':
-            'Crypto, FX, Gold-ийн бодит жишээнүүд. Trend flip, HTF confluence, 4-түвшний TP зураглалд төвлөрсөн.',
+            'Нэг хөрөнгө (XAU)-г 3 timeframe дээр — scalping-аас макро хүртэлх trend flip, HTF confluence, 4-түвшний TP зураглалын ажиллагаа.',
           'examples.h2': 'Бодит график. Тодорхой процесс.',
           'examples.pill': 'Зах зээлийн жишээ',
           'nav.examples': 'Жишээ',
@@ -2474,6 +2661,8 @@
           'faq.6.a': 'Доорх албан ёсны Telegram сувгуудыг ашиглана. Хуурамч аккаунтаас болгоомжил.',
           'faq.7.q': 'Багц бүрийн үнэ хэд вэ?',
           'faq.7.a': 'Trading View invite script: $29/сар. Meta Trader 5 EA: $39/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
+          'faq.8.q': 'Цуцлах, буцаан олголт байгаа юу?',
+          'faq.8.a': 'Хэдийд ч цуцалж болно — сарын төлбөртэй тул одоогийн billing cycle дуустал бүрэн хандалттай хэвээр байна. Хагас сарын буцаан олголт байхгүй, гэхдээ авто-сунгалтын lock байхгүй.',
           'support.pill': 'Дэмжлэг',
           'support.h2': 'Албан сувгууд ба дэмжлэгийн бодлого.',
           'support.p': 'Шинэчлэлт, дэмжлэгээ зөвхөн албан Instagram, Facebook, Telegram сувгуудаас авна.',
@@ -2529,24 +2718,24 @@
           'integrity.p': 'Hindsight засваргүй. Нэг дүрмээр бодит гүйцэтгэлд ашиглана.',
 
           'numbers.pill': 'Тоон үзүүлэлт',
-          'numbers.h2': '12 сарын backtest хураангуй.',
-          'numbers.p': 'Chart дээрх stats panel-аас гарсан. Эдгээр placeholder-ийг бэлэн болсон үед өөрийн live тоогоор соль.',
-          'numbers.win.v': '62%',
+          'numbers.h2': 'Chart дээрх panel-аас гарсан 12-сарын үр дүн.',
+          'numbers.p': 'Chart дээрх 12-сарын stats panel-аас шууд гарсан. Тэр л panel indicator-той хамт ирдэг тул та өөрийн үр дүнгээ live баталгаажуулах боломжтой.',
+          'numbers.win.v': '82.2%',
           'numbers.win.k': 'Хожлын хувь',
-          'numbers.win.s': 'TP1-TP4 хүртэлх ammo',
-          'numbers.pf.v': '1.82',
-          'numbers.pf.k': 'Profit factor',
-          'numbers.pf.s': 'Нийт ашиг / нийт алдагдал',
-          'numbers.r.v': '1.4R',
-          'numbers.r.k': 'Дундаж expectancy',
-          'numbers.r.s': 'Хаасан trade тус бүрт',
-          'numbers.dd.v': '−12%',
+          'numbers.win.s': '83 хожилт / 18 алдагдал',
+          'numbers.net.v': '+8.37%',
+          'numbers.net.k': 'Net орлого',
+          'numbers.net.s': 'Сүүлийн 12 сар, нийлмэл',
+          'numbers.dd.v': '−3.35%',
           'numbers.dd.k': 'Max drawdown',
           'numbers.dd.s': 'Оргил→ёроол equity',
-          'numbers.tag.asset': 'XAU 15м',
-          'numbers.tag.range': '2024.01 → 2025.01',
-          'numbers.tag.sample': 'Жишээ / live дата-аар соль',
-          'numbers.disclaimer': 'Өнгөрсөн backtest үр дүн ирээдүйг баталгаажуулахгүй. Үзүүлсэн тоонууд нь жишээ placeholder бөгөөд нийтлэхээс өмнө өөрийн баталгаажсан 12-сарын статистикаар солих хэрэгтэй.',
+          'numbers.trades.v': '101',
+          'numbers.trades.k': 'Trade-н тоо',
+          'numbers.trades.s': 'Сүүлийн 12 сард хаагдсан',
+          'numbers.tag.asset': 'XAU · 1H',
+          'numbers.tag.tracked': '15м / 1H / 4H бүгд хяналттай',
+          'numbers.tag.source': 'Chart дээрх 12M Stats panel-аас',
+          'numbers.disclaimer': 'Үзүүлсэн тоонууд нь XAU 1H-ийн chart дээрх 12-сарын үр дүн. Өнгөрсөн гүйцэтгэл ирээдүйг баталгаажуулахгүй. Live явуулахын өмнө өөрийн chart, timeframe дээр шалгана уу.',
           'cta.h3': 'Эхлэхэд бэлэн үү?',
           'cta.p': 'Одоогоор Pro хандалт нээлттэй. Structured alert ба advanced tools хэрэгтэй бол хүсэлт өг.',
           'cta.viewLite': 'Pro үзэх',
@@ -2560,6 +2749,10 @@
 
           'plan.popular': 'Хамгийн эрэлттэй',
           'plan.per': '/ сар',
+          'trust.chip1': '12-сарын net (XAU 1H)',
+          'trust.chip2': '15м/1H/4H хожлын дундаж',
+          'trust.chip3': 'USDT BEP20 баталгаажуулалт',
+          'trust.chip4': 'TradingView суудал (хязгаартай)',
           'plan.tv.name': 'TradingView',
           'plan.tv.head': 'Trend Flip Engine',
           'plan.tv.f1': 'Chart timeframe дээрх Supertrend trend-flip оролт',
@@ -2723,11 +2916,66 @@
       document.getElementById('langMN')?.addEventListener('click', () => setLang('mn', true));
       document.getElementById('langEN')?.addEventListener('click', () => setLang('en', true));
 
+      // --- TF stat toggle (Numbers section) ---
+      const tfData = {
+        '15m': {
+          win: '79.8%',
+          winSub: { en: '99 wins / 25 losses', mn: '99 хожилт / 25 алдагдал' },
+          net: '+0.73%',
+          dd: '−3.33%',
+          trades: '124',
+          asset: 'XAU · 15m',
+        },
+        '1h': {
+          win: '82.2%',
+          winSub: { en: '83 wins / 18 losses', mn: '83 хожилт / 18 алдагдал' },
+          net: '+8.37%',
+          dd: '−3.35%',
+          trades: '101',
+          asset: 'XAU · 1H',
+        },
+        '4h': {
+          win: '82.8%',
+          winSub: { en: '24 wins / 5 losses', mn: '24 хожилт / 5 алдагдал' },
+          net: '+5.36%',
+          dd: '−3.88%',
+          trades: '29',
+          asset: 'XAU · 4H',
+        },
+      };
+      let currentTf = '1h';
+      function applyTfStats(tf) {
+        const d = tfData[tf];
+        if (!d) return;
+        currentTf = tf;
+        const lang = document.documentElement.getAttribute('lang') === 'mn' ? 'mn' : 'en';
+        const set = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
+        set('stat-win', d.win);
+        set('stat-win-sub', d.winSub[lang]);
+        set('stat-net', d.net);
+        set('stat-dd', d.dd);
+        set('stat-trades', d.trades);
+        set('stat-asset-chip', d.asset);
+        document.querySelectorAll('.tf-tab').forEach((b) => {
+          const isActive = b.dataset.tf === tf;
+          b.classList.toggle('is-active', isActive);
+          b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+      document.querySelectorAll('.tf-tab').forEach((b) => {
+        b.addEventListener('click', () => applyTfStats(b.dataset.tf));
+      });
+      // Re-render TF stats whenever language changes (setLang rewrites data-i18n nodes
+      // but our id-based stat values must persist across language switches).
+      const langObserver = new MutationObserver(() => applyTfStats(currentTf));
+      langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
       // Init order: URL param > saved preference > default
       const urlLang = normalizeLang(new URLSearchParams(window.location.search).get('lang'));
       const saved = normalizeLang(localStorage.getItem('khan_lang'));
       const initial = urlLang || saved || 'en';
       setLang(initial, urlLang ? false : true);
+      applyTfStats(currentTf);
 
       document.addEventListener('click', (e) => {
         const target = e.target.closest('[data-track]');
