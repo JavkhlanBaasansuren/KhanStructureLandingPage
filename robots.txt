@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow noisy backup / dev files
+Disallow: /*.bak_mojibake
+Disallow: /head_index.html
+Disallow: /index.before_utf8_fix.html
+Disallow: /index.pre_restore_current.html
+
+Sitemap: https://khanstructure.com/sitemap.xml
