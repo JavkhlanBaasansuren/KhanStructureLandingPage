@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MUSE · Hair Atelier · Цаг захиалга</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:'#F8F4ED', paper:'#FFFFFF', ink:'#1A2520', ink2:'#2E3D36',
+            mute:'#7A857E', soft:'#B8C0B9', line:'#E5E0D2',
+            // Note: keeping `rose` keys for compatibility — now they map to emerald
+            rose:'#1F6E5C', roseDark:'#0E4A3D', roseSoft:'#C9DDD3', roseTint:'#E8F0EB',
+            gold:'#C9A66B', goldDark:'#A8884E', peach:'#EFD9B8',
+          },
+          fontFamily: {
+            sans:['Manrope','system-ui','sans-serif'],
+            serif:['Fraunces','Georgia','serif'],
+          },
+          boxShadow: {
+            card:'0 1px 2px rgba(26,37,32,0.04), 0 4px 16px rgba(26,37,32,0.04)',
+            float:'0 8px 32px rgba(26,37,32,0.10)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family:'Manrope',system-ui,sans-serif;
+      -webkit-tap-highlight-color:transparent;
+      background:
+        radial-gradient(at 95% 0%, rgba(201,166,107,0.20) 0%, transparent 55%),
+        radial-gradient(at 0% 25%, rgba(31,110,92,0.07) 0%, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(201,166,107,0.10) 0%, transparent 55%),
+        #F8F4ED;
+      background-attachment: fixed;
+    }
+    .brand { font-family:'Fraunces',Georgia,serif; }
+    input,select,textarea { font-size:16px !important; }
+    @media (min-width:640px) { input,select,textarea { font-size:14px !important; } }
+    .no-scrollbar::-webkit-scrollbar { display:none; } .no-scrollbar { scrollbar-width:none; }
+    .selectable { transition:all .18s ease; min-height:44px; }
+    .selectable.selected {
+      border-color:#1F6E5C !important;
+      background-color:#E8F0EB;
+      box-shadow:0 0 0 1px #1F6E5C inset;
+    }
+    .slot { transition:all .14s ease; min-height:48px; }
+    .slot:hover:not(:disabled):not(.selected) { background:#E8F0EB; border-color:#1F6E5C; }
+    .slot.selected {
+      background: linear-gradient(135deg, #1F6E5C 0%, #0E4A3D 100%);
+      color:#fff; border-color:#0E4A3D;
+      box-shadow: 0 4px 12px rgba(31,110,92,0.35);
+    }
+    .slot:disabled { color:#B8C0B9; background:#E8F0EB; border-color:transparent; cursor:not-allowed; text-decoration:line-through; }
+    .reveal { opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .step-num { width:28px; height:28px; border-radius:999px;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:600; font-size:13px; background:#C9DDD3; color:#1F6E5C; }
+    .step-num.done {
+      background: linear-gradient(135deg, #1F6E5C, #0E4A3D);
+      color:#fff;
+      box-shadow: 0 2px 8px rgba(31,110,92,0.35);
+    }
+    .modal-bg { background:rgba(26,37,32,.45); backdrop-filter:blur(2px); }
+    .mobile-cta-bar { position:fixed; left:0; right:0; bottom:0; background:#fff;
+      border-top:1px solid #E5E0D2;
+      box-shadow:0 -8px 24px rgba(26,37,32,0.08);
+      padding:12px 16px; padding-bottom:calc(12px + env(safe-area-inset-bottom));
+      z-index:30; display:flex; align-items:center; gap:12px; }
+    @media (min-width:1024px) { .mobile-cta-bar { display:none; } }
+    .sheet-backdrop { position:fixed; inset:0; background:rgba(26,37,32,.45);
+      z-index:40; opacity:0; pointer-events:none; transition:opacity .25s; }
+    .sheet-backdrop.open { opacity:1; pointer-events:auto; }
+    .bottom-sheet { position:fixed; left:0; right:0; bottom:0; background:#fff;
+      border-radius:20px 20px 0 0; box-shadow:0 -12px 40px rgba(26,37,32,0.16);
+      transform:translateY(100%); transition:transform .3s cubic-bezier(.4,0,.2,1);
+      z-index:50; max-height:88vh; overflow-y:auto;
+      padding-bottom:env(safe-area-inset-bottom); }
+    .bottom-sheet.open { transform:translateY(0); }
+    @media (min-width:1024px) { .bottom-sheet.lg-hidden, .sheet-backdrop.lg-hidden { display:none !important; } }
+    @media (max-width:639px) {
+      .modal-card { align-self:flex-end !important; border-radius:20px 20px 0 0 !important;
+        max-height:90vh; width:100%; }
+      .modal-wrap { align-items:flex-end !important; padding:0 !important; }
+    }
+    @media (max-width:1023px) { body { padding-bottom:80px; } }
+    @media (max-width:639px) { .brand-hero { font-size:1.875rem !important; line-height:1.2; } }
+  </style>
+</head>
+<body class="bg-cream text-ink">
+
+<!-- ─────────── Top nav ─────────── -->
+<header class="sticky top-0 z-20 bg-cream/85 backdrop-blur border-b border-line">
+  <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose to-roseDark text-white flex items-center justify-center brand text-xl shadow-card ring-1 ring-gold/30">M</div>
+      <div class="leading-tight">
+        <div class="brand text-xl tracking-[0.3em]">MUSE</div>
+        <div class="text-[9px] tracking-[0.35em] text-gold uppercase font-medium">Hair Atelier</div>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-mute">
+      <a href="#services" class="hover:text-ink">Үйлчилгээ</a>
+      <a href="#stylists" class="hover:text-ink">Стилист</a>
+      <a href="#schedule" class="hover:text-ink">Цаг сонгох</a>
+      <a href="#location" class="hover:text-ink">Хаяг</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="text-xs px-3 py-1.5 rounded-full border border-line text-mute hover:border-rose hover:text-rose transition">MN / EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────── Hero ─────────── -->
+<section class="relative max-w-6xl mx-auto px-5 pt-6 pb-2 md:pt-14 md:pb-6 overflow-hidden">
+  <!-- Decorative jewel blobs -->
+  <div aria-hidden="true" class="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-gold/30 blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="absolute top-20 -right-32 w-64 h-64 rounded-full bg-rose/20 blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="absolute top-40 right-10 w-40 h-40 rounded-full bg-peach/40 blur-3xl pointer-events-none"></div>
+
+  <div class="relative">
+    <div class="inline-flex items-center gap-2 text-xs text-roseDark mb-3 bg-roseTint border border-roseSoft px-3 py-1 rounded-full font-medium">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-rose"></span>
+      </span>
+      Өнөөдөр <span id="hero-slots">3</span> цаг сул байна
+    </div>
+    <p class="text-[10px] tracking-[0.4em] uppercase text-gold font-medium mb-3">— Inspire your style</p>
+    <h1 class="brand brand-hero text-3xl md:text-5xl text-ink leading-tight">
+      Шинэ дүрд<br/>
+      <span class="italic bg-gradient-to-r from-rose via-roseDark to-gold bg-clip-text text-transparent">5 секундэд</span> хувирцгаая.
+    </h1>
+    <p class="text-mute mt-3 md:mt-4 max-w-xl text-sm md:text-base">
+      Үйлчилгээгээ хослуулан, дуртай стилисттэйгээ цагаа нэг хуудаснаа товлоорой.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────── Main grid ─────────── -->
+<main class="max-w-6xl mx-auto px-5 pb-40 lg:pb-20 grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-10">
+
+  <div class="space-y-8">
+
+    <!-- ─── 1. Services (multi-select, dynamic) ─── -->
+    <section id="services" class="scroll-mt-24">
+      <div class="flex items-center gap-3 mb-1">
+        <span class="step-num" id="num-1">1</span>
+        <h2 class="brand text-xl">Үйлчилгээгээ сонгоно уу</h2>
+      </div>
+      <p class="text-xs text-mute mb-4 ml-10">Хэдэн ч үйлчилгээ нэгтгэж захиалах боломжтой</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="service-grid"></div>
+    </section>
+
+    <!-- ─── 2. Stylist (dynamic) ─── -->
+    <section id="stylists" class="scroll-mt-24 reveal" data-reveal>
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <span class="step-num" id="num-2">2</span>
+          <h2 class="brand text-xl">Стилист сонгох</h2>
+          <span class="text-xs text-mute">(заавал биш)</span>
+        </div>
+        <button onclick="openStylistSheet()" class="text-xs text-rose hover:underline">
+          Бүгдийг үзэх (<span id="stylist-total">0</span>)
+        </button>
+      </div>
+
+      <div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar -mx-5 px-5" id="stylist-strip"></div>
+    </section>
+
+    <!-- ─── 3. Date + time ─── -->
+    <section id="schedule" class="scroll-mt-24 reveal" data-reveal>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num" id="num-3">3</span>
+        <h2 class="brand text-xl">Огноо, цагаа сонгох</h2>
+      </div>
+
+      <div class="bg-paper rounded-2xl border border-line p-5 shadow-card">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <button onclick="shiftDates(-7)" class="w-8 h-8 rounded-lg border border-line text-mute hover:border-rose hover:text-rose">‹</button>
+            <span class="text-xs text-mute" id="date-range-label">—</span>
+            <button onclick="shiftDates(7)" class="w-8 h-8 rounded-lg border border-line text-mute hover:border-rose hover:text-rose">›</button>
+          </div>
+          <button onclick="document.getElementById('cal-modal').classList.remove('hidden')"
+                  class="text-xs text-rose flex items-center gap-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Календарь
+          </button>
+        </div>
+
+        <div class="flex sm:grid sm:grid-cols-7 gap-2 mb-6 overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0 snap-x snap-mandatory" id="date-strip"></div>
+
+        <div class="border-t border-line pt-5">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs text-mute" id="time-label">Цаг</span>
+            <span class="text-[10px] text-mute">Asia/Ulaanbaatar</span>
+          </div>
+          <div id="time-grid" class="space-y-4"></div>
+          <p class="text-[11px] text-mute mt-4">
+            Зураастай = боломжгүй. Сонгосон үйлчилгээнүүдийн нийт хугацаанд багтах цаг л харагдана.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 4. Contact ─── -->
+    <section id="contact" class="scroll-mt-24 reveal" data-reveal>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num" id="num-4">4</span>
+        <h2 class="brand text-xl">Холбоо барих мэдээлэл</h2>
+      </div>
+      <div class="bg-paper rounded-2xl border border-line p-5 shadow-card space-y-3">
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="text-[11px] text-mute">Нэр *</label>
+            <input id="f-name" oninput="updateSummary()" type="text" placeholder="Жишээ: Болдын Алтан"
+                   class="mt-1 w-full bg-cream rounded-lg px-4 py-3 text-sm border border-transparent focus:border-rose focus:bg-paper focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="text-[11px] text-mute">Утас *</label>
+            <input id="f-phone" oninput="updateSummary()" type="tel" placeholder="9900 0000"
+                   class="mt-1 w-full bg-cream rounded-lg px-4 py-3 text-sm border border-transparent focus:border-rose focus:bg-paper focus:outline-none transition" />
+          </div>
+        </div>
+        <div>
+          <label class="text-[11px] text-mute">И-мэйл <span class="text-soft">(заавал биш)</span></label>
+          <input type="email" placeholder="name@example.com"
+                 class="mt-1 w-full bg-cream rounded-lg px-4 py-3 text-sm border border-transparent focus:border-rose focus:bg-paper focus:outline-none transition" />
+        </div>
+        <label class="flex items-center gap-2 text-xs text-mute pt-1 cursor-pointer">
+          <input type="checkbox" class="accent-rose" /> Анх удаа ирж байна
+        </label>
+      </div>
+
+      <div class="mt-4 rounded-2xl border border-roseSoft bg-roseTint/40 p-4 flex gap-3">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-rose mt-0.5 shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <p class="text-[11px] text-ink2 leading-relaxed">
+          Урьдчилгаа төлбөр буцаагдахгүй. Цагаа 24 цагийн өмнө мэдэгдвэл өөр өдөр шилжүүлэх боломжтой.
+          2-оос дээш удаа өөрчилбөл захиалга хүчингүй болно.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═════ RIGHT: sticky summary (desktop) ═════ -->
+  <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start bg-paper rounded-2xl border border-line shadow-card p-6 max-h-[calc(100vh-7rem)] overflow-y-auto">
+    <h3 class="brand text-lg mb-1">Захиалгын хураангуй</h3>
+    <p class="text-[11px] text-mute mb-5">Сонгох тутам шинэчлэгдэнэ</p>
+
+    <div id="services-list-desktop" class="mb-4"></div>
+
+    <div class="space-y-3 text-sm pt-3 border-t border-line">
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-16 pt-0.5">Стилист</span>
+        <span class="flex-1" data-sync="s-stylist">Дурын</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-16 pt-0.5">Огноо</span>
+        <span class="flex-1" data-sync="s-date">— Сонгоогүй —</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-16 pt-0.5">Цаг</span>
+        <span class="flex-1" data-sync="s-time">— Сонгоогүй —</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-16 pt-0.5">Хэрэглэгч</span>
+        <span class="flex-1" data-sync="s-user">— Хоосон —</span>
+      </div>
+    </div>
+
+    <div class="border-t border-line mt-5 pt-5 space-y-2">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Үйлчилгээ (<span data-sync="s-count">0</span>)</span>
+        <span data-sync="s-price">—</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Нийт хугацаа</span>
+        <span data-sync="s-duration">—</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Урьдчилгаа</span>
+        <span data-sync="s-deposit">—</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Үлдэгдэл (салонд)</span>
+        <span data-sync="s-balance">—</span>
+      </div>
+      <div class="flex items-center justify-between text-base font-semibold pt-3 border-t border-line">
+        <span>Одоо төлөх</span>
+        <span class="text-rose"><span data-sync="s-pay-amount">0</span>₮</span>
+      </div>
+    </div>
+
+    <button id="cta-desktop" onclick="openConfirm()" disabled
+            class="w-full mt-5 rounded-xl py-3.5 font-semibold bg-gradient-to-r from-rose to-roseDark text-white shadow-card disabled:bg-soft disabled:from-soft disabled:to-soft disabled:cursor-not-allowed hover:bg-roseDark transition">
+      Захиалга баталгаажуулах
+    </button>
+    <p class="text-center text-[11px] text-mute mt-2">QPay-ээр аюулгүй төлбөр</p>
+  </aside>
+</main>
+
+<!-- ═════ Mobile bottom CTA bar ═════ -->
+<div class="mobile-cta-bar lg:hidden">
+  <button onclick="openSummarySheet()" class="flex-1 flex items-center justify-between text-left">
+    <div>
+      <div class="text-[10px] text-mute uppercase tracking-wider" id="m-bar-label">Үйлчилгээ сонгоно уу</div>
+      <div class="flex items-center gap-1.5 mt-0.5">
+        <span class="text-base font-semibold"><span id="m-bar-amount">0</span>₮</span>
+        <svg class="text-mute" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+      </div>
+    </div>
+  </button>
+  <button id="cta-mobile" onclick="handleMobileCta()" disabled
+          class="bg-gradient-to-r from-rose to-roseDark text-white px-5 py-3.5 rounded-xl font-semibold disabled:from-soft disabled:to-soft disabled:cursor-not-allowed active:opacity-90 transition min-w-[120px]">
+    <span id="cta-mobile-label">Үргэлжлүүлэх</span>
+  </button>
+</div>
+
+<!-- ═════ Bottom sheet — booking summary (mobile) ═════ -->
+<div id="summary-backdrop" class="sheet-backdrop lg-hidden" onclick="closeSummarySheet()"></div>
+<div id="summary-sheet" class="bottom-sheet lg-hidden">
+  <div class="flex justify-center pt-3 pb-1 cursor-pointer" onclick="closeSummarySheet()">
+    <div class="w-10 h-1 rounded-full bg-line"></div>
+  </div>
+  <div class="px-5 pb-5">
+    <div class="flex items-center justify-between mb-1">
+      <h3 class="brand text-lg">Захиалгын хураангуй</h3>
+      <button onclick="closeSummarySheet()" class="text-mute -mr-2 p-2">✕</button>
+    </div>
+    <p class="text-[11px] text-mute mb-5">Сонгох тутам шинэчлэгдэнэ</p>
+
+    <div id="services-list-mobile" class="mb-4"></div>
+
+    <div class="space-y-3 text-sm pt-3 border-t border-line">
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-20 pt-0.5">Стилист</span>
+        <span class="flex-1" data-sync="s-stylist">Дурын</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-20 pt-0.5">Огноо</span>
+        <span class="flex-1" data-sync="s-date">— Сонгоогүй —</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-20 pt-0.5">Цаг</span>
+        <span class="flex-1" data-sync="s-time">— Сонгоогүй —</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-mute text-[11px] uppercase tracking-wider w-20 pt-0.5">Хэрэглэгч</span>
+        <span class="flex-1" data-sync="s-user">— Хоосон —</span>
+      </div>
+    </div>
+
+    <div class="border-t border-line mt-5 pt-5 space-y-2">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Үйлчилгээ (<span data-sync="s-count">0</span>)</span>
+        <span data-sync="s-price">—</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Нийт хугацаа</span>
+        <span data-sync="s-duration">—</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Урьдчилгаа</span>
+        <span data-sync="s-deposit">—</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-mute">Үлдэгдэл (салонд)</span>
+        <span data-sync="s-balance">—</span>
+      </div>
+      <div class="flex items-center justify-between text-base font-semibold pt-3 border-t border-line">
+        <span>Одоо төлөх</span>
+        <span class="text-rose"><span data-sync="s-pay-amount">0</span>₮</span>
+      </div>
+    </div>
+
+    <button id="cta-sheet" onclick="closeSummarySheet(); openConfirm();" disabled
+            class="w-full mt-5 rounded-xl py-4 font-semibold bg-gradient-to-r from-rose to-roseDark text-white shadow-card disabled:bg-soft disabled:from-soft disabled:to-soft disabled:cursor-not-allowed active:bg-roseDark transition">
+      Захиалга баталгаажуулах
+    </button>
+    <p class="text-center text-[11px] text-mute mt-2">QPay-ээр аюулгүй төлбөр</p>
+  </div>
+</div>
+
+<!-- ═════ Bottom sheet — all stylists (mobile + desktop) ═════ -->
+<div id="stylist-backdrop" class="sheet-backdrop" onclick="closeStylistSheet()"></div>
+<div id="stylist-sheet" class="bottom-sheet">
+  <div class="flex justify-center pt-3 pb-1 cursor-pointer" onclick="closeStylistSheet()">
+    <div class="w-10 h-1 rounded-full bg-line"></div>
+  </div>
+  <div class="px-5 pb-5">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="brand text-lg">Стилист сонгох</h3>
+      <button onclick="closeStylistSheet()" class="text-mute -mr-2 p-2">✕</button>
+    </div>
+
+    <div class="relative mb-3">
+      <input id="stylist-search" type="text" placeholder="Стилист хайх..." oninput="renderStylistList()"
+             class="w-full bg-cream rounded-lg pl-9 pr-3 py-3 text-sm border border-transparent focus:border-rose focus:bg-paper focus:outline-none" />
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-mute" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </div>
+
+    <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar -mx-5 px-5 text-xs">
+      <button onclick="toggleFilter('all')" data-filter="all" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-gradient-to-r from-rose to-roseDark text-white border border-rose">Бүгд</button>
+      <button onclick="toggleFilter('today')" data-filter="today" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-paper text-mute border border-line">Өнөөдөр сул</button>
+      <button onclick="toggleFilter('color')" data-filter="color" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-paper text-mute border border-line">Будалт мэргэшсэн</button>
+      <button onclick="toggleFilter('top')" data-filter="top" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-paper text-mute border border-line">Шилдэг (4.8+)</button>
+    </div>
+
+    <div id="stylist-list" class="space-y-2"></div>
+  </div>
+</div>
+
+<!-- ═════ Calendar modal ═════ -->
+<div id="cal-modal" class="hidden fixed inset-0 z-50 modal-bg modal-wrap flex items-center justify-center p-4" onclick="if(event.target===this) this.classList.add('hidden')">
+  <div class="modal-card bg-paper rounded-2xl shadow-float p-6 w-full max-w-sm">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="brand text-lg">Календарь</h3>
+      <button onclick="document.getElementById('cal-modal').classList.add('hidden')" class="text-mute hover:text-ink">✕</button>
+    </div>
+    <div class="flex items-center justify-between mb-3">
+      <button onclick="shiftCalMonth(-1)" class="w-7 h-7 rounded-lg hover:bg-cream">‹</button>
+      <span class="text-sm font-medium" id="cal-month-label">—</span>
+      <button onclick="shiftCalMonth(1)" class="w-7 h-7 rounded-lg hover:bg-cream">›</button>
+    </div>
+    <div class="grid grid-cols-7 text-center text-[10px] text-mute mb-1">
+      <div>Да</div><div>Мя</div><div>Лх</div><div>Пү</div><div>Ба</div><div>Бя</div><div>Ня</div>
+    </div>
+    <div class="grid grid-cols-7 gap-1 text-sm" id="cal-grid"></div>
+    <p class="text-[10px] text-mute mt-3 text-center">Цэг бүхий өдөр = сул цагтай</p>
+  </div>
+</div>
+
+<!-- ═════ Confirm modal ═════ -->
+<div id="confirm-modal" class="hidden fixed inset-0 z-50 modal-bg modal-wrap flex items-center justify-center p-4" onclick="if(event.target===this) closeConfirm()">
+  <div class="modal-card bg-paper rounded-2xl shadow-float w-full max-w-md max-h-[90vh] overflow-y-auto">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="brand text-2xl">Төлбөр төлөх</h3>
+        <button onclick="closeConfirm()" class="text-mute hover:text-ink">✕</button>
+      </div>
+      <p class="text-xs text-mute mb-5">Төлбөр төлсний дараа захиалга бүртгэгдэнэ</p>
+
+      <div class="bg-cream rounded-xl p-4 mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs text-mute">Урьдчилгаа төлбөр</span>
+          <span class="text-2xl font-semibold" id="m-amount">0₮</span>
+        </div>
+        <div class="text-[11px] text-mute" id="m-detail">—</div>
+      </div>
+
+      <button onclick="alert('QPay QR код үүсэх демо')"
+              class="w-full bg-gradient-to-r from-rose to-roseDark hover:opacity-95 text-white rounded-xl py-3.5 font-semibold flex items-center justify-center gap-2 mb-3">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h7v7h-7z"/></svg>
+        QPay QR-аар төлөх
+      </button>
+
+      <button onclick="alert('SocialPay-руу шилжих демо')"
+              class="w-full bg-paper border border-rose text-rose hover:bg-roseTint rounded-xl py-3.5 font-semibold flex items-center justify-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        SocialPay
+      </button>
+
+      <p class="text-center text-[10px] text-mute mt-4">
+        Khan, Golomt, TDB, M-bank банкны аппаар QR уншуулна
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── Location ─────────── -->
+<section id="location" class="max-w-6xl mx-auto px-5 py-14 md:py-20 scroll-mt-20">
+  <div class="text-center mb-8">
+    <div class="flex items-center justify-center gap-3 text-gold mb-3">
+      <span class="h-px w-10 bg-line"></span>
+      <span class="text-[10px] tracking-[0.4em] uppercase font-medium">Visit our atelier</span>
+      <span class="h-px w-10 bg-line"></span>
+    </div>
+    <h2 class="brand text-3xl md:text-4xl text-ink">Биднийг хайж олох</h2>
+    <p class="text-mute text-sm mt-2 max-w-md mx-auto">
+      Бид Улаанбаатар хотын төвд, тав тухтай орчинд таныг хүлээж байна.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-[1fr_340px] bg-paper rounded-3xl border border-line shadow-card overflow-hidden">
+    <!-- Map -->
+    <div class="relative aspect-[4/3] md:aspect-auto md:min-h-[440px] bg-roseTint">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1105.6370108872177!2d106.9290608644948!3d47.90885697896657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693e3b5665d77%3A0x9a4a16f062b61349!2sThe%20Nailz%20Room!5e1!3m2!1sen!2smn!4v1779454026205!5m2!1sen!2smn"
+        class="absolute inset-0 w-full h-full"
+        style="border:0; filter: saturate(0.85) contrast(0.95);"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+      <!-- subtle gold ribbon on map -->
+      <div class="absolute top-4 left-4 bg-paper/95 backdrop-blur px-3 py-2 rounded-full text-[10px] tracking-[0.3em] uppercase text-gold font-medium shadow-card flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 12 7.3 12.3a1 1 0 0 0 1.4 0C13 22 20 15.4 20 10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+        MUSE Atelier
+      </div>
+    </div>
+
+    <!-- Info column -->
+    <div class="p-6 md:p-8 space-y-6 bg-gradient-to-b from-paper to-cream/40">
+      <!-- Хаяг -->
+      <div>
+        <div class="flex items-center gap-2 text-gold mb-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 12 7.3 12.3a1 1 0 0 0 1.4 0C13 22 20 15.4 20 10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="text-[10px] tracking-[0.3em] uppercase font-medium">Хаяг</span>
+        </div>
+        <p class="text-sm leading-relaxed">
+          Улаанбаатар хот, Сүхбаатар дүүрэг,<br/>
+          1-р хороо, Олимпийн гудамж<br/>
+          <span class="text-mute">(The Nailz Room-ийн ойролцоо)</span>
+        </p>
+      </div>
+
+      <!-- Ажиллах цаг -->
+      <div>
+        <div class="flex items-center gap-2 text-gold mb-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span class="text-[10px] tracking-[0.3em] uppercase font-medium">Ажиллах цаг</span>
+        </div>
+        <div class="text-sm space-y-1">
+          <div class="flex items-baseline justify-between">
+            <span>Даваа – Бямба</span>
+            <span class="text-mute font-medium">10:00 — 20:00</span>
+          </div>
+          <div class="flex items-baseline justify-between">
+            <span>Ням</span>
+            <span class="text-mute">Амралт</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Утас -->
+      <div>
+        <div class="flex items-center gap-2 text-gold mb-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="text-[10px] tracking-[0.3em] uppercase font-medium">Холбоо барих</span>
+        </div>
+        <a href="tel:+97699000000" class="text-sm font-medium hover:text-rose transition block">+976 9900 0000</a>
+        <a href="mailto:hello@muse.mn" class="text-sm text-mute hover:text-rose transition block">hello@muse.mn</a>
+      </div>
+
+      <!-- CTA: Замчилбар -->
+      <a href="https://www.google.com/maps/place/The+Nailz+Room/@47.9088570,106.9290608,17z"
+         target="_blank" rel="noopener"
+         class="block w-full text-center bg-gradient-to-r from-rose to-roseDark text-white rounded-xl py-3 font-semibold hover:opacity-95 transition shadow-card flex items-center justify-center gap-2">
+        <span>Замын зураг харах</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l10-10M17 17V7H7"/></svg>
+      </a>
+
+      <!-- Social mini -->
+      <div class="flex items-center justify-center gap-3 pt-2 border-t border-line">
+        <a href="#" class="w-9 h-9 rounded-full bg-cream border border-line text-mute hover:text-rose hover:border-rose flex items-center justify-center transition">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full bg-cream border border-line text-mute hover:text-rose hover:border-rose flex items-center justify-center transition">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full bg-cream border border-line text-mute hover:text-rose hover:border-rose flex items-center justify-center transition">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99C18.34 21.13 22 17 22 12c0-5.52-4.48-10-10-10z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── Footer ─────────── -->
+<footer class="border-t border-line pt-10 pb-14 text-center text-xs text-mute">
+  <div class="flex items-center justify-center gap-3 text-gold mb-4">
+    <span class="h-px w-12 bg-line"></span>
+    <span class="text-xs tracking-[0.4em] uppercase font-medium">est. 2026</span>
+    <span class="h-px w-12 bg-line"></span>
+  </div>
+  <div class="flex items-center justify-center gap-2 mb-2">
+    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-rose to-roseDark text-white flex items-center justify-center brand text-base ring-1 ring-gold/30">M</div>
+    <span class="brand text-lg text-ink tracking-[0.3em]">MUSE</span>
+  </div>
+  <p class="tracking-[0.35em] text-[10px] uppercase text-gold">Hair Atelier · Улаанбаатар</p>
+  <p class="mt-3 text-[11px]">© 2026 MUSE Hair Atelier. All rights reserved.</p>
+</footer>
+
+<script>
+  // ═════════ DATA (would come from /api/services, /api/stylists, /api/availability) ═════════
+  const SERVICES = [
+    { id:'women-cut', name:'Эмэгтэй үс засах', nameEn:"Women's haircut", icon:'✂',  mins:60,  price:40000, deposit:5000,  desc:'Layered cut, fringe cut, угаалга, styling багтсан.' },
+    { id:'men-cut',   name:'Эрэгтэй үс засах', nameEn:"Men's haircut",   icon:'✂',  mins:30,  price:25000, deposit:5000,  desc:'Classic cut, fade, undercut, beard trim.' },
+    { id:'color',     name:'Үс будах',         nameEn:'Hair coloring',    icon:'🎨', mins:120, price:80000, deposit:10000, desc:'Бүтэн будалт, balayage, ombre, highlights.', priceFromText:'-аас' },
+    { id:'spa',       name:'Hair Spa эмчилгээ',nameEn:'Hair treatment',   icon:'🌿', mins:60,  price:50000, deposit:5000,  desc:'Кератин, аргон тосон маск, толгойн массаж.' },
+    { id:'perm',      name:'Хими / Perm',      nameEn:'Permanent wave',   icon:'💫', mins:150, price:90000, deposit:10000, desc:'Digital perm, soft perm, beach wave.' },
+    { id:'updo',      name:'Үс засалт',        nameEn:'Updo / styling',   icon:'👰', mins:45,  price:35000, deposit:5000,  desc:'Хуримын, баярын засалт. Дагалдах make-up сонгох боломжтой.' },
+  ];
+
+  const STYLISTS = [
+    { id:'any',   name:'Дурын стилист', initials:'✨', specialty:'all',   rating:null, years:null, todayFree:true,  top:false },
+    { id:'saraa', name:'Б. Сараа',      initials:'СБ', specialty:'color', rating:4.9,  years:12,   todayFree:true,  top:true  },
+    { id:'enkhe', name:'Г. Энхээ',      initials:'ЭГ', specialty:'cut',   rating:4.8,  years:7,    todayFree:false, top:true  },
+    { id:'tuya',  name:'Д. Туяа',       initials:'ТД', specialty:'updo',  rating:5.0,  years:5,    todayFree:true,  top:true  },
+    { id:'bayar', name:'Б. Баяр',       initials:'ББ', specialty:'cut',   rating:4.7,  years:9,    todayFree:true,  top:false },
+    { id:'oyun',  name:'А. Оюун',       initials:'АО', specialty:'color', rating:4.9,  years:8,    todayFree:false, top:true  },
+    { id:'munkh', name:'М. Мөнхөө',     initials:'ММ', specialty:'cut',   rating:4.6,  years:4,    todayFree:true,  top:false },
+    { id:'erden', name:'Э. Эрдэнэ',     initials:'ЭЭ', specialty:'spa',   rating:4.8,  years:6,    todayFree:true,  top:true  },
+    { id:'naraa', name:'Н. Нарантуяа',  initials:'НН', specialty:'color', rating:4.7,  years:10,   todayFree:false, top:false },
+    { id:'gerel', name:'Г. Гэрэлмаа',   initials:'ГГ', specialty:'cut',   rating:4.5,  years:3,    todayFree:true,  top:false },
+    { id:'tugs',  name:'Т. Түгс',       initials:'ТТ', specialty:'updo',  rating:4.9,  years:7,    todayFree:false, top:true  },
+    { id:'amgaa', name:'А. Амгалан',    initials:'АА', specialty:'cut',   rating:4.4,  years:2,    todayFree:true,  top:false },
+  ];
+
+  // Simulate availability: 30 days from "today", excluding Sundays. Each day → array of taken slots.
+  const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+  const AVAILABILITY = (() => {
+    const map = {};
+    for (let i = 0; i < 60; i++) {
+      const d = new Date(TODAY); d.setDate(TODAY.getDate() + i);
+      if (d.getDay() === 0) continue; // Sundays closed
+      const iso = d.toISOString().slice(0,10);
+      // simulate random booked slots
+      const taken = new Set();
+      ['10:00','11:00','12:30','15:30','17:30'].forEach(t => { if (Math.random() < 0.35) taken.add(t); });
+      map[iso] = { open: true, taken: [...taken] };
+    }
+    return map;
+  })();
+
+  // ═════════ STATE ═════════
+  const state = {
+    services: [],                                          // selected services (multi)
+    stylist: { id:'any', name:'Дурын стилист' },
+    date: null,
+    dateLabel: null,
+    time: null,
+    dateOffset: 0,                                          // for shifting strip
+    stylistFilter: 'all',
+    calMonth: new Date(TODAY.getFullYear(), TODAY.getMonth(), 1),
+  };
+
+  // ═════════ Render: Services ═════════
+  function renderServices() {
+    const grid = document.getElementById('service-grid');
+    grid.innerHTML = SERVICES.map(s => {
+      const selected = state.services.find(x => x.id === s.id) ? 'selected' : '';
+      const priceText = s.price.toLocaleString('mn-MN') + '₮' + (s.priceFromText || '');
+      const ariaLabel = selected ? '✓ Сонгосон' : '+ Сонгох';
+      return `
+        <button data-id="${s.id}" onclick="toggleService('${s.id}')"
+                class="selectable ${selected} text-left bg-paper rounded-2xl p-5 border border-line hover:border-rose relative">
+          <div class="flex items-start justify-between">
+            <div class="flex-1 pr-3">
+              <div class="text-base font-semibold">${s.name}</div>
+              <div class="text-xs text-mute mt-0.5">${s.nameEn} · ${s.mins} мин</div>
+            </div>
+            <div class="text-rose text-xl">${s.icon}</div>
+          </div>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="text-lg font-semibold text-ink">${priceText}</span>
+            <span class="text-[11px] text-gold font-medium">+ ${s.deposit.toLocaleString('mn-MN')}₮ урьдчилгаа</span>
+          </div>
+          <p class="text-xs text-mute mt-2 leading-relaxed">${s.desc}</p>
+          <div class="mt-3 inline-flex items-center gap-1 text-xs font-semibold ${selected ? 'text-rose' : 'text-mute'}">
+            <span>${ariaLabel}</span>
+          </div>
+        </button>
+      `;
+    }).join('');
+  }
+
+  function toggleService(id) {
+    const i = state.services.findIndex(s => s.id === id);
+    if (i >= 0) state.services.splice(i, 1);
+    else state.services.push(SERVICES.find(s => s.id === id));
+    if (state.services.length) markStepDone(1); else resetStep(1);
+    renderServices();
+    // Reset time selection because total duration changed
+    state.time = null;
+    renderTimeGrid();
+    updateSummary();
+    revealNext();
+  }
+
+  // ═════════ Render: Stylists (strip + sheet) ═════════
+  function renderStylistStrip() {
+    document.getElementById('stylist-total').textContent = STYLISTS.length;
+    const strip = document.getElementById('stylist-strip');
+    // Top 5 only in strip
+    const top5 = STYLISTS.slice(0, 5);
+    strip.innerHTML = top5.map(st => stylistCardHTML(st, 'strip')).join('') + `
+      <button onclick="openStylistSheet()"
+              class="shrink-0 w-32 bg-cream rounded-2xl border border-dashed border-line p-3 text-center hover:border-rose">
+        <div class="w-16 h-16 rounded-full bg-paper border border-line mx-auto flex items-center justify-center text-rose">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div class="text-sm font-medium mt-2">+${STYLISTS.length - 5} илүү</div>
+        <div class="text-[10px] text-mute">Бүгдийг үзэх</div>
+      </button>
+    `;
+  }
+
+  function stylistCardHTML(st, mode) {
+    const selected = state.stylist.id === st.id ? 'selected' : '';
+    const sub = st.rating ? `★ ${st.rating} · ${st.years} жил` : 'Хамгийн боломжтой';
+    return `
+      <button onclick="selectStylist('${st.id}')"
+              class="selectable ${selected} shrink-0 w-32 bg-paper rounded-2xl border border-line p-3 text-center hover:border-rose">
+        <div class="w-16 h-16 rounded-full bg-roseSoft mx-auto flex items-center justify-center text-rose font-semibold">${st.initials}</div>
+        <div class="text-sm font-medium mt-2 truncate">${st.name.replace('Дурын стилист','Дурын')}</div>
+        <div class="text-[10px] text-mute">${sub}</div>
+        ${st.todayFree && st.id !== 'any' ? '<div class="text-[10px] text-rose mt-1">● Өнөөдөр сул</div>' : ''}
+      </button>
+    `;
+  }
+
+  function renderStylistList() {
+    const q = (document.getElementById('stylist-search').value || '').toLowerCase();
+    const f = state.stylistFilter;
+    const list = STYLISTS.filter(st => {
+      if (q && !st.name.toLowerCase().includes(q) && st.id !== 'any') return false;
+      if (f === 'today' && !st.todayFree) return false;
+      if (f === 'color' && st.specialty !== 'color' && st.id !== 'any') return false;
+      if (f === 'top' && !st.top && st.id !== 'any') return false;
+      return true;
+    });
+    const el = document.getElementById('stylist-list');
+    el.innerHTML = list.map(st => {
+      const selected = state.stylist.id === st.id ? 'bg-roseTint border-rose' : 'bg-paper border-line';
+      const sub = st.rating ? `★ ${st.rating} · ${st.years} жилийн туршлага` : 'Цаг хамгийн чөлөөтэй стилистэд хуваарилна';
+      return `
+        <button onclick="selectStylist('${st.id}'); closeStylistSheet();"
+                class="w-full text-left p-3 rounded-xl border ${selected} hover:border-rose transition flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-roseSoft flex items-center justify-center text-rose font-semibold shrink-0">${st.initials}</div>
+          <div class="flex-1 min-w-0">
+            <div class="font-medium truncate">${st.name}</div>
+            <div class="text-xs text-mute truncate">${sub}</div>
+          </div>
+          ${st.todayFree && st.id !== 'any' ? '<span class="text-[10px] text-rose whitespace-nowrap">● Өнөөдөр сул</span>' : ''}
+        </button>
+      `;
+    }).join('') || '<p class="text-center text-sm text-mute py-8">Илэрц олдсонгүй</p>';
+  }
+
+  function toggleFilter(f) {
+    state.stylistFilter = f;
+    document.querySelectorAll('.filter-chip').forEach(b => {
+      const isActive = b.dataset.filter === f;
+      b.className = `filter-chip whitespace-nowrap px-3 py-1.5 rounded-full border ${isActive ? 'bg-gradient-to-r from-rose to-roseDark text-white border-rose' : 'bg-paper text-mute border-line'}`;
+    });
+    renderStylistList();
+  }
+
+  function selectStylist(id) {
+    const st = STYLISTS.find(x => x.id === id);
+    state.stylist = { id: st.id, name: st.name };
+    markStepDone(2);
+    renderStylistStrip();
+    renderStylistList();
+    updateSummary();
+  }
+
+  function openStylistSheet() {
+    renderStylistList();
+    document.getElementById('stylist-sheet').classList.add('open');
+    document.getElementById('stylist-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeStylistSheet() {
+    document.getElementById('stylist-sheet').classList.remove('open');
+    document.getElementById('stylist-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ═════════ Render: Date strip ═════════
+  const DAY_NAMES = ['Ня','Да','Мя','Лх','Пү','Ба','Бя'];
+  const MONTH_NAMES = ['1сар','2сар','3сар','4сар','5сар','6сар','7сар','8сар','9сар','10сар','11сар','12сар'];
+
+  function renderDateStrip() {
+    const strip = document.getElementById('date-strip');
+    const start = new Date(TODAY); start.setDate(TODAY.getDate() + state.dateOffset);
+    const items = [];
+    let cursor = new Date(start);
+    while (items.length < 7) {
+      const iso = cursor.toISOString().slice(0,10);
+      const avail = AVAILABILITY[iso];
+      const isToday = cursor.getTime() === TODAY.getTime();
+      const isClosed = !avail;
+      const label = `${cursor.getFullYear()}.${String(cursor.getMonth()+1).padStart(2,'0')}.${String(cursor.getDate()).padStart(2,'0')} (${DAY_NAMES[cursor.getDay()]})`;
+      const selected = state.date === iso ? 'selected' : '';
+      items.push(`
+        <button onclick="${isClosed ? '' : `selectDate('${iso}','${label}')`}"
+                ${isClosed ? 'disabled' : ''}
+                class="selectable ${selected} shrink-0 w-[68px] sm:w-auto rounded-xl py-3 bg-paper border border-line text-center hover:border-rose snap-start ${isClosed ? 'opacity-40 cursor-not-allowed' : ''}">
+          <div class="text-[10px] text-mute uppercase tracking-wider">${DAY_NAMES[cursor.getDay()]}</div>
+          <div class="text-lg font-semibold mt-1">${cursor.getDate()}</div>
+          <div class="text-[10px] text-mute">${MONTH_NAMES[cursor.getMonth()]}</div>
+          ${isToday ? '<div class="text-[9px] text-rose mt-0.5">Өнөөдөр</div>' : ''}
+        </button>
+      `);
+      cursor.setDate(cursor.getDate() + 1);
+    }
+    strip.innerHTML = items.join('');
+
+    // Range label
+    const first = new Date(start);
+    const last = new Date(start); last.setDate(start.getDate() + 6);
+    document.getElementById('date-range-label').textContent =
+      `${first.getDate()} ${MONTH_NAMES[first.getMonth()]} – ${last.getDate()} ${MONTH_NAMES[last.getMonth()]}`;
+  }
+
+  function shiftDates(n) {
+    state.dateOffset = Math.max(0, state.dateOffset + n);
+    renderDateStrip();
+  }
+
+  function selectDate(iso, label) {
+    state.date = iso;
+    state.dateLabel = label;
+    state.time = null;
+    renderDateStrip();
+    renderTimeGrid();
+    if (state.time) markStepDone(3);
+    updateSummary();
+  }
+
+  // ═════════ Render: Time grid ═════════
+  // Build available slots per period.
+  const ALL_SLOTS = (() => {
+    const slots = [];
+    for (let h = 10; h <= 19; h++) {
+      slots.push(`${String(h).padStart(2,'0')}:00`);
+      if (h < 19) slots.push(`${String(h).padStart(2,'0')}:30`);
+    }
+    return slots;
+  })();
+
+  function totalMins() {
+    return state.services.reduce((sum, s) => sum + s.mins, 0);
+  }
+
+  function renderTimeGrid() {
+    const grid = document.getElementById('time-grid');
+    const total = totalMins();
+    document.getElementById('time-label').textContent =
+      total > 0 ? `Цаг (нийт ${formatMins(total)})` : 'Цаг';
+
+    if (!state.date) {
+      grid.innerHTML = `<p class="text-center text-sm text-mute py-8">Эхлээд огноогоо сонгоно уу.</p>`;
+      return;
+    }
+    if (state.services.length === 0) {
+      grid.innerHTML = `<p class="text-center text-sm text-mute py-8">Эхлээд үйлчилгээгээ сонгоно уу.</p>`;
+      return;
+    }
+    const taken = new Set(AVAILABILITY[state.date]?.taken || []);
+    const periods = [
+      { label:'Өглөө',  filter:(t)=> t < '12:00' },
+      { label:'Үд',     filter:(t)=> t >= '12:00' && t < '15:00' },
+      { label:'Орой',   filter:(t)=> t >= '15:00' },
+    ];
+
+    function isAvail(start) {
+      // Check that all consecutive 30min blocks within total mins are free.
+      const blocks = Math.ceil(total / 30);
+      const [hh, mm] = start.split(':').map(Number);
+      const startIdx = (hh - 10) * 2 + (mm === 30 ? 1 : 0);
+      for (let i = 0; i < blocks; i++) {
+        const s = ALL_SLOTS[startIdx + i];
+        if (!s) return false; // out of range
+        if (taken.has(s)) return false;
+      }
+      // Don't allow start that overflows beyond 19:30
+      return startIdx + blocks <= ALL_SLOTS.length;
+    }
+
+    grid.innerHTML = periods.map(p => {
+      const slotsHTML = ALL_SLOTS.filter(p.filter).map(t => {
+        const avail = isAvail(t);
+        const selected = state.time === t ? 'selected' : '';
+        return `<button onclick="selectTime('${t}')" ${avail ? '' : 'disabled'}
+          class="slot ${selected} rounded-lg py-2.5 text-sm border border-line bg-paper">${t}</button>`;
+      }).join('');
+      return `<div>
+        <div class="text-[10px] text-mute uppercase tracking-wider mb-2">${p.label}</div>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">${slotsHTML}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function selectTime(t) {
+    state.time = t;
+    renderTimeGrid();
+    if (state.date && t) markStepDone(3);
+    updateSummary();
+  }
+
+  function formatMins(m) {
+    const h = Math.floor(m / 60), r = m % 60;
+    return (h ? h + 'ц ' : '') + (r ? r + 'мин' : (h ? '' : '0мин'));
+  }
+
+  // ═════════ Calendar modal ═════════
+  function renderCalendar() {
+    const grid = document.getElementById('cal-grid');
+    const m = state.calMonth;
+    document.getElementById('cal-month-label').textContent =
+      `${m.getFullYear()} оны ${m.getMonth()+1} сар`;
+    const first = new Date(m.getFullYear(), m.getMonth(), 1);
+    let weekday = first.getDay() - 1; if (weekday < 0) weekday = 6;
+    const daysInMonth = new Date(m.getFullYear(), m.getMonth()+1, 0).getDate();
+    let html = '';
+    for (let i = 0; i < weekday; i++) html += '<div></div>';
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(m.getFullYear(), m.getMonth(), d);
+      const iso = date.toISOString().slice(0,10);
+      const isPast = date < TODAY;
+      const hasAvail = !!AVAILABILITY[iso];
+      const isSelected = state.date === iso;
+      const cls = isPast ? 'text-soft cursor-not-allowed' :
+        hasAvail ? 'hover:bg-roseTint hover:text-rose' : 'text-soft cursor-not-allowed';
+      const bg = isSelected ? 'bg-rose text-white font-semibold' : '';
+      const dot = !isPast && hasAvail && !isSelected ? '<div class="text-[8px] text-rose -mt-1">•</div>' : '';
+      html += `<button ${(isPast || !hasAvail) ? 'disabled' : ''} onclick="pickFromCalendar('${iso}')" class="aspect-square rounded-lg text-sm ${cls} ${bg}">${d}${dot}</button>`;
+    }
+    grid.innerHTML = html;
+  }
+
+  function shiftCalMonth(n) {
+    const m = state.calMonth;
+    state.calMonth = new Date(m.getFullYear(), m.getMonth() + n, 1);
+    renderCalendar();
+  }
+
+  function pickFromCalendar(iso) {
+    const date = new Date(iso);
+    const label = `${date.getFullYear()}.${String(date.getMonth()+1).padStart(2,'0')}.${String(date.getDate()).padStart(2,'0')} (${DAY_NAMES[date.getDay()]})`;
+    // Adjust strip offset to show selected
+    const diff = Math.floor((date - TODAY) / 86400000);
+    state.dateOffset = Math.max(0, diff);
+    selectDate(iso, label);
+    document.getElementById('cal-modal').classList.add('hidden');
+  }
+
+  // ═════════ Summary ═════════
+  function fmt(n) { return n.toLocaleString('mn-MN') + '₮'; }
+
+  function setField(id, value) {
+    document.querySelectorAll(`[data-sync="${id}"]`).forEach(el => el.textContent = value);
+  }
+
+  function renderServicesList() {
+    const containers = [document.getElementById('services-list-desktop'), document.getElementById('services-list-mobile')];
+    let html;
+    if (state.services.length === 0) {
+      html = `<p class="text-sm text-mute italic">Үйлчилгээ сонгоогүй</p>`;
+    } else {
+      html = state.services.map(s => `
+        <div class="flex items-start justify-between text-sm py-2 border-b border-line last:border-0">
+          <div class="flex-1 pr-2">
+            <div class="font-medium">${s.name}</div>
+            <div class="text-[11px] text-mute">${s.mins} мин · ${fmt(s.deposit)} урьдчилгаа</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span>${fmt(s.price)}</span>
+            <button onclick="toggleService('${s.id}')" class="text-mute hover:text-rose px-1" aria-label="Хасах">✕</button>
+          </div>
+        </div>
+      `).join('');
+    }
+    containers.forEach(c => { if (c) c.innerHTML = html; });
+  }
+
+  function updateSummary() {
+    const totalPrice = state.services.reduce((s,x)=>s+x.price, 0);
+    const totalDeposit = state.services.reduce((s,x)=>s+x.deposit, 0);
+    const totalDur = totalMins();
+    renderServicesList();
+
+    setField('s-stylist', state.stylist.name);
+    setField('s-date',    state.dateLabel || '— Сонгоогүй —');
+    setField('s-time',    state.time || '— Сонгоогүй —');
+    setField('s-count',   state.services.length);
+    setField('s-price',   state.services.length ? fmt(totalPrice) : '—');
+    setField('s-duration', state.services.length ? formatMins(totalDur) : '—');
+    setField('s-deposit', state.services.length ? fmt(totalDeposit) : '—');
+    setField('s-balance', state.services.length ? fmt(totalPrice - totalDeposit) : '—');
+    setField('s-pay-amount', totalDeposit.toLocaleString('mn-MN'));
+
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    setField('s-user', name ? `${name}${phone ? ' · ' + phone : ''}` : '— Хоосон —');
+    if (name && phone.length >= 8) markStepDone(4);
+
+    const ready = state.services.length > 0 && state.date && state.time && name && phone.length >= 8;
+    document.getElementById('cta-desktop').disabled = !ready;
+    document.getElementById('cta-sheet').disabled = !ready;
+
+    const mCta = document.getElementById('cta-mobile');
+    const mLabel = document.getElementById('cta-mobile-label');
+    const barLabel = document.getElementById('m-bar-label');
+    const barAmount = document.getElementById('m-bar-amount');
+    barAmount.textContent = totalDeposit.toLocaleString('mn-MN');
+
+    if (state.services.length === 0) {
+      barLabel.textContent = 'Үйлчилгээ сонгоно уу';
+      mLabel.textContent = 'Үргэлжлүүлэх'; mCta.disabled = true;
+    } else if (!state.date || !state.time) {
+      barLabel.textContent = `${state.services.length} үйлчилгээ · цагаа сонгоно уу`;
+      mLabel.textContent = 'Үргэлжлүүлэх'; mCta.disabled = true;
+    } else if (!name || phone.length < 8) {
+      barLabel.textContent = 'Холбоо барих мэдээллээ бөглөнө үү';
+      mLabel.textContent = 'Үргэлжлүүлэх'; mCta.disabled = true;
+    } else {
+      barLabel.textContent = 'Төлөх дүн';
+      mLabel.textContent = 'Төлбөр төлөх'; mCta.disabled = false;
+    }
+  }
+
+  function markStepDone(n) {
+    const el = document.getElementById('num-' + n);
+    if (el) { el.classList.add('done'); el.textContent = '✓'; }
+  }
+  function resetStep(n) {
+    const el = document.getElementById('num-' + n);
+    if (el) { el.classList.remove('done'); el.textContent = String(n); }
+  }
+
+  // ═════════ Bottom sheets ═════════
+  function openSummarySheet() {
+    document.getElementById('summary-sheet').classList.add('open');
+    document.getElementById('summary-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSummarySheet() {
+    document.getElementById('summary-sheet').classList.remove('open');
+    document.getElementById('summary-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleMobileCta() {
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    if (state.services.length === 0)
+      return document.getElementById('services').scrollIntoView({behavior:'smooth'});
+    if (!state.date || !state.time)
+      return document.getElementById('schedule').scrollIntoView({behavior:'smooth'});
+    if (!name || phone.length < 8) {
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      setTimeout(() => document.getElementById('f-name').focus(), 400);
+      return;
+    }
+    openConfirm();
+  }
+
+  function openConfirm() {
+    if (state.services.length === 0) return;
+    const totalDeposit = state.services.reduce((s,x)=>s+x.deposit, 0);
+    document.getElementById('m-amount').textContent = fmt(totalDeposit);
+    const names = state.services.map(s => s.name).join(' + ');
+    document.getElementById('m-detail').textContent = `${names} · ${state.dateLabel} ${state.time}`;
+    document.getElementById('confirm-modal').classList.remove('hidden');
+  }
+  function closeConfirm() {
+    document.getElementById('confirm-modal').classList.add('hidden');
+  }
+
+  function revealNext() {
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in'));
+  }
+
+  // ═════════ Init ═════════
+  renderServices();
+  renderStylistStrip();
+  renderDateStrip();
+  renderTimeGrid();
+  renderCalendar();
+  updateSummary();
+  selectStylist('any');
+  setTimeout(() => document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in')), 250);
+</script>
+
+</body>
+</html>
