@@ -93,7 +93,13 @@
       .modal-wrap { align-items:flex-end !important; padding:0 !important; }
     }
     @media (max-width:1023px) { body { padding-bottom:80px; } }
-    @media (max-width:639px) { .brand-hero { font-size:1.875rem !important; line-height:1.2; } }
+    @media (max-width:639px) {
+      .brand-hero { font-size:1.625rem !important; line-height:1.2; }
+      /* tighter padding on mobile to avoid vertical wall */
+      #services h2, #stylists h2, #schedule h2, #contact h2 { font-size:1.05rem; }
+    }
+    /* line-clamp util (Tailwind v3 has it but ensure) */
+    .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   </style>
 </head>
 <body class="bg-cream text-ink">
@@ -121,45 +127,48 @@
 </header>
 
 <!-- ─────────── Hero ─────────── -->
-<section class="relative max-w-6xl mx-auto px-5 pt-6 pb-2 md:pt-14 md:pb-6 overflow-hidden">
-  <!-- Decorative jewel blobs -->
-  <div aria-hidden="true" class="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-gold/30 blur-3xl pointer-events-none"></div>
-  <div aria-hidden="true" class="absolute top-20 -right-32 w-64 h-64 rounded-full bg-rose/20 blur-3xl pointer-events-none"></div>
-  <div aria-hidden="true" class="absolute top-40 right-10 w-40 h-40 rounded-full bg-peach/40 blur-3xl pointer-events-none"></div>
+<section class="relative max-w-6xl mx-auto px-5 pt-4 pb-1 md:pt-14 md:pb-6 overflow-hidden">
+  <!-- Decorative jewel blobs (smaller on mobile) -->
+  <div aria-hidden="true" class="absolute -top-10 -right-10 w-48 h-48 md:w-72 md:h-72 rounded-full bg-gold/30 blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="absolute top-20 -right-32 w-44 h-44 md:w-64 md:h-64 rounded-full bg-rose/20 blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="hidden md:block absolute top-40 right-10 w-40 h-40 rounded-full bg-peach/40 blur-3xl pointer-events-none"></div>
 
   <div class="relative">
-    <div class="inline-flex items-center gap-2 text-xs text-roseDark mb-3 bg-roseTint border border-roseSoft px-3 py-1 rounded-full font-medium">
+    <div class="inline-flex items-center gap-2 text-[11px] md:text-xs text-roseDark mb-2 md:mb-3 bg-roseTint border border-roseSoft px-2.5 py-0.5 md:px-3 md:py-1 rounded-full font-medium">
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-rose"></span>
       </span>
-      Өнөөдөр <span id="hero-slots">3</span> цаг сул байна
+      Өнөөдөр <span id="hero-slots">3</span> цаг сул
     </div>
-    <p class="text-[10px] tracking-[0.4em] uppercase text-gold font-medium mb-3">— Inspire your style</p>
-    <h1 class="brand brand-hero text-3xl md:text-5xl text-ink leading-tight">
-      Шинэ дүрд<br/>
-      <span class="italic bg-gradient-to-r from-rose via-roseDark to-gold bg-clip-text text-transparent">5 секундэд</span> хувирцгаая.
+    <p class="hidden md:block text-[10px] tracking-[0.4em] uppercase text-gold font-medium mb-3">— Inspire your style</p>
+    <h1 class="brand brand-hero text-2xl md:text-5xl text-ink leading-tight">
+      Шинэ дүрд
+      <span class="italic bg-gradient-to-r from-rose via-roseDark to-gold bg-clip-text text-transparent whitespace-nowrap">5 секундэд</span>
+      <span class="md:inline">хувирцгаая.</span>
     </h1>
-    <p class="text-mute mt-3 md:mt-4 max-w-xl text-sm md:text-base">
-      Үйлчилгээгээ хослуулан, дуртай стилисттэйгээ цагаа нэг хуудаснаа товлоорой.
+    <p class="text-mute mt-2 md:mt-4 max-w-xl text-[13px] md:text-base">
+      Үйлчилгээгээ хослуулан, цагаа нэг хуудаснаа товлоорой.
     </p>
   </div>
 </section>
 
 <!-- ─────────── Main grid ─────────── -->
-<main class="max-w-6xl mx-auto px-5 pb-40 lg:pb-20 grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-10">
+<main class="max-w-6xl mx-auto px-5 pt-4 pb-32 lg:pb-20 grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-10">
 
-  <div class="space-y-8">
+  <div class="space-y-6 sm:space-y-8">
 
     <!-- ─── 1. Services (multi-select, dynamic) ─── -->
     <section id="services" class="scroll-mt-24">
-      <div class="flex items-center gap-3 mb-1">
-        <span class="step-num" id="num-1">1</span>
-        <h2 class="brand text-xl">Үйлчилгээгээ сонгоно уу</h2>
+      <div class="flex items-baseline justify-between gap-3 mb-1">
+        <div class="flex items-center gap-3">
+          <span class="step-num" id="num-1">1</span>
+          <h2 class="brand text-xl">Үйлчилгээгээ сонгоно уу</h2>
+        </div>
       </div>
-      <p class="text-xs text-mute mb-4 ml-10">Хэдэн ч үйлчилгээ нэгтгэж захиалах боломжтой</p>
+      <p class="text-[11px] sm:text-xs text-mute mb-3 sm:mb-4 ml-10">Хэдэн ч үйлчилгээг нэгтгэж захиалах боломжтой</p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="service-grid"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3" id="service-grid"></div>
     </section>
 
     <!-- ─── 2. Stylist (dynamic) ─── -->
@@ -649,26 +658,35 @@
   function renderServices() {
     const grid = document.getElementById('service-grid');
     grid.innerHTML = SERVICES.map(s => {
-      const selected = state.services.find(x => x.id === s.id) ? 'selected' : '';
+      const isSelected = !!state.services.find(x => x.id === s.id);
       const priceText = s.price.toLocaleString('mn-MN') + '₮' + (s.priceFromText || '');
-      const ariaLabel = selected ? '✓ Сонгосон' : '+ Сонгох';
       return `
         <button data-id="${s.id}" onclick="toggleService('${s.id}')"
-                class="selectable ${selected} text-left bg-paper rounded-2xl p-5 border border-line hover:border-rose relative">
-          <div class="flex items-start justify-between">
-            <div class="flex-1 pr-3">
-              <div class="text-base font-semibold">${s.name}</div>
-              <div class="text-xs text-mute mt-0.5">${s.nameEn} · ${s.mins} мин</div>
+                class="selectable ${isSelected ? 'selected' : ''} group w-full text-left bg-paper rounded-2xl p-3.5 sm:p-5 border border-line hover:border-rose flex items-start gap-3 sm:gap-4">
+          <!-- Icon block -->
+          <div class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-roseTint flex items-center justify-center text-xl sm:text-2xl">
+            ${s.icon}
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <div class="font-semibold text-[15px] sm:text-base leading-tight">${s.name}</div>
+            <div class="text-[11px] sm:text-xs text-mute mt-0.5">${s.nameEn} · ${s.mins} мин</div>
+            <div class="flex items-baseline gap-2 mt-1.5 flex-wrap">
+              <span class="font-semibold text-base sm:text-lg">${priceText}</span>
+              <span class="text-[10px] sm:text-[11px] text-gold font-medium whitespace-nowrap">+${s.deposit.toLocaleString('mn-MN')}₮</span>
             </div>
-            <div class="text-rose text-xl">${s.icon}</div>
+            <p class="hidden sm:block text-xs text-mute mt-2 leading-relaxed line-clamp-2">${s.desc}</p>
           </div>
-          <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-lg font-semibold text-ink">${priceText}</span>
-            <span class="text-[11px] text-gold font-medium">+ ${s.deposit.toLocaleString('mn-MN')}₮ урьдчилгаа</span>
-          </div>
-          <p class="text-xs text-mute mt-2 leading-relaxed">${s.desc}</p>
-          <div class="mt-3 inline-flex items-center gap-1 text-xs font-semibold ${selected ? 'text-rose' : 'text-mute'}">
-            <span>${ariaLabel}</span>
+
+          <!-- Add / Selected button -->
+          <div class="shrink-0 self-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center font-bold text-lg transition
+                        ${isSelected
+                          ? 'bg-gradient-to-br from-rose to-roseDark text-white border-rose shadow-card'
+                          : 'bg-paper text-rose border-rose group-hover:bg-roseTint'}">
+              ${isSelected ? '✓' : '+'}
+            </div>
           </div>
         </button>
       `;
