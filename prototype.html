@@ -32,7 +32,6 @@
     };
   </script>
   <style>
-    html, body { overflow-x: hidden; }
     body {
       font-family:'Manrope',system-ui,sans-serif;
       -webkit-tap-highlight-color:transparent;
@@ -155,7 +154,7 @@
 </section>
 
 <!-- ─────────── Main grid ─────────── -->
-<main class="max-w-6xl mx-auto px-5 pt-4 pb-32 lg:pb-20 grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-10">
+<main class="max-w-6xl mx-auto px-5 pt-4 pb-32 lg:pb-20 lg:grid lg:grid-cols-[1fr_360px] lg:gap-10">
 
   <div class="space-y-6 sm:space-y-8">
 
@@ -185,7 +184,7 @@
         </button>
       </div>
 
-      <div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar -mx-5 px-5" id="stylist-strip"></div>
+      <div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar" id="stylist-strip"></div>
     </section>
 
     <!-- ─── 3. Date + time ─── -->
@@ -209,7 +208,7 @@
           </button>
         </div>
 
-        <div class="flex sm:grid sm:grid-cols-7 gap-2 mb-6 overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0 snap-x snap-mandatory" id="date-strip"></div>
+        <div class="flex sm:grid sm:grid-cols-7 gap-2 mb-6 overflow-x-auto no-scrollbar snap-x snap-mandatory" id="date-strip"></div>
 
         <div class="border-t border-line pt-5">
           <div class="flex items-center justify-between mb-3">
@@ -420,7 +419,7 @@
       <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-mute" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
     </div>
 
-    <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar -mx-5 px-5 text-xs">
+    <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar text-xs">
       <button onclick="toggleFilter('all')" data-filter="all" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-gradient-to-r from-rose to-roseDark text-white border border-rose">Бүгд</button>
       <button onclick="toggleFilter('today')" data-filter="today" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-paper text-mute border border-line">Өнөөдөр сул</button>
       <button onclick="toggleFilter('color')" data-filter="color" class="filter-chip whitespace-nowrap px-3 py-1.5 rounded-full bg-paper text-mute border border-line">Будалт мэргэшсэн</button>
