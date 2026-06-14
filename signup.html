@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>7 хоногийн үнэгүй туршилт — KHAN Sniper Pro | KhanStructure</title>
+<meta name="description" content="KHAN Sniper Pro индикаторыг 7 хоног үнэгүй туршиж үзээрэй. Карт шаардахгүй, өөрөө шийднэ." />
+<link rel="canonical" href="https://khanstructure.com/signup.html" />
+<link rel="icon" type="image/png" href="khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="khan_logo_transparent.png" />
+<style>
+  :root{
+    --bg:#0a0e14; --bg2:#0d1218; --card:rgba(255,255,255,0.04);
+    --line:rgba(255,255,255,0.10); --text:rgba(255,255,255,0.94);
+    --muted:rgba(255,255,255,0.62); --gold:#ff9c1a; --gold2:#ffc266;
+    --success:#00d18f; --danger:#f6465d; --radius:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Segoe UI Emoji';
+    color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:24px;line-height:1.55;
+    background:
+      radial-gradient(1200px 700px at 20% 10%,rgba(31,41,55,0.32),transparent 60%),
+      radial-gradient(900px 520px at 90% 20%,rgba(255,156,26,0.16),transparent 55%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+  }
+  .card{
+    width:100%;max-width:560px;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 22px 60px rgba(0,0,0,0.55);backdrop-filter:blur(8px);
+  }
+  .head{padding:30px 30px 22px;border-bottom:1px solid var(--line);text-align:center}
+  .logo{height:46px;width:auto;margin-bottom:14px}
+  h1{font-size:24px;font-weight:800;letter-spacing:.2px}
+  h1 .sub{
+    background:linear-gradient(90deg,var(--gold),var(--gold2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .lead{color:var(--muted);font-size:14px;margin-top:8px}
+  .trial{margin:18px 0 2px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .pill{
+    background:rgba(0,209,143,.10);border:1px solid rgba(0,209,143,.32);
+    color:var(--success);font-size:13px;padding:6px 12px;border-radius:9px;font-weight:600;
+  }
+  form{padding:24px 30px 8px}
+  .field{margin-bottom:16px}
+  label{display:block;font-size:13px;margin-bottom:6px;color:var(--text)}
+  label .req{color:var(--danger)}
+  .hint{font-size:12px;color:var(--muted);margin-top:5px}
+  input,select{
+    width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--line);color:var(--text);
+    padding:12px 14px;border-radius:12px;font-size:15px;outline:none;transition:border-color .15s;
+  }
+  input::placeholder{color:rgba(255,255,255,0.35)}
+  input:focus,select:focus{border-color:var(--gold)}
+  select option{background:var(--bg2)}
+  .row{display:flex;gap:14px}
+  .row .field{flex:1}
+  .check{display:flex;gap:10px;align-items:flex-start;margin:6px 0 18px}
+  .check input{width:auto;margin-top:3px;accent-color:var(--gold)}
+  .check label{font-size:12.5px;color:var(--muted);margin:0}
+  button{
+    width:100%;background:linear-gradient(180deg,var(--gold) 0%,#e0851a 100%);
+    color:#0a0e14;border:0;padding:15px;border-radius:12px;font-size:16px;
+    font-weight:800;cursor:pointer;transition:filter .15s;
+  }
+  button:hover{filter:brightness(1.07)}
+  button:disabled{filter:grayscale(.5) brightness(.7);cursor:not-allowed}
+  .foot{padding:16px 30px 26px;text-align:center}
+  .disclaimer{font-size:11.5px;color:var(--muted);margin-top:14px;line-height:1.6}
+  .back{display:inline-block;margin-top:12px;color:var(--muted);font-size:12.5px;text-decoration:none}
+  .back:hover{color:var(--gold)}
+  .ok,.err{display:none;padding:30px;text-align:center}
+  .ok h2{color:var(--success);margin-bottom:8px}
+  .err h2{color:var(--danger);margin-bottom:8px}
+  .ok p,.err p{color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <img class="logo" src="khan_logo_transparent.png" alt="KhanStructure" />
+      <h1>KHAN | <span class="sub">Sniper Pro</span></h1>
+      <p class="lead">XAU · BTC · FX · Indices — adaptive Supertrend арилжааны индикатор</p>
+      <div class="trial">
+        <span class="pill">✓ 7 хоног үнэгүй</span>
+        <span class="pill">✓ Карт шаардахгүй</span>
+        <span class="pill">✓ Өөрөө шийднэ</span>
+      </div>
+    </div>
+
+    <form id="signupForm">
+      <div class="field">
+        <label for="tvuser">TradingView хэрэглэгчийн нэр <span class="req">*</span></label>
+        <input type="text" id="tvuser" name="tvuser" required placeholder="ж: KhanTrader_007" autocomplete="off" />
+        <div class="hint">⚠ Хандалт олгоход ЗААВАЛ хэрэгтэй. TradingView профайл → Settings → Account дотроос харна. И-мэйл биш!</div>
+      </div>
+
+      <div class="field">
+        <label for="name">Таны нэр <span class="req">*</span></label>
+        <input type="text" id="name" name="name" required placeholder="Бат" />
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="contact">Утас / Telegram <span class="req">*</span></label>
+          <input type="text" id="contact" name="contact" required placeholder="@username эсвэл 99xxxxxx" />
+        </div>
+        <div class="field">
+          <label for="email">И-мэйл</label>
+          <input type="email" id="email" name="email" placeholder="name@mail.com" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="asset">Голчлон арилжаалдаг</label>
+          <select id="asset" name="asset">
+            <option value="">— сонгох —</option>
+            <option>XAU / Алт</option>
+            <option>Crypto / BTC</option>
+            <option>Forex</option>
+            <option>Indices</option>
+            <option>Бусад</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="exp">Туршлага</label>
+          <select id="exp" name="exp">
+            <option value="">— сонгох —</option>
+            <option>Шинэхэн (&lt;1 жил)</option>
+            <option>Дунд (1-3 жил)</option>
+            <option>Туршлагатай (3+ жил)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="check">
+        <input type="checkbox" id="agree" name="agree" required />
+        <label for="agree">
+          Энэ нь шинжилгээний багаж бөгөөд санхүүгийн зөвлөгөө биш, ашгийн баталгаа биш гэдгийг ойлгож байна.
+          Статистик нь симуляц. Арилжааны эрсдэлийг өөрөө хариуцна.
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn">7 хоногийн туршилт авах</button>
+
+      <div class="foot">
+        <p class="disclaimer">
+          Бүртгүүлснээр таны TradingView хэрэглэгчийн нэрэнд 7 хоногийн хандалт олгоно.
+          Хугацаа дуусахад үргэлжлүүлэх эсэхээ та өөрөө шийднэ — автомат төлбөр байхгүй.
+        </p>
+        <a class="back" href="index.html">← Нүүр хуудас руу буцах</a>
+      </div>
+    </form>
+
+    <div class="ok" id="okMsg">
+      <h2>✓ Бүртгэл амжилттай!</h2>
+      <p>Бид таны TradingView хэрэглэгчийн нэрэнд <b>24 цагийн дотор</b> 7 хоногийн хандалт олгоно.
+      Идэвхжсэн талаар таны холбоо барих сувгаар мэдэгдэнэ. Баярлалаа!</p>
+      <a class="back" href="index.html">← Нүүр хуудас руу буцах</a>
+    </div>
+    <div class="err" id="errMsg">
+      <h2>✕ Алдаа гарлаа</h2>
+      <p>Бүртгэл илгээгдсэнгүй. Дахин оролдоно уу, эсвэл шууд бидэнтэй холбогдоно уу.</p>
+    </div>
+  </div>
+
+<script>
+  // Google Apps Script Web App endpoint (KhanSniperPro signup backend).
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbzrEUPnEXG7RnrfKUcLZQBseOuPZMQxMIo3miM2gecJ5NDtWxS2c_joM6NEPHVs251_Gg/exec";
+  const USE_NO_CORS = true; // Apps Script = true. Formspree = false.
+
+  const form = document.getElementById("signupForm");
+  const btn  = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = "Илгээж байна...";
+    const data = new URLSearchParams(new FormData(form));
+    try {
+      if (USE_NO_CORS) {
+        await fetch(ENDPOINT, { method: "POST", mode: "no-cors", body: data });
+        showOk();
+      } else {
+        const res = await fetch(ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: data });
+        if (res.ok) showOk(); else showErr();
+      }
+    } catch (err) { showErr(); }
+  });
+
+  function showOk(){ form.style.display="none"; document.getElementById("okMsg").style.display="block"; }
+  function showErr(){ document.getElementById("errMsg").style.display="block"; btn.disabled=false; btn.textContent="Дахин оролдох"; }
+</script>
+</body>
+</html>
