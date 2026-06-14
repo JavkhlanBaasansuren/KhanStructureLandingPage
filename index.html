@@ -57,29 +57,12 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "KhanSniper Lite — TradingView",
-          "price": "15.00",
+          "name": "KhanSniper Pro + Real Boost — TradingView (Full Access)",
+          "price": "10.00",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "15.00",
-            "priceCurrency": "USD",
-            "billingDuration": "P1M",
-            "billingIncrement": 1,
-            "unitCode": "MON"
-          },
-          "availability": "https://schema.org/LimitedAvailability",
-          "inventoryLevel": { "@type": "QuantitativeValue", "value": 100 },
-          "url": "https://khanstructure.com/#pricing"
-        },
-        {
-          "@type": "Offer",
-          "name": "KhanSniper Pro + Real Boost — TradingView",
-          "price": "20.00",
-          "priceCurrency": "USD",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "20.00",
+            "price": "10.00",
             "priceCurrency": "USD",
             "billingDuration": "P1M",
             "billingIncrement": 1,
@@ -134,13 +117,13 @@
         },
         {
           "@type": "Question",
-          "name": "How much does each plan cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay with USDT on BEP20." }
+          "name": "How much does it cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One plan: KhanSniper Pro + Real Boost (TradingView) — $10/month with all features unlocked. Pay with USDT on BEP20." }
         },
         {
           "@type": "Question",
-          "name": "Can I cancel? Are refunds available?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cancel anytime — billing is monthly, so you keep full access until the end of the current billing cycle. No partial-month refunds, but no auto-renewal lock-in either." }
+          "name": "Are refunds available?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No refunds. Every user starts with a free 7-day trial, so you try the full tool before paying anything. After the trial you decide whether to continue — payment is monthly with no auto-renewal, so to stop you simply do not pay for the next month." }
         }
       ]
     }
@@ -868,6 +851,11 @@
         gap: 14px;
         margin-bottom: 18px;
         align-items: stretch;
+      }
+      /* Single-plan layout: one centered card instead of a 3-column grid. */
+      .pricing-grid-single {
+        grid-template-columns: minmax(0, 440px);
+        justify-content: center;
       }
       .plan-card {
         position: relative;
@@ -2165,7 +2153,7 @@
         <div class="section-head">
           <div>
             <div class="pill" data-i18n="pay.pill">Pricing</div>
-            <h2 data-i18n="pay.h2">Choose your plan and pay</h2>
+            <h2 data-i18n="pay.h2">One plan. All features. $10/month.</h2>
           </div>
           <p data-i18n="pay.p">Monthly billing. Cancel anytime. USDT (BEP20) accepted. 24-hour verification after on-chain confirmation.</p>
         </div>
@@ -2173,16 +2161,17 @@
         <div class="pricing-trust" aria-label="Trust strip">
           <span class="chip"><strong>+8.37%</strong> <span data-i18n="trust.chip1">12-month net (XAU 1H)</span></span>
           <span class="chip"><strong>82%+</strong> <span data-i18n="trust.chip2">win rate across 15m/1H/4H</span></span>
-          <span class="chip"><strong>$15</strong> <span data-i18n="trust.chip3">Lite tier starts here</span></span>
+          <span class="chip"><strong>$10</strong> <span data-i18n="trust.chip3">/ month · all features</span></span>
           <span class="chip"><strong>24h</strong> <span data-i18n="trust.chip4">USDT BEP20 verification</span></span>
         </div>
 
-        <div class="pricing-grid">
-          <article class="plan-card">
-            <div class="plan-name" data-i18n="plan.lite.name">TradingView · Lite</div>
-            <h3 class="plan-headline" data-i18n="plan.lite.head">KhanSniper Lite</h3>
+        <div class="pricing-grid pricing-grid-single">
+          <article class="plan-card featured">
+            <div class="plan-popular" data-i18n="plan.popular">All features unlocked</div>
+            <div class="plan-name" data-i18n="plan.pro.name">TradingView · Full Access</div>
+            <h3 class="plan-headline" data-i18n="plan.pro.head">KhanSniper Pro + Real Boost</h3>
             <div class="plan-price">
-              <span class="num">$15</span>
+              <span class="num">$10</span>
               <span class="per" data-i18n="plan.per">/ month</span>
             </div>
             <ul class="plan-features">
@@ -2191,24 +2180,6 @@
               <li data-i18n="plan.lite.f3">Pre-signal heads-up (0.4×ATR)</li>
               <li data-i18n="plan.lite.f4">4-level TP + runner lock</li>
               <li data-i18n="plan.lite.f5">Asset auto-tune (XAU / Crypto / FX)</li>
-              <li class="x" data-i18n="plan.lite.f6">No 12-month stats panel</li>
-              <li class="x" data-i18n="plan.lite.f7">No Real Boost gating filters</li>
-              <li class="x" data-i18n="plan.lite.f8">No automated execution</li>
-            </ul>
-            <a class="btn plan-cta" href="#usdt-pay" data-i18n="plan.lite.cta" data-track="pricing_select_lite">Choose Lite</a>
-            <div class="plan-meta" data-i18n="plan.lite.meta">TradingView invite script. Limit: 100 active subscriptions.</div>
-          </article>
-
-          <article class="plan-card featured">
-            <div class="plan-popular" data-i18n="plan.popular">Most popular</div>
-            <div class="plan-name" data-i18n="plan.pro.name">TradingView · Pro</div>
-            <h3 class="plan-headline" data-i18n="plan.pro.head">KhanSniper Pro + Real Boost</h3>
-            <div class="plan-price">
-              <span class="num">$20</span>
-              <span class="per" data-i18n="plan.per">/ month</span>
-            </div>
-            <ul class="plan-features">
-              <li data-i18n="plan.pro.f1">Everything in Lite</li>
               <li data-i18n="plan.pro.fStats">12-month on-chart stats panel</li>
               <li data-i18n="plan.pro.f2">Frankfurt-NY session filter</li>
               <li data-i18n="plan.pro.f3">News blackout (NFP / CPI / FOMC)</li>
@@ -2216,10 +2187,9 @@
               <li data-i18n="plan.pro.f5">D1 EMA-200 confluence (optional)</li>
               <li data-i18n="plan.pro.f6">Premium/discount entry bias</li>
               <li data-i18n="plan.pro.f7">Block weak-follow flips</li>
-              <li class="x" data-i18n="plan.pro.f8">No automated execution (alerts only)</li>
             </ul>
-            <a class="btn btn-primary plan-cta" href="#usdt-pay" data-i18n="plan.pro.cta" data-track="pricing_select_pro">Choose Pro</a>
-            <div class="plan-meta" data-i18n="plan.pro.meta">TradingView invite script with Real Boost filters enabled. Limit: 100 active subscriptions.</div>
+            <a class="btn btn-primary plan-cta" href="#usdt-pay" data-i18n="plan.pro.cta" data-track="pricing_select_pro">Get full access</a>
+            <div class="plan-meta" data-i18n="plan.pro.meta">TradingView invite script — all features unlocked. Limit: 100 active subscriptions.</div>
           </article>
 
         </div>
@@ -2235,7 +2205,7 @@
         >
           <h3 style="margin-bottom: 12px" data-i18n="usdt.h3">💳 USDT Payment (BEP20 - BNB Smart Chain)</h3>
           <p style="color: var(--muted); margin-bottom: 16px" data-i18n="usdt.p">
-            One transfer address for both TradingView plans. Send the exact amount for your selected plan via BEP20.
+            Send exactly $10 via BEP20 (BNB Smart Chain) to the address below.
             Verification is manual within 24 hours.
           </p>
 
@@ -2263,9 +2233,8 @@
               </button>
               <p style="margin-top: 12px; color: var(--muted); font-size: 14px">
                 <span data-i18n="usdt.warn"
-                  >⚠️ Send the exact amount for your selected plan: <strong>$15</strong> (Lite) or
-                  <strong>$20</strong> (Pro), using <strong>BEP20</strong> only.<br />Using the wrong network can
-                  cause permanent loss.</span
+                  >⚠️ Send exactly <strong>$10</strong> using <strong>BEP20</strong> only.<br />Using the wrong
+                  network can cause permanent loss.</span
                 >
               </p>
             </div>
@@ -2283,7 +2252,7 @@
             <h4 style="margin: 0 0 8px" data-i18n="usdt.after.h">After payment, send:</h4>
             <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6">
               <span data-i18n="usdt.after.p"
-                >• Selected plan (Lite $15 or Pro $20)<br />
+                >• Plan: Full Access ($10)<br />
                 • Transaction Hash (TxID)<br />
                 • Your Telegram username<br />
                 • Email (optional)<br /><br />
@@ -2348,17 +2317,18 @@
             <p data-i18n="faq.6.a">Use official Telegram channels listed below. Be careful of impersonator accounts.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq.7.q">How much does each plan cost?</summary>
+            <summary data-i18n="faq.7.q">How much does it cost?</summary>
             <p data-i18n="faq.7.a">
-              KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay
+              One plan: KhanSniper Pro + Real Boost (TradingView) — $10/month with all features unlocked. Pay
               with USDT on BEP20.
             </p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq.8.q">Can I cancel? Are refunds available?</summary>
+            <summary data-i18n="faq.8.q">Are refunds available?</summary>
             <p data-i18n="faq.8.a">
-              Cancel anytime — billing is monthly, so you keep full access until the end of the current billing
-              cycle. No partial-month refunds, but no auto-renewal lock-in either.
+              No refunds. Every user starts with a free 7-day trial, so you try the full tool before paying anything.
+              After the trial you decide whether to continue — payment is monthly with no auto-renewal, so to stop you
+              simply do not pay for the next month.
             </p>
           </details>
         </div>
@@ -2587,12 +2557,12 @@
           'faq.5.a': 'Each TradingView invite tier is capped at 100 active users. When a tier is full, contact support to join the waitlist for the next available seat.',
           'faq.6.q': 'How do I get support?',
           'faq.6.a': 'Use official Telegram channels listed below. Be careful of impersonator accounts.',
-          'faq.7.q': 'How much does each plan cost?',
+          'faq.7.q': 'How much does it cost?',
           'faq.7.a':
-            'KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay with USDT on BEP20.',
-          'faq.8.q': 'Can I cancel? Are refunds available?',
+            'One plan: KhanSniper Pro + Real Boost (TradingView) — $10/month with all features unlocked. Pay with USDT on BEP20.',
+          'faq.8.q': 'Are refunds available?',
           'faq.8.a':
-            'Cancel anytime — billing is monthly, so you keep full access until the end of the current billing cycle. No partial-month refunds, but no auto-renewal lock-in either.',
+            'No refunds. Every user starts with a free 7-day trial, so you try the full tool before paying anything. After the trial you decide whether to continue — payment is monthly with no auto-renewal, so to stop you simply do not pay for the next month.',
           'support.pill': 'Support',
           'support.h2': 'Official channels and support policy.',
           'support.p': 'Use only official Instagram, Facebook, and Telegram channels for updates and support.',
@@ -2681,14 +2651,14 @@
           'community.p': 'Choose your language channel for alerts, discussion, and updates.',
 
           'pay.pill': 'Pricing',
-          'pay.h2': 'Choose your plan and pay',
+          'pay.h2': 'One plan. All features. $10/month.',
           'pay.p': 'Monthly billing. Cancel anytime. USDT (BEP20) accepted. 24-hour verification after on-chain confirmation.',
 
-          'plan.popular': 'Most popular',
+          'plan.popular': 'All features unlocked',
           'plan.per': '/ month',
           'trust.chip1': '12-month net (XAU 1H)',
           'trust.chip2': 'win rate across 15m/1H/4H',
-          'trust.chip3': 'Lite tier starts here',
+          'trust.chip3': '/ month · all features',
           'trust.chip4': 'USDT BEP20 verification',
 
           'plan.lite.name': 'TradingView · Lite',
@@ -2704,7 +2674,7 @@
           'plan.lite.cta': 'Choose Lite',
           'plan.lite.meta': 'TradingView invite script. Limit: 100 active subscriptions.',
 
-          'plan.pro.name': 'TradingView · Pro',
+          'plan.pro.name': 'TradingView · Full Access',
           'plan.pro.head': 'KhanSniper Pro + Real Boost',
           'plan.pro.f1': 'Everything in Lite',
           'plan.pro.fStats': 'Live performance panel showing 12-month results',
@@ -2715,13 +2685,13 @@
           'plan.pro.f6': 'Smart entry pricing (favours buying low / selling high in range)',
           'plan.pro.f7': 'Filters out weak signals automatically',
           'plan.pro.f8': 'Alerts only — no auto-trading',
-          'plan.pro.cta': 'Choose Pro',
-          'plan.pro.meta': 'TradingView invite script with Real Boost filters enabled. Limit: 100 active subscriptions.',
+          'plan.pro.cta': 'Get full access',
+          'plan.pro.meta': 'TradingView invite script — all features unlocked. Limit: 100 active subscriptions.',
 
           // USDT
           'usdt.h3': '💳 USDT Payment (BEP20 - BNB Smart Chain)',
           'usdt.p':
-            'One transfer address for both plans. Choose your plan amount and send via BEP20. Verification is manual within 24 hours.',
+            'Send exactly $10 via BEP20 (BNB Smart Chain) to the address below. Verification is manual within 24 hours.',
           'usdt.plan.lite.h': 'KhanSniper Lite (TradingView) — $15 / month (USDT)',
           'usdt.plan.lite.p': 'TradingView invite script: Supertrend trend-flip core, HTF filter, pre-signal, 4-level TP, asset auto-tune. Limit: 100 users.',
           'usdt.plan.pro.h': 'KhanSniper Pro + Real Boost (TradingView) — $20 / month (USDT)',
@@ -2731,7 +2701,7 @@
           'usdt.copied': 'Copied',
           'usdt.submit': 'Submit on Telegram',
           'usdt.warn':
-            '⚠️ Send the exact amount for your selected plan: <strong>$15</strong> (Lite) or <strong>$20</strong> (Pro), using <strong>BEP20</strong> only.<br/>Using the wrong network can cause permanent loss.',
+            '⚠️ Send exactly <strong>$10</strong> using <strong>BEP20</strong> only.<br/>Using the wrong network can cause permanent loss.',
           'usdt.after.h': 'After payment, send:',
           'usdt.after.p':
             '• Selected plan (Trading View invite script)<br/>• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
@@ -2784,7 +2754,7 @@
           'skip.content': 'Skip to content',
           'footer.rights': 'All rights reserved.',
           'pricing.title':
-            'Early Founders Access — KhanSniper Lite $15 / month, KhanSniper Pro + Real Boost $20 / month (TradingView, 100 active subscriptions each). Monthly billing. Cancel anytime.',
+            'Early Founders Access — KhanSniper Pro + Real Boost $10 / month, all features unlocked (TradingView, 100 active subscriptions). 7-day free trial first. No refunds. Monthly billing — cancel anytime.',
         },
         mn: {
           'nav.how': 'Яаж ажиллах вэ',
@@ -2864,10 +2834,10 @@
           'faq.5.a': 'TradingView invite tier бүр 100 идэвхтэй хэрэглэгчийн хязгаартай. Дүүрсэн үед дараагийн сул суудлын хүлээлэгт нэгдэхээр support-той холбогдоно уу.',
           'faq.6.q': 'Дэмжлэгээ хаанаас авах вэ?',
           'faq.6.a': 'Доорх албан ёсны Telegram сувгуудыг ашиглана. Хуурамч аккаунтаас болгоомжил.',
-          'faq.7.q': 'Багц бүрийн үнэ хэд вэ?',
-          'faq.7.a': 'KhanSniper Lite (TradingView): $15/сар. KhanSniper Pro + Real Boost (TradingView): $20/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
-          'faq.8.q': 'Цуцлах, буцаан олголт байгаа юу?',
-          'faq.8.a': 'Хэдийд ч цуцалж болно — сарын төлбөртэй тул одоогийн billing cycle дуустал бүрэн хандалттай хэвээр байна. Хагас сарын буцаан олголт байхгүй, гэхдээ авто-сунгалтын lock байхгүй.',
+          'faq.7.q': 'Үнэ хэд вэ?',
+          'faq.7.a': 'Нэг багц: KhanSniper Pro + Real Boost (TradingView) — сард $10, бүх боломж нээлттэй. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
+          'faq.8.q': 'Буцаан олголт байгаа юу?',
+          'faq.8.a': 'Буцаан олголт байхгүй. Хэрэглэгч бүр эхлээд 7 хоногийн үнэгүй trial авч, бүтээгдэхүүнийг бүрэн туршиж үзнэ — тиймээс төлбөр төлөхөөсөө өмнө шийднэ. Trial-ийн дараа үргэлжлүүлэх эсэхээ өөрөө сонгоно. Сарын төлбөртэй, авто-сунгалтгүй тул зогсоохын тулд дараа сарын төлбөрөө хийхгүй л байхад болно.',
           'support.pill': 'Дэмжлэг',
           'support.h2': 'Албан сувгууд ба дэмжлэгийн бодлого.',
           'support.p': 'Шинэчлэлт, дэмжлэгээ зөвхөн албан Instagram, Facebook, Telegram сувгуудаас авна.',
@@ -2948,14 +2918,14 @@
           'community.h2': 'KHAN STRUCTURE сувгууд',
           'community.p': 'Өөрийн хэлний сувагт нэгдэж alert, хэлэлцүүлэг, шинэчлэлтээ аваарай.',
           'pay.pill': 'Үнийн санал',
-          'pay.h2': 'Багцаа сонгоод төлбөрөө хийнэ үү',
+          'pay.h2': 'Нэг багц. Бүх боломж. Сард $10.',
           'pay.p': 'Сар бүрийн төлбөртэй. Хэдийд ч цуцалж болно. USDT (BEP20) хүлээн авна. On-chain баталгаажсаны дараа 24 цагийн дотор шалгана.',
 
-          'plan.popular': 'Хамгийн эрэлттэй',
+          'plan.popular': 'Бүх боломж нээлттэй',
           'plan.per': '/ сар',
           'trust.chip1': '12-сарын net (XAU 1H)',
           'trust.chip2': '15м/1H/4H хожлын дундаж',
-          'trust.chip3': 'Lite tier-ийн эхлэл',
+          'trust.chip3': '/ сар · бүх боломж',
           'trust.chip4': 'USDT BEP20 баталгаажуулалт',
 
           'plan.lite.name': 'TradingView · Lite',
@@ -2971,7 +2941,7 @@
           'plan.lite.cta': 'Lite сонгох',
           'plan.lite.meta': 'TradingView invite script. Хязгаар: 100 идэвхтэй subscription.',
 
-          'plan.pro.name': 'TradingView · Pro',
+          'plan.pro.name': 'TradingView · Full Access',
           'plan.pro.head': 'KhanSniper Pro + Real Boost',
           'plan.pro.f1': 'Lite-ын бүх боломж',
           'plan.pro.fStats': '12-сарын үр дүнг харуулах самбар',
@@ -2982,12 +2952,12 @@
           'plan.pro.f6': 'Ухаалаг үнийн оролт (мужин дотор хямдыг хэдийт, өндөрт зар)',
           'plan.pro.f7': 'Сул сигналыг автоматаар шүүнэ',
           'plan.pro.f8': 'Зөвхөн анхааруулга — автомат trade-гүй',
-          'plan.pro.cta': 'Pro сонгох',
-          'plan.pro.meta': 'Real Boost шүүлтүүр идэвхжсэн TradingView invite script. Хязгаар: 100 идэвхтэй subscription.',
+          'plan.pro.cta': 'Бүрэн хандалт авах',
+          'plan.pro.meta': 'TradingView invite script — бүх боломж нээлттэй. Хязгаар: 100 идэвхтэй subscription.',
 
           'usdt.h3': '💳 USDT төлбөр (BEP20 - BNB Smart Chain)',
           'usdt.p':
-            'Сонгосон багцын дүнгээр BEP20 сүлжээгээр илгээнэ. Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
+            'Доорх хаяг руу яг $10-ыг BEP20 (BNB Smart Chain) сүлжээгээр илгээнэ. Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
           'usdt.plan.lite.h': 'KhanSniper Lite (TradingView) — $15 / сар (USDT)',
           'usdt.plan.lite.p': 'TradingView invite script: Supertrend trend-flip core, HTF filter, pre-signal, 4-түвшний TP, asset auto-tune. Хязгаар: 100 хэрэглэгч.',
           'usdt.plan.pro.h': 'KhanSniper Pro + Real Boost (TradingView) — $20 / сар (USDT)',
@@ -2997,7 +2967,7 @@
           'usdt.copied': 'Хуулагдлаа',
           'usdt.submit': 'Telegram-ээр илгээх',
           'usdt.warn':
-            '⚠️ Сонгосон багцын дүнг илгээнэ үү: <strong>$15</strong> (Lite) эсвэл <strong>$20</strong> (Pro), зөвхөн <strong>BEP20</strong> сүлжээгээр.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
+            '⚠️ Яг <strong>$10</strong>-ыг зөвхөн <strong>BEP20</strong> сүлжээгээр илгээнэ үү.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
           'usdt.after.h': 'Төлбөр хийсний дараа илгээх мэдээлэл:',
           'usdt.after.p':
             '• Сонгосон багц (Trading View invite script)<br/>• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
@@ -3046,7 +3016,7 @@
           'skip.content': 'Үндсэн хэсэгт очих',
           'footer.rights': 'Бүх эрх хуулиар хамгаалагдсан.',
           'pricing.title':
-            'Early Founders хандалт — KhanSniper Lite $15/сар, KhanSniper Pro + Real Boost $20/сар (TradingView, тус бүр 100 идэвхтэй subscription). Сарын төлбөртэй. Хэдийд ч цуцалж болно.',
+            'Early Founders хандалт — KhanSniper Pro + Real Boost сард $10, бүх боломж нээлттэй (TradingView, 100 идэвхтэй subscription). Эхлээд 7 хоног үнэгүй trial. Буцаан олголтгүй. Сарын төлбөртэй — хэдийд ч цуцалж болно.',
         },
       };
 
