@@ -88,12 +88,6 @@
           "availability": "https://schema.org/LimitedAvailability",
           "inventoryLevel": { "@type": "QuantitativeValue", "value": 100 },
           "url": "https://khanstructure.com/#pricing"
-        },
-        {
-          "@type": "Offer",
-          "name": "MT5 EA — Real Boost (Beta)",
-          "availability": "https://schema.org/PreOrder",
-          "url": "https://khanstructure.com/#pricing"
         }
       ]
     }
@@ -131,7 +125,7 @@
         {
           "@type": "Question",
           "name": "What happens when the TradingView invite script is full?",
-          "acceptedAnswer": { "@type": "Answer", "text": "TradingView invite script is capped at 100 users. MT5 EA license has no user cap." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Each TradingView invite tier is capped at 100 active users. When a tier is full, contact support to join the waitlist for the next available seat." }
         },
         {
           "@type": "Question",
@@ -141,7 +135,7 @@
         {
           "@type": "Question",
           "name": "How much does each plan cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. MT5 EA Real Boost is currently in beta — pricing announced after live testing. Pay with USDT on BEP20." }
+          "acceptedAnswer": { "@type": "Answer", "text": "KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay with USDT on BEP20." }
         },
         {
           "@type": "Question",
@@ -1691,9 +1685,6 @@
                 data-track="hero_view_tradingview"
                 >Open on TradingView <span class="tv-badge">LIVE</span></a
               >
-              <a class="btn" href="#ea" data-i18n="hero.eaSuggest" data-track="hero_view_ea"
-                >See KHAN STRUCTURE EA</a
-              >
             </div>
 
             <div class="trust">
@@ -1929,16 +1920,16 @@
       </div>
     </section>
 
-    <!-- EA + MQL5 FEATURES -->
+    <!-- CORE LOGIC + FEATURES -->
     <section id="ea">
       <div class="container">
         <div class="section-head">
           <div>
             <div class="pill" data-i18n="ea.pill">Core Logic</div>
-            <h2 data-i18n="ea.h2">Shared trend-line core for TradingView and MT5 EA</h2>
+            <h2 data-i18n="ea.h2">The Supertrend trend-flip core behind every signal</h2>
           </div>
           <p data-i18n="ea.p">
-            The TradingView KHAN STRUCTURE script and MT5 EA run the same trend-flip logic: Supertrend flip → HTF
+            The KHAN STRUCTURE TradingView script runs one consistent trend-flip logic: Supertrend flip → HTF
             confluence → 4-level TP map, in live sessions with no hindsight edits.
           </p>
         </div>
@@ -1950,7 +1941,7 @@
               Trend flips are detected on your chart timeframe and gated by an HTF Supertrend filter and ADX chop
               filter — counter-trend whipsaws drop sharply. Auto-tunes for XAU / Crypto / FX.
             </p>
-            <div class="platform-tag" data-i18n="ea.card1.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="ea.card1.tag">TradingView</div>
           </article>
           <article class="card has-platform-tag">
             <div class="icon" aria-hidden="true">◎</div>
@@ -1959,16 +1950,16 @@
               A pre-signal warns 0.4×ATR before the flip so you can prepare. Each entry ships with TP1–TP4 scale-out,
               breakeven after TP1, and SL → TP1 lock after TP2 hits (runner protection).
             </p>
-            <div class="platform-tag" data-i18n="ea.card2.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="ea.card2.tag">TradingView</div>
           </article>
           <article class="card has-platform-tag">
             <div class="icon" aria-hidden="true">⚙</div>
             <h3 data-i18n="ea.card3.h">Real Boost (Pro Tier)</h3>
             <p data-i18n="ea.card3.p">
               Frankfurt-NY session window, news blackout, Friday cutoff, optional D1 EMA-200 confluence, and
-              premium/discount entry bias — the same gating used in our real-money XAU EA.
+              premium/discount entry bias — disciplined gating tuned on real-money XAU trading.
             </p>
-            <div class="platform-tag" data-i18n="ea.card3.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="ea.card3.tag">TradingView</div>
           </article>
         </div>
 
@@ -1977,9 +1968,9 @@
         <div class="section-head">
           <div>
             <div class="pill" data-i18n="features.pill">Feature матриц</div>
-            <h2 data-i18n="features.h2">Платформ тус бүрийн боломж</h2>
+            <h2 data-i18n="features.h2">Бүрэн боломжийн жагсаалт</h2>
           </div>
-          <p data-i18n="features.p">TV (TradingView), MT5 (MetaTrader 5)</p>
+          <p data-i18n="features.p">All features ship in the TradingView KHAN STRUCTURE indicator.</p>
         </div>
 
         <div class="grid-3">
@@ -1987,19 +1978,19 @@
             <div class="icon">↻</div>
             <h3 data-i18n="feat.1.h">Trend Flip Engine</h3>
             <p data-i18n="feat.1.p">Supertrend-based entries with timeframe-aware ATR and factor auto-resolved by Short / Mid / Long mode and asset profile.</p>
-            <div class="platform-tag" data-i18n="feat.1.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="feat.1.tag">TradingView</div>
           </div>
           <div class="card card-soft has-platform-tag">
             <div class="icon">◐</div>
             <h3 data-i18n="feat.2.h">HTF Trend Filter</h3>
             <p data-i18n="feat.2.p">Configurable 1H–1W higher-timeframe filter (4H default) drops counter-trend signals so you stay aligned with the macro side.</p>
-            <div class="platform-tag" data-i18n="feat.2.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="feat.2.tag">TradingView</div>
           </div>
           <div class="card card-soft has-platform-tag">
             <div class="icon">◎</div>
             <h3 data-i18n="feat.3.h">Pre-Signal Heads-Up</h3>
             <p data-i18n="feat.3.p">A 0.4×ATR proximity warning fires before the flip with a cooldown to prevent spam — react before the candle closes.</p>
-            <div class="platform-tag" data-i18n="feat.3.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="feat.3.tag">TradingView</div>
           </div>
         </div>
 
@@ -2010,19 +2001,19 @@
             <div class="icon">▦</div>
             <h3 data-i18n="feat.4.h">4-Level Take Profit</h3>
             <p data-i18n="feat.4.p">TP1–TP4 with configurable %-close per target and full-exit at TP3 or TP4. Default 25% per level scales out across the move.</p>
-            <div class="platform-tag" data-i18n="feat.4.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="feat.4.tag">TradingView</div>
           </div>
           <div class="card card-soft has-platform-tag">
             <div class="icon">⌂</div>
             <h3 data-i18n="feat.5.h">Adaptive Risk Map</h3>
             <p data-i18n="feat.5.p">SL multiplier in ATR with Wick / Close / Two-bar confirm modes, auto-breakeven after TP1, and SL → TP1 lock after TP2 (runner protection).</p>
-            <div class="platform-tag" data-i18n="feat.5.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="feat.5.tag">TradingView</div>
           </div>
           <div class="card card-soft has-platform-tag">
             <div class="icon">⚙</div>
             <h3 data-i18n="feat.6.h">12-Month Stats Panel</h3>
             <p data-i18n="feat.6.p">On-chart panel shows win rate, profit factor, expectancy R, max drawdown, weak-follow %, and favorite-location performance over the last 12 months.</p>
-            <div class="platform-tag" data-i18n="feat.6.tag">TV + MT5</div>
+            <div class="platform-tag" data-i18n="feat.6.tag">TradingView</div>
           </div>
         </div>
       </div>
@@ -2231,25 +2222,6 @@
             <div class="plan-meta" data-i18n="plan.pro.meta">TradingView invite script with Real Boost filters enabled. Limit: 100 active subscriptions.</div>
           </article>
 
-          <article class="plan-card beta">
-            <div class="plan-beta-badge" data-i18n="plan.ea.badge">Beta · Demo</div>
-            <div class="plan-name" data-i18n="plan.ea.name">MetaTrader 5 EA</div>
-            <h3 class="plan-headline" data-i18n="plan.ea.head">Real Boost EA</h3>
-            <div class="plan-price">
-              <span class="num" data-i18n="plan.ea.price">TBD</span>
-              <span class="per" data-i18n="plan.ea.per">price after beta</span>
-            </div>
-            <ul class="plan-features">
-              <li data-i18n="plan.ea.f1">Everything in Pro</li>
-              <li data-i18n="plan.ea.f2"><strong>Automated execution</strong> (Ghost / Real / Both)</li>
-              <li data-i18n="plan.ea.f3">Tested on real-money XAU EA</li>
-              <li data-i18n="plan.ea.f4">MetaTrader 5 broker integration</li>
-              <li data-i18n="plan.ea.f5">No TradingView seat cap</li>
-              <li class="x" data-i18n="plan.ea.f6">Currently in live testing — limited beta access</li>
-            </ul>
-            <a class="btn plan-cta" href="#support" data-i18n="plan.ea.cta" data-track="pricing_join_waitlist">Join waitlist</a>
-            <div class="plan-meta" data-i18n="plan.ea.meta">MT5 EA. Live-testing phase — pricing announced after beta. Contact support to request demo access.</div>
-          </article>
         </div>
 
         <!-- USDT PAYMENT SECTION -->
@@ -2264,7 +2236,7 @@
           <h3 style="margin-bottom: 12px" data-i18n="usdt.h3">💳 USDT Payment (BEP20 - BNB Smart Chain)</h3>
           <p style="color: var(--muted); margin-bottom: 16px" data-i18n="usdt.p">
             One transfer address for both TradingView plans. Send the exact amount for your selected plan via BEP20.
-            Verification is manual within 24 hours. (MT5 EA is in beta — request access via support.)
+            Verification is manual within 24 hours.
           </p>
 
           <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center">
@@ -2369,7 +2341,7 @@
           </details>
           <details class="faq-item">
             <summary data-i18n="faq.5.q">What happens when the TradingView invite script is full?</summary>
-            <p data-i18n="faq.5.a">TradingView invite script is capped at 100 users. MT5 EA license has no user cap.</p>
+            <p data-i18n="faq.5.a">Each TradingView invite tier is capped at 100 active users. When a tier is full, contact support to join the waitlist for the next available seat.</p>
           </details>
           <details class="faq-item">
             <summary data-i18n="faq.6.q">How do I get support?</summary>
@@ -2379,7 +2351,7 @@
             <summary data-i18n="faq.7.q">How much does each plan cost?</summary>
             <p data-i18n="faq.7.a">
               KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay
-              with USDT on BEP20. The MT5 EA is currently in beta — pricing announced after live testing.
+              with USDT on BEP20.
             </p>
           </details>
           <details class="faq-item">
@@ -2539,7 +2511,7 @@
       const i18n = {
         en: {
           'nav.how': 'How It Works',
-          'nav.features': 'EA + Features',
+          'nav.features': 'Features',
           'nav.reviews': 'Reviews',
           'nav.numbers': 'Numbers',
           'nav.integrity': 'Integrity',
@@ -2612,12 +2584,12 @@
           'faq.4b.q': 'Do you guarantee profits?',
           'faq.4b.a': 'No. This is an educational framework focused on disciplined execution.',
           'faq.5.q': 'What happens when the TradingView invite script is full?',
-          'faq.5.a': 'TradingView invite script is capped at 100 users. MT5 EA license has no user cap.',
+          'faq.5.a': 'Each TradingView invite tier is capped at 100 active users. When a tier is full, contact support to join the waitlist for the next available seat.',
           'faq.6.q': 'How do I get support?',
           'faq.6.a': 'Use official Telegram channels listed below. Be careful of impersonator accounts.',
           'faq.7.q': 'How much does each plan cost?',
           'faq.7.a':
-            'KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay with USDT on BEP20. The MT5 EA is currently in beta — pricing announced after live testing.',
+            'KhanSniper Lite (TradingView): $15/month. KhanSniper Pro + Real Boost (TradingView): $20/month. Pay with USDT on BEP20.',
           'faq.8.q': 'Can I cancel? Are refunds available?',
           'faq.8.a':
             'Cancel anytime — billing is monthly, so you keep full access until the end of the current billing cycle. No partial-month refunds, but no auto-renewal lock-in either.',
@@ -2646,21 +2618,20 @@
           'hero.getAccess': 'View Pricing',
           'hero.seeFramework': 'How It Works',
           'hero.trialCta': 'Start 7-day free trial',
-          'hero.eaSuggest': 'See KHAN STRUCTURE EA',
           'hero.trust': 'Rules-based trend flips • Live behavior matches backtest • No repaint tricks',
           'ea.pill': 'Core Logic',
-          'ea.h2': 'Shared trend-line core for TradingView and MT5 EA',
+          'ea.h2': 'The Supertrend trend-flip core behind every signal',
           'ea.p':
-            'The TradingView KHAN STRUCTURE script and MT5 EA run the same trend-flip logic: Supertrend flip → HTF confluence → 4-level TP map, in live sessions with no hindsight edits.',
+            'The KHAN STRUCTURE TradingView script runs one consistent trend-flip logic: Supertrend flip → HTF confluence → 4-level TP map, in live sessions with no hindsight edits.',
           'ea.card1.h': 'Supertrend + HTF Confluence',
           'ea.card1.p': 'Catches direction changes on your chart and double-checks against the higher timeframe — so weak signals get filtered out before they reach you. Auto-tunes for Gold / Crypto / FX.',
-          'ea.card1.tag': 'TV + MT5',
+          'ea.card1.tag': 'TradingView',
           'ea.card2.h': 'Pre-Signal + 4-Level TP',
           'ea.card2.p': 'Get a heads-up alert before the actual entry so you have time to prepare. Every trade has 4 profit targets, and once you hit the first one, your stop-loss moves to break-even — winners stop becoming losers.',
-          'ea.card2.tag': 'TV + MT5',
+          'ea.card2.tag': 'TradingView',
           'ea.card3.h': 'Real Boost (Pro Tier)',
-          'ea.card3.p': 'Skip noisy hours (only trades during the Frankfurt–NY window), avoid major news (NFP, CPI, FOMC), block Friday afternoons (no weekend gap risk), and check the daily trend — same filters used in our real-money EA.',
-          'ea.card3.tag': 'TV + MT5',
+          'ea.card3.p': 'Skip noisy hours (only trades during the Frankfurt–NY window), avoid major news (NFP, CPI, FOMC), block Friday afternoons (no weekend gap risk), and check the daily trend — disciplined filters tuned on real-money XAU trading.',
+          'ea.card3.tag': 'TradingView',
 
           'metric.win.k': 'Win Rate',
           'metric.net.k': 'Net Return',
@@ -2672,8 +2643,8 @@
           'how.p': 'Pick your direction, wait for the signal, double-check, then enter with a clear plan for taking profit.',
 
           'features.pill': 'Feature Matrix',
-          'features.h2': 'Capability map by platform',
-          'features.p': 'TV (TradingView), MT5 (MetaTrader 5)',
+          'features.h2': 'Full feature list',
+          'features.p': 'All features ship in the TradingView KHAN STRUCTURE indicator.',
 
           'integrity.pill': 'Integrity',
           'integrity.h2': 'What you see live should match backtest.',
@@ -2747,20 +2718,6 @@
           'plan.pro.cta': 'Choose Pro',
           'plan.pro.meta': 'TradingView invite script with Real Boost filters enabled. Limit: 100 active subscriptions.',
 
-          'plan.ea.badge': 'Beta · Demo',
-          'plan.ea.name': 'MetaTrader 5 EA',
-          'plan.ea.head': 'Real Boost EA',
-          'plan.ea.price': 'TBD',
-          'plan.ea.per': 'price after beta',
-          'plan.ea.f1': 'Everything in Pro',
-          'plan.ea.f2': '<strong>Automatic trading</strong> (test mode / live / both)',
-          'plan.ea.f3': 'Already tested with real money on Gold',
-          'plan.ea.f4': 'Connects directly to your MetaTrader 5 broker',
-          'plan.ea.f5': 'Unlimited users (no 100-seat cap)',
-          'plan.ea.f6': 'Currently in beta testing — limited spots',
-          'plan.ea.cta': 'Join waitlist',
-          'plan.ea.meta': 'MT5 EA. Live-testing phase — pricing announced after beta. Contact support to request demo access.',
-
           // USDT
           'usdt.h3': '💳 USDT Payment (BEP20 - BNB Smart Chain)',
           'usdt.p':
@@ -2777,7 +2734,7 @@
             '⚠️ Send the exact amount for your selected plan: <strong>$15</strong> (Lite) or <strong>$20</strong> (Pro), using <strong>BEP20</strong> only.<br/>Using the wrong network can cause permanent loss.',
           'usdt.after.h': 'After payment, send:',
           'usdt.after.p':
-            '• Selected plan (Trading View invite script or Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
+            '• Selected plan (Trading View invite script)<br/>• Transaction Hash (TxID)<br/>• Your Telegram username<br/>• Email (optional)<br/><br/>Send this information to the official KHAN STRUCTURE Telegram for manual verification. Access is granted after on-chain confirmation.',
 
           'footer.tagline': 'Trend-Line Execution Framework',
           'footer.disclaimer': 'Disclaimer: Educational use only. Not financial advice.',
@@ -2802,22 +2759,22 @@
 
           'feat.1.h': 'Trend Flip Engine',
           'feat.1.p': 'Supertrend-based entries with timeframe-aware ATR and factor auto-resolved by Short / Mid / Long mode and asset profile.',
-          'feat.1.tag': 'TV + MT5',
+          'feat.1.tag': 'TradingView',
           'feat.2.h': 'HTF Trend Filter',
           'feat.2.p': 'Configurable 1H–1W higher-timeframe filter (4H default) drops counter-trend signals so you stay aligned with the macro side.',
-          'feat.2.tag': 'TV + MT5',
+          'feat.2.tag': 'TradingView',
           'feat.3.h': 'Pre-Signal Heads-Up',
           'feat.3.p': 'A 0.4×ATR proximity warning fires before the flip with a cooldown to prevent spam — react before the candle closes.',
-          'feat.3.tag': 'TV + MT5',
+          'feat.3.tag': 'TradingView',
           'feat.4.h': '4-Level Take Profit',
           'feat.4.p': 'TP1–TP4 with configurable %-close per target and full-exit at TP3 or TP4. Default 25% per level scales out across the move.',
-          'feat.4.tag': 'TV + MT5',
+          'feat.4.tag': 'TradingView',
           'feat.5.h': 'Adaptive Risk Map',
           'feat.5.p': 'SL multiplier in ATR with Wick / Close / Two-bar confirm modes, auto-breakeven after TP1, and SL → TP1 lock after TP2 (runner protection).',
-          'feat.5.tag': 'TV + MT5',
+          'feat.5.tag': 'TradingView',
           'feat.6.h': '12-Month Stats Panel',
           'feat.6.p': 'On-chart panel shows win rate, profit factor, expectancy R, max drawdown, weak-follow %, and favorite-location performance over the last 12 months.',
-          'feat.6.tag': 'TV + MT5',
+          'feat.6.tag': 'TradingView',
 
           'int.1.h': 'Live = Backtest logic',
           'int.1.p': 'Signals, entries, and risk maps use the same rules in live and backtest.',
@@ -2827,11 +2784,11 @@
           'skip.content': 'Skip to content',
           'footer.rights': 'All rights reserved.',
           'pricing.title':
-            'Early Founders Access — KhanSniper Lite $15 / month, KhanSniper Pro + Real Boost $20 / month (TradingView, 100 active subscriptions each). MT5 EA Real Boost is in live testing — pricing announced after beta. Monthly billing. Cancel anytime.',
+            'Early Founders Access — KhanSniper Lite $15 / month, KhanSniper Pro + Real Boost $20 / month (TradingView, 100 active subscriptions each). Monthly billing. Cancel anytime.',
         },
         mn: {
           'nav.how': 'Яаж ажиллах вэ',
-          'nav.features': 'EA + Онцлогууд',
+          'nav.features': 'Онцлогууд',
           'nav.reviews': 'Сэтгэгдэл',
           'nav.numbers': 'Тоонууд',
           'nav.integrity': 'Итгэлцэл',
@@ -2904,11 +2861,11 @@
           'faq.4b.q': 'Ашиг баталгаатай юу?',
           'faq.4b.a': 'Үгүй. Энэ нь сахилга баттай гүйцэтгэлд чиглэсэн сургалтын framework.',
           'faq.5.q': 'TradingView invite script дүүрвэл яах вэ?',
-          'faq.5.a': 'TradingView invite script нь 100 хэрэглэгчийн хязгаартай. Meta Trader 5 EA license нь хэрэглэгчийн тоонд хязгааргүй.',
+          'faq.5.a': 'TradingView invite tier бүр 100 идэвхтэй хэрэглэгчийн хязгаартай. Дүүрсэн үед дараагийн сул суудлын хүлээлэгт нэгдэхээр support-той холбогдоно уу.',
           'faq.6.q': 'Дэмжлэгээ хаанаас авах вэ?',
           'faq.6.a': 'Доорх албан ёсны Telegram сувгуудыг ашиглана. Хуурамч аккаунтаас болгоомжил.',
           'faq.7.q': 'Багц бүрийн үнэ хэд вэ?',
-          'faq.7.a': 'KhanSniper Lite (TradingView): $15/сар. KhanSniper Pro + Real Boost (TradingView): $20/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ. MT5 EA нь одоогоор beta-д явж байгаа — live test-ийн дараа үнэ зарлагдана.',
+          'faq.7.a': 'KhanSniper Lite (TradingView): $15/сар. KhanSniper Pro + Real Boost (TradingView): $20/сар. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
           'faq.8.q': 'Цуцлах, буцаан олголт байгаа юу?',
           'faq.8.a': 'Хэдийд ч цуцалж болно — сарын төлбөртэй тул одоогийн billing cycle дуустал бүрэн хандалттай хэвээр байна. Хагас сарын буцаан олголт байхгүй, гэхдээ авто-сунгалтын lock байхгүй.',
           'support.pill': 'Дэмжлэг',
@@ -2935,21 +2892,20 @@
           'hero.getAccess': 'Үнийг үзэх',
           'hero.seeFramework': 'Процессыг үзэх',
           'hero.trialCta': '7 хоног үнэгүй турших',
-          'hero.eaSuggest': 'KHAN STRUCTURE EA үзэх',
           'hero.trust': 'Дүрэмт trend flip • Live зан үйл = backtest • Repaint, hindsight трикгүй',
           'ea.pill': 'Core логик',
-          'ea.h2': 'TradingView ба MT5 EA-ийн нэгдсэн trend-line core',
+          'ea.h2': 'Дохио бүрийн ард ажилладаг Supertrend trend-flip core',
           'ea.p':
-            'TradingView KHAN STRUCTURE script ба MT5 EA нь нэг trend-flip логикоор ажиллана: Supertrend flip → HTF confluence → 4-түвшний TP зураглал. Бодит session дээр hindsight засваргүй.',
+            'KHAN STRUCTURE TradingView script нь нэг тогтвортой trend-flip логикоор ажиллана: Supertrend flip → HTF confluence → 4-түвшний TP зураглал. Бодит session дээр hindsight засваргүй.',
           'ea.card1.h': 'Supertrend + HTF Confluence',
           'ea.card1.p': 'Графикийн чиглэл солилтыг олж, том timeframe-тэй давхар шалгана — сул сигнал танд хүрэхээс өмнө шүүгдэнэ. Алт / Crypto / FX тус бүрт автомат тааруулна.',
-          'ea.card1.tag': 'TV + MT5',
+          'ea.card1.tag': 'TradingView',
           'ea.card2.h': 'Pre-Signal + 4-түвшний TP',
           'ea.card2.p': 'Жинхэнэ оролтоос өмнө анхааруулга авна — бэлтгэл хийх боломжтой. Trade бүрт 4 ашгийн зорилт, эхнийхээ хүрэхэд stop-loss автомат түвшинд хүрэхэд хожилт алдагдал болохгүй.',
-          'ea.card2.tag': 'TV + MT5',
+          'ea.card2.tag': 'TradingView',
           'ea.card3.h': 'Real Boost (Pro tier)',
-          'ea.card3.p': 'Шуугианат цагуудыг алгасна (зөвхөн Frankfurt–NY цонхонд trade хийнэ), том news (NFP, CPI, FOMC) тойруулна, Баасан гаригийн оройг хаана (амралтын зайн эрсдэлгүй), өдөр тутмын чиглэлийг шалгана — манай бодит мөнгөтэй EA-ийн ашигладаг шүүлтүүртэй ижил.',
-          'ea.card3.tag': 'TV + MT5',
+          'ea.card3.p': 'Шуугианат цагуудыг алгасна (зөвхөн Frankfurt–NY цонхонд trade хийнэ), том news (NFP, CPI, FOMC) тойруулна, Баасан гаригийн оройг хаана (амралтын зайн эрсдэлгүй), өдөр тутмын чиглэлийг шалгана — бодит мөнгөтэй XAU арилжаан дээр тааруулсан сахилгат шүүлтүүр.',
+          'ea.card3.tag': 'TradingView',
           'metric.win.k': 'Хожлын хувь',
           'metric.net.k': 'Net орлого',
           'metric.trades.k': 'Trade · 12 сар',
@@ -2958,8 +2914,8 @@
           'how.h2': 'Өдөр бүр дагаж болох энгийн процесс.',
           'how.p': 'Чиглэлээ тогтоо, сигналыг хүлээ, давхар шалга, дараа нь тодорхой ашгийн төлөвлөгөөтэй оролт хий.',
           'features.pill': 'Feature матриц',
-          'features.h2': 'Платформ тус бүрийн боломж',
-          'features.p': 'TV (TradingView), MT5 (MetaTrader 5)',
+          'features.h2': 'Бүрэн боломжийн жагсаалт',
+          'features.p': 'Бүх боломж нь TradingView KHAN STRUCTURE индикаторт багтсан.',
           'integrity.pill': 'Ил тод байдал',
           'integrity.h2': 'Live дээр харсан нь backtest-тэй нийцнэ.',
           'integrity.p': 'Hindsight засваргүй. Нэг дүрмээр бодит гүйцэтгэлд ашиглана.',
@@ -3029,19 +2985,6 @@
           'plan.pro.cta': 'Pro сонгох',
           'plan.pro.meta': 'Real Boost шүүлтүүр идэвхжсэн TradingView invite script. Хязгаар: 100 идэвхтэй subscription.',
 
-          'plan.ea.badge': 'Beta · Demo',
-          'plan.ea.name': 'MetaTrader 5 EA',
-          'plan.ea.head': 'Real Boost EA',
-          'plan.ea.price': 'TBD',
-          'plan.ea.per': 'beta-ийн дараах үнэ',
-          'plan.ea.f1': 'Pro-н бүх боломж',
-          'plan.ea.f2': '<strong>Автоматаар trade хийнэ</strong> (туршилт / live / хоёулаа)',
-          'plan.ea.f3': 'Алт дээр бодит мөнгөөр туршигдсан',
-          'plan.ea.f4': 'MetaTrader 5 broker-той шууд холбогдоно',
-          'plan.ea.f5': 'Хязгааргүй хэрэглэгч (100 seat хязгааргүй)',
-          'plan.ea.f6': 'Beta туршилтад явж байна — хязгаартай суудал',
-          'plan.ea.cta': 'Хүлээгдэгчид нэгдэх',
-          'plan.ea.meta': 'MT5 EA. Live test шат — beta-ийн дараа үнэ зарлагдана. Demo access авахдаа support-той холбогдоно уу.',
           'usdt.h3': '💳 USDT төлбөр (BEP20 - BNB Smart Chain)',
           'usdt.p':
             'Сонгосон багцын дүнгээр BEP20 сүлжээгээр илгээнэ. Хандалтыг 24 цагийн дотор гараар баталгаажуулна.',
@@ -3057,7 +3000,7 @@
             '⚠️ Сонгосон багцын дүнг илгээнэ үү: <strong>$15</strong> (Lite) эсвэл <strong>$20</strong> (Pro), зөвхөн <strong>BEP20</strong> сүлжээгээр.<br/>Буруу сүлжээ ашиглавал хөрөнгө алдагдах эрсдэлтэй.',
           'usdt.after.h': 'Төлбөр хийсний дараа илгээх мэдээлэл:',
           'usdt.after.p':
-            '• Сонгосон багц (Trading View invite script эсвэл Meta Trader 5 EA)<br/>• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
+            '• Сонгосон багц (Trading View invite script)<br/>• Transaction Hash (TxID)<br/>• Telegram username<br/>• Email (заавал биш)<br/><br/>Энэ мэдээллийг албан ёсны KHAN STRUCTURE Telegram руу илгээнэ үү. On-chain баталгаажсаны дараа хандалтыг нээнэ.',
           'footer.tagline': 'Чиг хандлагын гүйцэтгэлийн framework',
           'footer.disclaimer': 'Анхааруулга: Зөвхөн сургалтын зорилготой. Санхүүгийн зөвлөгөө биш.',
           'footer.privacy': 'Нууцлал',
@@ -3079,22 +3022,22 @@
           'steps.4.d': 'Trade бүрт 4 ашгийн зорилт + үнэ хөдлөхөд таны хожилтыг хамгаалах автомат stop-loss байна.',
           'feat.1.h': 'Trend Flip Engine',
           'feat.1.p': 'Supertrend-д суурилсан entry. Short / Mid / Long горим ба asset profile-аар ATR ба factor-ийг автоматаар тааруулна.',
-          'feat.1.tag': 'TV + MT5',
+          'feat.1.tag': 'TradingView',
           'feat.2.h': 'HTF Trend шүүлтүүр',
           'feat.2.p': '1H–1W хүртэлх өндөр timeframe filter (4H үндсэн утга) counter-trend signal-уудыг шүүж, макро чиглэлтэй уялдаатай байлгана.',
-          'feat.2.tag': 'TV + MT5',
+          'feat.2.tag': 'TradingView',
           'feat.3.h': 'Pre-Signal сэрэмжлүүлэг',
           'feat.3.p': 'Flip-ээс 0.4×ATR өмнө сэрэмжлүүлэх, давталтаас сэргийлсэн cooldown-той — лаа хаагдахаас өмнө бэлтгэл хийх боломж.',
-          'feat.3.tag': 'TV + MT5',
+          'feat.3.tag': 'TradingView',
           'feat.4.h': '4-түвшний Take Profit',
           'feat.4.p': 'TP1–TP4 түвшин бүрт хаах хувийг тохируулах боломжтой. Үндсэн утга 25% тус бүрт scale-out, TP3 эсвэл TP4-т бүрэн гарна.',
-          'feat.4.tag': 'TV + MT5',
+          'feat.4.tag': 'TradingView',
           'feat.5.h': 'Адаптив эрсдэлийн зураглал',
           'feat.5.p': 'ATR-аар SL multiplier, Wick / Close / Two-bar confirm горимууд, TP1-ийн дараа auto-breakeven, TP2-ийн дараа SL → TP1 lock (runner protection).',
-          'feat.5.tag': 'TV + MT5',
+          'feat.5.tag': 'TradingView',
           'feat.6.h': '12 сарын статистик самбар',
           'feat.6.p': 'Chart дээрх самбар сүүлийн 12 сарын win rate, profit factor, expectancy R, max DD, weak-follow %, favorite-location гүйцэтгэлийг харуулна.',
-          'feat.6.tag': 'TV + MT5',
+          'feat.6.tag': 'TradingView',
           'int.1.h': 'Ижил логик',
           'int.1.p': 'Signal, entry, risk map нь live ба backtest-д ижил нөхцлөөр тооцогдоно.',
           'int.2.h': 'Эхлээд HTF confluence, дараа нь flip',
@@ -3103,7 +3046,7 @@
           'skip.content': 'Үндсэн хэсэгт очих',
           'footer.rights': 'Бүх эрх хуулиар хамгаалагдсан.',
           'pricing.title':
-            'Early Founders хандалт — KhanSniper Lite $15/сар, KhanSniper Pro + Real Boost $20/сар (TradingView, тус бүр 100 идэвхтэй subscription). MT5 EA Real Boost live test шатанд — beta-ийн дараа үнэ зарлагдана. Сарын төлбөртэй. Хэдийд ч цуцалж болно.',
+            'Early Founders хандалт — KhanSniper Lite $15/сар, KhanSniper Pro + Real Boost $20/сар (TradingView, тус бүр 100 идэвхтэй subscription). Сарын төлбөртэй. Хэдийд ч цуцалж болно.',
         },
       };
 

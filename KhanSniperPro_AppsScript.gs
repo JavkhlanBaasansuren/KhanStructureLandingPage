@@ -2,7 +2,7 @@
  * KHAN | Sniper Pro — Trial signup backend (Google Apps Script)
  * ---------------------------------------------------------------------------
  * HTML формоос ирсэн бүртгэлийг Google Sheet-д бичнэ.
- * Trial эхлэх огноо = өнөөдөр, дуусах огноо = +7 хоног (TRIAL_DAYS).
+ * Trial эхлэх = max(өнөөдөр, ACCESS_OPEN_ISO), дуусах = эхлэх + TRIAL_DAYS.
  *
  * Суурилуулах: KhanSniperPro_Signup_SETUP.md-г үзнэ үү.
  */
