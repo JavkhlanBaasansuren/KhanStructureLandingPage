@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>KHAN | Sniper Pro — Stats хүснэгтийн гарын авлага</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --gold: #ff9c1a;
+    --text: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.66);
+    --line: rgba(255,255,255,.12);
+    --success: #00d18f;
+    --danger: #f6465d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans", Roboto, "Arial Unicode MS", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 24px 18px 60px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    padding-bottom: 16px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .back {
+    color: var(--gold); font-weight: 700; text-decoration: none;
+    padding: 8px 14px; border: 1px solid rgba(255,156,26,.34);
+    border-radius: 12px; background: rgba(255,156,26,.10);
+  }
+  .topbar .back:hover { background: rgba(255,156,26,.18); }
+  .topbar .brand { font-weight: 800; letter-spacing: .04em; color: rgba(255,255,255,.86); }
+  h1 {
+    font-size: 30px;
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 10px;
+    margin: 0 0 10px 0;
+  }
+  h2 {
+    font-size: 21px;
+    color: var(--gold);
+    margin-top: 30px;
+    margin-bottom: 8px;
+    border-left: 4px solid var(--gold);
+    padding-left: 10px;
+  }
+  h3 {
+    font-size: 17px;
+    color: rgba(255,255,255,.9);
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  h3 code, h3 .val {
+    font-family: "Consolas", ui-monospace, monospace;
+    color: var(--success);
+    background: rgba(0,209,143,.14);
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  p { margin: 8px 0; }
+  b { color: rgba(255,255,255,.96); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+  }
+  th {
+    background: #141a24;
+    color: var(--gold);
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 1px solid var(--line);
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,.04); }
+  code {
+    font-family: "Consolas", ui-monospace, monospace;
+    background: rgba(255,156,26,.12);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--gold);
+  }
+  .flow {
+    background: rgba(255,156,26,.10);
+    border: 1px solid rgba(255,156,26,.34);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-family: "Consolas", ui-monospace, monospace;
+    font-size: 14px;
+    color: rgba(255,224,170,.95);
+  }
+  .warn { color: var(--danger); font-weight: 700; }
+  .ok { color: var(--success); font-weight: 700; }
+  .danger {
+    background: rgba(246,70,93,.12);
+    border-left: 4px solid var(--danger);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .note {
+    background: rgba(56,139,253,.12);
+    border-left: 4px solid #4493f8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .tip {
+    background: rgba(0,209,143,.12);
+    border-left: 4px solid var(--success);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .quote {
+    background: rgba(180,120,255,.12);
+    border-left: 4px solid #b478ff;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(220,200,255,.95);
+  }
+  ul, ol { margin: 6px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  .footer {
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+    padding-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+  /* Stats panel mock — графикийнхтэй адил харагдуулна */
+  .statspanel {
+    width: 360px;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px 0;
+    font-family: "Consolas", ui-monospace, monospace;
+    font-size: 13px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.45);
+  }
+  .statspanel td {
+    border: 1px solid #2b2b2b;
+    padding: 4px 9px;
+    background: #1c2330;
+    color: #e8e8e8;
+  }
+  .statspanel .hdr td { background: #2a3346; color: #cfe3ff; font-weight: 700; text-align: center; }
+  .statspanel .k { background: #232c3d; color: #9fb3c8; }
+  .statspanel .green { color: #4caf50; }
+  .statspanel .red { color: #ef5350; }
+  .statspanel .amber { color: #ffb300; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="index.html#guides">← KHAN STRUCTURE</a>
+  <span class="brand">KHAN STRUCTURE · Guides</span>
+</div>
+
+<h1>KHAN | Sniper Pro — Stats хүснэгтийн гарын авлага</h1>
+<div class="subtitle">Графикийн баруун дээд буланд гарах <b>Stats panel</b> доторх бүх үзүүлэлтийн тайлбар — 2026-06-17</div>
+
+<h2>Stats panel гэж юу вэ?</h2>
+<p>Stats panel бол <b>бодит ордер биш</b> — энэ нь indicator дотор суусан
+<b>backtest симулятор</b> юм. Тэр нь lookback хугацаанд (default 12 сар) дараах
+логикийг candle бүр дээр давтан тоолж дүгнэдэг:</p>
+
+<div class="flow">
+Entry (LONG/SHORT flip) → TP1 / TP2 / TP3 / TP4 шат → SL (trailing / BE / lock)
+→ эсрэг flip дээр хаалт
+</div>
+
+<p>Энэ нь та одоо харж буй тохиргоо (TP ×ATR, SL, BE-after-TP, ADX/HTF/Session
+филтер г.м) яг хэрхэн ажилласан байх байсныг <b>тухайн график, тухайн timeframe</b>
+дээр харуулна. Тохиргоо өөрчлөх бүрд тоонууд автоматаар шинэчлэгдэнэ.</p>
+
+<div class="danger">
+⚠️ <b>Анхаар:</b> Эдгээр нь симуляцийн дүн (slippage, commission, spread ороогүй).
+Бодит арилжааны баталгаа биш, харин тохиргооны чанарыг харьцуулах хэрэгсэл.
+</div>
+
+<h2>Жишээ хүснэгт</h2>
+<table class="statspanel">
+  <tr class="hdr"><td>KSniper</td><td>12M Stats</td><td>Active</td><td class="green">LONG</td></tr>
+  <tr><td class="k">Trades</td><td>14 (10/4)</td><td class="k">Win</td><td class="green">71.4%</td></tr>
+  <tr><td class="k">Net</td><td class="green">+13.29%</td><td class="k">Avg</td><td class="green">+0.95%</td></tr>
+  <tr><td class="k">Max DD</td><td class="red">-6.46%</td><td class="k">Best/Worst</td><td>+8.25% / -3.01%</td></tr>
+  <tr><td class="k">TP1-4%</td><td>71/57/14/0%</td><td class="k">Now</td><td class="green">+1.02%</td></tr>
+  <tr><td class="k">Stop</td><td class="red">4159.009</td><td class="k">ADX</td><td>21.1/18 OK</td></tr>
+  <tr><td class="k">Weak %</td><td>0% (0)</td><td class="k">Weak WR</td><td>--</td></tr>
+  <tr><td class="k">Fav Loc</td><td class="amber">21% (3)</td><td class="k">Fav WR</td><td>67%</td></tr>
+  <tr><td class="k">Losses</td><td class="red">4  -7.78%</td><td class="k">Loss% / R</td><td class="green">28.6%  1.08R</td></tr>
+</table>
+
+<h2>Толгой мөр</h2>
+<table>
+  <tr><th>Нүд</th><th>Утга</th></tr>
+  <tr><td><code>KSniper</code></td><td>Indicator-ийн нэр</td></tr>
+  <tr><td><code>N M Stats</code></td><td>Lookback хугацаа сараар (default 12)</td></tr>
+  <tr><td><code>Active</code></td><td>Яг одоо нээлттэй симуляцийн позицийн чиглэл: <code>LONG</code> / <code>SHORT</code> / <code>--</code></td></tr>
+</table>
+
+<h2>1. Үндсэн гүйцэтгэл</h2>
+
+<h3>Trades — <span class="val">14 (10/4)</span></h3>
+<p>Нийт хаагдсан trade-ийн тоо. Хаалтанд <b>(ашигтай / алдагдалтай)</b>:
+<code>14</code> нийт, <code>10</code> ашигтай, <code>4</code> алдагдалтай.</p>
+
+<h3>Win — <span class="val">71.4%</span></h3>
+<p>Winrate = ашигтай ÷ нийт = <code>10/14</code>. Системийн <b>тогтвортой байдлын</b> гол үзүүлэлт.</p>
+
+<h3>Net — <span class="val">+13.29%</span></h3>
+<p>Бүх trade-ийн цэвэр нийлбэр өгөөж. Lookback хугацаанд энэ тохиргоо нийт хэдэн хувь өгсөн бэ.</p>
+
+<h3>Avg — <span class="val">+0.95%</span></h3>
+<p>Нэг trade-д ногдох дундаж = <code>Net ÷ Trades</code>. Эерэг байх ёстой.</p>
+
+<h3>Max DD — <span class="val">-6.46%</span></h3>
+<p>Maximum Drawdown — equity-ийн оргилоос хамгийн гүн ухралт. <b>Эрсдэлийн</b> гол хэмжүүр.
+Бага байх тусам тогтвортой (хэт том DD = их хэлбэлзэлтэй систем).</p>
+
+<h3>Best / Worst — <span class="val">+8.25% / -3.01%</span></h3>
+<p><b>Best</b> = нэг trade дээрх хамгийн их ашиг. <b>Worst</b> = нэг trade дээрх хамгийн их алдагдал.
+Хоёрын зөрөө том бол үр дүн цөөн "том" trade-аас хамаардаг гэсэн сэрэмжлүүлэг.</p>
+
+<h2>2. Take Profit ба одоогийн байдал</h2>
+
+<h3>TP1-4% — <span class="val">71/57/14/0%</span></h3>
+<p>Нээгдсэн trade-уудаас хэдэн хувь нь тухайн TP түвшинд <b>хүрсэн</b> бэ:</p>
+<ul>
+  <li><code>71%</code> → TP1 хүрсэн</li>
+  <li><code>57%</code> → TP2 хүрсэн</li>
+  <li><code>14%</code> → TP3 хүрсэн</li>
+  <li><code>0%</code> → TP4 хүрсэн</li>
+</ul>
+<p>Дээд TP рүү ороход хувь буурдаг нь хэвийн. TP3/TP4 reach маш бага бол
+"Simulated full exit at" тохиргоог доош (TP2/TP1) болгох санаа өгдөг.</p>
+
+<h3>Now — <span class="val">+1.02%</span></h3>
+<p>Яг одоо нээлттэй позицийн <b>хөвөгч (floating) ашиг/алдагдал</b> — entry-ээс одоогийн
+ханш хүртэлх хөдөлгөөн. Позиц хаалттай үед хоосон (<code>--</code>).</p>
+
+<h2>3. Эрсдэл / Идэвхтэй төлөв</h2>
+
+<h3>Stop — <span class="val">4159.009</span></h3>
+<p>Одоогийн идэвхтэй позицийн <b>trailing stop loss</b> түвшин. Графикийн улаан тасархай шугам
+(<code>KSniper: Trailing Stop Loss</code>)-тай тэнцүү. BE/TP1-lock болсон бол шугамын шошго
+өөрчлөгдөнө (Breakeven / TP1 Lock).</p>
+
+<h3>ADX — <span class="val">21.1/18 OK</span></h3>
+<ul>
+  <li><code>21.1</code> = одоогийн ADX утга (трендийн хүч)</li>
+  <li><code>18</code> = entry-д шаардах доод босго</li>
+  <li><code>OK</code> = ADX босгоос дээш, дохио зөвшөөрөгдөнө. Босгоос доош бол chop (хажуу зах зээл) гэж үзэж entry хаадаг.</li>
+</ul>
+
+<h2>4. Чанарын дотоод филтерүүд (Weak / Fav)</h2>
+<p>Эдгээр нь "ямар төрлийн entry winrate-ийг бууруулж / нэмж байна вэ?" гэдгийг харуулж,
+аль нэмэлт филтерийг асаах нь зүйтэйг зөвлөдөг <b>оношлогооны</b> мөрүүд.</p>
+
+<h3>Weak % — <span class="val">0% (0)</span> &nbsp; / &nbsp; Weak WR — <span class="val">--</span></h3>
+<ul>
+  <li><b>Weak %</b> = "сул дагалдсан flip" trade-ийн эзлэх хувь (хаалтанд тоо). Сул flip гэдэг нь
+      flip candle-ын чиглэл flip-ийн чиглэлтэй зөрсөн (ж: LONG flip ч candle улаан хаалттай).</li>
+  <li><b>Weak WR</b> = тэдгээр trade-ийн winrate.</li>
+</ul>
+<div class="tip">
+👉 <b>Хэрэглээ:</b> Weak % өндөр <b>ба</b> Weak WR нийт Win-ээс мэдэгдэхүйц доогуур бол
+<code>Block weak-follow flips</code> филтерийг <span class="ok">асаа</span> — winrate чирэгч муу
+entry-уудыг хасна. (Улаан өнгөтэй болоход анхаар.)
+</div>
+
+<h3>Fav Loc — <span class="val">21% (3)</span> &nbsp; / &nbsp; Fav WR — <span class="val">67%</span></h3>
+<ul>
+  <li><b>Fav Loc</b> = ATR range-ийн "таатай хэсэгт" орсон entry-ийн хувь (LONG бол <b>discount</b> =
+      доод хагас, SHORT бол <b>premium</b> = дээд хагас), хаалтанд тоо.</li>
+  <li><b>Fav WR</b> = тэдгээр entry-ийн winrate.</li>
+</ul>
+<div class="tip">
+👉 <b>Хэрэглээ:</b> Fav WR нь нийт Win-ээс <b>5%+ илүү</b> байвал <code>Premium/Discount filter</code>-ийг
+<span class="ok">асаа</span> — counter-bounce trade-уудыг хасч winrate ахиулна.
+(Ногоон = сайн, улаан = таагүй байршилд их орсон.)
+</div>
+
+<h2>5. Алдагдлын мөр (Real Boost)</h2>
+
+<h3>Losses — <span class="val">4  -7.78%</span></h3>
+<p><code>4</code> = нийт алдагдалтай trade-ийн тоо. <code>-7.78%</code> = тэдгээрийн нийлбэр алдагдал.</p>
+
+<h3>Loss% / R — <span class="val">28.6%  1.08R</span></h3>
+<ul>
+  <li><b>Loss%</b> = <code>28.6%</code> — алдагдлын хувь (<code>4/14</code>). 50%-аас доош байх ёстой
+      (улаан болвол алдагдал ялалтаас давсан гэсэн үг).</li>
+  <li><b>R (Expectancy Ratio)</b> = <code>1.08R</code> — <i>нэг алдагдалд ногдох дундаж ашиг</i>
+      = дундаж win ÷ |дундаж loss|.</li>
+</ul>
+<div class="note">
+👉 <b>Энэ бол системийн чанарын гол тоо.</b><br>
+• <code>R ≥ 1.0</code> → эерэг хүлээлттэй (дундаж ялалт ≥ дундаж алдагдал) → <span class="ok">ногоон</span><br>
+• <code>R &lt; 1.0</code> → нэг ялалт нэг алдагдлыг нөхөж чадахгүй<br>
+<code>1.08R</code> нь эерэг талд: дунджаар 1 алдагдалд 1.08 ашиг ногдоно.
+</div>
+
+<h2>6. Тохиргооны мөр (footer)</h2>
+<table>
+  <tr><th>Нүд</th><th>Утга</th></tr>
+  <tr><td><code>ADX cut</code></td><td>ADX филтерийн зорилтот босго (entry зөвшөөрөх доод ADX)</td></tr>
+  <tr><td><code>HTF cut</code></td><td>Higher-timeframe тренд филтер <code>On</code>/<code>Off</code>. <code>On</code> үед эсрэг трендийн flip-ийг блоклоно</td></tr>
+</table>
+
+<h2>Хэрхэн "уншиж" дүгнэх вэ — товч checklist</h2>
+<p>Сайн тохиргооны шинж:</p>
+<ol>
+  <li><b>Win% ≥ 55–60%</b> — тогтвортой</li>
+  <li><b>R ≥ 1.0</b> (Loss% / R мөр) — эерэг хүлээлттэй</li>
+  <li><b>Net эерэг ба өсөн нэмэгдсэн</b></li>
+  <li><b>Max DD хүлээж авах боломжтой</b> (ж: &lt; 10–15%, өөрийн эрсдэлийн хэмжээгээр)</li>
+  <li><b>Best/Worst тэнцвэртэй</b> — нэг "азтай" trade-аас хамаараагүй</li>
+  <li>Weak / Fav мөрүүд <span class="warn">улаан</span> бол → холбогдох филтерийг асааж туршина</li>
+</ol>
+
+<div class="quote">
+Хамгийн чухал хоёр тоо: <b>Win% (тогтвортой эсэх)</b> ба <b>R (урт хугацаанд ашигтай эсэх)</b>.
+Энэ хоёр зэрэг сайн байж гэмээ системийг найдвартай гэж үзнэ.
+</div>
+
+<div class="footer">
+KHAN | Sniper Pro — Stats Guide · Тоонууд тухайн график, timeframe, идэвхтэй тохиргооноос хамаарна ·
+Тохиргоо солих бүрд хүснэгт автоматаар дахин тооцоологдоно.
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --gold: #ff9c1a;
+    --text: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.66);
+    --line: rgba(255,255,255,.12);
+    --success: #00d18f;
+    --danger: #f6465d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans", Roboto, "Arial Unicode MS", sans-serif;
+    font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg);
+    margin: 0; padding: 24px 18px 60px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--line);
+  }
+  .topbar .back {
+    color: var(--gold); font-weight: 700; text-decoration: none;
+    padding: 8px 14px; border: 1px solid rgba(255,156,26,.34);
+    border-radius: 12px; background: rgba(255,156,26,.10);
+  }
+  .topbar .back:hover { background: rgba(255,156,26,.18); }
+  .topbar .brand { font-weight: 800; letter-spacing: .04em; color: rgba(255,255,255,.86); }
+  h1 {
+    font-size: 30px; color: var(--gold); border-bottom: 3px solid var(--gold);
+    padding-bottom: 10px; margin: 0 0 10px 0;
+  }
+  h2 {
+    font-size: 21px; color: var(--gold); margin-top: 30px; margin-bottom: 8px;
+    border-left: 4px solid var(--gold); padding-left: 10px;
+  }
+  h3 { font-size: 17px; color: rgba(255,255,255,.9); margin-top: 18px; margin-bottom: 6px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  p { margin: 8px 0; }
+  b { color: rgba(255,255,255,.96); }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 14px; }
+  th { background: #141a24; color: var(--gold); padding: 8px 10px; text-align: left; font-weight: 700; border-bottom: 1px solid var(--line); }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: rgba(255,255,255,.04); }
+  tr.best td { background: rgba(255,156,26,.16) !important; font-weight: 600; }
+  code {
+    font-family: "Consolas", ui-monospace, monospace; background: rgba(255,156,26,.12); padding: 1px 6px;
+    border-radius: 4px; font-size: 14px; color: var(--gold);
+  }
+  .warn { color: var(--danger); font-weight: 700; }
+  .ok { color: var(--success); font-weight: 700; }
+  .danger {
+    background: rgba(246,70,93,.12); border-left: 4px solid var(--danger); border-radius: 6px;
+    padding: 10px 14px; margin: 14px 0; font-size: 15px;
+  }
+  .note {
+    background: rgba(56,139,253,.12); border-left: 4px solid #4493f8; border-radius: 6px;
+    padding: 10px 14px; margin: 14px 0; font-size: 15px;
+  }
+  .tip {
+    background: rgba(0,209,143,.12); border-left: 4px solid var(--success); border-radius: 6px;
+    padding: 10px 14px; margin: 14px 0; font-size: 15px;
+  }
+  .quote {
+    background: rgba(180,120,255,.12); border-left: 4px solid #b478ff; border-radius: 6px;
+    padding: 10px 14px; margin: 14px 0; font-style: italic; font-size: 15px; color: rgba(220,200,255,.95);
+  }
+  ul, ol { margin: 6px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  .check li { list-style: none; margin-left: -16px; }
+  .check li::before { content: "☐ "; color: var(--gold); font-weight: 700; }
+  .gobox {
+    background: rgba(0,209,143,.12); border: 2px solid var(--success); border-radius: 8px;
+    padding: 12px 16px; margin: 14px 0;
+  }
+  .nogobox {
+    background: rgba(246,70,93,.12); border: 2px solid var(--danger); border-radius: 8px;
+    padding: 12px 16px; margin: 14px 0;
+  }
+  .gobox b { color: var(--success); }
+  .nogobox b { color: var(--danger); }
+  .footer {
+    margin-top: 28px; border-top: 1px solid var(--line); padding-top: 10px;
+    color: var(--muted); font-size: 13px; text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="index.html#guides">← KHAN STRUCTURE</a>
+  <span class="brand">KHAN STRUCTURE · Guides</span>
+</div>
+
+<h1>KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?</h1>
+<div class="subtitle">Indicator-ийн дохиог хэзээ авах, хэзээ алгасах вэ — практик гарын авлага · 2026-06-17</div>
+
+<p>Бүх зүйл indicator өөрөө график дээр харуулдаг — энд зөвхөн "юуг нь хараад
+шийдэх вэ" гэдгийг эмхэлж өгөв.</p>
+
+<h2>Гол зарчим: дохио бол candle хаагдсаны дараа л хүчинтэй</h2>
+<p>KhanSniperPro-ийн <code>LONG</code> / <code>SHORT</code> шошго зөвхөн <b>бар хаагдах үед</b>
+баталгаажна (non-repainting).</p>
+<div class="note">
+⏳ <b>Бар хаагдтал бүү яар.</b> Бар дундуур гарч ирсэн дохио бар хаагдахдаа алга
+болж магадгүй. Хаагдсан барын дохиог л ажил болго.
+</div>
+
+<h2>1. Эхлэх дараалал — "Get ready" → "LONG/SHORT"</h2>
+<table>
+  <tr><th>Дохио</th><th>Утга</th><th>Үйлдэл</th></tr>
+  <tr><td>▲ Get ready to long / short</td><td>Pre-signal: ханш trail руу ойртож байна</td><td>Бэлдэ — захиалга бэлэн болго, гэхдээ <b>ОРОХГҮЙ</b></td></tr>
+  <tr><td><b>LONG / SHORT</b> шошго</td><td>Баталгаажсан flip entry</td><td><span class="ok">Энэ үед л орно</span></td></tr>
+</table>
+<p>"Get ready" нь зөвхөн <b>анхааруулга</b> — заавал entry болно гэсэн үг биш.
+ADX/HTF/Session филтер дараа нь дохиог хааж болно.</p>
+
+<h2>2. Орохоосоо өмнө шалгах CHECKLIST</h2>
+<h3>✅ Тренд ба хүч</h3>
+<ul class="check">
+  <li>Баталгаажсан LONG/SHORT шошго гарсан (бар хаагдсан)</li>
+  <li>ADX <code>OK</code> — Stats panel дээр ADX утга босгоосоо дээш (chop биш)</li>
+  <li>HTF тренд нийцсэн — 4H supertrend дохиотой ижил чиглэлд (HTF cut <code>On</code> үед автоматаар шалгагдана)</li>
+</ul>
+<h3>✅ Байршил (location)</h3>
+<ul class="check">
+  <li>LONG бол <b>discount</b> (ATR range-ийн доод хагас), SHORT бол <b>premium</b> (дээд хагас)</li>
+  <li>Том macro Support/Resistance-д наалдаагүй (LONG нь Macro R дор биш)</li>
+</ul>
+<h3>✅ Цаг хугацаа</h3>
+<ul class="check">
+  <li><b>London (07–16 UTC)</b> эсвэл <b>NY (12–21 UTC)</b> session дотор — likviditi өндөр</li>
+  <li>Asia (00–07 UTC) session биш (хажуу зах зээл их, чанар муу)</li>
+  <li>News цонх биш (default: 12:30 / 14:00 / 18:00 UTC орчим)</li>
+  <li>Баасан 18:00 UTC-ээс хойш биш (Friday cutoff автоматаар хаана)</li>
+</ul>
+
+<h2>3. Хамгийн сайн арилжааны цаг (XAU / Gold)</h2>
+<p>Session panel графикийн баруун доод буланд <code>Now</code> / <code>Next</code> гэж харагдана.</p>
+<table>
+  <tr><th>Session (UTC)</th><th>Чанар</th><th>Тэмдэглэл</th></tr>
+  <tr><td>Asia 00:00–07:00</td><td><span class="warn">⚠️ Сул</span></td><td>Range их, fake flip олон. Боломжоор алгас</td></tr>
+  <tr><td>London 07:00–16:00</td><td><span class="ok">✅ Сайн</span></td><td>Хамгийн идэвхтэй XAU хөдөлгөөн эхэлдэг</td></tr>
+  <tr class="best"><td>London + NY давхцал 12:00–16:00</td><td>⭐ Хамгийн сайн</td><td>Хамгийн өндөр likviditi, чиглэлтэй хөдөлгөөн</td></tr>
+  <tr><td>NY 16:00–21:00</td><td><span class="ok">✅ Сайн</span></td><td>Хагас өдрийн чиг хадгалагдана</td></tr>
+</table>
+<div class="tip">
+⭐ <b>London/NY давхцал (12:00–16:00 UTC)</b> — trend-following дохионы хамгийн өндөр чанартай цонх.
+</div>
+
+<h2>4. Stats panel-аар "энэ зах зээл арилжаалахад тохиромжтой юу?"</h2>
+<table>
+  <tr><th>Үзүүлэлт</th><th>Ногоон гэрэл (арилжаална)</th><th>Улаан гэрэл (болгоомжил)</th></tr>
+  <tr><td>Win%</td><td class="ok">≥ 55–60%</td><td class="warn">&lt; 50%</td></tr>
+  <tr><td>Loss% / R</td><td class="ok">R ≥ 1.0</td><td class="warn">R &lt; 1.0</td></tr>
+  <tr><td>Max DD</td><td class="ok">&lt; 10–15%</td><td class="warn">хэт том</td></tr>
+  <tr><td>ADX</td><td class="ok">OK</td><td class="warn">босгоос доош</td></tr>
+  <tr><td>Weak %</td><td class="ok">бага / ногоон</td><td class="warn">өндөр → weak filter асаа</td></tr>
+  <tr><td>Fav WR</td><td class="ok">нийт Win-ээс өндөр</td><td class="warn">доогуур</td></tr>
+</table>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">(Дэлгэрэнгүй: <a href="KhanSniperPro_Stats_Guide.html" style="color:#ff9c1a;"><i>KhanSniperPro_Stats_Guide</i></a> баримтаас үзнэ үү.)</p>
+
+<h2>5. ХЭЗЭЭ АРИЛЖАА ХИЙХГҮЙ ВЭ (алгасах нөхцөл)</h2>
+<div class="danger">
+❌ Дараах үед дохиог <b>алгас</b> — winrate-ийг чирэх магадлалтай:
+<ul>
+  <li><b>ADX босгоосоо доош</b> (<code>OK</code> биш) → тренд сул, chop</li>
+  <li><b>HTF эсрэг чиглэлд</b> → counter-trend flip</li>
+  <li><b>News цонхонд</b> (12:30/14:00/18:00 UTC ±) → огцом spike, fake flip</li>
+  <li><b>Баасан орой / амралтын өмнө</b> (18:00 UTC+) → gap эрсдэл</li>
+  <li><b>Asia session дунд</b> болон likviditi сул үед</li>
+  <li><b>Macro R/S-д шууд наалдсан</b> entry</li>
+  <li><b>"Get ready" гарсан ч баталгаажсан LONG/SHORT гараагүй</b> → орохгүй</li>
+  <li>Stats дээр <b>Win% бага + R &lt; 1.0</b> хосолсон → энэ зах зээл/тохиргоо тааруу</li>
+</ul>
+</div>
+
+<h2>6. Орсны дараа — менежмент (indicator өөрөө хийнэ)</h2>
+<ol>
+  <li><b>TP1–TP4 шугам</b> entry-ээс зурагдана — хэсэгчлэн ашиг авах түвшингүүд</li>
+  <li><b>TP1 хүрэхэд</b> → SL breakeven руу шилжинэ (эрсдэлгүй болно)</li>
+  <li><b>TP2 хүрэхэд</b> → SL-ийг TP1 түвшинд lock (runner ашиг хамгаална)</li>
+  <li><b>Trailing Stop (улаан тасархай)</b> → эсрэг flip эсвэл SL хүртэл байрлана</li>
+  <li><b>Эсрэг flip</b> гарвал → позицийг хаах дохио</li>
+</ol>
+<div class="note">
+Гол дүрэм: <b>SL-ийг гар аргаар бүү ухраа.</b> Indicator-ийн trailing/lock логик
+алдагдлыг хязгаарлахаар зохиогдсон.
+</div>
+
+<h2>Товч дүгнэлт — "GO / NO-GO"</h2>
+<div class="gobox">
+<b>GO ✅</b> (бүгд таарвал):<br>
+Баталгаажсан flip + ADX OK + HTF нийц + London/NY session + News биш + таатай байршил
+</div>
+<div class="nogobox">
+<b>NO-GO ❌</b> (аль нэг нь):<br>
+Бар хаагдаагүй · ADX сул · HTF эсрэг · News цонх · Баасан орой · Asia chop · Macro S/R-д наалдсан
+</div>
+
+<div class="footer">
+KHAN | Sniper Pro — When To Trade · Бүх филтер тохиргооноос асаах/унтраах боломжтой ·
+Default: HTF + News + Friday On, Session + D1 EMA Off · Зах зээл, timeframe-ээ Stats panel дээр туршиж тохируул.
+</div>
+
+</div>
+</body>
+</html>
