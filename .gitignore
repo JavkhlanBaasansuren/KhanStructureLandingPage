@@ -1,0 +1,17 @@
+# Indicator source — не публиковать (эх код нийтэд харагдах ёсгүй)
+*.pine
+
+# License / subscriber data
+license.json
+
+# Internal notes
+claude.md
+promo.md
+tradingview.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
