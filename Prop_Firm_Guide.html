@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="FTMO болон prop firm funding дансны дүрэм — Daily Loss, Max Loss, profit split, challenge үе шатуудыг $10,000 дансан дээр энгийн жишээгээр тайлбарласан гарын авлага. Мөн санал болгох найдвартай prop firm-уудын харьцуулалт." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="KHAN SNIPER PRO — Funding данс & Prop Firm дүрэм (энгийн жишээгээр)" />
+<meta property="og:description" content="FTMO Daily Loss / Max Loss / profit split-ийг $10K дансан дээр жишээгээр. Санал болгох найдвартай prop firm-ууд." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/Prop_Firm_Guide.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KHAN SNIPER PRO — Funding данс & Prop Firm дүрэм" />
+<meta name="twitter:description" content="FTMO Daily Loss / Max Loss / profit split-ийг $10K дансан дээр жишээгээр. Санал болгох найдвартай prop firm-ууд." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/Prop_Firm_Guide.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="khan_logo_transparent.png" />
+<link rel="shortcut icon" href="khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="khan_logo_transparent.png" />
+
+<title>KHAN SNIPER PRO — Funding данс & Prop Firm дүрэм (энгийн жишээгээр)</title>
+
+<!-- Structured data: TechArticle -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Funding данс & Prop Firm дүрэм — энгийн жишээгээр",
+  "description": "FTMO болон prop firm funding дансны Daily Loss, Max Loss, profit split, challenge үе шатуудыг $10,000 дансан дээр жишээгээр тайлбарласан гарын авлага.",
+  "inLanguage": "mn",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "url": "https://khanstructure.com/Prop_Firm_Guide.html",
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  },
+  "isPartOf": { "@type": "WebSite", "name": "KHAN SNIPER PRO", "url": "https://khanstructure.com/" }
+}
+</script>
+
+<style>
+  :root {
+    --bg: #0a0e14;
+    --gold: #ff9c1a;
+    --text: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.66);
+    --line: rgba(255,255,255,.12);
+    --success: #00d18f;
+    --danger: #f6465d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans", Roboto, "Arial Unicode MS", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 24px 18px 60px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    padding-bottom: 16px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .back {
+    color: var(--gold); font-weight: 700; text-decoration: none;
+    padding: 8px 14px; border: 1px solid rgba(255,156,26,.34);
+    border-radius: 12px; background: rgba(255,156,26,.10);
+  }
+  .topbar .back:hover { background: rgba(255,156,26,.18); }
+  .topbar .brand { font-weight: 800; letter-spacing: .04em; color: rgba(255,255,255,.86); }
+  h1 {
+    font-size: 30px;
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 10px;
+    margin: 0 0 10px 0;
+  }
+  h2 {
+    font-size: 21px;
+    color: var(--gold);
+    margin-top: 30px;
+    margin-bottom: 8px;
+    border-left: 4px solid var(--gold);
+    padding-left: 10px;
+  }
+  h3 {
+    font-size: 17px;
+    color: rgba(255,255,255,.9);
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  p { margin: 8px 0; }
+  b { color: rgba(255,255,255,.96); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px 0;
+    font-size: 14px;
+  }
+  th {
+    background: #141a24;
+    color: var(--gold);
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 1px solid var(--line);
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,.04); }
+  code {
+    font-family: "Consolas", ui-monospace, monospace;
+    background: rgba(255,156,26,.12);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--gold);
+  }
+  .formula {
+    background: rgba(255,156,26,.10);
+    border: 1px solid rgba(255,156,26,.34);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-family: "Consolas", ui-monospace, monospace;
+    font-size: 14px;
+    color: rgba(255,224,170,.95);
+  }
+  .warn { color: var(--danger); font-weight: 700; }
+  .ok { color: var(--success); font-weight: 700; }
+  .danger {
+    background: rgba(246,70,93,.12);
+    border-left: 4px solid var(--danger);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .note {
+    background: rgba(56,139,253,.12);
+    border-left: 4px solid #4493f8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .tip {
+    background: rgba(0,209,143,.12);
+    border-left: 4px solid var(--success);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  ul, ol { margin: 6px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  /* Phase cards */
+  .phases { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+  .phase-card {
+    flex: 1 1 180px;
+    padding: 14px;
+    border: 1px solid rgba(255,156,26,.34);
+    border-radius: 10px;
+    background: rgba(255,156,26,.06);
+  }
+  .phase-card h4 { margin: 0 0 6px; color: var(--gold); font-size: 15px; }
+  .phase-card .target { font-size: 24px; font-weight: 800; color: var(--success); }
+  .phase-card .sub { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  /* Firm cards */
+  .firm {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    background: rgba(255,255,255,.03);
+  }
+  .firm h3 { margin-top: 0; color: var(--gold); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .firm .tag {
+    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    padding: 2px 9px; border-radius: 999px;
+    background: rgba(0,209,143,.16); color: var(--success);
+    border: 1px solid rgba(0,209,143,.34);
+  }
+  .firm ul { margin: 8px 0 0; }
+  .footer {
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+    padding-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+  .big { font-size: 19px; font-weight: 800; color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="index.html#guides">← KHAN SNIPER PRO</a>
+  <span class="brand">KHAN SNIPER PRO · Guides</span>
+</div>
+
+<h1>Funding данс & Prop Firm дүрэм</h1>
+<div class="subtitle">FTMO-г жишээ болгож, $10,000 дансан дээр <b>энгийн тоогоор</b> тайлбарлав. Доор санал болгох найдвартай prop firm-уудыг бас үзнэ үү. — 2026-06-24</div>
+
+<div class="note">
+💡 KHAN SNIPER PRO бол <b>TradingView indicator</b> — дохио өгнө, гүйцэтгэлийг та өөрөө хийнэ. Тиймээс өөрийн жижиг данс биш, <b>prop firm-ийн funding данс</b> дээр арилжих нь капиталын эрсдэлгүй, том дансаар арилжих гол арга юм.
+</div>
+
+<h2>1. Prop firm / Funding данс гэж юу вэ?</h2>
+<p>Prop firm бол <b>чамд мөнгөө өгч арилжуулдаг компани</b>. Логик нь энгийн:</p>
+<ul>
+  <li>Чи жижиг <b>шалгалтын төлбөр</b> ($10K данс ≈ $100–$150) төлж <b>Challenge</b> өгнө.</li>
+  <li>Тэдний дүрмийн дагуу зорилтот ашгийг (жишээ нь +8%) хийж чадвал <b>Funded</b> (санхүүжилттэй) данс авна.</li>
+  <li>Дараа нь чи тэдний $10,000 (эсвэл $100K) дансаар арилжиж, ашгийн <b>80–95%-г</b> авна. Алдвал чиний өөрийн мөнгө биш — зөвхөн шалгалтын төлбөр л алдагдана.</li>
+</ul>
+<div class="tip">
+<b>Жишээ:</b> $10K funded данс дээр сард +5% = <b>+$500</b> ашиг хийлээ гэж бодъё. 80% split бол <b>$400 чинийх</b>. Чиний эрсдэлд оруулсан зүйл бол ердөө ~$100 шалгалтын төлбөр.
+</div>
+
+<h2>2. FTMO challenge — 2 төрөл</h2>
+<p>FTMO 2026 онд хоёр замтай: <b>2-Step</b> (сонгодог, илүү уян) ба <b>1-Step</b> (нэг шат, илүү чанга daily дүрэмтэй).</p>
+<table>
+  <tr><th>Үзүүлэлт</th><th>2-Step (санал болгож буй)</th><th>1-Step</th></tr>
+  <tr><td><b>Daily loss</b></td><td>5%</td><td class="warn">3% (чанга)</td></tr>
+  <tr><td><b>Max loss</b></td><td>10% (хөдөлдөггүй / static)</td><td>10% (өсдөг / trailing)</td></tr>
+  <tr><td><b>Phase 1 target</b></td><td>8%</td><td>—</td></tr>
+  <tr><td><b>Phase 2 target</b></td><td>5%</td><td>—</td></tr>
+  <tr><td><b>Profit split</b></td><td>80% → 90% (scaling)</td><td>90% (эхнээсээ)</td></tr>
+</table>
+<p>Доорх бүх жишээ <b>2-Step $10,000 данс</b>-аар бодогдсон. (FTMO 2026-д Phase 1 target-ыг 10%-аас <b>8%</b> болгож бууруулсан.)</p>
+
+<div class="phases">
+  <div class="phase-card">
+    <h4>Шат 1 — Challenge</h4>
+    <div class="target">+8%</div>
+    <div>= +$800</div>
+    <div class="sub">Хугацаа: хязгааргүй</div>
+  </div>
+  <div class="phase-card">
+    <h4>Шат 2 — Verification</h4>
+    <div class="target">+5%</div>
+    <div>= +$500</div>
+    <div class="sub">Хугацаа: хязгааргүй</div>
+  </div>
+  <div class="phase-card">
+    <h4>Шат 3 — Funded</h4>
+    <div class="target">Target байхгүй</div>
+    <div>Үргэлжлүүлэн арилжина</div>
+    <div class="sub">80% profit split</div>
+  </div>
+</div>
+
+<h2>3. Хамгийн чухал 2 дүрэм (үүнийг л зөрчиж унадаг)</h2>
+<p>Challenge-ийн 90%+ нь <b>ашиг хийж чадаагүйдээ биш</b>, доорх хоёр алдагдлын хязгаарыг зөрчсөндөө унадаг. Эдгээрийг сайн ойлго:</p>
+
+<h3>① Daily Loss — өдрийн алдагдал (5% = $500)</h3>
+<p>Нэг <b>өдрийн дотор</b> $500-аас илүү алдвал шууд унана. Энэ нь <b>хаасан алдагдал + одоо нээлттэй (floating) алдагдал</b>-ын нийлбэрээр бодогдоно. Хязгаар нь <b>UTC+2 (CE(S)T) шөнө 00:00-д reset</b> хийгдэнэ.</p>
+<div class="formula">
+Өдрийн алдагдлын шугам = Өдрийн эхний balance − $500
+</div>
+<table>
+  <tr><th>Цаг</th><th>Үйлдэл</th><th>Тухайн өдрийн P&amp;L</th><th>Статус</th></tr>
+  <tr><td>Өглөө</td><td>Balance $10,000-аар нээв</td><td>$0</td><td class="ok">✅</td></tr>
+  <tr><td>Trade 1</td><td>−$150 алдав</td><td>−$150</td><td class="ok">✅ аюулгүй</td></tr>
+  <tr><td>Trade 2</td><td>−$200 алдав</td><td>−$350</td><td class="ok">✅ ($500-д ойртож байна)</td></tr>
+  <tr><td>Trade 3</td><td>−$200 алдав</td><td class="warn">−$550</td><td class="warn">❌ унасан (5% хэтэрсэн)</td></tr>
+</table>
+<div class="danger">
+⚠️ Хамгийн нийтлэг алдаа: position <b>нээлттэй</b> байхад floating loss −$500 хүрэхэд л унана — хаагаагүй ч. Тиймээс өдрийн алдагдлаа <b>$400 орчимд</b> зогсоо (1% буфер үлдээ).
+</div>
+
+<h3>② Max Loss — нийт алдагдал (10% = $1,000)</h3>
+<p>Дансны нийт equity эхлэлийн $10,000-аас <b>$1,000 буурч $9,000-д хүрвэл</b> бүрэн унана. 2-Step-д энэ шугам <b>хөдөлдөггүй</b> — balance чинь $11,000 болсон ч floor нь $9,000 хэвээр.</p>
+<div class="formula">
+Үхлийн шугам (2-Step) = $9,000 (хэзээ ч өөрчлөгдөхгүй)
+</div>
+<div class="tip">
+<b>Энгийнээр:</b> Daily Loss бол "нэг өдрийн" хязгаар, Max Loss бол "нийт амьдралын" хязгаар. Хоёулаа equity-д (floating + closed) тооцогдоно.
+</div>
+
+<h2>4. Бусад дүрэм</h2>
+<table>
+  <tr><th>Дүрэм</th><th>FTMO 2-Step</th></tr>
+  <tr><td><b>Min trading days</b></td><td>4 өдөр (арилжаа хийсэн өдрийн тоо)</td></tr>
+  <tr><td><b>News trading</b></td><td><span class="ok">✅ Зөвшөөрнө</span></td></tr>
+  <tr><td><b>Weekend holding</b></td><td><span class="ok">✅ Зөвшөөрнө</span></td></tr>
+  <tr><td><b>EA / Algo</b></td><td><span class="ok">✅ Зөвшөөрнө</span></td></tr>
+  <tr><td><b>Crypto, Indices</b></td><td><span class="ok">✅ Зөвшөөрнө</span></td></tr>
+  <tr><td><b>Martingale / Grid</b></td><td><span class="warn">⚠️ "Gambling" гэж үзвэл disqualify</span></td></tr>
+  <tr><td><b>HFT / latency arbitrage</b></td><td><span class="warn">❌ Хориотой</span></td></tr>
+  <tr><td><b>Profit split</b></td><td>80% → 90% (Scaling Plan-аар)</td></tr>
+  <tr><td><b>Payout</b></td><td>Эхний payout 14 хоног, ашгийг <b>сараар</b> тооцно</td></tr>
+</table>
+
+<h2>5. KHAN SNIPER PRO-той хэрхэн ашиглах вэ</h2>
+<p>Indicator чиглэл (LONG/SHORT flip) + TP1–TP4 өгнө. Funding данс дээрх гол зүйл бол <b>position size (lot)-оо зөв тооцох</b>. Дүрэм энгийн:</p>
+<div class="formula">
+Нэг trade-ийн эрсдэл = дансны 0.5–1% &nbsp;|&nbsp; $10K → <b>$50–$100</b>
+</div>
+<p>XAU (алт) дээр <b>0.01 lot = $1 хөдөлгөөнд $1</b>. Тиймээс lot-ыг SL-ийн зайнаас хамаарч бодно:</p>
+<div class="formula">
+Lot = Эрсдэлийн $ ÷ (SL зай $ × 100)
+</div>
+<h3>XAU lot table — $10K данс, 1% = $100 эрсдэл</h3>
+<table>
+  <tr><th>SL зай (price)</th><th>Lot</th><th>Бодит алдагдал</th><th>Статус</th></tr>
+  <tr><td>$3.0</td><td>0.30</td><td>−$90</td><td class="ok">✅</td></tr>
+  <tr><td>$5.0</td><td>0.20</td><td>−$100</td><td class="ok">✅</td></tr>
+  <tr><td>$10.0</td><td>0.10</td><td>−$100</td><td class="ok">✅</td></tr>
+  <tr><td>$20.0</td><td>0.05</td><td>−$100</td><td class="ok">✅</td></tr>
+  <tr><td>$30.0</td><td>0.03</td><td>−$90</td><td class="ok">✅</td></tr>
+</table>
+<div class="note">
+Funding данс дээр аюулгүй байхын тулд олонх трэйдэр <b>0.5% ($50)</b>-аар арилжина — ингэснээр дараалан 8–10 алдсан ч daily/max loss-д хүрэхгүй.
+</div>
+
+<h2>6. Жишээ: $10K Challenge-г хэрхэн өнгөрөх вэ</h2>
+<div class="formula">
+Зорилт: +$800 &nbsp;|&nbsp; Эрсдэл: $100/trade &nbsp;|&nbsp; RR ≥ 2:1
+</div>
+<ul>
+  <li>Хожсон trade ≈ <b>+$200</b> (2R), алдсан trade = <b>−$100</b> (1R).</li>
+  <li>Win rate 55% үед: ~10–12 trade хийхэд +$800-д хүрнэ.</li>
+  <li><b>Хамгийн чухал:</b> daily loss биш — <b>дараалсан алдагдлын (losing streak) эрсдэлийг</b> хяна. 4 удаа дараалан алдвал = −$400 → daily 5% шугамд ойртоно → тэр өдөр зогс.</li>
+  <li>Зорилтот хугацаа <b>2–3 долоо хоног</b>. Хэт хурдан (1–2 өдөр) хийвэл "gambling" гэж дахин шалгагдаж магадгүй.</li>
+</ul>
+
+<h2>7. Өдөр бүрийн checklist</h2>
+<ul>
+  <li>☐ Өнөөдөр алдсан нийлбэр &lt; <b>$400</b> (5%-аас 1% буфертай)</li>
+  <li>☐ Нийт алдагдал &lt; <b>$800</b> (10%-аас 2% буфертай, equity &gt; $9,200)</li>
+  <li>☐ Нэг trade-ийн эрсдэл ≤ <b>$100</b> (1%)</li>
+  <li>☐ High-impact news-ийн яг дээр шинэ position нээгээгүй</li>
+  <li>☐ XAU spread хэвийн үед арилжсан (spread их үед алгас)</li>
+  <li>☐ Server time <b>UTC+2</b>-ыг анхаарсан (daily reset)</li>
+  <li>☐ Доод тал нь 4 өдөр арилжсан</li>
+</ul>
+
+<h2>8. Унах (disqualify) шалтгаанууд</h2>
+<table>
+  <tr><th>Шалтгаан</th><th>Тайлбар</th></tr>
+  <tr><td class="warn">Daily Loss &gt; 5%</td><td>1 өдрийн дотор $500+ алдсан (floating ч багтана)</td></tr>
+  <tr><td class="warn">Max Loss &gt; 10%</td><td>Equity $9,000-аас доош унасан</td></tr>
+  <tr><td class="warn">Min days &lt; 4</td><td>4-өөс цөөн өдөр арилжсан (target хүрсэн ч)</td></tr>
+  <tr><td class="warn">Хориотой стратеги</td><td>HFT, latency exploit, copy trading</td></tr>
+  <tr><td class="warn">Gambling загвар</td><td>1 trade дээр дансныхаа 50%+ эрсдэлд оруулсан</td></tr>
+</table>
+
+<h2>9. Санал болгож буй prop firm-ууд</h2>
+<p>Доорх 4 firm нь <b>олон жил тогтвортой ажилласан, payout-аа цаг тухайд нь өгдөг</b> найдвартай компаниуд (2026 оны байдлаар). Дүрэм, үнэ байнга өөрчлөгддөг тул <b>захиалахаасаа өмнө албан ёсны сайтаас баталгаажуул</b>.</p>
+
+<div class="firm">
+  <h3>🥇 FTMO <span class="tag">ХАМГИЙН НАЙДВАРТАЙ</span></h3>
+  <ul>
+    <li>2015 оноос хойш — 10 жил, scandal-гүй; $500 сая+ payout өгсөн.</li>
+    <li>Данс: $10K–$200K, scaling-аар $2 сая хүртэл.</li>
+    <li>Profit split <b>80% → 90%</b>. OANDA (зохицуулалттай брокер)-той — салбартаа цорын ганц.</li>
+    <li>Challenge-д хугацааны хязгааргүй. Шалгалтын төлбөрийг эхний payout дээр буцаана.</li>
+  </ul>
+</div>
+
+<div class="firm">
+  <h3>💸 FundedNext <span class="tag">CHALLENGE ҮЕД ОРЛОГОТОЙ</span></h3>
+  <ul>
+    <li>2022 оноос — $261 сая+ payout. Данс: $6K–$200K.</li>
+    <li>Profit split <b>95% хүртэл (CFD), 100% (Futures)</b>.</li>
+    <li>Онцлог: Challenge үе шатанд ч ашгийн <b>15%-г хуваалцана</b> (унасан ч).</li>
+    <li>24 цагийн payout — хоцорвол чамд $1,000 нөхөн төлнө.</li>
+  </ul>
+</div>
+
+<div class="firm">
+  <h3>📈 The5ers <span class="tag">ТОМ ДАНС РУУ SCALE</span></h3>
+  <ul>
+    <li>2016 оноос. Min trading days <b>шаардахгүй</b>.</li>
+    <li>~$4 сая хүртэл scale хийдэг тодорхой milestone төлөвлөгөөтэй.</li>
+    <li>Profit split 50%-аас эхэлж <b>100% хүртэл</b> өсдөг (top трэйдэрт).</li>
+    <li>Instant funding болон evaluation хувилбартай.</li>
+  </ul>
+</div>
+
+<div class="firm">
+  <h3>⚡ FundingPips <span class="tag">ХЯМД / УЯН</span></h3>
+  <ul>
+    <li>Trustpilot 4.5★ (30,000+ сэтгэгдэл), 3 ISO гэрчилгээ.</li>
+    <li>Profit split <b>95–100%</b> хүртэл (consistency дүрмээс хамаарна).</li>
+    <li>Уян payout: 7 хоног тутам 60%, эсвэл сараар 100% хүртэл.</li>
+    <li>4 дэх payout-ийн дараа шалгалтын төлбөрийг буцаана. "Reward denial" байхгүй бодлого.</li>
+  </ul>
+</div>
+
+<div class="danger">
+⚠️ <b>Анхааруулга:</b> Prop firm салбар хурдан өөрчлөгддөг — зарим firm урьд нь хаагдсан (жишээ: MyForexFunds). Тиймээс: (1) зөвхөн олон жил ажилласан, payout нотолгоотой firm сонго; (2) дүрэм/үнийг <b>албан ёсны сайтаас</b> шалга; (3) эхлээд хамгийн жижиг дансаар турш. Энэ хуудас бол боловсролын зорилготой, санхүүгийн зөвлөгөө биш.
+</div>
+
+<div class="footer">
+  KHAN SNIPER PRO © 2026 — Funding данс & Prop Firm дүрмийн гарын авлага<br>
+  Шинэчилсэн 2026-06-24 · FTMO болон бусад firm-ийн дүрэм өөрчлөгдөж болзошгүй — албан ёсны сайтаас баталгаажуулна уу
+</div>
+
+</div>
+</body>
+</html>
