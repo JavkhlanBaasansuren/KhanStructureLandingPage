@@ -7,8 +7,8 @@
 <meta name="robots" content="index, follow" />
 
 <!-- Social previews -->
-<meta property="og:title" content="KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?" />
-<meta property="og:description" content="Дохиог хэзээ авах, хэзээ алгасах: орох checklist, шилдэг session, GO / NO-GO нөхцөлүүд." />
+<meta property="og:title" content="KHAN | Sniper Pro — When to Trade?" />
+<meta property="og:description" content="When to take a signal, when to skip it: entry checklist, best sessions, GO / NO-GO conditions." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://khanstructure.com/KhanSniperPro_When_To_Trade.html" />
 <meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
@@ -16,8 +16,8 @@
 <meta property="og:locale" content="mn_MN" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?" />
-<meta name="twitter:description" content="Дохиог хэзээ авах, хэзээ алгасах: орох checklist, шилдэг session, GO / NO-GO нөхцөлүүд." />
+<meta name="twitter:title" content="KHAN | Sniper Pro — When to Trade?" />
+<meta name="twitter:description" content="When to take a signal, when to skip it: entry checklist, best sessions, GO / NO-GO conditions." />
 <meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
 
 <meta name="theme-color" content="#0a0e14" />
@@ -28,15 +28,15 @@
 <link rel="shortcut icon" href="khan_logo_transparent.png" />
 <link rel="apple-touch-icon" href="khan_logo_transparent.png" />
 
-<title>KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?</title>
+<title>KHAN | Sniper Pro — When to Trade?</title>
 
 <!-- Structured data: TechArticle -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?",
-  "description": "KhanSniper Pro дохиог хэзээ авах, хэзээ алгасах вэ — орох checklist, шилдэг session, GO/NO-GO нөхцөл.",
+  "headline": "KHAN | Sniper Pro — When to Trade?",
+  "description": "When to take a KhanSniper Pro signal and when to skip it — entry checklist, best sessions, GO/NO-GO conditions.",
   "inLanguage": "mn",
   "image": "https://khanstructure.com/khan_sniper_cover.jpg",
   "url": "https://khanstructure.com/KhanSniperPro_When_To_Trade.html",
@@ -79,6 +79,16 @@
   }
   .topbar .back:hover { background: rgba(255,156,26,.18); }
   .topbar .brand { font-weight: 800; letter-spacing: .04em; color: rgba(255,255,255,.86); }
+  .lang-btn {
+    background: none; border: 1px solid var(--line); border-radius: 9px;
+    color: var(--muted); font-size: 12px; font-weight: 900;
+    padding: 5px 10px; cursor: pointer; letter-spacing: .04em;
+    transition: color .14s, background .14s, border-color .14s;
+  }
+  .lang-btn:hover { color: var(--text); background: rgba(255,255,255,.06); }
+  .lang-btn.act { color: var(--gold); border-color: rgba(255,156,26,.42); background: rgba(255,156,26,.1); }
+  html.lang-mn .l-en { display: none; }
+  html.lang-en .l-mn { display: none; }
   h1 {
     font-size: 30px; color: var(--gold); border-bottom: 3px solid var(--gold);
     padding-bottom: 10px; margin: 0 0 10px 0;
@@ -143,8 +153,15 @@
 
 <div class="topbar">
   <a class="back" href="index.html#guides">← KHAN SNIPER PRO</a>
-  <span class="brand">KHAN SNIPER PRO · Guides</span>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <button class="lang-btn" data-lang="en" id="btnEN">EN</button>
+    <button class="lang-btn" data-lang="mn" id="btnMN">MN</button>
+    <span class="brand">KHAN SNIPER PRO · Guides</span>
+  </div>
 </div>
+
+<!-- ═══════════ MONGOLIAN ═══════════ -->
+<div class="l-mn">
 
 <h1>KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?</h1>
 <div class="subtitle">Indicator-ийн дохиог хэзээ авах, хэзээ алгасах вэ — практик гарын авлага · 2026-06-17</div>
@@ -257,6 +274,136 @@ KHAN | Sniper Pro — When To Trade · Бүх филтер тохиргооно�
 Default: HTF + News + Friday On, Session + D1 EMA Off · Зах зээл, timeframe-ээ Stats panel дээр туршиж тохируул.
 </div>
 
+</div><!-- /.l-mn -->
+
+<!-- ═══════════ ENGLISH ═══════════ -->
+<div class="l-en">
+
+<h1>KHAN | Sniper Pro — When to Trade?</h1>
+<div class="subtitle">When to take a signal, when to skip it — practical guide · 2026-06-17</div>
+
+<p>The indicator displays everything on the chart itself — this document organises "what to look at before deciding".</p>
+
+<h2>Core rule: a signal is only valid after the candle closes</h2>
+<p>KhanSniperPro's <code>LONG</code> / <code>SHORT</code> labels are confirmed only <b>when the bar closes</b> (non-repainting).</p>
+<div class="note">
+⏳ <b>Don't act before the bar closes.</b> A signal that appears mid-bar may disappear when the bar closes. Only act on a signal from a fully closed bar.
 </div>
+
+<h2>1. Signal sequence — "Get ready" → "LONG/SHORT"</h2>
+<table>
+  <tr><th>Signal</th><th>Meaning</th><th>Action</th></tr>
+  <tr><td>▲ Get ready to long / short</td><td>Pre-signal: price is approaching the trail</td><td>Prepare — get your order ready, but <b>DON'T ENTER</b></td></tr>
+  <tr><td><b>LONG / SHORT</b> label</td><td>Confirmed flip entry</td><td><span class="ok">Enter only now</span></td></tr>
+</table>
+<p>"Get ready" is only an <b>alert</b> — it doesn't guarantee entry. ADX/HTF/Session filters may block the signal afterwards.</p>
+
+<h2>2. Pre-entry CHECKLIST</h2>
+<h3>✅ Trend &amp; Strength</h3>
+<ul class="check">
+  <li>Confirmed LONG/SHORT label present (bar closed)</li>
+  <li>ADX <code>OK</code> — Stats panel shows ADX value above threshold (not chop)</li>
+  <li>HTF trend aligned — same direction as 4H supertrend signal (auto-checked when HTF cut is <code>On</code>)</li>
+</ul>
+<h3>✅ Location</h3>
+<ul class="check">
+  <li>LONG in <b>discount</b> (lower half of ATR range), SHORT in <b>premium</b> (upper half)</li>
+  <li>Not stacked directly at a major macro Support/Resistance (LONG not directly below Macro R)</li>
+</ul>
+<h3>✅ Timing</h3>
+<ul class="check">
+  <li>Within <b>London (07–16 UTC)</b> or <b>NY (12–21 UTC)</b> session — high liquidity</li>
+  <li>Not Asia (00–07 UTC) session (choppy market, lower quality)</li>
+  <li>Not a News window (default: around 12:30 / 14:00 / 18:00 UTC)</li>
+  <li>Not after Friday 18:00 UTC (Friday cutoff auto-blocks)</li>
+</ul>
+
+<h2>3. Best trading times (XAU / Gold)</h2>
+<p>The session panel shows <code>Now</code> / <code>Next</code> in the bottom-right corner of the chart.</p>
+<table>
+  <tr><th>Session (UTC)</th><th>Quality</th><th>Notes</th></tr>
+  <tr><td>Asia 00:00–07:00</td><td><span class="warn">⚠️ Weak</span></td><td>Wide range, many fake flips. Skip when possible</td></tr>
+  <tr><td>London 07:00–16:00</td><td><span class="ok">✅ Good</span></td><td>Most active XAU moves begin here</td></tr>
+  <tr class="best"><td>London + NY overlap 12:00–16:00</td><td>⭐ Best</td><td>Highest liquidity, directional moves</td></tr>
+  <tr><td>NY 16:00–21:00</td><td><span class="ok">✅ Good</span></td><td>Intraday trend tends to hold</td></tr>
+</table>
+<div class="tip">
+⭐ <b>London/NY overlap (12:00–16:00 UTC)</b> — the highest-quality window for trend-following signals.
+</div>
+
+<h2>4. Using the Stats panel — "Is this market worth trading?"</h2>
+<table>
+  <tr><th>Metric</th><th>Green light (trade)</th><th>Red light (caution)</th></tr>
+  <tr><td>Win%</td><td class="ok">≥ 55–60%</td><td class="warn">&lt; 50%</td></tr>
+  <tr><td>Loss% / R</td><td class="ok">R ≥ 1.0</td><td class="warn">R &lt; 1.0</td></tr>
+  <tr><td>Max DD</td><td class="ok">&lt; 10–15%</td><td class="warn">too large</td></tr>
+  <tr><td>ADX</td><td class="ok">OK</td><td class="warn">below threshold</td></tr>
+  <tr><td>Weak %</td><td class="ok">low / green</td><td class="warn">high → enable weak filter</td></tr>
+  <tr><td>Fav WR</td><td class="ok">above overall Win%</td><td class="warn">below overall Win%</td></tr>
+</table>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">(Details: see the <a href="KhanSniperPro_Stats_Guide.html" style="color:#ff9c1a;"><i>KhanSniperPro_Stats_Guide</i></a> document.)</p>
+
+<h2>5. WHEN NOT TO TRADE (skip conditions)</h2>
+<div class="danger">
+❌ <b>Skip the signal</b> in these cases — likely to drag down win rate:
+<ul>
+  <li><b>ADX below threshold</b> (<code>OK</code> not showing) → weak trend, chop</li>
+  <li><b>HTF in opposite direction</b> → counter-trend flip</li>
+  <li><b>News window</b> (12:30 / 14:00 / 18:00 UTC ±) → sharp spike, fake flip</li>
+  <li><b>Friday evening / before weekend</b> (18:00 UTC+) → gap risk</li>
+  <li><b>Mid-Asia session</b> or other low-liquidity periods</li>
+  <li><b>Entry stacked directly at a Macro R/S level</b></li>
+  <li><b>"Get ready" appeared but no confirmed LONG/SHORT</b> → do not enter</li>
+  <li>Stats show <b>low Win% + R &lt; 1.0</b> together → poor market/settings combination</li>
+</ul>
+</div>
+
+<h2>6. After entry — management (the indicator handles it)</h2>
+<ol>
+  <li><b>TP1–TP4 lines</b> are drawn from entry — partial profit levels</li>
+  <li><b>When TP1 is hit</b> → SL moves to breakeven (risk-free)</li>
+  <li><b>When TP2 is hit</b> → SL locked at TP1 (protects runner profit)</li>
+  <li><b>Trailing Stop (red dashed)</b> → stays in place until counter-flip or SL hit</li>
+  <li><b>Counter-flip</b> → signal to close the position</li>
+</ol>
+<div class="note">
+Key rule: <b>Never manually move the SL back.</b> The indicator's trailing/lock logic is designed to limit losses.
+</div>
+
+<h2>Quick Summary — GO / NO-GO</h2>
+<div class="gobox">
+<b>GO ✅</b> (all conditions met):<br>
+Confirmed flip + ADX OK + HTF aligned + London/NY session + no News + favorable location
+</div>
+<div class="nogobox">
+<b>NO-GO ❌</b> (any one of these):<br>
+Bar not closed · ADX weak · HTF opposing · News window · Friday evening · Asia chop · Stacked at Macro S/R
+</div>
+
+<div class="footer">
+KHAN | Sniper Pro — When To Trade · All filters can be toggled in settings ·
+Default: HTF + News + Friday On, Session + D1 EMA Off · Test your market and timeframe in the Stats panel to calibrate.
+</div>
+
+</div><!-- /.l-en -->
+
+</div><!-- /.wrap -->
+<script>
+(function () {
+  var lang = localStorage.getItem('ksp_lang') || (navigator.language.startsWith('mn') ? 'mn' : 'en');
+  function applyLang(l) {
+    localStorage.setItem('ksp_lang', l);
+    document.documentElement.className = 'lang-' + l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.classList.toggle('act', b.dataset.lang === l);
+    });
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
+  });
+  applyLang(lang);
+})();
+</script>
 </body>
 </html>

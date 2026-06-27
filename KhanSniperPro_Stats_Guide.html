@@ -28,7 +28,7 @@
 <link rel="shortcut icon" href="khan_logo_transparent.png" />
 <link rel="apple-touch-icon" href="khan_logo_transparent.png" />
 
-<title>KHAN | Sniper Pro — Stats хүснэгтийн гарын авлага</title>
+<title>KHAN | Sniper Pro — Stats Panel Guide</title>
 
 <!-- Structured data: TechArticle -->
 <script type="application/ld+json">
@@ -84,6 +84,16 @@
   }
   .topbar .back:hover { background: rgba(255,156,26,.18); }
   .topbar .brand { font-weight: 800; letter-spacing: .04em; color: rgba(255,255,255,.86); }
+  .lang-btn {
+    background: none; border: 1px solid var(--line); border-radius: 9px;
+    color: var(--muted); font-size: 12px; font-weight: 900;
+    padding: 5px 10px; cursor: pointer; letter-spacing: .04em;
+    transition: color .14s, background .14s, border-color .14s;
+  }
+  .lang-btn:hover { color: var(--text); background: rgba(255,255,255,.06); }
+  .lang-btn.act { color: var(--gold); border-color: rgba(255,156,26,.42); background: rgba(255,156,26,.1); }
+  html.lang-mn .l-en { display: none; }
+  html.lang-en .l-mn { display: none; }
   h1 {
     font-size: 30px;
     color: var(--gold);
@@ -204,7 +214,6 @@
     font-size: 13px;
     text-align: center;
   }
-  /* Stats panel mock — графикийнхтэй адил харагдуулна */
   .statspanel {
     width: 360px;
     max-width: 100%;
@@ -232,8 +241,15 @@
 
 <div class="topbar">
   <a class="back" href="index.html#guides">← KHAN SNIPER PRO</a>
-  <span class="brand">KHAN SNIPER PRO · Guides</span>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <button class="lang-btn" data-lang="en" id="btnEN">EN</button>
+    <button class="lang-btn" data-lang="mn" id="btnMN">MN</button>
+    <span class="brand">KHAN SNIPER PRO · Guides</span>
+  </div>
 </div>
+
+<!-- ═══════════ MONGOLIAN ═══════════ -->
+<div class="l-mn">
 
 <h1>KHAN | Sniper Pro — Stats хүснэгтийн гарын авлага</h1>
 <div class="subtitle">Графикийн баруун дээд буланд гарах <b>Stats panel</b> доторх бүх үзүүлэлтийн тайлбар — 2026-06-17</div>
@@ -407,6 +423,178 @@ KHAN | Sniper Pro — Stats Guide · Тоонууд тухайн график, t
 Тохиргоо солих бүрд хүснэгт автоматаар дахин тооцоологдоно.
 </div>
 
+</div><!-- /.l-mn -->
+
+<!-- ═══════════ ENGLISH ═══════════ -->
+<div class="l-en">
+
+<h1>KHAN | Sniper Pro — Stats Panel Guide</h1>
+<div class="subtitle">Explanation of every metric in the <b>Stats panel</b> (top-right corner of the chart) — 2026-06-17</div>
+
+<h2>What is the Stats Panel?</h2>
+<p>The Stats panel is <b>not real orders</b> — it is a <b>backtest simulator</b> built into the indicator. Over the lookback period (default 12 months) it replays the following logic on every candle:</p>
+
+<div class="flow">
+Entry (LONG/SHORT flip) → TP1 / TP2 / TP3 / TP4 levels → SL (trailing / BE / lock) → close on counter-flip
 </div>
+
+<p>It shows exactly how the current settings (TP ×ATR, SL, BE-after-TP, ADX/HTF/Session filters, etc.) <b>would have performed</b> on that specific chart and timeframe. Numbers update automatically whenever you change a setting.</p>
+
+<div class="danger">
+⚠️ <b>Note:</b> These are simulation results (no slippage, commission, or spread included). Not a guarantee of real trading performance — use them to compare settings quality.
+</div>
+
+<h2>Sample Table</h2>
+<table class="statspanel">
+  <tr class="hdr"><td>KSniper</td><td>12M Stats</td><td>Active</td><td class="green">LONG</td></tr>
+  <tr><td class="k">Trades</td><td>14 (10/4)</td><td class="k">Win</td><td class="green">71.4%</td></tr>
+  <tr><td class="k">Net</td><td class="green">+13.29%</td><td class="k">Avg</td><td class="green">+0.95%</td></tr>
+  <tr><td class="k">Max DD</td><td class="red">-6.46%</td><td class="k">Best/Worst</td><td>+8.25% / -3.01%</td></tr>
+  <tr><td class="k">TP1-4%</td><td>71/57/14/0%</td><td class="k">Now</td><td class="green">+1.02%</td></tr>
+  <tr><td class="k">Stop</td><td class="red">4159.009</td><td class="k">ADX</td><td>21.1/18 OK</td></tr>
+  <tr><td class="k">Weak %</td><td>0% (0)</td><td class="k">Weak WR</td><td>--</td></tr>
+  <tr><td class="k">Fav Loc</td><td class="amber">21% (3)</td><td class="k">Fav WR</td><td>67%</td></tr>
+  <tr><td class="k">Losses</td><td class="red">4  -7.78%</td><td class="k">Loss% / R</td><td class="green">28.6%  1.08R</td></tr>
+</table>
+
+<h2>Header Row</h2>
+<table>
+  <tr><th>Cell</th><th>Value</th></tr>
+  <tr><td><code>KSniper</code></td><td>Indicator name</td></tr>
+  <tr><td><code>N M Stats</code></td><td>Lookback period in months (default 12)</td></tr>
+  <tr><td><code>Active</code></td><td>Direction of the currently open simulated position: <code>LONG</code> / <code>SHORT</code> / <code>--</code></td></tr>
+</table>
+
+<h2>1. Core Performance</h2>
+
+<h3>Trades — <span class="val">14 (10/4)</span></h3>
+<p>Total closed trades. In parentheses <b>(wins / losses)</b>: <code>14</code> total, <code>10</code> wins, <code>4</code> losses.</p>
+
+<h3>Win — <span class="val">71.4%</span></h3>
+<p>Win rate = wins ÷ total = <code>10/14</code>. The primary measure of <b>system consistency</b>.</p>
+
+<h3>Net — <span class="val">+13.29%</span></h3>
+<p>Net total return across all trades. How many percent this setup returned over the lookback period.</p>
+
+<h3>Avg — <span class="val">+0.95%</span></h3>
+<p>Average return per trade = <code>Net ÷ Trades</code>. Should be positive.</p>
+
+<h3>Max DD — <span class="val">-6.46%</span></h3>
+<p>Maximum Drawdown — deepest equity drawdown from peak. The primary <b>risk metric</b>. Lower is more stable (very large DD = high-volatility system).</p>
+
+<h3>Best / Worst — <span class="val">+8.25% / -3.01%</span></h3>
+<p><b>Best</b> = largest gain on a single trade. <b>Worst</b> = largest loss on a single trade. A large gap between the two suggests results depend heavily on a few "lucky" trades.</p>
+
+<h2>2. Take Profit &amp; Live Status</h2>
+
+<h3>TP1-4% — <span class="val">71/57/14/0%</span></h3>
+<p>What percentage of opened trades <b>reached</b> each TP level:</p>
+<ul>
+  <li><code>71%</code> → reached TP1</li>
+  <li><code>57%</code> → reached TP2</li>
+  <li><code>14%</code> → reached TP3</li>
+  <li><code>0%</code> → reached TP4</li>
+</ul>
+<p>Declining percentages toward higher TPs are normal. If TP3/TP4 reach is very low, consider lowering "Simulated full exit at" to TP2/TP1.</p>
+
+<h3>Now — <span class="val">+1.02%</span></h3>
+<p><b>Floating P&amp;L</b> of the currently open simulated position — move from entry to current price. Empty (<code>--</code>) when no position is open.</p>
+
+<h2>3. Risk / Active State</h2>
+
+<h3>Stop — <span class="val">4159.009</span></h3>
+<p>The <b>trailing stop loss</b> level of the current active position. Matches the red dashed line on the chart (<code>KSniper: Trailing Stop Loss</code>). Label changes to Breakeven / TP1 Lock when BE/TP1-lock has triggered.</p>
+
+<h3>ADX — <span class="val">21.1/18 OK</span></h3>
+<ul>
+  <li><code>21.1</code> = current ADX value (trend strength)</li>
+  <li><code>18</code> = minimum threshold required for entry</li>
+  <li><code>OK</code> = ADX is above threshold, signal permitted. Below threshold → classified as chop (sideways market), entries blocked.</li>
+</ul>
+
+<h2>4. Quality Filters (Weak / Fav)</h2>
+<p>These <b>diagnostic rows</b> show which type of entry is dragging down or boosting the win rate, and advise which optional filter to enable.</p>
+
+<h3>Weak % — <span class="val">0% (0)</span> &nbsp; / &nbsp; Weak WR — <span class="val">--</span></h3>
+<ul>
+  <li><b>Weak %</b> = share of "weakly-followed flip" trades (count in parentheses). A weak flip means the flip candle's close direction mismatches the flip direction (e.g. LONG flip but candle closed red).</li>
+  <li><b>Weak WR</b> = win rate of those trades.</li>
+</ul>
+<div class="tip">
+👉 <b>How to use:</b> If Weak % is high <b>and</b> Weak WR is noticeably below overall Win%, <span class="ok">enable</span> the <code>Block weak-follow flips</code> filter — it removes low-quality entries that drag down the win rate. (Watch for the red coloring.)
+</div>
+
+<h3>Fav Loc — <span class="val">21% (3)</span> &nbsp; / &nbsp; Fav WR — <span class="val">67%</span></h3>
+<ul>
+  <li><b>Fav Loc</b> = share of entries in the "favorable zone" of the ATR range (LONG → <b>discount</b> = lower half, SHORT → <b>premium</b> = upper half), count in parentheses.</li>
+  <li><b>Fav WR</b> = win rate of those entries.</li>
+</ul>
+<div class="tip">
+👉 <b>How to use:</b> If Fav WR is <b>5%+ higher</b> than overall Win%, <span class="ok">enable</span> the <code>Premium/Discount filter</code> — removes counter-bounce entries and improves win rate. (Green = good, red = too many entries in unfavorable zones.)
+</div>
+
+<h2>5. Loss Row (Real Boost)</h2>
+
+<h3>Losses — <span class="val">4  -7.78%</span></h3>
+<p><code>4</code> = total number of losing trades. <code>-7.78%</code> = combined loss from those trades.</p>
+
+<h3>Loss% / R — <span class="val">28.6%  1.08R</span></h3>
+<ul>
+  <li><b>Loss%</b> = <code>28.6%</code> — loss rate (<code>4/14</code>). Should stay below 50% (red coloring means losses outnumber wins).</li>
+  <li><b>R (Expectancy Ratio)</b> = <code>1.08R</code> — <i>average gain per loss</i> = avg win ÷ |avg loss|.</li>
+</ul>
+<div class="note">
+👉 <b>This is the key quality number for the system.</b><br>
+• <code>R ≥ 1.0</code> → positive expectancy (avg win ≥ avg loss) → <span class="ok">green</span><br>
+• <code>R &lt; 1.0</code> → a single win cannot cover a single loss<br>
+<code>1.08R</code> is positive: on average 1.08 wins' worth of profit per loss.
+</div>
+
+<h2>6. Settings Row (Footer)</h2>
+<table>
+  <tr><th>Cell</th><th>Value</th></tr>
+  <tr><td><code>ADX cut</code></td><td>Target threshold for the ADX filter (minimum ADX to allow entry)</td></tr>
+  <tr><td><code>HTF cut</code></td><td>Higher-timeframe trend filter <code>On</code>/<code>Off</code>. When <code>On</code>, counter-trend flips are blocked.</td></tr>
+</table>
+
+<h2>How to Read &amp; Evaluate — Quick Checklist</h2>
+<p>Signs of a good setup:</p>
+<ol>
+  <li><b>Win% ≥ 55–60%</b> — consistent</li>
+  <li><b>R ≥ 1.0</b> (Loss% / R row) — positive expectancy</li>
+  <li><b>Net positive and growing</b></li>
+  <li><b>Max DD acceptable</b> (e.g. &lt; 10–15%, based on your risk tolerance)</li>
+  <li><b>Best/Worst balanced</b> — not reliant on one "lucky" trade</li>
+  <li>If Weak / Fav rows show <span class="warn">red</span> → enable the relevant filter and test</li>
+</ol>
+
+<div class="quote">
+The two most important numbers: <b>Win% (is it consistent?)</b> and <b>R (profitable long term?)</b>. Both must be solid before the system is considered reliable.
+</div>
+
+<div class="footer">
+KHAN | Sniper Pro — Stats Guide · Numbers depend on the chart, timeframe, and active settings · Table recalculates automatically whenever settings change.
+</div>
+
+</div><!-- /.l-en -->
+
+</div><!-- /.wrap -->
+<script>
+(function () {
+  var lang = localStorage.getItem('ksp_lang') || (navigator.language.startsWith('mn') ? 'mn' : 'en');
+  function applyLang(l) {
+    localStorage.setItem('ksp_lang', l);
+    document.documentElement.className = 'lang-' + l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.classList.toggle('act', b.dataset.lang === l);
+    });
+  }
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
+  });
+  applyLang(lang);
+})();
+</script>
 </body>
 </html>
