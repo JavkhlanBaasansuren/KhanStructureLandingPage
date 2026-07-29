@@ -157,13 +157,25 @@ a:focus-visible, button:focus-visible {
   height: 100dvh;
   scroll-snap-align: start;
   display: flex;
-  align-items: center;
+  /* NOT align-items:center — see the margin-block rule below */
+  align-items: flex-start;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   /* top padding clears fixed nav */
   padding: calc(var(--nav-h) + clamp(16px,3vw,32px)) clamp(18px,5vw,64px) clamp(20px,3vw,36px);
 }
+
+/* Centre the content when it fits, let it start at the top when it doesn't.
+   With align-items:center a flex item taller than the slide has its overflow
+   split above and below — and the part above the start edge is unreachable by
+   scrolling, so on short phones (iPhone X ≈ 635px of usable height) the
+   headings were simply cut off with no way to see them. Auto block margins
+   centre exactly like align-items:center while there is free space, then
+   collapse to 0 once the content overflows, which keeps the top reachable.
+   .scroll-cue is position:absolute so this does not affect it. */
+.slide > *:not(.deco) { margin-block: auto; }
 
 /* ━━━━━━━━━━━━━━━ AMBIENT BLOBS ━━━━━━━━━━━━━━━ */
 /* Decoration layer. The blobs bleed past the slide edge on purpose, and
@@ -727,12 +739,10 @@ a:focus-visible, button:focus-visible {
 .s12 { background: radial-gradient(ellipse 760px 540px at 30% 70%, rgba(31,41,55,.42) 0%, #080b13 68%); }
 .s13 { background: radial-gradient(ellipse 780px 520px at 60% 28%, rgba(255,156,26,.13) 0%, #0a0e16 66%); }
 .s14 { background: radial-gradient(ellipse 820px 560px at 50% 40%, rgba(255,156,26,.18) 0%, #070a12 66%); }
-/* Slides whose content can outgrow a short viewport get a scroll valve. s13
-   joins them because the course-library card makes the Guides slide overflow
-   below ~850px of viewport height, and it is clipped otherwise. Safe to add
-   now that .deco keeps the blobs out of the scrollable area — without that,
-   this would show a scrollbar on every window size. */
-.s6, .s7, .s12, .s13, .s14 { overflow-y: auto; }
+/* Every .slide now carries overflow-y:auto (see the .slide rule), so the old
+   per-slide list is redundant. Safe only because .deco keeps the decorative
+   blobs out of the scrollable area — otherwise this would put a scrollbar on
+   every slide at every window size. */
 
 /* COOKIE CONSENT */
 .cookie-banner {
