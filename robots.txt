@@ -1,13 +1,7 @@
 User-agent: *
 Allow: /
 
-# Disallow noisy backup / dev files
-Disallow: /*.bak_mojibake
-Disallow: /head_index.html
-Disallow: /index.before_utf8_fix.html
-Disallow: /index.pre_restore_current.html
-Disallow: /index.backup_2026-06-14.html
-Disallow: /index_backup.html
-Disallow: /prototype.html
+# Developer notes — published by Pages but not meant for search results
+Disallow: /docs/
 
 Sitemap: https://khanstructure.com/sitemap.xml
