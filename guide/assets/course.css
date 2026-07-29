@@ -1,0 +1,363 @@
+/* ============================================================
+   KHAN SNIPER PRO — Price Action course components
+   Loaded on top of guide.css by 00-price-action.html only.
+
+   The course was authored with its own light navy+gold system and a
+   ~60-class vocabulary of its own (.zn .lvl .arw .mhead .setup .week
+   ul.ck …). Those names are kept verbatim — renaming them across a
+   130KB document would be a large, risky edit for no user-visible
+   gain. What changes is the palette: everything here now draws from
+   guide.css tokens, so the course reads as the same site as the rest
+   of guide/.
+
+   Callout boxes are always compound in the markup (class="box warn"),
+   never bare, so scoping the variants to .box.<name> keeps them from
+   colliding with guide.css's inline .warn / .note / .tip.
+   ============================================================ */
+
+:root {
+  /* accent hues this course uses beyond the shared set, lifted for
+     legibility on the dark ground */
+  --violet: #a78bfa;
+  --cyan:   #38bdf8;
+}
+
+/* the course runs wider than a lesson page: two-column grids, wide
+   tables, and 23 diagrams that want the room */
+.wrap { max-width: 1180px; }
+
+/* the hero is full-bleed, so the page body must not inset it */
+body { padding: 0 0 60px; }
+body > .wrap { padding: 0 18px; }
+/* the topbar sits in its own .wrap above the hero and has to supply the
+   top breathing room the zeroed body padding no longer gives it */
+body > .wrap:first-of-type .topbar { padding-top: 18px; }
+
+/* ==================== PROGRESS ==================== */
+#prog {
+  position: fixed; top: 0; left: 0; height: 4px; width: 0; z-index: 99;
+  background: linear-gradient(90deg, var(--gold), var(--bull));
+  transition: width .1s;
+}
+
+/* ==================== HERO ==================== */
+header.hero {
+  position: relative; overflow: hidden;
+  padding: 52px 18px 44px; margin-bottom: 0;
+  color: var(--text);
+  background: radial-gradient(1200px 400px at 20% -10%,
+              rgba(255,156,26,.13) 0%, #101722 45%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+header.hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+.hero-in { max-width: 1180px; margin: 0 auto; position: relative; z-index: 2; }
+.hero .kicker {
+  letter-spacing: .28em; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; color: var(--gold);
+}
+.hero h1 {
+  font-size: clamp(30px, 5.2vw, 52px); font-weight: 900;
+  line-height: 1.08; letter-spacing: -.03em;
+  margin: 10px 0 8px;
+  color: var(--text); border: 0; padding: 0;
+}
+.hero h1 span { color: var(--gold); }
+.hero p.lede {
+  max-width: 720px; color: var(--muted);
+  font-size: 16.5px; margin: 0 0 26px;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.badges .badge {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 7px 14px; border-radius: 999px;
+  font-size: 12.5px; font-weight: 400; letter-spacing: 0;
+  color: var(--text);
+}
+.badges .badge b { color: var(--gold); }
+
+/* ==================== TOC ==================== */
+.toc {
+  background: rgba(255,255,255,.035);
+  border: 1px solid var(--line); border-radius: var(--r2);
+  padding: 22px 24px; margin: -26px 0 40px;
+  box-shadow: 0 16px 44px -22px rgba(0,0,0,.7);
+  position: relative; z-index: 5;
+}
+.toc h2 {
+  margin: 0 0 14px; font-size: 13px; font-weight: 900;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted2); border: 0; padding: 0;
+}
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; }
+.toc a {
+  display: flex; gap: 11px; align-items: center;
+  text-decoration: none; color: var(--text);
+  padding: 8px 11px; border-radius: 9px; font-size: 14px;
+  border: 1px solid transparent; transition: .15s;
+}
+.toc a:hover {
+  background: rgba(255,156,26,.08); border-color: var(--accent-line);
+  transform: translateX(3px); color: var(--text);
+}
+.toc a i {
+  flex: 0 0 26px; height: 26px; border-radius: 7px;
+  background: rgba(255,255,255,.1); color: var(--text);
+  display: grid; place-items: center;
+  font-size: 11.5px; font-weight: 800; font-style: normal;
+}
+.toc a.c1 i { background: var(--cyan);   color: #06263a; }
+.toc a.c2 i { background: var(--bull);   color: #00291d; }
+.toc a.c3 i { background: var(--amber);  color: #2e1c00; }
+.toc a.c4 i { background: var(--violet); color: #1e1240; }
+.toc a.c5 i { background: var(--bear);   color: #300811; }
+
+/* ==================== SECTIONS ==================== */
+section {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line); border-radius: var(--r2);
+  padding: 34px 30px; margin: 0 0 26px;
+}
+.mhead { display: flex; gap: 16px; align-items: flex-start; margin: 0 0 8px; }
+.mnum {
+  flex: 0 0 54px; height: 54px; border-radius: 14px;
+  display: grid; place-items: center;
+  background: linear-gradient(140deg, rgba(255,156,26,.9), rgba(255,156,26,.55));
+  color: #2b1a00; font-size: 21px; font-weight: 900;
+}
+.mhead h2 {
+  margin: 2px 0; font-size: clamp(20px, 3vw, 26px); line-height: 1.15;
+  border: 0; padding: 0; color: var(--gold);
+}
+.mhead .q { color: var(--muted); font-size: 14px; font-style: italic; }
+
+h3 {
+  font-size: 18.5px; color: var(--gold2);
+  margin: 30px 0 8px; padding-left: 12px;
+  border-left: 4px solid var(--gold);
+}
+h4 { font-size: 15.5px; margin: 20px 0 6px; color: var(--text); }
+.sep { height: 1px; background: linear-gradient(90deg, var(--line), transparent); margin: 26px 0; }
+
+/* ==================== CALLOUTS ==================== */
+.box {
+  border-radius: 12px; padding: 15px 18px; margin: 16px 0;
+  border-left: 5px solid; font-size: 14.5px;
+  max-width: none; position: relative;
+}
+.box .bt {
+  font-weight: 900; font-size: 12px; letter-spacing: .12em;
+  text-transform: uppercase; display: block; margin-bottom: 5px;
+}
+.box p:first-of-type { margin-top: 0; }
+.box p:last-child { margin-bottom: 0; }
+
+.box.rule { background: rgba(68,147,248,.12);  border-color: var(--info); }
+.box.rule .bt { color: var(--info); }
+.box.warn { background: rgba(246,70,93,.12);   border-color: var(--bear); color: var(--text); font-weight: 400; }
+.box.warn .bt { color: var(--bear); }
+.box.tip  { background: rgba(0,209,143,.12);   border-color: var(--bull); }
+.box.tip  .bt { color: var(--bull); }
+.box.note { background: rgba(245,158,11,.12);  border-color: var(--amber); border-left-width: 5px; }
+.box.note .bt { color: var(--amber); }
+.box.ex   { background: rgba(167,139,250,.12); border-color: var(--violet); }
+.box.ex   .bt { color: var(--violet); }
+
+/* ==================== TABLES ==================== */
+/* guide.css owns th/td; this is just the scroll shell and cell accents */
+.tw {
+  overflow-x: auto; margin: 16px 0;
+  border: 1px solid var(--line); border-radius: 12px;
+}
+.tw table { margin: 0; min-width: 480px; }
+tbody tr:hover td { background: rgba(255,156,26,.07); }
+td.g { color: var(--bull); font-weight: 700; }
+td.r { color: var(--bear); font-weight: 700; }
+td.c { text-align: center; }
+
+/* ==================== CODE / FLOW ==================== */
+pre .g { color: #4ade80; }
+pre .r { color: #fb7185; }
+pre .y { color: #fbbf24; }
+pre .b { color: #60a5fa; }
+pre .m { color: var(--muted2); }
+
+/* ==================== FIGURES ====================
+   The 23 diagrams are hand-authored SVG that was already drawn for a
+   dark plate (--chart #0f1b2d), so the fills below only needed
+   re-pointing at the shared tokens, not re-picking. */
+figure {
+  margin: 22px 0; padding: 18px 18px 12px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; overflow: hidden;
+}
+figure svg { width: 100%; height: auto; display: block; }
+figcaption {
+  color: var(--muted); font-size: 13px;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--line); text-align: center;
+}
+figcaption b { color: var(--gold); }
+svg text { font-family: var(--f-body); }
+
+.t  { fill: #cbd5e1; font-size: 12.5px; }
+.tb { fill: #f1f5f9; font-size: 13.5px; font-weight: 700; }
+.ts { fill: #94a7bf; font-size: 11px; }
+.tg { fill: var(--bull);   font-size: 12.5px; font-weight: 700; }
+.tr { fill: var(--bear);   font-size: 12.5px; font-weight: 700; }
+.ty { fill: var(--amber);  font-size: 12.5px; font-weight: 700; }
+.tv { fill: var(--violet); font-size: 12.5px; font-weight: 700; }
+.up { fill: var(--bull); }
+.dn { fill: var(--bear); }
+.wk  { stroke: #7f9ab8;   stroke-width: 2; }
+.wku { stroke: var(--bull); stroke-width: 2; }
+.wkd { stroke: var(--bear); stroke-width: 2; }
+.lvl  { stroke: var(--amber); stroke-width: 1.6; stroke-dasharray: 7 5; fill: none; }
+.lvlg { stroke: var(--bull);  stroke-width: 1.6; stroke-dasharray: 7 5; fill: none; }
+.lvlr { stroke: var(--bear);  stroke-width: 1.6; stroke-dasharray: 7 5; fill: none; }
+.path { fill: none; stroke: #93b4d8; stroke-width: 2.4; stroke-linejoin: round; }
+.arw  { stroke: var(--gold); stroke-width: 2; fill: none; marker-end: url(#ah); }
+.arwg { stroke: var(--bull); stroke-width: 2; fill: none; marker-end: url(#ahg); }
+.arwr { stroke: var(--bear); stroke-width: 2; fill: none; marker-end: url(#ahr); }
+.zn  { fill: rgba(0,209,143,.17);  stroke: var(--bull);   stroke-width: 1.4; }
+.znr { fill: rgba(246,70,93,.17);  stroke: var(--bear);   stroke-width: 1.4; }
+.zg  { fill: rgba(245,158,11,.16); stroke: var(--amber);  stroke-width: 1.4; stroke-dasharray: 4 3; }
+.zv  { fill: rgba(167,139,250,.2); stroke: var(--violet); stroke-width: 1.4; }
+
+/* ==================== SETUP CARDS ==================== */
+.setup {
+  border: 1px solid var(--line); border-radius: 14px;
+  overflow: hidden; margin: 26px 0;
+  background: rgba(255,255,255,.02);
+}
+.setup > .sh {
+  padding: 14px 20px; display: flex; gap: 12px; align-items: center;
+  background: linear-gradient(100deg, rgba(255,156,26,.16), rgba(255,156,26,.05));
+  border-bottom: 1px solid var(--accent-line);
+}
+.setup > .sh .rk {
+  background: var(--gold); color: #3a2a00; font-weight: 900;
+  border-radius: 8px; padding: 3px 10px; font-size: 12px; letter-spacing: .04em;
+}
+.setup > .sh h4 { margin: 0; color: var(--gold); font-size: 18px; }
+.sbody { padding: 6px 20px 20px; }
+
+.kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 16px 0 4px; }
+.kv div {
+  background: rgba(255,255,255,.04); border: 1px solid var(--line);
+  border-radius: 10px; padding: 10px 13px; font-size: 13.5px;
+}
+.kv b {
+  display: block; font-size: 11px; letter-spacing: .1em;
+  color: var(--muted2); text-transform: uppercase; margin-bottom: 3px;
+}
+
+/* ==================== CHECKLIST ====================
+   Tickable in place — the JS toggles .on, so the state has to read
+   clearly against the dark card. */
+ul.ck { list-style: none; padding: 0; margin: 14px 0; max-width: none; }
+ul.ck li {
+  padding: 9px 12px 9px 42px; position: relative; margin: 0;
+  border-bottom: 1px dashed var(--line); border-radius: 8px;
+  font-size: 14.5px; cursor: pointer; user-select: none; transition: .15s;
+}
+ul.ck li::before {
+  content: ""; position: absolute; left: 11px; top: 11px;
+  width: 19px; height: 19px; border-radius: 5px;
+  border: 2px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.05); transition: .15s;
+}
+ul.ck li:hover { background: rgba(255,255,255,.045); }
+ul.ck li.on { color: var(--muted2); }
+ul.ck li.on::before { background: var(--bull); border-color: var(--bull); }
+ul.ck li.on::after {
+  content: "✓"; position: absolute; left: 15px; top: 8px;
+  color: #00291d; font-weight: 900; font-size: 14px;
+}
+
+/* ==================== MISC ==================== */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+
+.week {
+  display: grid; grid-template-columns: 70px 1fr; gap: 0;
+  border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; margin: 8px 0;
+}
+.week .wn {
+  background: linear-gradient(160deg, rgba(255,156,26,.85), rgba(255,156,26,.5));
+  color: #2b1a00; display: grid; place-items: center;
+  font-weight: 900; font-size: 20px; padding: 14px 6px;
+}
+.week .wc { padding: 12px 16px; }
+.week .wc b { color: var(--gold2); }
+.week .wc small { display: block; color: var(--muted); margin-top: 3px; font-size: 13px; }
+
+.final {
+  background: linear-gradient(140deg, rgba(255,156,26,.10), rgba(255,255,255,.02));
+  border: 1px solid var(--accent-line);
+}
+.final h2, .final h3 { color: var(--gold); border-color: var(--gold); }
+.final .box { background: rgba(255,255,255,.06); border-color: var(--gold); }
+.final .box .bt { color: var(--gold); }
+
+.five { counter-reset: f; list-style: none; padding: 0; max-width: none; }
+.five li {
+  counter-increment: f; position: relative; margin: 9px 0;
+  padding: 13px 16px 13px 58px; font-size: 15.5px;
+  background: rgba(255,255,255,.05); border-radius: 11px;
+}
+.five li::before {
+  content: counter(f); position: absolute; left: 15px; top: 11px;
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--gold); color: #2b1f00;
+  display: grid; place-items: center; font-weight: 900;
+}
+
+@media (max-width: 640px) {
+  section { padding: 22px 16px; }
+  header.hero { padding: 36px 14px 32px; }
+  .toc { padding: 18px 16px; margin: -20px 0 28px; }
+  .mhead { gap: 12px; }
+  .mnum { flex-basis: 44px; height: 44px; font-size: 18px; }
+}
+
+@media print {
+  #prog, .toc { display: none; }
+  body { padding: 0; }
+  body > .wrap { padding: 0; }
+  header.hero {
+    padding: 20pt 0; background: none; color: #000;
+    border-bottom: 2px solid #d4af37;
+  }
+  header.hero::after { display: none; }
+  .hero h1 { color: #0b3d91; }
+  .hero h1 span, .hero .kicker { color: #b58900; }
+  .hero p.lede { color: #333; }
+  .badges .badge { background: none; border-color: #ccc; color: #333; }
+  section {
+    background: none; border: 0; padding: 0; margin: 0 0 14pt;
+    break-inside: avoid;
+  }
+  .mhead h2, h3, h4 { color: #0b3d91; }
+  /* same reason as the table header in guide.css: print drops background
+     graphics by default, so these markers have to survive on ink alone */
+  .mnum, .week .wn, .five li::before {
+    background: none !important; color: #0b3d91 !important;
+    border: 1.5pt solid #0b3d91;
+  }
+  .setup, .kv div, .week, .five li, .final { background: none; border-color: #ccc; }
+  .setup > .sh { background: none; border-bottom: 1pt solid #0b3d91; }
+  .setup > .sh h4 { color: #0b3d91; }
+  .setup > .sh .rk { background: none; color: #b34700; border: 1pt solid #b34700; }
+  figure { background: #fff; border-color: #ccc; break-inside: avoid; }
+  figcaption { color: #333; border-top-color: #ddd; }
+  .tw { border: 0; }
+  .tw table { min-width: 0; }
+}

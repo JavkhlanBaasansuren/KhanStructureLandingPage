@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Order Block гэж юу вэ — ICT болон LuxAlgo тодорхойлолтын зөрүү, хүчинтэй байдлын 3 нөхцөл, bullish/bearish OB үүсэх 5 шат, CE 50%, Mitigation ба Breaker Block, MTF nesting-ийн RR математик, A/B/C зэрэглэл, OB эсвэл FVG аль нь вэ." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="Order Block — институцийн ул мөр · ICT Хичээл 01" />
+<meta property="og:description" content="Order Block гэж юу вэ — ICT болон LuxAlgo тодорхойлолтын зөрүү, хүчинтэй байдлын 3 нөхцөл, bullish/bearish OB үүсэх 5 шат, CE 50%, Mitigation ба Breaker Block, MTF nesting-ийн RR математик, A/B/C зэрэглэл, OB эсвэл FVG аль нь вэ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ict-01-order-block.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Order Block — институцийн ул мөр · ICT Хичээл 01" />
+<meta name="twitter:description" content="Order Block гэж юу вэ — ICT болон LuxAlgo тодорхойлолтын зөрүү, хүчинтэй байдлын 3 нөхцөл, bullish/bearish OB үүсэх 5 шат, CE 50%, Mitigation ба Breaker Block, MTF nesting-ийн RR математик, A/B/C зэрэглэл, OB эсвэл FVG аль нь вэ." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ict-01-order-block.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>Order Block — институцийн ул мөр · ICT Хичээл 01 | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Order Block — институцийн ул мөр",
+  "description": "Order Block гэж юу вэ — ICT болон LuxAlgo тодорхойлолтын зөрүү, хүчинтэй байдлын 3 нөхцөл, bullish/bearish OB үүсэх 5 шат, CE 50%, Mitigation ба Breaker Block, MTF nesting-ийн RR математик, A/B/C зэрэглэл, OB эсвэл FVG аль нь вэ.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ict-01-order-block.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "learningResourceType": "lesson",
+  "educationalLevel": "Advanced",
+  "position": 1,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "ICT / Smart Money цуврал",
+    "url": "https://khanstructure.com/guide/ict-00-index.html"
+  },
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ICT цуврал", "item": "https://khanstructure.com/guide/ict-00-index.html" },
+    { "@type": "ListItem", "position": 4, "name": "Order Block — институцийн ул мөр", "item": "https://khanstructure.com/guide/ict-01-order-block.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT PRO · Хичээл 01</span>
+  </div>
+
+
+  <header class="masthead">
+    <div class="kicker"><span>ICT / Smart Money</span><span>Хичээл 01</span><span>KHAN ICT PRO</span></div>
+    <h1>Order Block — <em>институцийн ул мөр</em></h1>
+    <p class="standfirst">
+      Order Block нь “ялгаатай өнгөтэй лаа” биш. Энэ нь том оролцогч позици барьсан
+      бөгөөд үнэ тэр рүү <em>эргэж ирэх</em> бүтцийн шалтгаан бүхий үнийн зурвас юм.
+      Энэ хичээл нь институцийн логикоос эхлээд тодорхойлолт, хүчинтэй байдлын
+      нөхцөл, block-ийн бүх төрөл, MTF nesting, A/B/C зэрэглэл, regime-ийн хамаарал,
+      edge-ийг хэмжих арга зүй, мөн кодоор илрүүлэхийг 14 диаграммаар тайлбарлана.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#why">Яагаад үнэ эргэж ирдэг вэ</a></li>
+        <li><a href="#defs">Хоёр өөр тодорхойлолт</a></li>
+        <li><a href="#valid">Хүчинтэй байдлын 3 нөхцөл</a></li>
+        <li><a href="#form">Bullish OB үүсэх дараалал</a></li>
+        <li><a href="#bear">Bearish OB — толин тусгал</a></li>
+        <li><a href="#draw">Зоныг хэрхэн зурах</a></li>
+        <li><a href="#breaker">Mitigation ба Breaker</a></li>
+        <li><a href="#family">Block-ийн ах дүү нар</a></li>
+        <li><a href="#trade">Entry · SL · TP</a></li>
+        <li><a href="#mtf">MTF nesting — зон дотор зон</a></li>
+        <li><a href="#tier">Хүчний зэрэглэл A/B/C</a></li>
+        <li><a href="#vsfvg">OB эсвэл FVG — алийг?</a></li>
+        <li><a href="#regime">Бүтэлгүйтэл ба regime</a></li>
+        <li><a href="#backtest">Edge-ийг хэрхэн хэмжих</a></li>
+        <li><a href="#mistakes">7 нийтлэг алдаа</a></li>
+        <li><a href="#code">Кодод хэрхэн хийгдсэн</a></li>
+        <li><a href="#checklist">Практик checklist</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- ============================================ 1 -->
+  <section id="why">
+    <div class="eyebrow">Үндэс</div>
+    <h2>Яагаад үнэ Order Block руу эргэж ирдэг вэ</h2>
+
+    <p>
+      Том оролцогч 100 лот худалдаж авах гэж байна гэж бодъё. Тэр зах зээл дээр нэг дор
+      market order тавьж чадахгүй — тавибал өөрөө үнийг эсрэгээ хөөрөгдөж, дундаж
+      entry-гээ сүйтгэнэ. Тиймээс тэр <strong>эсрэг талын likvидность</strong> хэрэгтэй:
+      худалдан авахын тулд <em>худалдагчид</em> хэрэгтэй.
+    </p>
+    <p>
+      Худалдагчид хаана хамгийн их байдаг вэ? Үнэ доошилж, stop-loss хураагдаж,
+      retail sell order бөөгнөрсөн газар. Тиймээс том оролцогч <strong>сүүлчийн
+      бууралтын лаан дотор</strong> буюу зах зээл “хямд” санагдаж байгаа мөчид позици
+      цуглуулдаг. Тэр лаа нь <strong>Order Block</strong>.
+    </p>
+    <p>
+      Гэвч нэг л удаад бүх 100 лотыг дүүргэж чаддаггүй. Үлдсэн хэсэг нь
+      <em>дүүрээгүй буулт</em> болж тэр зурваст үлдэнэ. Үнэ хожим тэр зурваст
+      эргэж ирэхэд л үлдсэн ордер дүүрч, дараа нь дахин импульс гардаг. Энэ бол
+      OB-ийн бүх статистик edge-ийн шалтгаан — <strong>ялгаатай өнгө биш,
+      дүүрээгүй ордер</strong>.
+    </p>
+
+    <div class="note">
+      <span class="tag">Гол дүрэм</span>
+      <p>
+        Хэрэв лаа нь <em>бүтцийг эвдэж чадаагүй</em> импульсийн өмнө байгаа бол тэр нь
+        Order Block БИШ — ердөө нэг лаа. Institutional footprint-ийг батлах цорын ганц
+        гэрч нь дараа гарсан <strong>displacement</strong> ба <strong>бүтцийн эвдрэл</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 2 -->
+  <section id="defs">
+    <div class="eyebrow">Тодорхойлолт</div>
+    <h2>Хоёр өөр тодорхойлолт — ижил leg, өөр лаа</h2>
+
+    <p>
+      OB-ийн талаар хоёр хүн зөрөлдвөл 90% нь энэ шалтгаанаас. Индикатор бүр ижил
+      зүйлийг “Order Block” гэж нэрлэдэг ч <strong>өөр лааг</strong> сонгодог:
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Загвар</th><th>Аль лааг сонгоно</th><th>Үр дагавар</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ICT</strong> (жинхэнэ)</td>
+            <td>Бүтцийг эвдсэн импульсийн <strong>өмнөх сүүлчийн эсрэг лаа</strong></td>
+            <td>Зон нь импульсийн ЭХЭНД сууна → entry эрт, SL нарийн, RR өндөр</td>
+          </tr>
+          <tr>
+            <td><strong>LuxAlgo / SMC</strong></td>
+            <td>Тэр leg-ийн <strong>хамгийн эрс лаа</strong> (хамгийн нам low / өндөр high)</td>
+            <td>Зон нь ихэвчлэн доогуур сууна → entry гүн, хүрэхгүй байх нь их</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="duo" id="fig-defs">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · ICT — сүүлчийн эсрэг лаа</div>
+          <svg data-chart="defsICT" role="img" aria-label="ICT тодорхойлолтоор Order Block нь импульсийн өмнөх сүүлчийн бууралтын лаа дээр тавигдана"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · LuxAlgo — хамгийн эрс лаа</div>
+          <svg data-chart="defsLux" role="img" aria-label="LuxAlgo тодорхойлолтоор Order Block нь leg-ийн хамгийн нам лаа дээр тавигдана"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Яг ижил үнийн үйлдэл, хоёр өөр зон. <b>A</b> нь impulse-ийн өмнөх сүүлчийн
+        улаан лааг авна — үнэ буцаж ирэхэд хамгийн эхэлж хүрэх зурвас.
+        <b>B</b> нь leg-ийн хамгийн нам лааг авна — гүнзгий, ховор хүрдэг.
+        <b>KHAN ICT PRO</b> нь A-г хэрэглэж, эсрэг лаа огт байхгүй (цэвэр нэг
+        чиглэлт импульс) тохиолдолд л B руу fallback хийдэг.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 3 -->
+  <section id="valid">
+    <div class="eyebrow">Шүүлтүүр</div>
+    <h2>Хүчинтэй байдлын 3 нөхцөл</h2>
+
+    <p>
+      Chart дээр “OB шиг” лаа хэдэн зуун байна. Тэднээс арилжаалж болохыг нь
+      гурван нөхцөл шүүнэ. Гурвуулаа биелэх ёстой — <em>эсвэл</em> биш.
+    </p>
+
+    <ol class="steps">
+      <li>
+        <h3>Displacement — импульсив хөдөлгөөн</h3>
+        <p>
+          Дараагийн хөдөлгөөн нь <strong>ATR-аас том биетэй</strong> байх ёстой
+          (1m 1.2× · 5m 1.5× · 15m 1.8×) бөгөөд биет нь бүтэн хүрээний
+          <strong>≥60%</strong> байх. Сул, wick-тэй хөдөлгөөн нь институцийн
+          гэрчлэл биш — тэр бол шуугиан.
+        </p>
+      </li>
+      <li>
+        <h3>Бүтцийн эвдрэл — BOS эсвэл CHoCH</h3>
+        <p>
+          Тэр импульс нь өмнөх swing-ийг <strong>хаалтаараа</strong> давах ёстой.
+          Wick давж хаалт буцсан бол энэ нь эвдрэл биш — <em>sweep</em>. Sweep нь
+          OB үүсгэхгүй.
+        </p>
+      </li>
+      <li>
+        <h3>Дүүрээгүй байх — unmitigated</h3>
+        <p>
+          Үнэ тэр зоныг аль хэдийн бүрэн туулж гарсан бол ордер дүүрчихсэн, edge
+          дууссан. Зөвхөн <strong>эхний</strong> буцалт дээр л тоглоно.
+        </p>
+      </li>
+    </ol>
+
+    <figure id="fig-valid">
+      <div class="plate-hd">Хүчинтэй vs хүчингүй</div>
+      <div class="plate">
+        <svg data-chart="validity" role="img" aria-label="Зүүн талд displacement-гүй сул хөдөлгөөн тул OB хүчингүй, баруун талд ATR-аас том биет бүтцийг хаалтаараа эвдсэн тул OB хүчинтэй"></svg>
+      </div>
+      <figcaption>
+        Зүүн: лаа “OB шиг” боловч дараагийн хөдөлгөөн сул, swing эвдрээгүй →
+        <b>хүчингүй</b>. Баруун: том биет swing-ийг хаалтаараа давсан →
+        <b>хүчинтэй</b>, зон нь өмнөх улаан лаан дээр тавигдана.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 4 -->
+  <section id="form">
+    <div class="eyebrow">Дараалал</div>
+    <h2>Bullish OB үүсэх 5 шат</h2>
+
+    <p>
+      Дараах дараалал нь ICT-ийн 2022 model-ийн нурууг бүрдүүлдэг. Шатуудын
+      <strong>дараалал нь чухал</strong> — sweep нь displacement-аас өмнө,
+      displacement нь retrace-аас өмнө байх ёстой.
+    </p>
+
+    <figure id="fig-form">
+      <div class="plate-hd">Bullish Order Block — бүрэн дараалал</div>
+      <div class="plate">
+        <svg data-chart="bullish" role="img" aria-label="Likvидность цэвэрлэх, сүүлчийн бууралтын лаа буюу Order Block, ATR-аас том импульс swing-ийг эвдэх, зон руу буцах, entry авах дараалал"></svg>
+      </div>
+      <figcaption>
+        <b>1</b> Likvидность цэвэрлэлт (доод swing-ийн wick авалт) ·
+        <b>2</b> Сүүлчийн бууралтын лаа = <b>OB</b> ·
+        <b>3</b> Displacement, swing high-г хаалтаараа эвдэх (BOS) ·
+        <b>4</b> Зон руу retrace ·
+        <b>5</b> CE (50%)-аас entry, SL зоны доод ирмэгийн доор.
+      </figcaption>
+    </figure>
+
+    <ol class="steps">
+      <li>
+        <h3>Likvидность цэвэрлэлт</h3>
+        <p>
+          Үнэ өмнөх low-г wick-ээр давж stop цуглуулаад хаалтаараа буцна. Энэ бол
+          том оролцогчийн “түлш” — эсрэг талын likvидность.
+        </p>
+      </li>
+      <li>
+        <h3>Сүүлчийн эсрэг лаа тодорхойлогдоно</h3>
+        <p>
+          Импульс эхлэхээс өмнөх <strong>хамгийн сүүлчийн бууралтын (улаан) лаа</strong>.
+          Түүний high–low нь зоны хил. Энэ лаа хойшоо “бэлдэж” байсныг бид
+          дараа гарсан импульсээр л мэднэ.
+        </p>
+      </li>
+      <li>
+        <h3>Displacement + BOS</h3>
+        <p>
+          ATR-аас том биет swing high-г <strong>хаалтаараа</strong> давна. Ихэнх
+          тохиолдолд энэ импульс өөрийн дотор <strong>FVG</strong> үлдээдэг — тэр нь
+          жинхэнэ displacement байсны хамгийн сайн гэрчлэл.
+        </p>
+      </li>
+      <li>
+        <h3>Зон руу retrace</h3>
+        <p>
+          Үнэ зоны дээд ирмэг руу буцна. Хэрэв <em>дамжин</em> гараад зоны доод
+          ирмэгийн доор хаагдвал OB нь <strong>mitigated</strong> болж setup цуцлагдана.
+        </p>
+      </li>
+      <li>
+        <h3>Entry</h3>
+        <p>
+          Зоны дээд ирмэг (aggressive) эсвэл CE = 50% (тэнцвэртэй) дээр limit.
+          SL нь зоны доод ирмэгээс доогуур. TP нь эсрэг талын likvидность.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================================ 5 -->
+  <section id="bear">
+    <div class="eyebrow">Толин тусгал</div>
+    <h2>Bearish OB — яг эсрэгээр</h2>
+
+    <p>
+      Логик нь бүрэн симметр. Том оролцогч зарахын тулд <em>худалдан авагчид</em>
+      хэрэгтэй — тиймээс үнэ “хямд” биш “үнэтэй” санагдаж, retail buy stop
+      бөөгнөрсөн газар позици цуглуулна.
+    </p>
+
+    <figure id="fig-bear">
+      <div class="plate-hd">Bearish Order Block</div>
+      <div class="plate">
+        <svg data-chart="bearish" role="img" aria-label="Дээд swing-ийн likvидностийг цэвэрлэж, сүүлчийн өсөлтийн лаа Order Block болж, доошоо импульс swing low-г эвдэж, зон руу буцаж short entry гарна"></svg>
+      </div>
+      <figcaption>
+        Дээд likvидность цэвэрлэгдэнэ → <b>сүүлчийн ногоон лаа = OB</b> →
+        доошоо displacement swing low-г хаалтаараа эвдэнэ → зон руу retrace →
+        SL зоны дээд ирмэгээс дээгүүр.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 6 -->
+  <section id="draw">
+    <div class="eyebrow">Практик</div>
+    <h2>Зоныг хэрхэн зурах</h2>
+
+    <h3>Биет эсвэл бүтэн хүрээ?</h3>
+    <p>
+      Хоёр сургууль бий. <strong>Бүтэн хүрээ</strong> (high→low) нь бүх ордерыг
+      багтаана — хүрэх магадлал өндөр, гэхдээ SL өргөн. <strong>Биет</strong>
+      (open→close) нь нарийн — RR сайн, гэхдээ хүрэхгүй байх нь их.
+    </p>
+    <p>
+      Практик зөвлөмж: <strong>бүтэн хүрээгээр зур, SL-ийг доод ирмэгээс
+      бага зэрэг доогуур тавь</strong>. KHAN ICT PRO нь <code>high[off]</code> ба
+      <code>low[off]</code> — бүтэн хүрээг хэрэглэдэг.
+    </p>
+
+    <h3>CE — Consequent Encroachment (50%)</h3>
+    <p>
+      Зоны яг тэн хагас. ICT-ийн хэлснээр үнэ CE-д хүрмэгц тэр зон
+      “<strong>хэрэглэгдсэн</strong>” гэж тооцогдоно. CE нь хоёр зорилготой:
+    </p>
+    <ul>
+      <li><strong>Entry түвшин</strong> — дээд ирмэгээс илүү тэнцвэртэй, доод ирмэгээс илүү хүрэмтгий.</li>
+      <li><strong>Чанарын хаяг</strong> — CE-д хүрсэн зоныг дараа дахин хэрэглэхгүй.</li>
+    </ul>
+
+    <figure id="fig-draw">
+      <div class="plate-hd">Зоны анатоми</div>
+      <div class="plate">
+        <svg data-chart="anatomy" role="img" aria-label="Order Block зоны дээд ирмэг, CE 50 хувь, доод ирмэг ба SL-ийн байрлал"></svg>
+      </div>
+      <figcaption>
+        <b>Дээд ирмэг</b> — aggressive entry, хамгийн эрт хүрнэ.
+        <b>CE 50%</b> — тэнцвэртэй entry, ICT-ийн стандарт.
+        <b>Доод ирмэг</b> — хамгийн сайн үнэ, гэхдээ хүрэхгүй байх нь их.
+        <b>SL</b> — доод ирмэгээс доогуур, buffer-тэй.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 7 -->
+  <section id="breaker">
+    <div class="eyebrow">Дараагийн үе</div>
+    <h2>Mitigation ба Breaker Block</h2>
+
+    <p>
+      OB нь мөнхийн биш. Үнэ зоныг дамжин гарч <strong>хаалтаараа</strong> эсрэг тал
+      руу давбал тэр нь <strong>mitigated</strong> — ордер дүүрсэн. Гэхдээ энд
+      сонирхолтой зүйл болдог.
+    </p>
+    <p>
+      Эвдэгдсэн bullish OB нь <strong>bearish breaker</strong> болж
+      <strong>role flip</strong> хийдэг. Учир нь тэр зурваст урт позици барьсан
+      оролцогчид одоо алдагдалтай — үнэ тэнд буцаж ирвэл тэд
+      break-even дээр гарахыг хүсэж <em>зарна</em>. Support байсан зурвас
+      resistance болно.
+    </p>
+
+    <figure id="fig-breaker">
+      <div class="plate-hd">Bullish OB → Bearish Breaker</div>
+      <div class="plate">
+        <svg data-chart="breaker" role="img" aria-label="Bullish Order Block хаалтаараа эвдэгдэж bearish breaker болон эргэж, буцаж ирсэн үнэ тэр зурвасаас доошилно"></svg>
+      </div>
+      <figcaption>
+        Зон эхлээд <b>bullish OB</b> (support) байсан. Үнэ доод
+        ирмэгийн доор <b>хаагдмагц</b> role flip болж <b>breaker</b> (resistance)
+        болно. Дараагийн retest нь short setup. KHAN ICT PRO-д энэ нь
+        <code>ictBreakerOn = true</code> үед автоматаар өнгөө сольдог.
+      </figcaption>
+    </figure>
+
+    <div class="note warn">
+      <span class="tag">Анхаар</span>
+      <p>
+        Mitigation-ийг <strong>зөвхөн хаалтаар</strong> шийд, wick-ээр биш.
+        Хөгжиж байгаа лааны түр зуурын wick нь зоныг “эвдсэн” гэж бариад, тэр лаа
+        эцэстээ зөв талдаа хаагдсан ч сэргэдэггүй — энэ бол хамгийн түгээмэл
+        кодын bug. Индикаторт үүнийг <code>barstate.isconfirmed</code>-аар л шийднэ.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ family -->
+  <section id="family">
+    <div class="eyebrow">Тэрминологи</div>
+    <h2>Block-ийн ах дүү нар</h2>
+
+    <p>
+      ICT-д “block” гэдэг нэг зүйл биш. Зургаан төрөл бий, бүгд ижил зарчим дээр
+      суурилдаг — <em>дүүрээгүй ордер</em> — гэхдээ өөр контекстээс үүсдэг. Нэрийг
+      андуурах нь хамгийн түгээмэл бөгөөд хамгийн үнэтэй алдаа: Mitigation Block-ыг
+      Order Block гэж бодоод бүтэн risk-ээр орох нь зэрэглэлийн зөрүүг үл тоомсорлож
+      байгаа хэрэг.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Нэр</th><th>Хэрхэн үүсдэг</th><th>Арилжааны хэлбэр</th><th>Найдвартай</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Order Block</strong></td>
+            <td>Бүтцийг эвдсэн displacement-ийн өмнөх сүүлчийн эсрэг лаа</td>
+            <td>Retest → үргэлжлэл</td>
+            <td class="num">★★★★</td>
+          </tr>
+          <tr>
+            <td><strong>Breaker</strong></td>
+            <td>Хаалтаараа эвдэгдсэн OB, үүрэг хувирсан</td>
+            <td>Эсрэг талын retest</td>
+            <td class="num">★★★★</td>
+          </tr>
+          <tr>
+            <td><strong>Mitigation Block</strong></td>
+            <td>Likvидность <em>цэвэрлэгдээгүй</em> бүтэлгүйтсэн HH/LL-ийн сүүлчийн эсрэг лаа</td>
+            <td>Эргэлтийн retest</td>
+            <td class="num">★★★</td>
+          </tr>
+          <tr>
+            <td><strong>Propulsion Block</strong></td>
+            <td>Үнэ OB-ыг хэсэгчлэн хүндэтгэж дахин хөөрсөн — шинэ launch хил</td>
+            <td>2 дахь үргэлжлэл</td>
+            <td class="num">★★★</td>
+          </tr>
+          <tr>
+            <td><strong>Rejection Block</strong></td>
+            <td>Биет БИШ — нэг түвшинд бөөгнөрсөн урт wick-ийн кластер</td>
+            <td>Wick зон руу retest</td>
+            <td class="num">★★</td>
+          </tr>
+          <tr>
+            <td><strong>Vacuum Block</strong></td>
+            <td>Session / news-ийн жинхэнэ үнийн цоорхой (ихэвчлэн futures)</td>
+            <td>Gap fill магнит</td>
+            <td class="num">★★</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="duo" id="fig-family">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">Mitigation Block</div>
+          <svg data-chart="mitigation" role="img" aria-label="Үнэ шинэ дээд оргил гаргаж чадалгүй доогуур оргил үүсгэн доошоо эвдэж, тэр бүтэлгүйтсэн legийн сүүлчийн өсөлтийн лаа Mitigation Block болно"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">Rejection Block</div>
+          <svg data-chart="rejection" role="img" aria-label="Нэг түвшинд бөөгнөрсөн урт дээд сүүлнүүд Rejection Block зоныг үүсгэж, биетийн дээд талаас сүүлний хамгийн өндөр цэг хүртэл байрлана"></svg>
+        </div>
+      </div>
+      <figcaption>
+        <b>Зүүн:</b> шинэ HH гарч чадаагүй → доогуур оргилын сүүлчийн ногоон лаа нь
+        <b>MB</b>. Sweep байгаагүй тул OB-оос сул — хагас risk.
+        <b>Баруун:</b> <b>RB</b> нь <em>биетийг</em> биш <em>сүүлийг</em> хэрэглэдэг цорын
+        ганц block — зон нь биетийн дээд талаас сүүлний оргил хүртэл.
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">MB vs OB — шийдвэрлэх ялгаа</span>
+      <p>
+        Хэрэв импульсийн өмнө <strong>likvидность цэвэрлэгдсэн</strong> бол энэ нь
+        <strong>Order Block</strong>. Цэвэрлэгдээгүй, зүгээр л шинэ оргил гарч
+        чадаагүй бол <strong>Mitigation Block</strong>. Хоёрын ялгаа нь “түлш байсан
+        уу” — MB нь түлшгүй, тиймээс статистикаар сул. Нэг зурвасыг MB эсэх нь
+        <em>өмнөх</em> үнийн үйлдлээс шалтгаална, өнгөнөөс биш.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 8 -->
+  <section id="trade">
+    <div class="eyebrow">Гүйцэтгэл</div>
+    <h2>Entry · SL · TP</h2>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Элемент</th><th>Хаана</th><th>Шалтгаан</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Entry</strong></td>
+            <td class="num">CE (50%) limit</td>
+            <td>Дээд ирмэг хэт эрт (шуугиан), доод ирмэг хэт гүн (хүрэхгүй). CE нь тэнцвэр.</td>
+          </tr>
+          <tr>
+            <td><strong>SL</strong></td>
+            <td class="num">Зоны доод ирмэг − buffer</td>
+            <td>Зон эвдэгдвэл санаа буруу болсон. Buffer нь mintick spike-аас хамгаална.</td>
+          </tr>
+          <tr>
+            <td><strong>TP1</strong></td>
+            <td class="num">≈ 1R эсвэл дараагийн pool</td>
+            <td>Хамгийн ойрын equal high/low. Зардлыг нөхөж, эрсдэлийг тэглэнэ.</td>
+          </tr>
+          <tr>
+            <td><strong>TP2</strong></td>
+            <td class="num">PDH / PDL</td>
+            <td>Өмнөх өдрийн H/L нь өдрийн draw on liquidity.</td>
+          </tr>
+          <tr>
+            <td><strong>TP3</strong></td>
+            <td class="num">Эсрэг талын major swing</td>
+            <td>Dealing range-ийн эсрэг ирмэг — үнэ жинхэнэ татагдаж байгаа зорилго.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн том хавх</span>
+      <p>
+        Хэрэв SL нь ATR-ийн cap-аас (ж: 2.8×ATR) өргөн болбол <strong>цуцал,
+        clamp хийж болохгүй</strong>. Clamp хийвэл stop нь дээрмийн range дотор
+        сууна — яг тэр wick татдаг гэдгээ дөнгөж баталсан үнийн зурвас. Chart
+        дээр хамгийн сайхан харагддаг setup-ууд дээр winrate мэдэгдэхүйц доройтоно.
+      </p>
+    </div>
+
+    <figure id="fig-trade">
+      <div class="plate-hd">Гүйцэтгэлийн зураглал</div>
+      <div class="plate">
+        <svg data-chart="execution" role="img" aria-label="Entry нь CE дээр, SL зоны доор, TP1 TP2 TP3 нь дараалсан likvидностийн түвшнүүд дээр"></svg>
+      </div>
+      <figcaption>
+        Зон, CE, entry, SL, гурван TP-ийн харилцан байрлал. <b>Risk</b> нь entry–SL
+        зай; бүх TP тэр зайн үржвэрээр (R) хэмжигдэнэ.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ mtf -->
+  <section id="mtf">
+    <div class="eyebrow">Хамгийн том ашиг</div>
+    <h2>MTF nesting — зон дотор зон</h2>
+
+    <p>
+      Энэ бол хичээлийг “тайлбар”-аас “арилжаалж болох”-д хүргэдэг хэсэг. Зарчим нь
+      нэг мөрөөр: <strong>HTF нь ХААНА-г, LTF нь ХЭЗЭЭ-г хэлдэг.</strong> 4H OB нь
+      зөв үнийн зурвасыг олж өгдөг ч 40 pip өргөн; тэр зон дотор үүссэн 5m OB нь
+      ижил санааг 11 pip-ээр илэрхийлнэ. Зорилго нь өөр trade хайх биш —
+      <em>ижил trade-ийг нарийсгах</em>.
+    </p>
+
+    <figure class="duo" id="fig-mtf">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · 4H — ХААНА</div>
+          <svg data-chart="htfZone" role="img" aria-label="4H чартад өргөн Order Block зон, стоп нь зоны доод ирмэгээс доогуур тул эрсдэл өргөн"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · 5m — ХЭЗЭЭ (тэр зон дотор)</div>
+          <svg data-chart="ltfRefine" role="img" aria-label="Ижил 4H зоныг 5m чартаар томруулж, түүн дотор үүссэн жижиг 5m Order Block-оос entry авч стопыг мэдэгдэхүйц нарийсгана"></svg>
+        </div>
+      </div>
+      <figcaption>
+        <b>A</b> 4H OB — зөв зурвас, гэхдээ SL нь бүх зоныг тойрох ёстой.
+        <b>B</b> Ижил зон томруулсан. Дотор нь 5m displacement + 5m OB үүссэн →
+        entry тэндээс, SL нь <em>5m</em> зоны доор. Зорилго ижил, risk 4 дахин бага.
+      </figcaption>
+    </figure>
+
+    <h3>Тооны хэлээр</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th></th><th>Зөвхөн 4H</th><th>4H → 5m nested</th></tr></thead>
+        <tbody>
+          <tr><td>Зоны өргөн</td><td class="num">40 pip</td><td class="num">40 pip (ижил)</td></tr>
+          <tr><td>Entry</td><td class="num">4H CE</td><td class="num">5m OB CE</td></tr>
+          <tr><td>SL</td><td class="num">−44 pip</td><td class="num">−11 pip</td></tr>
+          <tr><td>TP (ижил зорилго)</td><td class="num">+120 pip</td><td class="num">+120 pip</td></tr>
+          <tr><td><strong>RR</strong></td><td class="num">2.7R</td><td class="num"><strong>10.9R</strong></td></tr>
+          <tr><td>Хүрэх магадлал</td><td>Өндөр</td><td>Бага зэрэг доогуур</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      RR 4 дахин өсөх нь ямар ч шүүлтүүрээс илүү нөлөөтэй. Хэрэв 4H дээр winrate
+      45% байсан бол 5m nesting-тэй 35% winrate ч илүү ашигтай — учир нь
+      break-even winrate нь <em>R-ээс</em> шалтгаална.
+    </p>
+
+    <div class="note">
+      <span class="tag">Дараалал — курст аль хэдийн бий</span>
+      <p>
+        Top-Down алгоритмыг дахин заахгүй: <strong>PriceAction 7.2</strong> нь
+        5 шаттай дарааллыг (1D → 4H шийдвэр → 1H зон → 15m setup → 5m trigger),
+        <strong>7.1</strong> нь TF тус бүрийн үүрэг хуваарилалтыг,
+        <strong>7.3</strong> нь чиглэл түгжихийг, <strong>5.3</strong> нь
+        <em>“Зурвасыг доод TF-д харж, дотор нь OB/цоорхой хай”</em> гэсэн яг энэ
+        nesting-ийг заасан. Доорх зөвхөн OB-д онцгой хоёр зүйл: <strong>TF хосын
+        харьцаа</strong> ба <strong>3 хавх</strong>.
+      </p>
+    </div>
+
+    <h3>TF хос сонгох</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>HTF (зон)</th><th>LTF (entry)</th><th>Харьцаа</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1D</td><td class="num">1H</td><td class="num">÷24</td></tr>
+          <tr><td class="num">4H</td><td class="num">15m</td><td class="num">÷16</td></tr>
+          <tr><td class="num">1H</td><td class="num">5m</td><td class="num">÷12</td></tr>
+          <tr><td class="num">15m</td><td class="num">1m</td><td class="num">÷15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Харьцаа <strong>8–24</strong> хооронд байх. Хэт ойрхон (4H→1H, ÷4) бол нарийсалт
+      бага; хэт хол (1D→1m, ÷1440) бол LTF нь HTF зонтой ямар ч холбоогүй шуугиан болно.
+    </p>
+
+    <div class="note warn">
+      <span class="tag">3 хавх</span>
+      <ul>
+        <li><strong>LTF OB нь HTF зоны ГАДНА үүсэх.</strong> Энэ нь nesting биш — өөр
+          setup, өөр логик. HTF зон дотор л хүчинтэй.</li>
+        <li><strong>LTF OB үүсэхгүй байхад хүчээр хайх.</strong> Үүсэхгүй бол HTF CE-ийг
+          хэрэглэ, эсвэл орхи. “Ямар нэг зүйл олох” нь nesting-ийн эсрэг.</li>
+        <li><strong>SL-ийг HTF зоны доор “аюулгүйн тулд” тавих.</strong> Тэгвэл 10.9R нь
+          2.7R болж, nesting хийсэн нь ямар ч ашиггүй болно.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <span class="tag">Олон жижиг алдагдал vs нэг том</span>
+      <p>
+        LTF SL нь HTF зон дотор байдаг тул HTF зон эвдрэхээс <em>өмнө</em> LTF trade
+        аль хэдийн хаагдсан байна. Энэ нь <strong>онцлог биш, зорилго</strong>: нэг
+        44-pip алдагдлын оронд гурван 11-pip алдагдал. Гуравдугаарт nesting таарвал
+        нэг 10.9R нь тэр гурвыг бүрэн нөхнө.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ tier -->
+  <section id="tier">
+    <div class="eyebrow">Сонголт</div>
+    <h2>Хүчний зэрэглэл A / B / C</h2>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо — бараг ижил</span>
+      <p>
+        <strong>PriceAction 5.2</strong> нь OB-ыг <code>A+ / B / C</code> гэж аль
+        хэдийн зэрэглэсэн, бөгөөд шалгуур нь бараг ижил: <em>sweep + displacement
+        + цоорхойтой + хямд/үнэтэй зөв хэсэгт + дээд TF дэмжсэн + хүрээгүй</em>,
+        мөн ижил үр дагавартай (<em>trade хий / жижиг размер / ХАЯ</em>).
+        Доорх хүснэгтийн <strong>цорын хоёр нэмэлт</strong> нь:
+        (1) <code>Killzone дотор</code> шалгуур, (2) тоон оноо — тус бүр 1 оноо,
+        нийлбэрээр tier. Тоон болгосон шалтгаан нь <em>кодод шилжүүлэх</em>:
+        оноо бүр аль хэдийн байгаа boolean.
+      </p>
+    </div>
+
+    <p>
+      Chart дээр зэрэг зургаан OB харагдаж байна. Аль нь? Таван шалгуураар онооно —
+      тус бүр 1 оноо, тус бүр <em>бие даасан</em> шалтгаанаар edge нэмдэг:
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Шалгуур</th><th>Яагаад edge нэмдэг</th><th>Кодод</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Virgin</strong> — CE-д хүрээгүй</td><td>Ордер дүүрээгүй хэвээр; 2 дахь touch статистикаар сул</td><td><code>not z.ceHit</code></td></tr>
+          <tr><td><strong>FVG давхцах</strong></td><td>Хоёр өөр шалтгаанаар ижил үнэ дээр ордер хүлээж байна</td><td><code>ictFvgBullNear</code></td></tr>
+          <tr><td><strong>Liquidity түвшинд</strong></td><td>PDH/PDL/EQH дээр үүссэн OB нь институцийн зорилготой давхцана</td><td><code>ictPools</code> · <code>pdh/pdl</code></td></tr>
+          <tr><td><strong>Killzone дотор</strong></td><td>Institutional эрчим байгаа цагт үүссэн</td><td><code>inKillzone</code></td></tr>
+          <tr><td><strong>HTF bias таарна</strong></td><td>Урсгалын эсрэг OB нь statistically counter-trend</td><td><code>biasHTFBuy</code></td></tr>
+          <tr><td><em>Бонус:</em> HTF зон дотор (nested)</td><td>MTF nesting — RR-ийг олон дахин</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tier">
+      <div class="t-a">
+        <span class="lab">A</span>
+        <div>
+          <h3>5–6 оноо — бүтэн risk</h3>
+          <p>
+            Ховор: сард XAU 5m дээр 4–8 удаа. Эдгээр нь хүлээх зүйл. Бүтэн risk,
+            бүтэн TP ladder, DOL хүртэл барь.
+          </p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">B</span>
+        <div>
+          <h3>3–4 оноо — хагас risk</h3>
+          <p>
+            Арилжаална, гэхдээ хагас хэмжээгээр эсвэл нэмэлт баталгаа (LTF sweep,
+            volume spike) хүлээнэ. TP1 дээр эрсдэлийг тэглэ.
+          </p>
+        </div>
+      </div>
+      <div class="t-c">
+        <span class="lab">C</span>
+        <div>
+          <h3>≤2 оноо — арилжаалахгүй</h3>
+          <p>
+            Зурагдана, гэхдээ зөвхөн <em>контекст</em> болгож. Эдгээрийг арилжаалах нь
+            нийт статистикийг сүйтгэдэг гол шалтгаан — тоо нь их болохоор
+            дундаж winrate тэднээр л тодорхойлогдоно.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="tag">KHAN ICT PRO-той холбоо</span>
+      <p>
+        Файлд <strong>scoring layer одоохондоо БАЙХГҮЙ</strong> — entry нь цэвэр
+        boolean AND-chain. Гэхдээ дээрх таван шалгуурын <em>тав нь бүгд аль хэдийн
+        кодод бий</em> (<code>ceHit</code>, <code>ictFvgBullNear</code>,
+        <code>ictPools</code>, <code>inKillzone</code>, <code>biasHTFBuy</code>).
+        Тэгэхээр tier нь шинэ хэмжилт биш — байгаа боolean-уудыг нэмж, cohort-оор
+        хагалахад л хангалттай. Энэ хүснэгт нь тэр давхаргын спек.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 9 -->
+  <section id="vsfvg">
+    <div class="eyebrow">Харьцуулалт</div>
+    <h2>OB эсвэл FVG — хэзээ алийг?</h2>
+
+    <p>
+      Хоёул ижил импульсээс үүсдэг ч өөр зүйл хэмждэг. OB нь <em>ордер хаана
+      байсан</em>, FVG нь <em>үнэ хаана хэт хурдан явсан</em>.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th></th><th>Order Block</th><th>Fair Value Gap</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Эх</strong></td><td>Импульсийн өмнөх сүүлчийн эсрэг лаа</td><td>3-лааны хоорондох дүүрээгүй зай</td></tr>
+          <tr><td><strong>Илрэх цаг</strong></td><td>Бүтэц эвдэгдэх мөчид</td><td>Импульсээс 1 бар хойно</td></tr>
+          <tr><td><strong>Хэмжээ</strong></td><td>Том, тодорхой</td><td>Жижиг, бага TF-д маш олон</td></tr>
+          <tr><td><strong>Хүрэх магадлал</strong></td><td>Дунд</td><td>Өндөр (үнэ gap-ыг дүүргэх хандлагатай)</td></tr>
+          <tr><td><strong>Хэзээ дээр</strong></td><td>Тодорхой bias, тэвчээртэй limit</td><td>Хурдан scalp, entry түргэн хэрэгтэй</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Хамгийн хүчтэй confluence</span>
+      <p>
+        <strong>OB ба FVG давхцах</strong> үед. Displacement нь FVG үлдээж, тэр FVG
+        нь OB зонтой хэсэгчлэн давхцаж байвал энэ нь ICT-ийн хамгийн өндөр
+        магадлалтай entry зурвас. Хоёр өөр шалтгаанаар ижил үнэ дээр ордер хүлээж байна.
+        ICT-д энэ давхцлыг <strong>Unicorn</strong> гэж нэрлэдэг.
+      </p>
+    </div>
+
+    <div class="note">
+      <span class="tag">FVG-ийн гүнзгий хэсэг — курст бий</span>
+      <p>
+        Энэ хичээл FVG-г зөвхөн <em>OB-той харьцуулах</em> хэмжээнд авсан. FVG-ийн
+        өөрийн гүнзгий сэдвүүд нь <strong>PriceAction Module 4</strong>-д бүрэн бий,
+        тэр дундаа энэ хичээлд <em>байхгүй</em> хоёр зүйл:
+      </p>
+      <ul>
+        <li><strong>BPR</strong> (Balanced Price Range) — <strong>4.4</strong>.
+          Эсрэг чиглэлийн хоёр FVG давхцах муж; OB∩FVG давхцлаас өөр үзэгдэл.</li>
+        <li><strong>Inversion FVG (IFVG)</strong> — <strong>4.5</strong>.
+          <em>“Ялагдсан эрэлт → нийлүүлэлт болно”</em> — FVG-ийн breaker хувилбар,
+          дээрх role-flip логикийн яг ижил зарчим.</li>
+      </ul>
+      <p>
+        Мөн <strong>4.2</strong> цоорхойн чанарын 6 шалгуур, <strong>4.3</strong> CE-ийн
+        хоёр философи (aggressive first-touch vs conservative CE), <strong>4.6</strong>
+        “бүх цоорхой дүүрдэг” гэсэн алдаа.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ regime -->
+  <section id="regime">
+    <div class="eyebrow">Контекст</div>
+    <h2>Бүтэлгүйтэл ба regime</h2>
+
+    <h3>Бүтэлгүйтэл нь мэдээлэл</h3>
+    <p>
+      OB эвдэгдэх нь “индикатор ажиллахгүй” гэсэн үг биш. Тэр нь
+      <strong>дараагийн setup-ийн дохио</strong>: эвдэгдсэн OB нь breaker болж,
+      эсрэг тал нь одоо арилжаалах зурвас. Мэргэжлийн болон эрдэмтэн трейдерийн
+      ялгаа нь энд — алдагдлыг мэдээлэл болгож хувиргах эсэх.
+    </p>
+    <p>OB бүтэлгүйтэх гурван шалтгаан, гурвуулаа <em>урьдчилан</em> харагддаг:</p>
+    <ul>
+      <li><strong>HTF контекст хувирсан</strong> — зон үүсэх үед 4H bullish, entry-ийн
+        үед bearish. <em>Засал:</em> үүссэн үеийн bias-ыг биш, <strong>entry-ийн
+        үеийн</strong> bias-ыг шалга.</li>
+      <li><strong>Likvидность цэвэрлэгдээгүй</strong> — түлш байгаагүй тул тэр импульс
+        нь retail momentum. <em>Засал:</em> sweep-гүй OB-ыг Mitigation Block гэж
+        зэрэглэ, бүтэн risk-ээр орохгүй.</li>
+      <li><strong>Range-ийн дундад байсан</strong> — <em>Засал:</em> хилээс гуравны
+        нэгээс дотогш OB-ыг бүрэн үл тоо.</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо</span>
+      <p>
+        Режимийн таксономи нь курст бүрэн бий: <strong>PriceAction 2.5</strong>
+        (TRENDING → EXHAUSTION → REVERSAL гурван үе), <strong>2.6</strong> (range
+        таних checklist), мөн бүх зүйлийг захирдаг тэр мөр —
+        <em>“Эхлээд режимийг тодорхойл, дараа нь хэрэгслээ сонго.”</em>
+        Доорх хүснэгт нь түүний <strong>OB-д онцгой</strong> тохиолдол:
+        режим тус бүрд аль OB ажиллаж, аль нь шуугиан вэ.
+      </p>
+    </div>
+
+    <h3>Regime дагаж OB өөрөөр ажилладаг</h3>
+
+    <figure class="duo" id="fig-regime">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">Trending — OB ажиллана</div>
+          <svg data-chart="trendOB" role="img" aria-label="Дээшилсэн трендэд буулт дээр үүссэн Order Block хүндэтгэгдэж үнэ дахин дээшилнэ"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">Ranging — дундах OB бүтэлгүйтнэ</div>
+          <svg data-chart="rangeOB" role="img" aria-label="Хэлбэлзлийн зурваст range доод хилийн Order Block ажиллаж, дундах Order Block-ыг үнэ шууд туулж гарна"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Зүүн: трендийн чиглэлд, буулт дээрх OB — <b>хүндэтгэгдэнэ</b>.
+        Баруун: range-ийн доод хилийн OB ажиллаж, <b>дундах OB-ыг үнэ шууд цоолж</b>
+        гарна. Ижил геометр, өөр контекст, эсрэг үр дүн.
+      </figcaption>
+    </figure>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Regime</th><th>Аль OB ажиллана</th><th>Аль нь шуугиан</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Trending</strong></td>
+            <td>Буулт дээрх OB, трендийн чиглэлд</td>
+            <td>Counter-trend OB — “эргэлт” хайх</td>
+          </tr>
+          <tr>
+            <td><strong>Ranging</strong></td>
+            <td>Range-ийн хилийн OB (гадна гуравны нэг)</td>
+            <td>Range дундах OB</td>
+          </tr>
+          <tr>
+            <td><strong>Expansion</strong> (шинэ BOS)</td>
+            <td>Тухайн импульсийн шинэ OB</td>
+            <td>Хуучин OB — контекст өөрчлөгдсөн</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Кодод аль хэдийн бий</span>
+      <p>
+        Файлд <code>regimeBull</code> / <code>regimeBear</code> нь 1H SR zone
+        break-ээс тооцогддог бөгөөд <code>requireRegimeForEntry</code> нь түүнийг
+        entry-д шаардах эсэхийг шийддэг. Мөн <code>ictStructDir</code> нь chart-TF
+        структурын чиглэлийг хэлнэ. <strong>OB-ыг тэр хоёрын аль нэгтэй нь таарсан
+        үед л ав</strong> — энэ нь дээрх хүснэгтийн “аль нь шуугиан” баганыг кодоор
+        шүүх хамгийн хямд арга.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ backtest -->
+  <section id="backtest">
+    <div class="eyebrow">Хэмжилт</div>
+    <h2>Edge-ийг хэрхэн хэмжих</h2>
+
+    <p>
+      “OB ажилладаг” гэдэг нь мэдрэмж биш, хэмжилт. Гэхдээ <strong>winrate нь
+      хэмжилт биш</strong> — 90% WR нь алдагдалтай, 35% WR нь ашигтай байж бүрэн
+      боломжтой. Хэмжих ёстой зүйл нь <em>Rsv</em>.
+    </p>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо — Module 11 бүхэлдээ</span>
+      <p>
+        Хэмжилтийн арга зүй курст бүрэн бий: <strong>11.1</strong> гол метрик
+        (<em>“ХҮЛЭЭЛТ ← ЗӨВХӨН ЭНЭ ТОО ЧУХАЛ”</em>), <strong>11.2</strong> MAE/MFE,
+        <strong>11.3</strong> sample size, <strong>11.4</strong> нэг хувьсагчийн A/B,
+        <strong>11.5</strong> хэвлэмэл журнал (setup, session, checklist оноо,
+        MAE/MFE, дүрэм баримталсан эсэх), <strong>11.6</strong> долоо хоногийн
+        шалгалт. Мөн <strong>8.4</strong> нь gross vs net.
+      </p>
+      <p>
+        Тиймээс энд зөвхөн <strong>OB-д онцгой</strong> хоёр зүйл: журналд
+        <em>нэмж</em> бичих 6 талбар, ба Rsv-ийн бодит тооцоо.
+      </p>
+    </div>
+
+    <h3>Журналд нэмж бичих (11.5-ын талбаруудаас гадна)</h3>
+    <ul>
+      <li><strong>OB tier</strong> A/B/C — зэрэглэл жинхэнэ ялгаа гаргаж байна уу?</li>
+      <li><strong>Killzone</strong> LDN / NY AM / NY PM / бусад — цагийн edge бодит уу?</li>
+      <li><strong>FVG давхцсан эсэх</strong> — “хамгийн хүчтэй confluence” батлагдана уу?</li>
+      <li><strong>Virgin эсэх</strong> (CE хүрсэн эсэх) — 2 дахь touch хэр сул?</li>
+      <li><strong>Nested эсэх</strong> — MTF-ийн RR ашиг практикт биелдэг үү?</li>
+      <li><strong>SL clamp болсон эсэх</strong> — Reject vs Clamp-ийн бодит өртөг</li>
+    </ul>
+
+    <h3>Хэмжих 4 тоо</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Тоо</th><th>Тооцоо</th><th>Юу хэлнэ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>WR</strong></td><td class="num">W ÷ T</td><td>Ганцаараа юу ч хэлэхгүй</td></tr>
+          <tr><td><strong>R</strong></td><td class="num">дундаж ашиг ÷ дундаж алдагдал</td><td>R &lt; 0.20 = алдагдлын сүүл тарган</td></tr>
+          <tr><td><strong>BE</strong></td><td class="num">100 ÷ (1 + R)</td><td>Зөвхөн тэнцэхийн тулд хэрэгтэй WR</td></tr>
+          <tr><td><strong>Rsv</strong></td><td class="num">WR − BE</td><td><strong>Бүхнийг шийддэг тоо.</strong> &gt; 0 бол edge бий</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Жишээ: WR 35%, R 2.5 → BE = 100/3.5 = 28.6% → Rsv = <strong>+6.4pp</strong> →
+      ашигтай. WR 90%, R 0.08 → BE = 92.6% → Rsv = <strong>−2.6pp</strong> →
+      алдагдалтай. Тиймээс winrate-аар стратеги харьцуулах нь утгагүй.
+    </p>
+
+    <h3>Sample size — хоёр өөр босго, андуурч болохгүй</h3>
+    <p>
+      <strong>PriceAction 11.3</strong> нь маш тодорхой: <code>&lt;30 trade</code> нь
+      <em>“өгөгдөл БИШ, шум”</em>. Тэр нь <strong>шийдвэр гаргах</strong> босго.
+      Индикаторын <code>ictStatsMinSample = 8</code> нь өөр зүйл —
+      <strong>харуулах</strong> босго: 8-аас доош cohort-ыг panel нь бүдэг
+      өнгөөр зурж “энэ тоонд бүү найд” гэж хэлдэг. Хоёрыг андуурвал 12 trade-ийн
+      cohort-ыг шийдвэрийн үндэс болгож эхэлнэ.
+    </p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Trade тоо</th><th>Юу гэж унших</th><th>Юу хийж болох</th></tr></thead>
+        <tbody>
+          <tr><td class="num">&lt; 8</td><td>Тоо ч биш</td><td>Panel-д бүдэг — үл хэрэгс</td></tr>
+          <tr><td class="num">8 – 29</td><td>Чиг хандлага</td><td>Ажиглалт бичих, өөрчлөлт хийхгүй</td></tr>
+          <tr><td class="num">30 – 99</td><td>Өгөгдөл</td><td>Нэг хувьсагчийн шийдвэр (PA 11.4)</td></tr>
+          <tr><td class="num">100+</td><td>Бат өгөгдөл</td><td>Cohort хооронд харьцуулах</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>8 trade-ийн 100% WR нь signal <strong>БИШ</strong>.</p>
+
+    <div class="note warn">
+      <span class="tag">3 хамгийн үнэтэй хэмжилтийн алдаа</span>
+      <ul>
+        <li><strong>Нүдээр backtest.</strong> Chart дээр гараар OB зурж “ажиллаж
+          байна” гэж бодох нь хамгийн хүчтэй уруу таталт — сүүлээр харахад
+          <em>ажилласан</em> зонууд л анзаарагддаг.</li>
+        <li><strong>Хэт олон cohort.</strong> 20 cohort хагалбал нэг нь санамсаргүй
+          сайхан харагдана. Cohort-ыг <em>урьдчилж</em> шийд, дараа нь бус.</li>
+        <li><strong>Зардалгүй хэмжих.</strong> XAU 1m дээр spread нь TP1-ийн ~80%-ийг
+          иддэг. Gross winrate нь тэр TF арилжаалж болох эсэхийг огт хэлэхгүй.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <span class="tag">KHAN ICT PRO-той холбоо</span>
+      <p>
+        Stats engine нь <code>R</code>, <code>BE</code>, <code>Rsv</code>, <code>Net%</code>
+        дөрвүүлээ аль хэдийн бодож, cost-ыг <code>f_trade_cost_pct()</code>-аар
+        хасдаг — тэгэхээр дээрх математик хийгдсэн. Дутуу нь <strong>cohort</strong>:
+        <code>ictStatsSplit</code> нь Killzone / Setup / Sweep гэсэн хуваалтыг
+        төлөвлөсөн, <code>f_ict_tag()</code> нь trade тутмын шинжийг нэг int-д
+        хийхээр бэлдсэн. Мөн <code>ictStatsMinSample = 8</code> нь “бүдэг харуул”
+        босго — <em>шийдвэр гаргах</em> босго нь 30, тэр хоёрыг андуурч болохгүй.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 10 -->
+  <section id="mistakes">
+    <div class="eyebrow">Диагностик</div>
+    <h2>7 нийтлэг алдаа</h2>
+
+    <ol class="steps">
+      <li><h3>Бүтэц эвдээгүй лааг OB гэж авах</h3>
+        <p>Displacement + BOS/CHoCH байхгүй бол тэр ердөө нэг лаа. Chart дээр эдгээр нь хэдэн зуун байдаг.</p></li>
+      <li><h3>Wick-ээр mitigation шийдэх</h3>
+        <p>Хөгжиж байгаа лааны wick нь зоныг хуурамчаар “устгадаг”. Зөвхөн батлагдсан хаалтаар шийд.</p></li>
+      <li><h3>Дүүрсэн OB-ыг дахин хэрэглэх</h3>
+        <p>CE-д хүрсэн зон нь “хэрэглэгдсэн”. Хоёр дахь touch нь статистикаар мэдэгдэхүйц сул.</p></li>
+      <li><h3>Killzone-оос гадуур арилжаалах</h3>
+        <p>London 02:00–05:00, NY AM 07:00–10:00 (NY цагаар). Эдгээрээс гадуур институцийн эрчим байхгүй.</p></li>
+      <li><h3>Premium-д long, discount-д short</h3>
+        <p>Dealing range-ийн зөв тал дээр байгаа OB-ыг л ав. Хямд байхад худалдан ав.</p></li>
+      <li><h3>Хэт бага TF-ийн OB-д HTF bias-гүй орох</h3>
+        <p>1m OB нь 4H bias-ыг эсэргүүцэж байвал шуугиан. HTF-ээс доош уруудаж bias бүтээ.</p></li>
+      <li><h3>SL-ыг ATR cap руу clamp хийх</h3>
+        <p>Зоны гадна тавих ёстой SL-ыг хиймлээр нарийсгавал дээрмийн зурвас дотор орно.</p></li>
+    </ol>
+  </section>
+
+  <!-- ============================================ 11 -->
+  <section id="code">
+    <div class="eyebrow">Хэрэгжүүлэлт</div>
+    <h2>KHAN ICT PRO дотор хэрхэн хийгдсэн</h2>
+
+    <p>
+      §I6 хэсэг нь дээрх бүх дүрмийг кодоор шалгадаг. Гол функц нь
+      <code>f_ict_ob_offset()</code> — эвдрэлийн барнаас хойш явж
+      <strong>сүүлчийн эсрэг лааг</strong> хайна, олдохгүй бол
+      <strong>хамгийн эрс лаа</strong> руу fallback хийнэ.
+    </p>
+
+<pre><code><span class="cmt">// Сүүлчийн эсрэг лаа = ICT; олдохгүй бол хамгийн эрс лаа = fallback.
+// 300 бар нь runaway хамгаалалт, тохируулга биш.</span>
+f_ict_ob_offset(<span class="kw">bool</span> _wantDownCandle, <span class="kw">int</span> _fromBar) =&gt;
+    <span class="kw">int</span> scan = math.min(bar_index - _fromBar, 300)
+    <span class="kw">int</span> off  = na
+    <span class="kw">if</span> scan &gt;= 0
+        <span class="kw">for</span> i = 0 <span class="kw">to</span> scan          <span class="cmt">// 0 = эвдрэлийн бар, хойш явна</span>
+            <span class="kw">if</span> na(off) <span class="kw">and</span> (_wantDownCandle ? close[i] &lt; open[i] : close[i] &gt; open[i])
+                off := i
+        <span class="kw">if</span> na(off)                     <span class="cmt">// цэвэр нэг чиглэлт импульс</span>
+            <span class="cmt">// ... хамгийн эрс low/high-тай лааг ол</span>
+    off</code></pre>
+
+    <h3>Дүрэм → код</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Хичээлийн дүрэм</th><th>Кодод хаана</th></tr></thead>
+        <tbody>
+          <tr><td>Displacement ≥ N×ATR, биет ≥60%</td><td><code>ictDispATRmultEff</code> · <code>ictDispBodyPctEff</code></td></tr>
+          <tr><td>Зөвхөн BOS/CHoCH дээр OB үүснэ</td><td><code>if (ictBosUp or ictChochUp)</code></td></tr>
+          <tr><td>Бүтэн хүрээгээр зурна</td><td><code>high[_off]</code> · <code>low[_off]</code></td></tr>
+          <tr><td>CE = 50%</td><td><code>ce = (high+low)/2</code></td></tr>
+          <tr><td>Mitigation зөвхөн хаалтаар</td><td><code>if barstate.isconfirmed</code> дотор</td></tr>
+          <tr><td>Breaker role flip</td><td><code>ictBreakerOn</code> · <code>f_ict_paint()</code></td></tr>
+          <tr><td>Зоны хугацаа хэтрэлт</td><td><code>ictObMaxBarsEff</code> · <code>f_ict_prune()</code></td></tr>
+          <tr><td>Хэт олон зон хуримтлахгүй</td><td><code>ictObKeepEff</code> (keep-N)</td></tr>
+          <tr><td>Үнэ зон дотор байна уу</td><td><code>f_ict_zone_touch()</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Яагаад keep-N зайлшгүй вэ</span>
+      <p>
+        Event дээр, түүх дээр зурдаг модуль нь keep-N байхгүй бол хэдэн мянган бар
+        дотор TradingView-ийн 500 объектын хязгаарыг дүүргэнэ. Энэ нь
+        оптимизаци биш — <strong>шаардлага</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 12 -->
+  <section id="checklist">
+    <div class="eyebrow">Хэрэглэх</div>
+    <h2>Практик checklist</h2>
+
+    <h3>А. Хүчинтэй эсэх — бүгд “тийм” байх ёстой</h3>
+    <ul class="check">
+      <li>Likvидность цэвэрлэгдсэн үү (PDH/PDL, equal high/low, эсвэл swing wick)?</li>
+      <li>Displacement нь ATR-аас том, биет ≥60% байсан уу?</li>
+      <li>Тэр импульс swing-ийг <strong>хаалтаараа</strong> эвдсэн үү (wick биш)?</li>
+      <li>Зон нь дүүрээгүй (CE-д хүрээгүй) хэвээр байна уу?</li>
+      <li>Regime зөв уу — trending бол трендийн чиглэлд, range бол хилд?</li>
+    </ul>
+
+    <h3>Б. Зэрэглэл — оноо тоол (тус бүр 1)</h3>
+    <ul class="check">
+      <li>Virgin — CE-д хүрээгүй</li>
+      <li>FVG-тэй давхцаж байна</li>
+      <li>Liquidity түвшинд үүссэн (PDH/PDL/EQH/EQL)</li>
+      <li>Killzone дотор үүссэн (London / NY AM)</li>
+      <li>HTF (4H/1H) bias тааруулж байна</li>
+      <li><em>Бонус:</em> HTF зон дотор nested (MTF)</li>
+    </ul>
+    <p>
+      <strong>5–6 → Tier A</strong> бүтэн risk · <strong>3–4 → Tier B</strong> хагас risk ·
+      <strong>≤2 → Tier C</strong> арилжаалахгүй.
+    </p>
+
+    <h3>В. Гүйцэтгэл</h3>
+    <ul class="check">
+      <li>Entry нь CE (50%) дээр limit-ээр тавигдсан уу?</li>
+      <li>SL нь зоны <em>гадна</em>, buffer-тэй уу — ATR cap руу clamp хийгээгүй уу?</li>
+      <li>Nesting боломжтой бол LTF OB-оор нарийсгасан уу?</li>
+      <li>TP нь эсрэг талын жинхэнэ liquidity дээр байна уу (dахин 3R гэсэн таамаг биш)?</li>
+      <li>Trade-ийн шинжүүдийг бичиж авсан уу (tier · killzone · FVG · virgin)?</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Дараагийн хичээл</span>
+      <p>
+        <strong>Хичээл 02 — ICT-ийн цаг.</strong> Дээр killzone-ийн цагийг дурдсан
+        (London 02:00–05:00, NY AM 07:00–10:00). Тэр хичээл нь бүрэн системийг
+        өгнө: Silver Bullet, Macro цонх (:50–:10), CBDR + SD projection, DST-ийн
+        математик, ба AMD-ийг цаг дээр буулгах.
+      </p>
+    </div>
+  </section>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="ict-00-index.html">← Цувралын агуулга</a>
+    <span class="cur">Хичээл 01 · Order Block</span>
+    <a href="ict-02-time.html">Хичээл 02 · ICT-ийн цаг →</a>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT PRO · Хичээл 01</span>
+    <span>Order Block</span>
+  </footer>
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  const SPECS = {};
+
+  /* A: ICT — last opposing candle */
+  SPECS.defsICT = {
+    w: 420, h: 300, padR: 86,
+    candles: [
+      [100, 101.4, 98.8, 99.4], [99.4, 100.2, 96.9, 97.4], [97.4, 98.1, 95.2, 95.8],
+      [95.8, 96.4, 94.0, 94.4],                                  /* 4: last down candle = OB */
+      [94.4, 99.4, 94.1, 99.0],                                  /* 5: displacement */
+      [99.0, 103.6, 98.7, 103.2],
+      [103.2, 104.0, 100.4, 101.0], [101.0, 101.6, 98.2, 98.6]
+    ],
+    zones: [{ from: 3, to: 7, top: 96.4, bot: 94.0, color: 'blue', label: 'OB' }],
+    levels: [{ y: 101.4, color: 'ink3', label: 'swing high' }],
+    marks: [{ i: 3, text: 'OB', pos: 'below', color: 'blue' }, { i: 5, text: 'BOS', color: 'ink' }]
+  };
+
+  /* B: LuxAlgo — most extreme candle in the leg */
+  SPECS.defsLux = {
+    w: 420, h: 300, padR: 86,
+    candles: SPECS.defsICT.candles,
+    zones: [{ from: 3, to: 7, top: 94.4, bot: 94.0, color: 'amber', fill: .2, label: 'OB' }],
+    levels: [{ y: 101.4, color: 'ink3', label: 'swing high' }],
+    marks: [{ i: 3, text: 'lowest', pos: 'below', color: 'amber' }, { i: 5, text: 'BOS', color: 'ink' }]
+  };
+
+  /* validity: weak vs valid */
+  SPECS.validity = {
+    w: 720, h: 330,
+    candles: [
+      [100, 100.6, 99.2, 99.5], [99.5, 100.0, 98.6, 98.9],
+      [98.9, 99.6, 98.5, 99.3], [99.3, 100.1, 99.0, 99.7],   /* weak drift, no BOS */
+      [99.7, 100.3, 99.4, 99.9],
+      null,
+      [99.9, 100.4, 97.9, 98.2], [98.2, 98.7, 96.6, 96.9],
+      [96.9, 97.3, 95.9, 96.1],                               /* 8: OB */
+      [96.1, 101.9, 95.9, 101.5],                             /* 9: displacement */
+      [101.5, 102.6, 101.0, 102.2]
+    ],
+    zones: [
+      { from: 2, to: 4, top: 99.6, bot: 98.5, color: 'bear', fill: .1, dash: '4 3', label: 'ХҮЧИНГҮЙ' },
+      { from: 8, to: 10, top: 97.3, bot: 95.9, color: 'blue', label: 'ХҮЧИНТЭЙ OB' }
+    ],
+    levels: [{ y: 100.6, from: 0, to: 4, color: 'ink3', dash: '3 3' }, { y: 100.4, from: 6, to: 10, color: 'ink3', label: 'swing high' }],
+    marks: [{ i: 3, text: 'сул', color: 'bear' }, { i: 9, text: 'BOS', color: 'ink' }]
+  };
+
+  /* bullish full sequence */
+  SPECS.bullish = {
+    w: 740, h: 360,
+    candles: [
+      [100, 100.8, 99.0, 99.3], [99.3, 99.8, 97.6, 97.9],
+      [97.9, 98.3, 95.4, 96.6],                                /* 2: sweep — wick below, close back */
+      [96.6, 97.0, 96.0, 96.2],                                /* 3: OB (last down candle) */
+      [96.2, 101.4, 96.0, 101.0],                              /* 4: displacement / BOS */
+      [101.0, 102.2, 100.6, 101.8],
+      [101.8, 102.0, 98.4, 98.8],                              /* 6: retrace */
+      [98.8, 99.2, 96.8, 97.1],                                /* 7: tag the zone */
+      [97.1, 99.6, 97.0, 99.4],                                /* 8: entry & go */
+      [99.4, 102.4, 99.2, 102.0]
+    ],
+    zones: [{ from: 3, to: 9, top: 97.0, bot: 96.0, color: 'blue', ce: true, label: 'OB' }],
+    levels: [
+      { y: 100.8, color: 'ink3', label: 'swing high' },
+      { y: 95.9, from: 0, to: 3, color: 'bear', dash: '3 3', label: 'liq' }
+    ],
+    marks: [
+      { i: 2, text: '1 sweep', pos: 'below', color: 'bear' },
+      { i: 3, text: '2 OB', pos: 'below', color: 'blue' },
+      { i: 4, text: '3 BOS', color: 'ink' },
+      { i: 7, text: '4', pos: 'below', color: 'ink3' },
+      { i: 8, text: '5 entry', pos: 'below', color: 'bull' }
+    ]
+  };
+
+  /* bearish mirror */
+  SPECS.bearish = {
+    w: 740, h: 340,
+    candles: [
+      [100, 101.2, 99.6, 100.9], [100.9, 102.6, 100.6, 102.2],
+      [102.2, 104.8, 102.0, 103.4],                            /* sweep above */
+      [103.4, 104.0, 103.2, 103.9],                            /* OB (last up candle) */
+      [103.9, 104.1, 99.0, 99.4],                              /* displacement down */
+      [99.4, 99.8, 98.2, 98.5],
+      [98.5, 102.0, 98.3, 101.6],                              /* retrace up */
+      [101.6, 104.0, 101.4, 103.5],                            /* tag zone */
+      [103.5, 103.7, 100.6, 100.9],
+      [100.9, 101.2, 98.0, 98.3]
+    ],
+    zones: [{ from: 3, to: 9, top: 104.0, bot: 103.2, color: 'blue', ce: true, label: 'OB' }],
+    levels: [
+      { y: 99.6, color: 'ink3', label: 'swing low' },
+      { y: 104.8, from: 0, to: 3, color: 'bull', dash: '3 3', label: 'liq' }
+    ],
+    marks: [
+      { i: 2, text: 'sweep', color: 'bull' },
+      { i: 3, text: 'OB', color: 'blue' },
+      { i: 4, text: 'BOS', pos: 'below', color: 'ink' },
+      { i: 7, text: 'entry', color: 'bear' }
+    ]
+  };
+
+  /* zone anatomy */
+  SPECS.anatomy = {
+    w: 700, h: 300, padR: 150,
+    candles: [
+      [99.0, 99.4, 96.2, 96.6],
+      [96.6, 97.2, 96.0, 96.3],                                /* OB candle */
+      [96.3, 100.8, 96.1, 100.4],
+      [100.4, 101.2, 98.6, 98.9],
+      [98.9, 99.1, 96.9, 97.2],
+      [97.2, 99.8, 97.1, 99.6]
+    ],
+    zones: [{ from: 1, to: 5, top: 97.2, bot: 96.0, color: 'blue', ce: true, label: 'дээд ирмэг' }],
+    levels: [
+      { y: 96.0, color: 'blue', dash: '0', w: 1.4, label: 'доод ирмэг' },
+      { y: 95.55, color: 'bear', dash: '5 3', label: 'SL + buffer' }
+    ],
+    marks: [{ i: 1, text: 'OB', pos: 'below', color: 'blue' }]
+  };
+
+  /* breaker flip */
+  SPECS.breaker = {
+    w: 740, h: 340,
+    candles: [
+      [99.4, 99.8, 97.0, 97.3],
+      [97.3, 97.8, 96.6, 96.9],                                /* 1: OB */
+      [96.9, 101.4, 96.7, 101.0],                              /* 2: BOS up */
+      [101.0, 101.6, 99.4, 99.7],
+      [99.7, 99.9, 97.2, 97.5],
+      [97.5, 97.9, 95.4, 95.6],                                /* 5: CLOSE below zone -> mitigated */
+      [95.6, 96.0, 94.2, 94.5],
+      [94.5, 97.6, 94.4, 97.3],                                /* 7: return to zone */
+      [97.3, 97.7, 95.0, 95.2],                                /* 8: rejected -> short */
+      [95.2, 95.5, 92.8, 93.1]
+    ],
+    zones: [
+      { from: 1, to: 4, top: 97.8, bot: 96.6, color: 'blue', label: 'OB (support)' },
+      { from: 6, to: 9, top: 97.8, bot: 96.6, color: 'bear', fill: .16, label: 'BREAKER' }
+    ],
+    marks: [
+      { i: 1, text: 'OB', pos: 'below', color: 'blue' },
+      { i: 5, text: 'mitigated', pos: 'below', color: 'bear' },
+      { i: 8, text: 'short', color: 'bear' }
+    ]
+  };
+
+  /* execution map */
+  SPECS.execution = {
+    w: 700, h: 380, padR: 132,
+    candles: [
+      [99.2, 99.6, 96.4, 96.8],
+      [96.8, 97.4, 96.2, 96.5],                                /* OB */
+      [96.5, 101.0, 96.3, 100.6],
+      [100.6, 101.4, 98.2, 98.5],
+      [98.5, 98.8, 97.0, 97.2],                                /* tag CE */
+      [97.2, 99.4, 97.1, 99.2],
+      [99.2, 102.0, 99.0, 101.8],
+      [101.8, 104.2, 101.6, 104.0]
+    ],
+    zones: [{ from: 1, to: 7, top: 97.4, bot: 96.2, color: 'blue', ce: true }],
+    levels: [
+      { y: 95.75, color: 'bear', dash: '5 3', w: 1.3, label: 'SL' },
+      { y: 99.05, color: 'amber', dash: '4 3', label: 'TP1  ≈1R' },
+      { y: 101.4, color: 'amber', dash: '4 3', label: 'TP2  PDH' },
+      { y: 104.2, color: 'bull', dash: '4 3', w: 1.3, label: 'TP3  swing' }
+    ],
+    marks: [{ i: 4, text: 'entry', pos: 'below', color: 'bull' }]
+  };
+
+  /* Mitigation Block — a FAILED higher high (no sweep), then a downside break.
+     The block is the last up candle of that failed leg. */
+  SPECS.mitigation = {
+    w: 420, h: 320, padR: 92,
+    candles: [
+      [100, 101.4, 99.7, 101.2],
+      [101.2, 103.4, 101.0, 103.1],                            /* 1: the real HH */
+      [103.1, 103.3, 101.4, 101.7],
+      [101.7, 102.0, 100.6, 100.9],
+      [101.0, 102.9, 100.9, 102.7],                            /* 4: lower high -> MB */
+      [102.7, 102.9, 99.9, 100.2],                             /* 5: break below the low */
+      [100.2, 100.6, 98.4, 98.7],
+      [98.7, 102.0, 98.5, 101.7],                              /* 7: retrace into MB */
+      [101.7, 102.3, 99.5, 99.8],                              /* 8: rejected */
+      [99.8, 100.1, 97.6, 97.9]
+    ],
+    zones: [{ from: 4, to: 9, top: 102.9, bot: 100.9, color: 'amber', ce: true, label: 'MB' }],
+    levels: [
+      { y: 103.4, from: 0, to: 5, color: 'ink3', label: 'HH' },
+      { y: 100.6, from: 2, to: 6, color: 'ink3', dash: '2 3' }
+    ],
+    marks: [
+      { i: 4, text: 'LH', color: 'amber' },
+      { i: 5, text: 'break', pos: 'below', color: 'ink' },
+      { i: 8, text: 'short', color: 'bear' }
+    ]
+  };
+
+  /* Rejection Block — wick cluster, NOT bodies. Zone runs body-top -> wick extreme. */
+  SPECS.rejection = {
+    w: 420, h: 320, padR: 92,
+    candles: [
+      [100, 100.6, 99.4, 100.2],
+      [100.2, 103.2, 100.0, 100.5],                            /* long upper wicks */
+      [100.5, 103.0, 100.3, 100.8],
+      [100.8, 103.3, 100.6, 101.0],
+      [101.0, 101.4, 99.6, 99.9],
+      [99.9, 102.9, 99.7, 100.1],                              /* 5: retest of the wick zone */
+      [100.1, 100.4, 97.8, 98.1]
+    ],
+    zones: [{ from: 1, to: 6, top: 103.3, bot: 101.0, color: 'bear', ce: true, label: 'RB' }],
+    marks: [
+      { i: 3, text: 'wick', color: 'bear' },
+      { i: 5, text: 'reject', color: 'bear' }
+    ]
+  };
+
+  /* MTF panel A — the 4H zone. Wide, so the stop has to clear the whole thing. */
+  SPECS.htfZone = {
+    w: 420, h: 330, padR: 96,
+    candles: [
+      [100, 102, 97, 98], [98, 99, 94, 95],
+      [95, 96, 92.5, 93],                                      /* 2: 4H OB */
+      [93, 104, 92.8, 103],                                    /* 3: displacement */
+      [103, 106, 102, 105],
+      [105, 106, 98, 99],
+      [99, 100, 95.5, 96],                                     /* 6: tags the zone top */
+      [96, 101, 95.8, 100.5]
+    ],
+    zones: [{ from: 2, to: 7, top: 96, bot: 92.5, color: 'blue', ce: true, label: '4H OB' }],
+    levels: [{ y: 91.8, color: 'bear', dash: '5 3', w: 1.3, label: 'SL — өргөн' }],
+    marks: [{ i: 2, text: 'OB', pos: 'below', color: 'blue' }, { i: 6, text: 'tag', pos: 'below', color: 'ink3' }]
+  };
+
+  /* MTF panel B — the same zone, zoomed. A 5m OB forms INSIDE it. */
+  SPECS.ltfRefine = {
+    w: 420, h: 330, padR: 96, yPad: .06,
+    candles: [
+      [96.0, 96.2, 95.3, 95.4],
+      [95.4, 95.5, 94.7, 94.8],
+      [94.8, 94.9, 94.4, 94.5],                                /* 2: 5m OB */
+      [94.5, 96.0, 94.45, 95.9],                               /* 3: 5m displacement */
+      [95.9, 96.3, 95.5, 96.1],
+      [96.1, 96.2, 94.9, 95.0],                                /* 5: retrace to the 5m OB */
+      [95.0, 96.6, 94.95, 96.5]
+    ],
+    zones: [
+      { from: 0, to: 6, top: 96.0, bot: 93.9, color: 'ink3', fill: .07, dash: '3 3', label: '4H OB' },
+      { from: 2, to: 6, top: 94.9, bot: 94.4, color: 'blue', ce: true, label: '5m OB' }
+    ],
+    levels: [{ y: 94.2, color: 'bear', dash: '5 3', w: 1.3, label: 'SL — нарийн' }],
+    marks: [{ i: 2, text: 'OB', pos: 'below', color: 'blue' }, { i: 5, text: 'entry', pos: 'below', color: 'bull' }]
+  };
+
+  /* Regime A — trending: the pullback OB is respected. */
+  SPECS.trendOB = {
+    w: 420, h: 320, padR: 88,
+    candles: [
+      [98, 99.4, 97.6, 99.2],
+      [99.2, 101.4, 99.0, 101.1],
+      [101.1, 101.5, 99.8, 100.1],                             /* 2: OB */
+      [100.1, 103.4, 99.9, 103.1],
+      [103.1, 104.2, 102.4, 102.7],
+      [102.7, 102.9, 100.6, 100.9],                            /* 5: retrace into OB */
+      [100.9, 103.6, 100.7, 103.4],
+      [103.4, 105.8, 103.2, 105.5]
+    ],
+    zones: [{ from: 2, to: 7, top: 101.5, bot: 99.8, color: 'bull', ce: true, label: 'OB ✓' }],
+    marks: [{ i: 2, text: 'OB', pos: 'below', color: 'bull' }, { i: 5, text: 'hold', pos: 'below', color: 'bull' }]
+  };
+
+  /* Regime B — ranging: the boundary OB holds, the mid-range OB is cut straight through. */
+  SPECS.rangeOB = {
+    w: 420, h: 320, padR: 88,
+    candles: [
+      [102.6, 103.0, 101.4, 101.7],
+      [101.7, 102.0, 99.4, 99.7],
+      [99.7, 100.0, 98.2, 98.5],                               /* 2: OB at the range low */
+      [98.5, 101.4, 98.3, 101.1],
+      [101.1, 101.6, 100.2, 100.5],                            /* 4: mid-range OB */
+      [100.5, 102.4, 100.3, 102.2],
+      [102.2, 102.9, 101.0, 101.3],
+      [101.3, 101.6, 99.8, 100.0],                             /* 7: slices the mid OB */
+      [100.0, 100.3, 98.6, 98.9]
+    ],
+    zones: [
+      { from: 4, to: 8, top: 101.6, bot: 100.2, color: 'bear', fill: .1, dash: '4 3', label: 'OB ✗ дунд' },
+      { from: 2, to: 8, top: 100.0, bot: 98.2, color: 'bull', label: 'OB ✓ хил' }
+    ],
+    levels: [
+      { y: 103.0, color: 'ink3', dash: '2 3', label: 'range high' },
+      { y: 98.2, color: 'ink3', dash: '2 3', label: 'range low' }
+    ],
+    marks: [{ i: 7, text: 'цоолов', color: 'bear' }]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>

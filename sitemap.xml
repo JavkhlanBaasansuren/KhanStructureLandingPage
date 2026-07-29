@@ -17,6 +17,57 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
     <xhtml:link rel="alternate" hreflang="mn" href="https://khanstructure.com/?lang=mn" />
   </url>
+  <!-- Course library: guide/ (lessons in learning order) -->
+  <url>
+    <loc>https://khanstructure.com/guide/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/00-price-action.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-00-index.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-01-order-block.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-02-time.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-03-draw-on-liquidity.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ref-trade-sessions.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ref-xau-lot-size.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Indicator guides -->
   <url>
     <loc>https://khanstructure.com/KhanSniperPro_Stats_Guide.html</loc>
     <lastmod>2026-06-18</lastmod>

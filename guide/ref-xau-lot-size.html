@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="XAUUSD (алт) lot size тооцоолол $5,000 дансан дээр: 1 lot = 100 унц, risk-based lot томъёо, Funding 0.85% / Real 2.5% / Conservative 1% жишээ, SL зайгаар харгалзах lot, хурдан lookup хүснэгт." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="XAU Lot Size — $5,000 данс (risk-based sizing)" />
+<meta property="og:description" content="XAUUSD lot size тооцоолол: risk-based томъёо, Funding / Real / Conservative variant-ын жишээ, SL зайгаар харгалзах lot, хурдан lookup хүснэгт." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ref-xau-lot-size.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="XAU Lot Size — $5,000 данс (risk-based sizing)" />
+<meta name="twitter:description" content="XAUUSD lot size тооцоолол: risk-based томъёо, Funding / Real / Conservative жишээ, хурдан lookup хүснэгт." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ref-xau-lot-size.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>XAU Lot Size — $5,000 данс | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "XAU (Gold) Lot Size — $5,000 данс",
+  "description": "XAUUSD lot size тооцоолол: 1 lot = 100 унц, risk-based lot томъёо, Funding 0.85% / Real 2.5% / Conservative 1% жишээ, SL зайгаар харгалзах lot, хурдан lookup хүснэгт.",
+  "inLanguage": "mn",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "url": "https://khanstructure.com/guide/ref-xau-lot-size.html",
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  },
+  "isPartOf": { "@type": "WebSite", "name": "KHAN SNIPER PRO", "url": "https://khanstructure.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "XAU Lot Size — $5,000 данс", "item": "https://khanstructure.com/guide/ref-xau-lot-size.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN SNIPER PRO · Лавлах</span>
+  </div>
+
+<h1>XAU (Gold) Lot Size тайлбар <span class="badge">$5,000 Account</span></h1>
+<div class="subtitle">KhanSniperShot / KhanSniperPro EA‑д зориулсан risk‑based position sizing — 2026‑05‑13</div>
+
+<h2>1. XAUUSD контрактын үндсэн томъёо</h2>
+<p>XAUUSD дээр <b>1 standard lot = 100 унц алт</b>. Үнэ $1‑ээр хөдлөхөд P&amp;L дараах байдалтай байна:</p>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>Lot</th><th>Хэмжээ</th><th>$1 хөдөлгөөн</th><th>$10 хөдөлгөөн</th><th>$50 хөдөлгөөн</th></tr></thead>
+  <tbody>
+  <tr><td><b>1.00</b> (standard)</td><td>100 oz</td><td><b>$100</b></td><td>$1,000</td><td>$5,000</td></tr>
+  <tr><td><b>0.10</b> (mini)</td><td>10 oz</td><td><b>$10</b></td><td>$100</td><td>$500</td></tr>
+  <tr><td><b>0.01</b> (micro)</td><td>1 oz</td><td><b>$1</b></td><td>$10</td><td>$50</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note">
+  <span class="tag">Жишээ</span>
+  0.01 lot‑оор SHORT нээгээд үнэ $4,700 → $4,720 болбол алдагдал = 20 × $1 = <b>$20</b>.
+</div>
+
+<h2>2. Risk‑based Lot томъёо</h2>
+<div class="formula">
+  Lot = (Account × Risk%) ÷ (SL distance in $ × 100)
+</div>
+<p>эсвэл хялбараар:</p>
+<div class="formula">
+  Lot = $Risk ÷ ($SL_distance × 100)
+</div>
+
+<h2>3. $5,000 account‑ын практик жишээ</h2>
+
+<h3>A. Funding (FTMO) variant — Risk 0.85% = <b>$42.50 / trade</b></h3>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>SL зай</th><th>Зөв lot</th><th>Бодит алдагдал</th><th>Статус</th></tr></thead>
+  <tbody>
+  <tr><td class="num">$10</td><td class="num">0.04</td><td class="num">−$40</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$20</td><td class="num">0.02</td><td class="num">−$40</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$30</td><td class="num">0.01</td><td class="num">−$30</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$50</td><td class="num">0.01</td><td class="num">−$50</td><td class="warn">⚠ хэтэрсэн</td></tr>
+  <tr><td class="num">$100+</td><td colspan="2">алгасах</td><td class="warn">⚠ risk too high</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>B. Real Money variant — Risk 2.5% = <b>$125 / trade</b></h3>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>SL зай</th><th>Зөв lot</th><th>Бодит алдагдал</th><th>Статус</th></tr></thead>
+  <tbody>
+  <tr><td class="num">$10</td><td class="num">0.12</td><td class="num">−$120</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$20</td><td class="num">0.06</td><td class="num">−$120</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$30</td><td class="num">0.04</td><td class="num">−$120</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$50</td><td class="num">0.02</td><td class="num">−$100</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$100</td><td class="num">0.01</td><td class="num">−$100</td><td class="ok">✔ зөв</td></tr>
+  <tr><td class="num">$150+</td><td colspan="2">алгасах</td><td class="warn">⚠ risk too high</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>C. Conservative — Risk 1% = <b>$50 / trade</b></h3>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>SL зай</th><th>Зөв lot</th><th>Бодит алдагдал</th></tr></thead>
+  <tbody>
+  <tr><td class="num">$10</td><td class="num">0.05</td><td class="num">−$50</td></tr>
+  <tr><td class="num">$20</td><td class="num">0.02</td><td class="num">−$40</td></tr>
+  <tr><td class="num">$30</td><td class="num">0.01</td><td class="num">−$30</td></tr>
+  <tr><td class="num">$50</td><td class="num">0.01</td><td class="num">−$50</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>4. Гарын авлага дүрэм (XAU / D1)</h2>
+<ul>
+  <li><b>1D дээр SL ихэвчлэн $30–$80</b> байдаг тул $5,000 account‑оор зөвхөн <b>micro lot (0.01–0.03)</b> л боломжтой.</li>
+  <li><b>Max DD‑ыг битгий мартаарай:</b> Funding 8% = $400 нийт алдах эрх → 10 losing trade‑ын streak‑ыг тэсвэрлэх ёстой.</li>
+  <li><b>0.01 lot‑оор хүртэл багтахгүй SL</b>‑тэй (&gt;$125 Real, &gt;$42 Funding) trade‑ыг <span class="warn">бүр алгасах</span> хэрэгтэй.</li>
+  <li><b>TP1‑д хүрч BE‑д шилжсэний дараа</b> үлдсэн position‑ын алдагдал = 0; initial risk л тоологдоно.</li>
+  <li><b>Spread + commission</b> XAU дээр $0.2–$0.5 байдаг — SL зай тооцохдоо нэмж тооцоорой.</li>
+</ul>
+
+<h2>5. Одоогийн чарт дээрх жишээ (2026‑05‑13)</h2>
+
+<h3>KhanSniperPro чарт — SHORT @ ~4,900, Trail @ ~4,850</h3>
+<p>SL зай ≈ $50</p>
+<ul>
+  <li>Funding 0.85%: <code>$42.5 / ($50 × 100) = <b>0.01 lot</b></code></li>
+  <li>Real 2.5%: <code>$125 / ($50 × 100) = <b>0.02 lot</b></code></li>
+</ul>
+
+<h3>KhanSniperShot чарт — SHORT BE @ 4,713, анхны TP1 @ 4,636</h3>
+<p>Анхны SL зай ≈ $77</p>
+<ul>
+  <li>Funding 0.85%: <code>$42.5 / ($77 × 100) = 0.0055</code> → <span class="warn">0.01‑аас бага → алгасах</span></li>
+  <li>Real 2.5%: <code>$125 / ($77 × 100) = <b>0.01 lot</b></code></li>
+</ul>
+
+<h2>6. Хурдан lookup хүснэгт</h2>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th>Account</th><th>Risk %</th><th>$ Risk</th><th>$20 SL</th><th>$50 SL</th><th>$100 SL</th></tr></thead>
+  <tbody>
+  <tr><td class="num">$5,000</td><td>0.85% (FTMO)</td><td class="num">$42.5</td><td class="num">0.02</td><td class="num">0.01</td><td>—</td></tr>
+  <tr><td class="num">$5,000</td><td>1% (Safe)</td><td class="num">$50</td><td class="num">0.02</td><td class="num">0.01</td><td>—</td></tr>
+  <tr><td class="num">$5,000</td><td>2.5% (Real)</td><td class="num">$125</td><td class="num">0.06</td><td class="num">0.02</td><td class="num">0.01</td></tr>
+  <tr><td class="num">$5,000</td><td>5% (Aggressive)</td><td class="num">$250</td><td class="num">0.12</td><td class="num">0.05</td><td class="num">0.02</td></tr>
+  </tbody>
+</table>
+</div>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="ref-trade-sessions.html">← Лавлах · Trade Sessions</a>
+    <span class="cur">Лавлах · XAU Lot Size</span>
+    <a href="index.html">Номын сан →</a>
+  </nav>
+
+  <div class="footer">
+    KHANSTRUCTURE © 2026 — KhanSniperShot / KhanSniperPro position sizing guide<br>
+    Generated 2026‑05‑13 · Risk warning: past performance does not guarantee future results
+  </div>
+
+</div>
+</body>
+</html>

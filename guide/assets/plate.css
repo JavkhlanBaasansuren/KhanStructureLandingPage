@@ -1,0 +1,270 @@
+/* ============================================================
+   KHAN SNIPER PRO — lesson "plate" components
+   Loaded on top of guide.css by the ICT lessons and by the
+   reference sheets that need the 24h timeline.
+
+   Originally a light "draughtsman's blueprint" system copy-pasted
+   byte-identically into four pages. Extracted here once, with the
+   palette remapped onto the site's dark ground and the accent moved
+   from draughtsman blue to KHAN gold (--accent). guide.css owns the
+   tokens; nothing in this file hardcodes a colour.
+   ============================================================ */
+
+/* ---------- masthead ---------- */
+.masthead {
+  padding: var(--s2) 0 var(--s4);
+  margin-bottom: var(--s3);
+  border-bottom: 2px solid var(--rule);
+}
+.kicker {
+  font-family: var(--f-mono);
+  font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent);
+  display: flex; flex-wrap: wrap; gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+.masthead .standfirst { font-size: 1.08rem; }
+
+/* ---------- table of contents ----------
+   Numbers come from a CSS counter, not the markup, so reordering
+   sections can't leave the list mis-numbered. */
+nav.toc {
+  margin: var(--s4) 0 0;
+  padding: var(--s3) 0 0;
+  border-top: 1px solid var(--rule);
+}
+nav.toc ol {
+  list-style: none; margin: 0; padding: 0; max-width: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--s1) var(--s4);
+  counter-reset: toc;
+}
+nav.toc li { counter-increment: toc; margin: 0; }
+nav.toc a {
+  display: flex; gap: var(--s2);
+  color: var(--ink-2); text-decoration: none;
+  font-size: .93rem; padding: 2px 0;
+  border-bottom: 1px solid transparent;
+}
+nav.toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--f-mono); font-size: .74rem;
+  color: var(--accent); padding-top: .28em; flex: none;
+}
+nav.toc a:hover, nav.toc a:focus-visible {
+  color: var(--ink); border-bottom-color: var(--accent);
+}
+
+/* ---------- sections ---------- */
+section { padding-top: var(--s5); }
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-3);
+  display: flex; align-items: center; gap: var(--s2);
+  margin-bottom: var(--s2);
+}
+.eyebrow::after { content: ""; height: 1px; background: var(--rule); flex: 1; }
+
+/* ---------- figures (blueprint plates) ----------
+   The graph paper is two gradients rather than an image so it
+   inherits --grid and costs no extra request. */
+figure {
+  margin: var(--s4) 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  overflow: hidden;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 28px 100%,
+    var(--surface);
+}
+figure .plate { overflow-x: auto; }
+figure svg { display: block; min-width: 620px; width: 100%; height: auto; }
+figure.duo .plate { display: grid; grid-template-columns: 1fr 1fr; }
+figure.duo svg { min-width: 340px; }
+figure.duo .plate > div + div { border-left: 1px dashed var(--rule); }
+.plate-hd {
+  font-family: var(--f-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-3);
+  padding: var(--s2) var(--s3) 0;
+}
+figcaption {
+  font-size: .88rem; color: var(--ink-2);
+  padding: var(--s2) var(--s3) var(--s3);
+  border-top: 1px solid var(--rule-soft);
+  background: var(--paper);
+  max-width: none;
+}
+figcaption b { color: var(--ink); font-weight: 700; }
+
+/* ---------- sequence (numbering encodes real order) ---------- */
+ol.steps { list-style: none; padding: 0; max-width: none; counter-reset: st; }
+ol.steps > li {
+  counter-increment: st;
+  display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 0 var(--s3);
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--rule-soft);
+  margin: 0;
+}
+/* EXPLICIT placement is required, not optional. With auto-placement the
+   ::before takes col 1 / row 1, the h3 takes col 2 / row 1, and the <p>
+   then wraps onto row 2 COL 1 — a 2.6rem-wide track, which renders the
+   paragraph one word per line. Pinning the marker and forcing every real
+   child into column 2 fixes it. */
+ol.steps > li::before {
+  content: counter(st);
+  grid-column: 1; grid-row: 1;
+  font-family: var(--f-mono); font-size: 1.5rem; line-height: 1;
+  color: var(--accent); padding-top: .1em;
+  font-variant-numeric: tabular-nums;
+}
+ol.steps > li > * { grid-column: 2; }
+ol.steps h3 { margin: 0 0 var(--s1); }
+ol.steps p { margin: 0; }
+
+/* ---------- tier ladder ----------
+   A/B/C is a real ordinal scale (A strictly dominates B), so the ladder
+   form and the letter markers encode something true — unlike decorative
+   01/02/03. */
+.tier { display: grid; gap: var(--s2); margin: var(--s4) 0; }
+.tier > div {
+  display: grid; grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: var(--s3); align-items: start;
+  padding: var(--s3); background: var(--surface);
+  border: 1px solid var(--rule-soft); border-left-width: 3px;
+  border-radius: var(--r);
+}
+.tier .lab { font-family: var(--f-mono); font-weight: 700; font-size: 1.3rem; line-height: 1.1; }
+.tier h3 { margin: 0 0 var(--s1); }
+.tier p, .tier ul { margin: 0; }
+.tier ul { padding-left: 1.15em; font-size: .95rem; }
+.tier .t-a { border-left-color: var(--bull); }
+.tier .t-a .lab { color: var(--bull); }
+.tier .t-b { border-left-color: var(--amber); }
+.tier .t-b .lab { color: var(--amber); }
+.tier .t-c { border-left-color: var(--bear); }
+.tier .t-c .lab { color: var(--bear); }
+
+/* ---------- checklist ---------- */
+ul.check { list-style: none; padding: 0; max-width: var(--measure); }
+ul.check li {
+  display: grid; grid-template-columns: 1.5rem 1fr; gap: var(--s2);
+  padding: var(--s2) 0; margin: 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+ul.check li::before {
+  content: ""; width: 14px; height: 14px; margin-top: .38em;
+  border: 1px solid var(--accent); border-radius: 3px;
+}
+
+/* ---------- table swatches ---------- */
+.swatch {
+  display: inline-block; width: .62em; height: .62em;
+  margin-right: .45em; vertical-align: baseline;
+}
+.sw-bull { background: var(--bull); }
+.sw-bear { background: var(--bear); }
+.sw-ob   { background: var(--accent); }
+
+/* ---------- code block syntax ---------- */
+.cmt { color: var(--ink-3); }
+.kw  { color: var(--accent); }
+
+/* ============================================================
+   24h TIMELINE
+   Bands on a time axis need no geometry engine, so this is CSS grid
+   rather than SVG: it inherits the theme tokens for free. Each band is
+   placed with an inline `grid-column: <start> / span <hours>`, where
+   00:00 = column 1, so hour H starts at column H+1.
+   ============================================================ */
+.tl {
+  margin: var(--s4) 0;
+  border: 1px solid var(--rule); border-radius: var(--r);
+  background: var(--surface);
+}
+.tl-scroll { overflow-x: auto; }
+.tl-inner { min-width: 620px; padding: var(--s3); }
+.tl-axis {
+  display: grid; grid-template-columns: repeat(24, 1fr);
+  font-family: var(--f-mono); font-size: .58rem; color: var(--ink-3);
+  border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px;
+}
+.tl-axis span { text-align: left; }
+.tl-row {
+  display: grid; grid-template-columns: repeat(24, 1fr);
+  align-items: center; min-height: 24px; margin-bottom: 3px;
+}
+.tl-band {
+  grid-row: 1; min-height: 18px;
+  display: flex; align-items: center; padding: 0 5px;
+  font-family: var(--f-mono); font-size: .6rem; letter-spacing: .02em;
+  white-space: nowrap; overflow: hidden;
+  border: 1px solid; border-radius: 2px;
+}
+.tl-go   { background: color-mix(in srgb, var(--bull) 22%, transparent); border-color: var(--bull); color: var(--ink); }
+.tl-warn { background: color-mix(in srgb, var(--amber) 24%, transparent); border-color: var(--amber); color: var(--ink); }
+.tl-stop { background: color-mix(in srgb, var(--bear) 24%, transparent); border-color: var(--bear); color: var(--ink); }
+.tl-prep { background: color-mix(in srgb, var(--ink-3) 16%, transparent); border-color: var(--rule); color: var(--ink-2); }
+
+/* per-session bands for the sessions reference sheet.
+   The source document carried these as inline hex written for white
+   paper; on the dark ground they need lifted, legible hues. */
+.tl-syd { background: color-mix(in srgb, #b98cff 22%, transparent); border-color: #b98cff; color: var(--ink); }
+.tl-tok { background: color-mix(in srgb, #ff7a7a 22%, transparent); border-color: #ff7a7a; color: var(--ink); }
+.tl-ldn { background: color-mix(in srgb, #5aa9ff 22%, transparent); border-color: #5aa9ff; color: var(--ink); }
+.tl-ny  { background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent); color: var(--ink); }
+.tl-ovl { background: color-mix(in srgb, var(--bull) 30%, transparent); border-color: var(--bull); color: var(--ink); }
+
+.tl-lbl {
+  font-family: var(--f-mono); font-size: .62rem; color: var(--ink-3);
+  padding-top: var(--s2); border-top: 1px solid var(--rule-soft); margin-top: var(--s2);
+  display: flex; flex-wrap: wrap; gap: var(--s3);
+}
+.tl-key { display: inline-flex; align-items: center; gap: .45em; }
+.tl-key i {
+  width: 1.1em; height: 1.1em; flex: none;
+  border: 1px solid; border-radius: 2px; display: inline-block;
+}
+
+/* session name colours for prose and table cells */
+.s-syd { color: #b98cff; }
+.s-tok { color: #ff7a7a; }
+.s-ldn { color: #5aa9ff; }
+.s-ny  { color: var(--accent); }
+
+@media (max-width: 640px) {
+  figure.duo .plate { grid-template-columns: 1fr; }
+  figure.duo .plate > div + div { border-left: 0; border-top: 1px dashed var(--rule); }
+  nav.toc ol { grid-template-columns: 1fr; }
+}
+
+@media print {
+  figure { background: #fff; border-color: #ccc; }
+  figcaption { background: #fff; color: #333; border-top-color: #ddd; }
+  .plate-hd, .eyebrow, .kicker { color: #666; }
+  .eyebrow::after { background: #ddd; }
+  .masthead { border-bottom-color: #0b3d91; }
+  .tier > div, .tl { background: none; border-color: #ccc; }
+  ol.steps > li::before, .kw, ul.check li::before { color: #0b3d91; border-color: #0b3d91; }
+  .tl-inner { min-width: 0; }
+  figure svg { min-width: 0; }
+
+  /* Band fills are color-mix() over the dark ground and print drops
+     backgrounds anyway, so on paper each band is carried by its outline and
+     label in a hue that reads on white. */
+  .tl-band { background: none !important; color: #1a1a1a !important; }
+  .tl-go,  .tl-ovl { border-color: #0a7f5a !important; }
+  .tl-warn { border-color: #b34700 !important; }
+  .tl-stop { border-color: #a1202f !important; }
+  .tl-prep { border-color: #999 !important; }
+  .tl-syd { border-color: #6a3fa0 !important; }
+  .tl-tok { border-color: #a1202f !important; }
+  .tl-ldn { border-color: #0b3d91 !important; }
+  .tl-ny  { border-color: #b34700 !important; }
+  .tl-lbl, .tl-axis { color: #555; }
+  .s-syd { color: #6a3fa0; } .s-tok { color: #a1202f; }
+  .s-ldn { color: #0b3d91; } .s-ny  { color: #b34700; }
+}

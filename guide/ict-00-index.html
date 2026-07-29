@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="ICT цуврал — агуулга ба хамрах хүрээ" />
+<meta property="og:description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ict-00-index.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ICT цуврал — агуулга ба хамрах хүрээ" />
+<meta name="twitter:description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ict-00-index.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>ICT цуврал — агуулга ба хамрах хүрээ | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "ICT цуврал — агуулга ба хамрах хүрээ",
+  "description": "ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ict-00-index.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "courseCode": "ICT",
+  "educationalLevel": "Advanced",
+  "teaches": "ICT / Smart Money арилжааны концепцууд",
+  "provider": { "@type": "Organization", "name": "KHAN SNIPER PRO", "url": "https://khanstructure.com/" },
+  "hasPart": [
+    { "@type": "LearningResource", "name": "Order Block — институцийн ул мөр", "position": 1, "url": "https://khanstructure.com/guide/ict-01-order-block.html" },
+    { "@type": "LearningResource", "name": "ICT-ийн цаг — шүүлтүүр биш, тулгуур", "position": 2, "url": "https://khanstructure.com/guide/ict-02-time.html" },
+    { "@type": "LearningResource", "name": "Draw on Liquidity — өдрийн магнит", "position": 3, "url": "https://khanstructure.com/guide/ict-03-draw-on-liquidity.html" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ICT цуврал — агуулга ба хамрах хүрээ", "item": "https://khanstructure.com/guide/ict-00-index.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT PRO · ICT цуврал</span>
+  </div>
+
+
+  <header class="masthead">
+    <div class="kicker"><span>ICT / Smart Money</span><span>Цувралын агуулга</span><span>KHAN ICT PRO</span></div>
+    <h1>ICT цуврал — <em>агуулга ба хамрах хүрээ</em></h1>
+    <p class="standfirst">
+      Энэ цуврал нь <a href="00-price-action.html">PriceAction курсыг</a>
+      <strong>орлохгүй</strong> — түүний ил зайг нөхнө. Тэр курс нь SMC-ийн үндсийг
+      (structure, liquidity, FVG, OB, OTE, MTF, risk, статистик, психологи) гүнзгий
+      хамарсан. Дутуу нь ICT-ийн <em>өөрийн</em> давхарга: цагийн нарийн систем,
+      Draw on Liquidity, зурвасын эрэмбэ, нэрлэсэн моделууд, SMT. Доорх зураг нь
+      үзэгдэл тус бүр хаана байгааг харуулна — давхардлыг уншихаас өмнө хар.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#lessons">Хичээлүүд</a></li>
+        <li><a href="#coverage">Хамрах хүрээний зураг</a></li>
+        <li><a href="#path">Хаанаас эхлэх вэ</a></li>
+        <li><a href="#code">Кодтой холбоо</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- =============================== -->
+  <section id="lessons">
+    <div class="eyebrow">Цуврал</div>
+    <h2>Хичээлүүд</h2>
+
+    <div class="tier">
+      <div class="t-a">
+        <span class="lab">01</span>
+        <div>
+          <h3><a href="ict-01-order-block.html">Order Block — институцийн ул мөр</a></h3>
+          <p>
+            ICT vs LuxAlgo тодорхойлолт · хүчинтэй байдлын 3 нөхцөл · bullish/bearish
+            5 шат · CE · Breaker · <strong>block-ийн ах дүү нар</strong>
+            (Mitigation / Propulsion / Rejection / Vacuum) · MTF nesting-ийн RR
+            математик · A/B/C оноо · OB vs FVG · regime · Rsv.
+          </p>
+        </div>
+      </div>
+      <div class="t-a">
+        <span class="lab">02</span>
+        <div>
+          <h3><a href="ict-02-time.html">ICT-ийн цаг — шүүлтүүр биш, тулгуур</a></h3>
+          <p>
+            <strong>Цагийн бодит тоо</strong> (NY цагаар) · DST-ийн математик ·
+            Asian / London / NY AM / NY PM · <strong>Silver Bullet</strong> ·
+            <strong>Macro :50–:10</strong> · <strong>CBDR + SD projection</strong> ·
+            NY Lunch хориг · AMD-ийг цаг дээр буулгах.
+          </p>
+        </div>
+      </div>
+      <div class="t-a">
+        <span class="lab">03</span>
+        <div>
+          <h3><a href="ict-03-draw-on-liquidity.html">Draw on Liquidity — өдрийн магнит</a></h3>
+          <p>
+            Асуултын зөв дараалал (магнит → структур) · магнитуудын бүртгэл ·
+            <strong>NWOG / NDOG</strong> · долоо хоногийн H/L-ийг ажиллуулах ·
+            эрэмбэлэх 4 шалгуур · <strong>DOL vs fixed R</strong> ба stats
+            эвдрэхгүй байх заль.
+          </p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">04</span>
+        <div>
+          <h3>PD Array Matrix — зурвасын эрэмбэ <span style="color:var(--ink-3)">(бэлтгэгдэж байна)</span></h3>
+          <p>
+            Зургаан зурвас зэрэг байхад аль нь entry вэ. Зэрэглэл биш —
+            <em>төрлийн</em> эрэмбэ: Old High → Rejection → OB → FVG → Void →
+            Breaker → EQ 50% → доод талын толин тусгал.
+          </p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">05</span>
+        <div>
+          <h3>Нэрлэсэн моделууд <span style="color:var(--ink-3)">(бэлтгэгдэж байна)</span></h3>
+          <p>
+            2022 Model · Unicorn (Breaker ∩ FVG) · Turtle Soup · Silver Bullet ·
+            Judas. Курс механикийг заасан ч нэрлээгүй — нэр нь харилцааны хэрэгсэл.
+          </p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">06</span>
+        <div>
+          <h3>SMT Divergence <span style="color:var(--ink-3)">(бэлтгэгдэж байна)</span></h3>
+          <p>
+            XAU/XAG · EURUSD/GBPUSD · DXY урвуу. Нэг нь шинэ оргил гаргаж, нөгөө нь
+            чадаагүй → тэр оргил үнэн биш.
+          </p>
+        </div>
+      </div>
+      <div class="t-c">
+        <span class="lab">07</span>
+        <div>
+          <h3>Weekly / daily profile <span style="color:var(--ink-3)">(бэлтгэгдэж байна)</span></h3>
+          <p>
+            Долоо хоногийн Power of 3 · өдрийн гарагийн хандлага · seasonal.
+            Баталгаа биш — <em>хэмжих загвар</em>.
+          </p>
+        </div>
+      </div>
+      <div class="t-c">
+        <span class="lab">08</span>
+        <div>
+          <h3>IPDA + SD projection <span style="color:var(--ink-3)">(бэлтгэгдэж байна)</span></h3>
+          <p>
+            20/40/60 өдрийн data range · range-ээс гадна target тавих проекц.
+            Ахисан, аль хэдийн 01–05-ыг эзэмшсэн хүнд.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-lbl" style="border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(--s3)">
+      <span class="tl-key"><i style="background:var(--bull);border-color:var(--bull)"></i>бэлэн</span>
+      <span class="tl-key"><i style="background:var(--amber);border-color:var(--amber)"></i>дараагийн багц</span>
+      <span class="tl-key"><i style="background:var(--bear);border-color:var(--bear)"></i>ахисан</span>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <section id="coverage">
+    <div class="eyebrow">Гол хүснэгт</div>
+    <h2>Хамрах хүрээний зураг</h2>
+
+    <p>
+      Үзэгдэл тус бүр аль материалд байгаа. <strong>PA</strong> = PriceAction курс
+      (бүлгийн дугаартай). Хэрэв PA баганад дугаар байвал <em>тэндээс уншина</em> —
+      ICT цуврал түүнийг дахин заахгүй.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Үзэгдэл</th><th>PriceAction курс</th><th>ICT цуврал</th></tr></thead>
+        <tbody>
+          <tr><td>Displacement</td><td class="num">1.4 ✓</td><td>—</td></tr>
+          <tr><td>Swing point · BOS / CHoCH</td><td class="num">2.1–2.3 ✓</td><td>—</td></tr>
+          <tr><td>Internal vs swing structure</td><td class="num">2.4 ✓</td><td>—</td></tr>
+          <tr><td>Regime — 3 үе · range таних</td><td class="num">2.5–2.6 ✓</td><td>01 (OB-д тохируулсан)</td></tr>
+          <tr><td>Liquidity pool · EQH/EQL · тэгш тоо</td><td class="num">3.1 ✓</td><td>03 (магнит болгож эрэмбэлнэ)</td></tr>
+          <tr><td>Sweep vs true break</td><td class="num">3.2 ✓</td><td>—</td></tr>
+          <tr><td>Inducement (IDM)</td><td class="num">3.3 ✓</td><td>—</td></tr>
+          <tr><td>Liquidity void</td><td class="num">3.4 ✓</td><td>—</td></tr>
+          <tr><td>Өдрийн liquidity зураг</td><td class="num">3.5 ✓</td><td>03 (bias-ийн 1-р шат болгоно)</td></tr>
+          <tr><td>FVG — 3 барын дүрэм · чанар · CE</td><td class="num">4.1–4.3 ✓</td><td>—</td></tr>
+          <tr><td>BPR</td><td class="num">4.4 ✓</td><td>—</td></tr>
+          <tr><td>Inversion FVG (IFVG)</td><td class="num">4.5 ✓</td><td>—</td></tr>
+          <tr><td>Order Block · зэрэглэл · refinement</td><td class="num">5.1–5.3 ✓</td><td><strong>01</strong></td></tr>
+          <tr><td>Хүрэлтийн 3 төлөв (mitigation)</td><td class="num">5.4 ✓</td><td>01</td></tr>
+          <tr><td>Breaker / S-R flip</td><td class="num">5.5 ✓</td><td>01</td></tr>
+          <tr><td><strong>Mitigation / Propulsion / Rejection / Vacuum Block</strong></td><td>—</td><td><strong>01</strong></td></tr>
+          <tr><td>Premium/Discount · OTE · dealing range</td><td class="num">6.1–6.4 ✓</td><td>—</td></tr>
+          <tr><td>MTF top-down · flip lock</td><td class="num">7.1–7.4 ✓</td><td>01 (RR математик)</td></tr>
+          <tr><td>Session-ийн зан төлөв (үнэлгээ)</td><td class="num">8.1 ~</td><td><strong>02</strong></td></tr>
+          <tr><td><strong>Killzone-ийн цагийн тоо</strong></td><td>—</td><td><strong>02</strong></td></tr>
+          <tr><td><strong>Silver Bullet</strong></td><td>—</td><td><strong>02</strong></td></tr>
+          <tr><td><strong>Macro цонх :50–:10</strong></td><td>—</td><td><strong>02</strong></td></tr>
+          <tr><td><strong>CBDR / Flout / SD projection</strong></td><td>—</td><td><strong>02</strong> · 08</td></tr>
+          <tr><td>Asian range</td><td class="num">3.5 · 8.2 ✓</td><td>02 (цаг руу зураглана)</td></tr>
+          <tr><td>Judas · AMD · Power of 3</td><td class="num">8.2 ✓</td><td>02 (цаг) · 05 (нэр)</td></tr>
+          <tr><td>Гараа холдуулах 7 нөхцөл</td><td class="num">8.3 ✓</td><td>—</td></tr>
+          <tr><td>Зардал (spread/шимтгэл)</td><td class="num">8.4 ✓</td><td>—</td></tr>
+          <tr><td>Entry setup 1–5</td><td class="num">Module 9 ✓</td><td>05 (нэрлэнэ)</td></tr>
+          <tr><td><strong>2022 Model · Turtle Soup · Unicorn нэр</strong></td><td>—</td><td><strong>05</strong></td></tr>
+          <tr><td>PDH/PDL target</td><td class="num">3.1 · 3.5 ✓</td><td>03</td></tr>
+          <tr><td><strong>PWH/PWL-ийг гүйцэтгэл болгох</strong></td><td class="num">3.5 ~</td><td><strong>03</strong></td></tr>
+          <tr><td><strong>NWOG / NDOG</strong></td><td>—</td><td><strong>03</strong></td></tr>
+          <tr><td><strong>Draw on Liquidity хүрээ</strong></td><td class="num">10.3 ~</td><td><strong>03</strong></td></tr>
+          <tr><td>Risk · position size · SL/TP · trail</td><td class="num">10.1–10.7 ✓</td><td>—</td></tr>
+          <tr><td>Статистик · MAE/MFE · sample size · A/B</td><td class="num">11.1–11.6 ✓</td><td>01 (OB cohort)</td></tr>
+          <tr><td><strong>PD Array Matrix (төрлийн эрэмбэ)</strong></td><td class="num">5.2 ~</td><td><strong>04</strong></td></tr>
+          <tr><td><strong>SMT divergence</strong></td><td class="num">10.5 (эсрэг талаас)</td><td><strong>06</strong></td></tr>
+          <tr><td><strong>Weekly / daily profile · seasonal</strong></td><td>—</td><td><strong>07</strong></td></tr>
+          <tr><td><strong>IPDA data range</strong></td><td>—</td><td><strong>08</strong></td></tr>
+          <tr><td>Психологи · дисциплин</td><td class="num">Module 12 ✓</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:.9rem;color:var(--ink-2)">
+      <strong>✓</strong> = бүрэн заасан · <strong>~</strong> = хэсэгчлэн, ICT цуврал
+      түүнийг өргөтгөнө · <strong>—</strong> = байхгүй.
+    </p>
+  </section>
+
+  <!-- =============================== -->
+  <section id="path">
+    <div class="eyebrow">Дараалал</div>
+    <h2>Хаанаас эхлэх вэ</h2>
+
+    <div class="note">
+      <span class="tag">Шинэ бол</span>
+      <p>
+        <strong>PriceAction курсыг бүрэн</strong> уншиж, 8 долоо хоногийн
+        хөтөлбөрийг (Module 13) дуусга. ICT цуврал нь тэр үндсийг <em>шаарддаг</em> —
+        structure, sweep, FVG, OB-ыг мэдэхгүй бол Хичээл 02–08 нь тархай тоо болно.
+      </p>
+    </div>
+
+    <div class="note">
+      <span class="tag">Үндсийг эзэмшсэн бол</span>
+      <p>
+        <strong>Хичээл 02 (Цаг) → 03 (DOL) → 01 (OB-ийн шинэ хэсгүүд) → 04 → 05.</strong>
+        Цагийг эхэлж авах шалтгаан: тэр нь бусад бүх хичээлийн setup-ийг шүүдэг
+        давхарга бөгөөд PriceAction курсын хамгийн том ил зай (Module 8 = 384 үг,
+        цагийн тоогүй).
+      </p>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Юуг хийж болохгүй</span>
+      <p>
+        Хичээл 04–08-ыг 02–03-гүйгээр унших. PD Array нь <em>цаг</em> ба
+        <em>магнит</em> хоёрыг үндэс болгодог: зурвасын эрэмбэ нь “аль killzone-д,
+        аль магнит руу” гэдгээс хамаарна. Дараалал нь энд гоёл биш, хамаарал.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <section id="code">
+    <div class="eyebrow">Хэрэгжүүлэлт</div>
+    <h2>Кодтой холбоо</h2>
+
+    <p>
+      Хичээл бүр <code>KHAN ICT PRO v1.0.pine</code>-ийн тодорхой хэсэгтэй
+      холбогдоно. Онолыг кодоос салгаж уншихад дүрэм нь “яагаад тийм” гэдгээ
+      алддаг тул хичээл тутам “Кодод хэрхэн хийгдсэн” бүлэг бий.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Хичээл</th><th>Кодын хэсэг</th><th>Гол функц / параметр</th></tr></thead>
+        <tbody>
+          <tr><td>01 Order Block</td><td>§I6</td><td><code>f_ict_ob_offset</code> · <code>ictBreakerOn</code> · <code>f_ict_paint</code></td></tr>
+          <tr><td>02 Цаг</td><td>§I1</td><td><code>KZ_*</code> session string · <code>kzRoleEff</code> · <code>inMacro</code></td></tr>
+          <tr><td>03 DOL</td><td>§I7</td><td><code>f_ict_liq_target</code> · <code>liqTargetUp/Dn</code> · <code>rTP1R…</code></td></tr>
+          <tr><td>04 PD Array</td><td>§I4 · §I6 · §I7</td><td><code>ictFvgs</code> · <code>ictObs</code> · <code>ictPools</code> эрэмбэ</td></tr>
+          <tr><td>05 Моделууд</td><td>§I9</td><td>Sequence machine = 2022 model</td></tr>
+          <tr><td>06 SMT</td><td>—</td><td>2-р ticker дээр <code>request.security</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="00-price-action.html">← Түвшин 0 · Price Action</a>
+    <span class="cur">ICT цуврал · Агуулга</span>
+    <a href="ict-01-order-block.html">Хичээл 01 · Order Block →</a>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT PRO · ICT цуврал</span>
+    <span>Агуулга ба хамрах хүрээ</span>
+  </footer>
+</div>
+</body>
+</html>

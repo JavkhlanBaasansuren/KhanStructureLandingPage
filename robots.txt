@@ -6,5 +6,8 @@ Disallow: /*.bak_mojibake
 Disallow: /head_index.html
 Disallow: /index.before_utf8_fix.html
 Disallow: /index.pre_restore_current.html
+Disallow: /index.backup_2026-06-14.html
+Disallow: /index_backup.html
+Disallow: /prototype.html
 
 Sitemap: https://khanstructure.com/sitemap.xml

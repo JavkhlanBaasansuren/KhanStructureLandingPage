@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Draw on Liquidity — үнэ өнөөдөр хаашаа татагдаж байна вэ. Асуултын зөв дараалал (магнит → структур), магнитуудын бүрэн бүртгэл, NWOG / NDOG нээлтийн цоорхой, долоо хоногийн H/L, магнитыг эрэмбэлэх 4 шалгуур, TP: DOL vs fixed R." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="Draw on Liquidity — өдрийн магнит · ICT Хичээл 03" />
+<meta property="og:description" content="Draw on Liquidity — үнэ өнөөдөр хаашаа татагдаж байна вэ. Асуултын зөв дараалал (магнит → структур), магнитуудын бүрэн бүртгэл, NWOG / NDOG нээлтийн цоорхой, долоо хоногийн H/L, магнитыг эрэмбэлэх 4 шалгуур, TP: DOL vs fixed R." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ict-03-draw-on-liquidity.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Draw on Liquidity — өдрийн магнит · ICT Хичээл 03" />
+<meta name="twitter:description" content="Draw on Liquidity — үнэ өнөөдөр хаашаа татагдаж байна вэ. Асуултын зөв дараалал (магнит → структур), магнитуудын бүрэн бүртгэл, NWOG / NDOG нээлтийн цоорхой, долоо хоногийн H/L, магнитыг эрэмбэлэх 4 шалгуур, TP: DOL vs fixed R." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ict-03-draw-on-liquidity.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>Draw on Liquidity — өдрийн магнит · ICT Хичээл 03 | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Draw on Liquidity — өдрийн магнит",
+  "description": "Draw on Liquidity — үнэ өнөөдөр хаашаа татагдаж байна вэ. Асуултын зөв дараалал (магнит → структур), магнитуудын бүрэн бүртгэл, NWOG / NDOG нээлтийн цоорхой, долоо хоногийн H/L, магнитыг эрэмбэлэх 4 шалгуур, TP: DOL vs fixed R.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ict-03-draw-on-liquidity.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "learningResourceType": "lesson",
+  "educationalLevel": "Advanced",
+  "position": 3,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "ICT / Smart Money цуврал",
+    "url": "https://khanstructure.com/guide/ict-00-index.html"
+  },
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ICT цуврал", "item": "https://khanstructure.com/guide/ict-00-index.html" },
+    { "@type": "ListItem", "position": 4, "name": "Draw on Liquidity — өдрийн магнит", "item": "https://khanstructure.com/guide/ict-03-draw-on-liquidity.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT PRO · Хичээл 03</span>
+  </div>
+
+
+  <header class="masthead">
+    <div class="kicker"><span>ICT / Smart Money</span><span>Хичээл 03</span><span>KHAN ICT PRO</span></div>
+    <h1>Draw on Liquidity — <em>өдрийн магнит</em></h1>
+    <p class="standfirst">
+      Ихэнх трейдер “чиглэл юу вэ” гэж асуудаг. ICT-ийн асуулт өмнө нь бий:
+      <strong>үнэ хаашаа татагдаж байна вэ.</strong> Хоёрын ялгаа нь чиглэл нь
+      таамаглал, магнит нь <em>харагдах түвшин</em>. Энэ хичээл нь PDH/PDL,
+      долоо хоногийн H/L, NWOG/NDOG, магнитыг эрэмбэлэх дүрэм, мөн үүнийг TP
+      болгоход stats хэрхэн бүтэн үлдэхийг 3 диаграммаар тайлбарлана.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#order">Асуултын зөв дараалал</a></li>
+        <li><a href="#registry">Магнитуудын бүрэн бүртгэл</a></li>
+        <li><a href="#nwog">NWOG · NDOG</a></li>
+        <li><a href="#weekly">Долоо хоногийн H/L-ийг ажиллуулах</a></li>
+        <li><a href="#rank">Магнитыг эрэмбэлэх</a></li>
+        <li><a href="#tp">TP: DOL vs fixed R</a></li>
+        <li><a href="#code">Кодод хэрхэн хийгдсэн</a></li>
+        <li><a href="#sheet">Өдрийн DOL хуудас</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- =============================== 1 -->
+  <section id="order">
+    <div class="eyebrow">Хүрээ</div>
+    <h2>Асуултын зөв дараалал</h2>
+
+    <p>
+      Bias бүтээх стандарт арга нь: 4H структурыг хар → чиглэл шийд → тэр чиглэлд
+      setup хай. Энэ ажилладаг, гэхдээ нэг шат дутуу. ICT нь эхлээд
+      <strong>“өнөөдөр аль түвшин хараахан цохигдоогүй байна”</strong> гэж асуудаг —
+      учир нь цохигдоогүй likvидность нь <em>шалтгаан</em>, структур нь ердөө
+      түүнд хүрэх зам.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Шат</th><th>Стандарт</th><th>DOL-той</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>4H структур → чиглэл</td><td><strong>Магнит:</strong> аль түвшин үлдсэн?</td></tr>
+          <tr><td class="num">2</td><td>Premium/discount → тал</td><td>Структур: тэр магнит руу зам бий уу?</td></tr>
+          <tr><td class="num">3</td><td>Setup хай</td><td>Premium/discount → entry-ийн тал</td></tr>
+          <tr><td class="num">4</td><td>TP = дараагийн liquidity</td><td>Setup хай — <em>TP аль хэдийн мэдэгдсэн</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Практик ялгаа нь 4-р шатанд харагдана. Стандарт дараалалд TP нь entry-ийн
+      <em>дараа</em> хайгддаг — тиймээс “3R байх шиг байна” гэсэн таамаг руу
+      уруу татагддаг. DOL-той дараалалд TP нь entry-ээс <strong>өмнө</strong>
+      мэдэгдсэн байдаг: хэрэв магнит хэт ойрхон бол тэр setup-ыг бүхэлд нь
+      орхино.
+    </p>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо</span>
+      <p>
+        <strong>PriceAction 3.5</strong> нь өдрийн liquidity зургийг зурах 5 минутын
+        ажлыг аль хэдийн заасан бөгөөд гол дүгнэлтийг ч бичсэн:
+        <em>“Ингээд өдрийн туршид үнэ эдгээрийн хооронд л явна гэдгийг харна.”</em>
+        <strong>10.3</strong> нь TP-ийн доктриныг заасан (<em>“TP = дараагийн
+        liquidity түвшин”</em>), <strong>7.2</strong> нь 1D шатанд “гол liquidity
+        дээр/доор аль нь ҮЛДСЭН?” гэж асуудаг. Механик бүрэн бий — дутуу нь
+        <strong>хүрээ</strong>: тэр асуултыг bias-ийн <em>эхний</em> шат болгох.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 2 -->
+  <section id="registry">
+    <div class="eyebrow">Бүртгэл</div>
+    <h2>Магнитуудын бүрэн бүртгэл</h2>
+
+    <p>
+      Өдөр тутам зурах түвшнүүд. Бүгдийг зурах шаардлагагүй — <strong>үнэд
+      хамгийн ойрхон 2–3</strong> нь ач холбогдолтой, бусад нь контекст.
+    </p>
+
+    <div class="tl">
+      <div class="plate-hd">Магнитын хүч (хүчтэйгээс сул руу)</div>
+      <div class="tl-scroll">
+        <div class="tl-inner">
+          <div class="tl-row"><div class="tl-band tl-go"   style="grid-column: 1 / span 20">PDH / PDL — өмнөх өдрийн H/L</div></div>
+          <div class="tl-row"><div class="tl-band tl-go"   style="grid-column: 1 / span 18">PWH / PWL — өмнөх долоо хоногийн H/L</div></div>
+          <div class="tl-row"><div class="tl-band tl-warn" style="grid-column: 1 / span 15">EQH / EQL — тэнцүү оргил/ёроол (2+ удаа хүрсэн)</div></div>
+          <div class="tl-row"><div class="tl-band tl-warn" style="grid-column: 1 / span 13">NWOG / NDOG — нээлтийн цоорхой</div></div>
+          <div class="tl-row"><div class="tl-band tl-warn" style="grid-column: 1 / span 11">Азийн range H/L · CBDR H/L</div></div>
+          <div class="tl-row"><div class="tl-band tl-prep" style="grid-column: 1 / span 8">Session open (00:00 · 08:30 · 13:30)</div></div>
+          <div class="tl-row"><div class="tl-band tl-prep" style="grid-column: 1 / span 6">Тэгш тоо (2650.00)</div></div>
+        </div>
+      </div>
+      <figcaption>
+        Урт = магнитын хүч. <b>PDH/PDL</b> нь өдөр тутмын гол зорилго — swing
+        трейдерийн SL тэнд хуримтлагддаг. Тэгш тоо нь хамгийн сул, гэхдээ бусадтай
+        давхцвал хүчийг нэмнэ.
+      </figcaption>
+    </div>
+
+    <figure id="fig-map">
+      <div class="plate-hd">Өдрийн liquidity зураг</div>
+      <div class="plate">
+        <svg data-chart="liqMap" role="img" aria-label="Үнийн дээр талд өмнөх долоо хоногийн дээд, өмнөх өдрийн дээд, Азийн дээд; доор талд Азийн доод, өмнөх өдрийн доод, өмнөх долоо хоногийн доод түвшнүүд байрлаж, үнэ тэдгээрийн хооронд хэлбэлзэнэ"></svg>
+      </div>
+      <figcaption>
+        Үнэ <b>эдгээрийн хооронд</b> л явна. Хамгийн ойрын хоёр нь өнөөдрийн
+        боломжит магнит; аль нь <em>цохигдоогүй</em> байна тэр нь илүү магадлалтай.
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо</span>
+      <p>
+        EQH/EQL, trendline liquidity, тэгш тоо, liquidity void — эдгээрийн
+        <em>тодорхойлолт ба яагаад</em> нь <strong>PriceAction 3.1</strong>-д
+        бүрэн бий (тэр дундаа liquidity void нь <em>TP тавих хамгийн сайн газар,
+        entry хайх хамгийн дор газар</em> гэсэн урвуу дүрэм 3.4-д). Энэ хичээл
+        тэднийг дахин заахгүй — зөвхөн <strong>магнит болгож эрэмбэлнэ</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 3 -->
+  <section id="nwog">
+    <div class="eyebrow">Шинэ</div>
+    <h2>NWOG · NDOG — нээлтийн цоорхой</h2>
+
+    <p>
+      <strong>NWOG</strong> (New Week Opening Gap) = Баасан гарагийн хаалт ба
+      Ням/Даваа гарагийн нээлтийн хоорондох зай. <strong>NDOG</strong> (New Day
+      Opening Gap) = өдөр тутмын хаалт–нээлтийн ижил зай.
+    </p>
+    <p>
+      Яагаад магнит болдог вэ: тэр зайд <strong>ямар ч арилжаа болоогүй</strong>.
+      Захиалга тэнд биелэх боломж байгаагүй тул зах зээл түүнийг “зочилж”
+      тэнцвэржүүлэх хандлагатай. Энэ нь FVG-тэй ижил логик боловч <em>цагийн</em>
+      цоорхойгоос үүсдэг, лааны дараалалаас биш.
+    </p>
+
+    <figure id="fig-nwog">
+      <div class="plate-hd">NWOG — Баасан хаалт → Даваа нээлт</div>
+      <div class="plate">
+        <svg data-chart="nwog" role="img" aria-label="Баасан гарагийн хаалтаас Даваа гарагийн нээлт хүртэл цоорхой үлдэж, үнэ хожим тэр цоорхой руу буцаж дүүргээд дээшилнэ"></svg>
+      </div>
+      <figcaption>
+        Баасан 100.1-д хаагдаж, Даваа 101.0-д нээв → <b>NWOG = 100.1–101.0</b>.
+        Үнэ 3 барын дараа буцаж <b>дүүргээд</b> тэндээс хөөрөв. CE (50%) нь
+        энд ч ижил хүчинтэй.
+      </figcaption>
+    </figure>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th></th><th>NWOG</th><th>NDOG</th></tr></thead>
+        <tbody>
+          <tr><td>Хэзээ</td><td>Баасан хаалт → Даваа нээлт</td><td>Өдөр тутмын хаалт → нээлт</td></tr>
+          <tr><td>Хэмжээ</td><td>Том (амралтын 2 өдөр)</td><td>Жижиг, ихэвчлэн 24/5 хөрөнгөнд бараг тэг</td></tr>
+          <tr><td>Хүч</td><td>★★★ — долоо хоногийн магнит</td><td>★★ — өдрийн контекст</td></tr>
+          <tr><td>Хэрэглээ</td><td>TP эсвэл зон (CE-ээс entry)</td><td>Зөвхөн контекст</td></tr>
+          <tr><td>Хэр удаан</td><td>Хэдэн долоо хоног хүчинтэй</td><td>Ихэвчлэн тэр өдөртөө дүүрнэ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хавх</span>
+      <p>
+        Forex/XAU-д NDOG нь бараг үргэлж тэг (24/5 арилжаа) — тэнд NDOG хайх нь
+        цаг дэмий. NWOG нь харин бодит бөгөөд <strong>амралтын өдрийн news</strong>-ийн
+        дараа онцгой том болдог. Индекс/фьючерс дээр хоёул бодитой.
+        <strong>PriceAction 8.3</strong>-ийн “Баасны хожуу цагт арилжаалахгүй”
+        дүрэм нь энэ цоорхойг <em>үүсгэдэг</em> тэр цагийн тухай — хоёулаа ижил
+        үзэгдлийн хоёр тал.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 4 -->
+  <section id="weekly">
+    <div class="eyebrow">Ажиллуулах</div>
+    <h2>Долоо хоногийн H/L-ийг ажиллуулах</h2>
+
+    <p>
+      Өдрийн H/L (PDH/PDL) нь ихэнх системд бодит target болж хэрэглэгддэг.
+      Долоо хоногийн H/L (PWH/PWL) нь харин зурагдаад <em>хэзээ ч хэрэглэгддэггүй</em>
+      — энэ нь хамгийн түгээмэл орхигдол.
+    </p>
+
+    <h3>Хэзээ PWH/PWL нь гол target болох вэ</h3>
+    <ul>
+      <li><strong>Даваа–Мягмар</strong> — долоо хоног хараахан хилээ тогтоогоогүй
+        байхад PWH/PWL нь хамгийн ойрын том магнит.</li>
+      <li><strong>PDH/PDL аль хэдийн цохигдсон</strong> бол дараагийн шат нь
+        автоматаар долоо хоногийн түвшин.</li>
+      <li><strong>Өдрийн range хэвийн бус том</strong> (ATR-ийн 1.5×+) — тэр өдөр
+        өдрийн target хүрэлцэхгүй.</li>
+    </ul>
+
+    <h3>Хэзээ биш</h3>
+    <ul>
+      <li><strong>Пүрэв–Баасан</strong> — долоо хоногийн хил аль хэдийн тогтсон,
+        PWH/PWL хол хоцорсон байх магадлалтай.</li>
+      <li><strong>1m/5m scalp</strong> — 3R-ийн дотор хүрэхгүй магнит нь тэр TF-д
+        target биш, ердөө чиглэл.</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо</span>
+      <p>
+        <strong>PriceAction 3.5</strong>-ийн өдрийн зурагт
+        <code>□ Өмнөх долоо хоногийн high / low</code> гэсэн мөр бий — гэхдээ
+        Module 9-ийн 5 setup-ийн аль нэгэнд ч, 10.3-ийн TP дүрэмд ч тэр түвшин
+        <em>гарч ирдэггүй</em>. Дээрх дөрвөн нөхцөл нь тэр мөрийг гүйцэтгэл
+        болгож хувиргах цорын дутуу хэсэг.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 5 -->
+  <section id="rank">
+    <div class="eyebrow">Шийдвэр</div>
+    <h2>Магнитыг эрэмбэлэх</h2>
+
+    <p>
+      Дээш доош хоёулаа магнит байна. Аль руу явах вэ? Дөрвөн шалгуур,
+      дарааллаараа:
+    </p>
+
+    <ol class="steps">
+      <li><h3>Аль нь цохигдоогүй байна</h3>
+        <p>
+          Цохигдсон түвшин нь ордер аль хэдийн авсан — шалтгаан дууссан.
+          Хоёр талын аль нэг нь <em>virgin</em> бол сонголт бараг тодорхой.
+        </p></li>
+      <li><h3>Структур аль тал руу зам гаргаж байна</h3>
+        <p>
+          Магнит нь “хаана”, структур нь “хүрч чадах эсэх”. Дээд магнит руу явахад
+          гурван эсэргүүцлийн зон дайрах шаардлагатай бол доод нь илүү магадлалтай.
+        </p></li>
+      <li><h3>Аль нь илүү их stop хуримтлуулсан</h3>
+        <p>
+          EQH/EQL (2+ удаа хүрсэн) нь нэг удаагийн swing-ээс хүчтэй.
+          Долоо хоногийн түвшин нь өдрийнхөөс хүчтэй.
+        </p></li>
+      <li><h3>Цаг — killzone аль талыг дэмжиж байна</h3>
+        <p>
+          London нь ихэвчлэн Азийн хилийг цэвэрлэдэг; NY AM нь London-ийн
+          чиглэлийг үргэлжлүүлдэг эсвэл эргүүлдэг
+          (<a href="ict-02-time.html">Хичээл 02</a>).
+        </p></li>
+    </ol>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн том алдаа</span>
+      <p>
+        <strong>Хоёр талын магнитыг зэрэг “хүлээх”.</strong> Тэгвэл ямар ч
+        хөдөлгөөнийг өөрийн таамгийн баталгаа гэж уншиж эхэлнэ. Өдөр тутам
+        <em>нэг</em> магнитыг бичиж ав; буруу байвал журналд буруу гэж бичих нь
+        хоёуланг зэрэг барихаас хамаагүй хямд.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 6 -->
+  <section id="tp">
+    <div class="eyebrow">Гүйцэтгэл</div>
+    <h2>TP: DOL vs fixed R</h2>
+
+    <p>
+      Fixed R (1R/2R/3R) нь тохиромжтой — гэхдээ зах зээл R-ийн талаар юу ч
+      мэддэггүй. Зах зээл <em>түвшний</em> талаар мэддэг. Хоёрын хооронд сонгох
+      биш, <strong>нэгтгэх</strong> нь зөв хариулт.
+    </p>
+
+    <figure id="fig-doltp">
+      <div class="plate-hd">Fixed R ladder vs жинхэнэ магнит</div>
+      <div class="plate">
+        <svg data-chart="dolTp" role="img" aria-label="Гурван R-ийн шатлал болон өмнөх өдрийн дээд түвшин зэрэгцэн байрлаж, гурав дахь R нь жинхэнэ магнитаас бага зэрэг доогуур тогтоно"></svg>
+      </div>
+      <figcaption>
+        Entry 99.7 · SL 98.9 → risk 0.8. Fixed <b>TP3 = 3R = 102.1</b>, гэвч
+        жинхэнэ магнит (<b>PDH 102.4</b>) нь <b>3.4R</b>-т байна. Fixed ladder нь
+        магнитаас 0.3 дутуу гарч, тэр хөдөлгөөний сүүлчийн хэсгийг хаядаг.
+      </figcaption>
+    </figure>
+
+    <h3>Хамтруулах дүрэм</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Slot</th><th>Юу байх</th><th>Шалтгаан</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TP1</strong></td><td class="num">1R — үргэлж fixed</td><td>Зардлыг нөхөж эрсдэлийг тэглэх механик шат</td></tr>
+          <tr><td><strong>TP2</strong></td><td>Хамгийн ойрын магнит, эсвэл 2R</td><td>Аль нь илүү бодитой</td></tr>
+          <tr><td><strong>TP3</strong></td><td>Гол магнит (DOL)</td><td>Үнэ жинхэнэ татагдаж байгаа цэг</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Дөрвөн эргийн тохиолдол</h3>
+    <ul>
+      <li><strong>Магнит 1.2R-ээс дотор</strong> → тэр slot-ыг fixed R хэвээр үлдээ.
+        Rung-ийг хэзээ ч жижигрүүлэхгүй — эс тэгвээс hit curve харьцуулагдахаа болино.</li>
+      <li><strong>Магнит олдсонгүй</strong> → fixed R. Энэ нь initialization тул үнэгүй.</li>
+      <li><strong>Магнит 5R-ээс хол</strong> → TP3-ыг 5R cap дээр тавь, жинхэнэ
+        магнитыг тусад нь зур. 7R бичих нь 50 trade-ийн sample дээр нэг азтай
+        trade-д бүх статистикийг захируулна.</li>
+      <li><strong>Rung дараалал эвдэрсэн</strong> → тэр slot-ыг fixed R руу буцаа.
+        <code>TP1 ⊂ TP2 ⊂ TP3</code> нь hit curve-ийн invariant.</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Stats яагаад эвдрэхгүй вэ — гол заль</span>
+      <p>
+        DOL TP нь fixed R биш тул “TP3 = 3R” гэсэн таамаг унана. Гэвч
+        <strong>fill үед slot тус бүрийн realized R-ийг бичиж авбал</strong>
+        математик бүрэн үлдэнэ:
+      </p>
+      <pre><code>R = (tp − entry) / risk      riskPct = risk / entry × 100
+⇒  R × riskPct  =  яг gross % return  (rung хаана байхаас үл хамааран)</code></pre>
+      <p>
+        Тиймээс <code>Net%</code>, <code>WR</code>, <code>R</code>, <code>BE</code>,
+        <code>Rsv</code> бүгд зөв хэвээр — stats-ийн нэг ч функц өөрчлөгдөхгүй.
+        Дутуу нь ердөө <em>таамаглахын оронд бичиж авах</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 7 -->
+  <section id="code">
+    <div class="eyebrow">Хэрэгжүүлэлт</div>
+    <h2>Кодод хэрхэн хийгдсэн</h2>
+
+    <p>
+      <strong>§I7 ICT LIQUIDITY</strong> нь бүх магнитыг цуглуулж, нэг
+      сонгогчоор эрэмбэлдэг. Pine-д closure байхгүй тул “илүү сайн нэрийг сонго”
+      гэсэн 2-argument helper-ийг эх сурвалж тутамд нэг удаа дуудна.
+    </p>
+
+<pre><code><span class="cmt">// lookahead_off + expression дотор [1] = өмнөх БҮРЭН session.
+// Файлд lookahead_on ТЭГ байна — тэр хэвээр байх ёстой.</span>
+[pdh, pdl] = request.security(syminfo.tickerid, ictDtf, [high[1], low[1]],
+     barmerge.gaps_off, barmerge.lookahead_off)
+
+<span class="cmt">// na буцвал caller нь fixed-R ladder руу fallback хийнэ.</span>
+f_ict_liq_target(<span class="kw">int</span> _dir, <span class="kw">float</span> _px, <span class="kw">float</span> _skipBeyond) =&gt;
+    <span class="cmt">// pdh/pdl → pwh/pwl → asianHiFrz/LoFrz → ictMajorHi/Lo → ictPools</span>
+    <span class="cmt">// minD = atr × 1.0  (2 тик зайд target тавихгүй)</span>
+    <span class="cmt">// maxD = atr × 6.0  (хүрэшгүй target тавихгүй)</span></code></pre>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Хичээлийн дүрэм</th><th>Кодод</th></tr></thead>
+        <tbody>
+          <tr><td>Гурван магнит, зайгаар эрэмбэлсэн</td><td><code>liqTargetUp/Up2/Up3</code> · <code>liqTargetDn…</code></td></tr>
+          <tr><td>Хэт ойр / хэт хол магнитыг хаях</td><td><code>ictLiqMinDistATREff</code> · <code>ictLiqMaxDistATREff</code></td></tr>
+          <tr><td>1.2R-ээс дотор бол fixed R хэвээр</td><td><code>ictLiqMinR = 1.20</code></td></tr>
+          <tr><td>5R-ээс хол бол cap</td><td><code>ictLiqMaxR = 5.00</code></td></tr>
+          <tr><td>Rung монотон байх</td><td><code>ictRungMinGapR = 0.25</code></td></tr>
+          <tr><td>Realized R-ийг бичиж авах</td><td><code>rTP1R…rTP3R</code> · <code>gTP1R…gTP3R</code></td></tr>
+          <tr><td>Хаанаас гарсныг тэмдэглэх</td><td><code>rTPSrcMask</code> (bit i = liquidity)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Lookahead — нэг мөрөөр эвдэрдэг зүйл</span>
+      <p>
+        <code>request.security</code>-д <code>lookahead_on</code> хэрэглэвэл өмнөх
+        өдрийн H/L нь <em>тэр өдөр дуусахаас өмнө</em> мэдэгдэж, backtest нь
+        боломжгүй сайн болно. Зөв хэлбэр нь <strong>хоёулаа</strong>:
+        expression дотор <code>[1]</code> <em>ба</em> <code>lookahead_off</code>.
+        Ганцаараа хоёулаа хангалтгүй.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 8 -->
+  <section id="sheet">
+    <div class="eyebrow">Практик</div>
+    <h2>Өдрийн DOL хуудас</h2>
+
+    <p>London нээхээс 15 минутын өмнө, 3 минутын ажил.</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Түвшин</th><th>Үнэ</th><th>Цохигдсон?</th><th>Зай (ATR)</th></tr></thead>
+        <tbody>
+          <tr><td>PWH</td><td class="num">______</td><td class="num">□</td><td class="num">____</td></tr>
+          <tr><td>PDH</td><td class="num">______</td><td class="num">□</td><td class="num">____</td></tr>
+          <tr><td>Азийн H</td><td class="num">______</td><td class="num">□</td><td class="num">____</td></tr>
+          <tr><td>NWOG</td><td class="num">___–___</td><td class="num">□</td><td class="num">____</td></tr>
+          <tr><td>Азийн L</td><td class="num">______</td><td class="num">□</td><td class="num">____</td></tr>
+          <tr><td>PDL</td><td class="num">______</td><td class="num">□</td><td class="num">____</td></tr>
+          <tr><td>PWL</td><td class="num">______</td><td class="num">□</td><td class="num">____</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Өнөөдрийн магнит:</strong> ______________ &nbsp;·&nbsp;
+      <strong>Шалтгаан:</strong> ______________</p>
+
+    <h3>Checklist — entry авахаас өмнө</h3>
+    <ul class="check">
+      <li>Өнөөдрийн магнитыг <strong>бичиж</strong> авсан уу (нэг, хоёр биш)?</li>
+      <li>Тэр магнит <strong>цохигдоогүй</strong> байна уу?</li>
+      <li>Entry-ээс магнит хүртэл <strong>≥1.2R</strong> байна уу?</li>
+      <li>Магнит хүртэл замд том эсэргүүцлийн зон байхгүй эсэх?</li>
+      <li>Магнит 5R-ээс хол бол cap тавьсан уу?</li>
+      <li>Долоо хоногийн эхэн бол PWH/PWL-ийг тооцсон уу?</li>
+      <li>TP1 нь fixed 1R хэвээр үү (эрсдэл тэглэх шат)?</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Дараагийн хичээл</span>
+      <p>
+        <strong>Хичээл 04 — PD Array Matrix.</strong> Магнит нь “хаашаа”-г хэллээ.
+        Дараагийн асуулт: зургаан зурвас зэрэг байхад <em>аль нь</em> entry вэ —
+        зурвасын төрлийн эрэмбэ.
+      </p>
+    </div>
+  </section>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="ict-02-time.html">← Хичээл 02 · ICT-ийн цаг</a>
+    <a href="ict-00-index.html">Цувралын агуулга</a>
+    <span>Хичээл 04 · PD Array (бэлтгэгдэж байна)</span>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT PRO · Хичээл 03</span>
+    <span>Draw on Liquidity</span>
+  </footer>
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  const SPECS = {};
+  /* ---------- figure data (Хичээл 03) ---------- */
+
+  /* The daily liquidity map — mostly levels, deliberately: the point of the plate is
+     that price lives BETWEEN them, so the candles stay small and central. */
+  SPECS.liqMap = {
+    w: 720, h: 360, padR: 128, yPad: .05,
+    candles: [
+      [100.0, 100.6, 99.6, 100.4],
+      [100.4, 101.2, 100.2, 101.0],
+      [101.0, 101.4, 100.6, 100.8],
+      [100.8, 101.0, 99.8, 100.0],
+      [100.0, 100.4, 99.4, 99.6],
+      [99.6, 100.8, 99.5, 100.6]
+    ],
+    levels: [
+      { y: 102.2, color: 'ink3',  dash: '2 4', label: 'PWH' },
+      { y: 101.5, color: 'bear',  dash: '5 3', w: 1.3, label: 'PDH' },
+      { y: 101.1, color: 'ink3',  dash: '2 3', label: 'Ази H' },
+      { y: 99.2,  color: 'ink3',  dash: '2 3', label: 'Ази L' },
+      { y: 98.6,  color: 'bull',  dash: '5 3', w: 1.3, label: 'PDL' },
+      { y: 97.9,  color: 'ink3',  dash: '2 4', label: 'PWL' }
+    ]
+  };
+
+  /* NWOG — Friday close to Monday open. The gap is a TIME gap, not a candle gap,
+     but it behaves the same: no trade happened there. */
+  SPECS.nwog = {
+    w: 700, h: 330, padR: 116,
+    candles: [
+      [100.0, 100.4, 99.7, 100.2],                 /* Thu */
+      [100.2, 100.5, 99.9, 100.1],                 /* 1: Fri closes 100.1 */
+      [101.0, 101.4, 100.9, 101.3],                /* 2: Mon opens 101.0 -> gap */
+      [101.3, 101.6, 101.0, 101.1],
+      [101.1, 101.2, 100.2, 100.4],                /* 4: comes back and fills it */
+      [100.4, 101.5, 100.3, 101.4]
+    ],
+    zones: [{ from: 1, to: 5, top: 101.0, bot: 100.1, color: 'amber', ce: true, label: 'NWOG' }],
+    marks: [
+      { i: 1, text: 'Баасан', pos: 'below', color: 'ink3' },
+      { i: 2, text: 'Даваа нээв', color: 'ink3' },
+      { i: 4, text: 'дүүргэв', pos: 'below', color: 'amber' }
+    ]
+  };
+
+  /* Fixed-R ladder vs the real magnet. entry 99.7, SL 98.9 -> risk 0.8, so
+     1R=100.5, 2R=101.3, 3R=102.1 while PDH sits at 102.4 = 3.375R. */
+  SPECS.dolTp = {
+    w: 720, h: 380, padR: 150,
+    candles: [
+      [100.0, 100.2, 99.4, 99.6],
+      [99.6, 99.8, 99.0, 99.2],
+      [99.2, 100.6, 99.1, 100.4],
+      [100.4, 101.0, 100.0, 100.2],
+      [100.2, 100.4, 99.5, 99.7],                  /* 4: entry bar */
+      [99.7, 101.2, 99.6, 101.0],
+      [101.0, 102.4, 100.9, 102.2],
+      [102.2, 103.4, 102.0, 103.2]
+    ],
+    levels: [
+      { y: 98.9,  color: 'bear',  dash: '5 3', w: 1.3, label: 'SL' },
+      { y: 100.5, color: 'amber', dash: '4 3', label: 'TP1 · 1R' },
+      { y: 101.3, color: 'amber', dash: '4 3', label: 'TP2 · 2R' },
+      { y: 102.1, color: 'ink3',  dash: '2 3', label: 'fixed 3R' },
+      { y: 102.4, color: 'bull',  dash: '0',   w: 1.4, label: 'PDH · 3.4R' }
+    ],
+    marks: [{ i: 4, text: 'entry', pos: 'below', color: 'bull' }]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>
