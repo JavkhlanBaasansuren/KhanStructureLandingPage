@@ -615,6 +615,16 @@ a:focus-visible, button:focus-visible {
 }
 .video-card.playing .video-play { opacity: 0; pointer-events: none; }
 
+/* ━━━━━━━━━━━━━━━ DEMO TAB PANES ━━━━━━━━━━━━━━━ */
+/* Video and chart examples used to be two slides. They answer the same
+   question ("show me it working"), so they share one slide behind a tab —
+   only one pane is in flow at a time, which keeps the slide one viewport tall. */
+.demo-pane {
+  display: none; width: 100%;
+  flex-direction: column; align-items: center; gap: 14px;
+}
+.demo-pane.act { display: flex; }
+
 /* ━━━━━━━━━━━━━━━ EXAMPLES GALLERY ━━━━━━━━━━━━━━━ */
 .gallery {
   display: grid; grid-template-columns: repeat(3,1fr);
@@ -673,11 +683,24 @@ a:focus-visible, button:focus-visible {
 /* ━━━━━━━━━━━━━━━ FAQ ━━━━━━━━━━━━━━━ */
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 820px; text-align: left; }
 .faq-grid {
-  max-height: min(64vh, 620px);
+  /* Shares the slide with the folded-in integrity block, so the scroll
+     window is shorter than when FAQ owned the whole viewport. */
+  max-height: min(44vh, 420px);
   overflow: auto;
   padding-right: 4px;
   scrollbar-width: thin;
 }
+/* Integrity block, folded into the FAQ slide */
+.faq-int { width: 100%; max-width: 820px; }
+.int-tag {
+  font-size: 10px; font-weight: 900; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold);
+  text-align: left; margin-bottom: 7px;
+}
+.faq-int .int-grid { max-width: none; gap: 10px; }
+.faq-int .int-box { padding: 13px 15px; }
+.faq-int .int-box h3 { font-size: 13px; margin-bottom: 5px; }
+.faq-int .int-box p { font-size: 12.5px; line-height: 1.55; }
 .faq-item {
   border: 1px solid var(--line); border-radius: 14px;
   background: rgba(255,255,255,.04); padding: 13px 15px;
@@ -733,9 +756,8 @@ a:focus-visible, button:focus-visible {
 .s6 { background: radial-gradient(ellipse 780px 580px at 50% 32%, rgba(255,156,26,.22) 0%, #07080e 62%); }
 .s7 { background: radial-gradient(ellipse 680px 480px at 38% 62%, rgba(31,41,55,.42) 0%, #070a12 68%); }
 .s8  { background: radial-gradient(ellipse 760px 520px at 50% 22%, rgba(255,156,26,.12) 0%, #060910 66%); }
-.s9  { background: radial-gradient(ellipse 800px 500px at 80% 78%, rgba(31,41,55,.4) 0%, #080b14 68%); }
+/* .s9 (examples) merged into .s8, .s11 (integrity) merged into .s12 */
 .s10 { background: radial-gradient(ellipse 700px 520px at 20% 30%, rgba(0,209,143,.07) 0%, #070a12 68%); }
-.s11 { background: radial-gradient(ellipse 700px 520px at 70% 40%, rgba(255,156,26,.10) 0%, #07090f 68%); }
 .s12 { background: radial-gradient(ellipse 760px 540px at 30% 70%, rgba(31,41,55,.42) 0%, #080b13 68%); }
 .s13 { background: radial-gradient(ellipse 780px 520px at 60% 28%, rgba(255,156,26,.13) 0%, #0a0e16 66%); }
 .s14 { background: radial-gradient(ellipse 820px 560px at 50% 40%, rgba(255,156,26,.18) 0%, #070a12 66%); }
@@ -882,6 +904,19 @@ a:focus-visible, button:focus-visible {
   width: 100%; text-align: left; padding: 10px 12px;
   border-radius: 10px; font-size: 14px;
 }
+/* The drawer mirrors the grouped top nav but keeps every slide reachable:
+   the group head is the jump target, sub-items address the slides inside it. */
+.drawer-group { display: flex; flex-direction: column; gap: 2px; }
+.drawer-group + .drawer-group { margin-top: 4px; }
+.drawer-nav .nav-sub {
+  padding: 7px 12px 7px 24px; font-size: 12.5px;
+  color: var(--muted2); position: relative;
+}
+.drawer-nav .nav-sub::before {
+  content: ''; position: absolute; left: 13px; top: 50%;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: currentColor; opacity: .55; transform: translateY(-50%);
+}
 .drawer-cta { display: flex; flex-direction: column; gap: 8px; }
 .drawer-foot { margin-top: auto; font-size: 11px; color: var(--muted2); line-height: 1.5; }
 
@@ -969,8 +1004,16 @@ a:focus-visible, button:focus-visible {
   .review-grid { grid-template-columns: 1fr 1fr; }
   .review-grid .review-card:nth-child(n+5) { display: none; }
   .support-grid { grid-template-columns: 1fr; }
-  .gallery     { grid-template-columns: 1fr; }
-  .gallery .shot:nth-child(n+2) { display: none; }
+  /* Behind a tab the gallery is opt-in, so hiding 2 of 3 examples (as the old
+     standalone slide did) would waste a deliberate tap. Swipe them instead —
+     all three stay reachable without adding slide height. */
+  .gallery {
+    grid-template-columns: repeat(3, 82%);
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none; padding-bottom: 2px;
+  }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery .shot { scroll-snap-align: center; }
   .fit-grid    { grid-template-columns: 1fr; }
   .int-grid    { grid-template-columns: 1fr; }
   .faq-grid    { grid-template-columns: 1fr; }
@@ -1144,56 +1187,59 @@ a:focus-visible, button:focus-visible {
     </div>
   </section>
 
-  <!-- ── S · DEMO VIDEO ── -->
+  <!-- ── S · DEMO (VIDEO + EXAMPLES, tabbed) ── -->
   <section class="slide s8" data-label-key="nav.demo">
     <div class="deco"><div class="blob" style="width:480px;height:480px;background:#ff9c1a;opacity:.10;top:50%;right:-8%;transform:translateY(-50%)"></div></div>
 
     <div class="s-inner">
-      <div class="eyebrow reveal d1" data-t="vid.eyebrow"></div>
-      <h2 class="headline reveal d2" data-t="vid.h"></h2>
-      <p class="sub reveal d3" data-t="vid.p"></p>
+      <div class="eyebrow reveal d1" data-t="demo.eyebrow"></div>
+      <h2 class="headline reveal d2" data-t="demo.h"></h2>
 
-      <div class="video-card reveal d4" id="videoCard">
-        <video id="demoVideo" muted playsinline controls preload="none" poster="img/demo_poster.jpg" aria-label="KHAN SNIPER PRO demo">
-          <source src="media/demo.mp4" type="video/mp4" />
-        </video>
-        <button class="video-play" id="videoPlayBtn" type="button">
-          <span class="play-circle" aria-hidden="true">▶</span>
-          <span data-t="vid.play"></span>
-        </button>
+      <div class="tf-tabs reveal d3" role="tablist" aria-label="Demo view">
+        <button class="tf-tab demo-tab act" type="button" role="tab" aria-selected="true"
+                data-demo="video" id="demoTabVideo" aria-controls="demoPaneVideo" data-t="demo.tabvid"></button>
+        <button class="tf-tab demo-tab" type="button" role="tab" aria-selected="false"
+                data-demo="shots" id="demoTabShots" aria-controls="demoPaneShots" data-t="demo.tabshots"></button>
       </div>
-    </div>
-  </section>
 
-  <!-- ── S · EXAMPLES ── -->
-  <section class="slide s9" data-label-key="nav.examples">
-    <div class="deco"><div class="blob" style="width:480px;height:480px;background:#1f2937;opacity:.45;bottom:-12%;right:-6%"></div></div>
-
-    <div class="s-inner">
-      <div class="eyebrow reveal d1" data-t="ex.eyebrow"></div>
-      <h2 class="headline reveal d2" data-t="ex.h"></h2>
-      <p class="sub reveal d3" data-t="ex.p"></p>
-
-      <div class="gallery reveal d4">
-        <div class="shot" data-lbox="img/example_xau_15m.png" data-alt="XAU 15m example">
-          <img src="img/example_xau_15m.png" alt="XAU 15m example with trend flip and TP map" loading="lazy" decoding="async" />
-          <div class="cap">
-            <span class="cap-label">XAU · 15m</span>
-            <span class="cap-note" data-t="ex.n1"></span>
-          </div>
+      <!-- pane · video -->
+      <div class="demo-pane act reveal d4" id="demoPaneVideo" role="tabpanel" aria-labelledby="demoTabVideo">
+        <p class="sub" data-t="vid.p"></p>
+        <div class="video-card" id="videoCard">
+          <video id="demoVideo" muted playsinline controls preload="none" poster="img/demo_poster.jpg" aria-label="KHAN SNIPER PRO demo">
+            <source src="media/demo.mp4" type="video/mp4" />
+          </video>
+          <button class="video-play" id="videoPlayBtn" type="button">
+            <span class="play-circle" aria-hidden="true">▶</span>
+            <span data-t="vid.play"></span>
+          </button>
         </div>
-        <div class="shot" data-lbox="img/example_xau_1h.png" data-alt="XAU 1h example">
-          <img src="img/example_xau_1h.png" alt="XAU 1h example with full TP1-TP4 ladder" loading="lazy" decoding="async" />
-          <div class="cap">
-            <span class="cap-label">XAU · 1H</span>
-            <span class="cap-note" data-t="ex.n2"></span>
+      </div>
+
+      <!-- pane · chart examples -->
+      <div class="demo-pane reveal d4" id="demoPaneShots" role="tabpanel" aria-labelledby="demoTabShots">
+        <p class="sub" data-t="ex.p"></p>
+        <div class="gallery">
+          <div class="shot" data-lbox="img/example_xau_15m.png" data-alt="XAU 15m example">
+            <img src="img/example_xau_15m.png" alt="XAU 15m example with trend flip and TP map" loading="lazy" decoding="async" />
+            <div class="cap">
+              <span class="cap-label">XAU · 15m</span>
+              <span class="cap-note" data-t="ex.n1"></span>
+            </div>
           </div>
-        </div>
-        <div class="shot" data-lbox="img/example_xau_4h.png" data-alt="XAU 4h example">
-          <img src="img/example_xau_4h.png" alt="XAU 4h example showing macro bias" loading="lazy" decoding="async" />
-          <div class="cap">
-            <span class="cap-label">XAU · 4H</span>
-            <span class="cap-note" data-t="ex.n3"></span>
+          <div class="shot" data-lbox="img/example_xau_1h.png" data-alt="XAU 1h example">
+            <img src="img/example_xau_1h.png" alt="XAU 1h example with full TP1-TP4 ladder" loading="lazy" decoding="async" />
+            <div class="cap">
+              <span class="cap-label">XAU · 1H</span>
+              <span class="cap-note" data-t="ex.n2"></span>
+            </div>
+          </div>
+          <div class="shot" data-lbox="img/example_xau_4h.png" data-alt="XAU 4h example">
+            <img src="img/example_xau_4h.png" alt="XAU 4h example showing macro bias" loading="lazy" decoding="async" />
+            <div class="cap">
+              <span class="cap-label">XAU · 4H</span>
+              <span class="cap-note" data-t="ex.n3"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1387,29 +1433,7 @@ a:focus-visible, button:focus-visible {
     </div>
   </section>
 
-  <!-- ── S · INTEGRITY ── -->
-  <section class="slide s11" data-label-key="nav.integrity">
-    <div class="deco"><div class="blob" style="width:440px;height:440px;background:#ff9c1a;opacity:.09;top:-8%;right:-6%"></div></div>
-
-    <div class="s-inner">
-      <div class="eyebrow reveal d1" data-t="int.eyebrow"></div>
-      <h2 class="headline reveal d2" data-t="int.h"></h2>
-      <p class="sub reveal d3" data-t="int.p"></p>
-
-      <div class="int-grid reveal d4">
-        <div class="int-box">
-          <h3 data-t="int.c1h"></h3>
-          <p data-t="int.c1p"></p>
-        </div>
-        <div class="int-box">
-          <h3 data-t="int.c2h"></h3>
-          <p data-t="int.c2p"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── S · FAQ ── -->
+  <!-- ── S · FAQ + INTEGRITY ── -->
   <section class="slide s12" data-label-key="nav.faq">
     <div class="deco"><div class="blob" style="width:480px;height:480px;background:#1f2937;opacity:.42;bottom:-10%;left:-6%"></div></div>
 
@@ -1417,7 +1441,22 @@ a:focus-visible, button:focus-visible {
       <div class="eyebrow reveal d1" data-t="faq.eyebrow"></div>
       <h2 class="headline reveal d2" data-t="faq.h"></h2>
 
-      <div class="faq-grid reveal d3">
+      <!-- Integrity — folded in from its own slide: two claims that frame every answer below -->
+      <div class="faq-int reveal d3">
+        <div class="int-tag" data-t="int.eyebrow"></div>
+        <div class="int-grid">
+          <div class="int-box">
+            <h3 data-t="int.c1h"></h3>
+            <p data-t="int.c1p"></p>
+          </div>
+          <div class="int-box">
+            <h3 data-t="int.c2h"></h3>
+            <p data-t="int.c2p"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-grid reveal d4">
         <details class="faq-item"><summary data-t="faq.q1"></summary><p data-t="faq.a1"></p></details>
         <details class="faq-item"><summary data-t="faq.q2"></summary><p data-t="faq.a2"></p></details>
         <details class="faq-item"><summary data-t="faq.q3"></summary><p data-t="faq.a3"></p></details>
@@ -1622,25 +1661,30 @@ en: {
   'nav.home':      'Home',
   'nav.numbers':   'Numbers',
   'nav.demo':      'Demo',
-  'nav.examples':  'Examples',
   'nav.process':   'Process',
   'nav.features':  'Features',
   'nav.fit':       'Fit Check',
   'nav.reviews':   'Reviews',
-  'nav.integrity': 'Integrity',
   'nav.faq':       'FAQ',
   'nav.guides':    'Guides',
-  'nav.pricing':   'Pricing',
+  'nav.pricing':   'Plan',
   'nav.payment':   'Payment',
   'nav.support':   'Support',
 
-  'vid.eyebrow': 'Live Demo',
-  'vid.h':       'See a short live walkthrough.',
+  // Grouped top-nav labels (one button covers several slides)
+  'navg.results':  'Results',
+  'navg.system':   'System',
+  'navg.trust':    'Trust',
+  'navg.pay':      'Pricing',
+
+  'demo.eyebrow':  'See It Working',
+  'demo.h':        'Watch it live, or read the charts.',
+  'demo.tabvid':   'Video',
+  'demo.tabshots': 'Charts',
+
   'vid.p':       'From the trend flip to the 4-level TP map. Recorded from a real session with no hindsight edits.',
   'vid.play':    'Play demo',
 
-  'ex.eyebrow': 'Market Examples',
-  'ex.h':       'Real charts. Clear process.',
   'ex.p':       'One asset (XAU) across three timeframes — see how the trend flip, HTF confluence, and 4-level TP map work from scalping to macro frame.',
   'ex.n1':      'Pre-signal → flip → TP1–TP4 scale-out',
   'ex.n2':      'HTF flip with full TP1–TP4 ladder',
@@ -1661,8 +1705,6 @@ en: {
   'fit.b4':      'Seeks guaranteed profits',
 
   'int.eyebrow': 'Integrity',
-  'int.h':       'What you see live should match backtest.',
-  'int.p':       'No hindsight edits. Same rules for live execution.',
   'int.c1h':     'Live = Backtest logic',
   'int.c1p':     'Signals, entries, and risk maps use the same rules in live and backtest.',
   'int.c2h':     'HTF confluence first, then flip',
@@ -1847,24 +1889,29 @@ mn: {
   'nav.home':      'Нүүр',
   'nav.numbers':   'Тоонууд',
   'nav.demo':      'Демо',
-  'nav.examples':  'Жишээ',
   'nav.process':   'Процесс',
   'nav.features':  'Боломжууд',
   'nav.fit':       'Тохирол',
   'nav.reviews':   'Сэтгэгдэл',
-  'nav.integrity': 'Ил тод',
   'nav.faq':       'Асуулт',
   'nav.guides':    'Гарын авлага',
-  'nav.pricing':   'Үнэ',
+  'nav.pricing':   'Багц',
   'nav.support':   'Холбоо',
 
-  'vid.eyebrow': 'Live Демо',
-  'vid.h':       'Богино live демо үзээрэй.',
+  // Бүлэглэсэн top-nav (нэг товч хэд хэдэн слайдыг хамарна)
+  'navg.results':  'Үр дүн',
+  'navg.system':   'Систем',
+  'navg.trust':    'Итгэл',
+  'navg.pay':      'Үнэ',
+
+  'demo.eyebrow':  'Ажиллаж байхыг харах',
+  'demo.h':        'Live демо үз, эсвэл графикийг унш.',
+  'demo.tabvid':   'Видео',
+  'demo.tabshots': 'График',
+
   'vid.p':       'Trend flip-ээс 4-түвшний TP зураглал хүртэлх алхмууд. Бодит session, hindsight засваргүй.',
   'vid.play':    'Демо тоглуулах',
 
-  'ex.eyebrow': 'Зах зээлийн жишээ',
-  'ex.h':       'Бодит график. Тодорхой процесс.',
   'ex.p':       'Нэг хөрөнгө (XAU)-г 3 timeframe дээр — scalping-аас макро хүртэлх trend flip, HTF confluence, 4-түвшний TP зураглалын ажиллагаа.',
   'ex.n1':      'Pre-signal → flip → TP1–TP4 scale-out',
   'ex.n2':      'HTF flip + бүрэн TP1–TP4 шат',
@@ -1885,8 +1932,6 @@ mn: {
   'fit.b4':      'Баталгаатай ашиг хайдаг',
 
   'int.eyebrow': 'Ил тод байдал',
-  'int.h':       'Live дээр харсан нь backtest-тэй нийцнэ.',
-  'int.p':       'Hindsight засваргүй. Нэг дүрмээр бодит гүйцэтгэлд ашиглана.',
   'int.c1h':     'Live = Backtest логик',
   'int.c1p':     'Дохио, entry, risk map нь live болон backtest дээр ижил дүрмээр ажиллана.',
   'int.c2h':     'Эхлээд HTF confluence, дараа нь flip',
@@ -2089,21 +2134,68 @@ slides.forEach((s, i) => {
 });
 const dots = Array.from(dotsEl.querySelectorAll('.dot'));
 
-// ── Build top nav + drawer nav ──
+/* ── Build top nav + drawer nav ──
+   The nav used to be 1:1 with slides, which meant 14 buttons overflowing the
+   top bar. Slides are now grouped: the top bar shows one button per group and
+   jumps to the group's first slide, staying active for every slide in it. The
+   drawer keeps the full list as sub-items so mobile can still reach any slide
+   directly. Group order must follow DOM slide order. */
+const NAV_GROUPS = [
+  { key: 'nav.home',     slides: ['nav.home'] },
+  { key: 'navg.results', slides: ['nav.numbers', 'nav.demo'] },
+  { key: 'navg.system',  slides: ['nav.process', 'nav.features', 'nav.fit'] },
+  { key: 'navg.trust',   slides: ['nav.reviews', 'nav.faq'] },
+  { key: 'nav.guides',   slides: ['nav.guides'] },
+  { key: 'navg.pay',     slides: ['nav.pricing', 'nav.payment'] },
+  { key: 'nav.support',  slides: ['nav.support'] },
+];
+
+const slideIndexOf = key => slides.findIndex(s => s.dataset.labelKey === key);
+
+const navGroups = NAV_GROUPS
+  .map(g => ({ key: g.key, idxs: g.slides.map(slideIndexOf).filter(i => i >= 0) }))
+  .filter(g => g.idxs.length);
+
+// Any slide missing from NAV_GROUPS would be unreachable from the nav — keep it
+// addressable by appending it as its own group rather than dropping it silently.
+slides.forEach((s, i) => {
+  if (navGroups.some(g => g.idxs.includes(i))) return;
+  navGroups.push({ key: s.dataset.labelKey, idxs: [i] });
+});
+
 const navLinksEl = document.getElementById('navLinks');
 const drawerNav  = document.getElementById('drawerNav');
 
-slides.forEach((s, i) => {
-  [navLinksEl, drawerNav].forEach(parent => {
-    const b = document.createElement('button');
-    b.className = 'nav-btn';
-    b.dataset.i = i;
-    b.dataset.labelKey = s.dataset.labelKey;
-    parent.appendChild(b);
-  });
+navGroups.forEach(g => {
+  const top = document.createElement('button');
+  top.className = 'nav-btn';
+  top.dataset.i = g.idxs[0];
+  navLinksEl.appendChild(top);
+  g.topBtn = top;
+
+  const row = document.createElement('div');
+  row.className = 'drawer-group';
+
+  const head = document.createElement('button');
+  head.className = 'nav-btn';
+  head.dataset.i = g.idxs[0];
+  row.appendChild(head);
+  g.drawerBtn = head;
+
+  // Only groups that actually bundle slides need sub-items.
+  g.subBtns = g.idxs.length > 1 ? g.idxs.map(i => {
+    const sub = document.createElement('button');
+    sub.className = 'nav-btn nav-sub';
+    sub.dataset.i = i;
+    sub.dataset.labelKey = slides[i].dataset.labelKey;
+    row.appendChild(sub);
+    return sub;
+  }) : [];
+
+  drawerNav.appendChild(row);
 });
-const navBtns    = Array.from(navLinksEl.querySelectorAll('.nav-btn'));
-const drawerBtns = Array.from(drawerNav.querySelectorAll('.nav-btn'));
+
+const drawerBtns = navGroups.flatMap(g => [g.drawerBtn, ...g.subBtns]);
 
 /* ═══════════════════════════════════════════
    i18n
@@ -2120,12 +2212,17 @@ function applyLang(l) {
     if (v !== undefined) el.innerHTML = v;
   });
 
-  // Nav labels
+  // Dot tooltips stay per-slide; nav buttons are per-group.
   slides.forEach((s, i) => {
-    const label = T[l][s.dataset.labelKey] || s.dataset.labelKey;
-    navBtns[i].textContent    = label;
-    drawerBtns[i].textContent = label;
-    dots[i].setAttribute('aria-label', label);
+    dots[i].setAttribute('aria-label', T[l][s.dataset.labelKey] || s.dataset.labelKey);
+  });
+  navGroups.forEach(g => {
+    const label = T[l][g.key] || g.key;
+    g.topBtn.textContent    = label;
+    g.drawerBtn.textContent = label;
+    g.subBtns.forEach(b => {
+      b.textContent = T[l][b.dataset.labelKey] || b.dataset.labelKey;
+    });
   });
 
   // Lang button active states (all lang buttons: topnav + drawer)
@@ -2150,9 +2247,9 @@ const tfData = {
 let curTf = '1h';
 
 function applyTf(tf) {
-  curTf = tf;
   const d = tfData[tf];
   if (!d) return;
+  curTf = tf;
   const winEl = document.getElementById('tf-win');
   if (winEl) { winEl.dataset.target = d.win; winEl.dataset.dec = d.dec; winEl.textContent = d.win.toFixed(d.dec); }
   const wsubEl = document.getElementById('tf-winsub');
@@ -2165,10 +2262,11 @@ function applyTf(tf) {
   if (ddEl) ddEl.textContent = d.dd;
   const chipEl = document.getElementById('tf-asset-chip');
   if (chipEl) chipEl.textContent = d.asset;
-  document.querySelectorAll('.tf-tab').forEach(b => b.classList.toggle('act', b.dataset.tf === tf));
+  document.querySelectorAll('.tf-tab[data-tf]').forEach(b => b.classList.toggle('act', b.dataset.tf === tf));
 }
 
-document.querySelectorAll('.tf-tab').forEach(b => {
+// The demo slide reuses .tf-tab for styling but carries data-demo, not data-tf.
+document.querySelectorAll('.tf-tab[data-tf]').forEach(b => {
   b.addEventListener('click', () => applyTf(b.dataset.tf));
 });
 
@@ -2245,8 +2343,13 @@ function onScroll() {
   prog.style.width = (sh > 0 ? (st / sh) * 100 : 0) + '%';
 
   const idx = Math.round(st / wrap.clientHeight);
-  dots.forEach((d, i)    => d.classList.toggle('a', i === idx));
-  navBtns.forEach((b, i) => b.classList.toggle('act', i === idx));
+  dots.forEach((d, i) => d.classList.toggle('a', i === idx));
+  navGroups.forEach(g => {
+    const on = g.idxs.includes(idx);
+    g.topBtn.classList.toggle('act', on);
+    g.drawerBtn.classList.toggle('act', on);
+    g.subBtns.forEach(b => b.classList.toggle('act', +b.dataset.i === idx));
+  });
   slideNum.textContent = `${idx + 1} / ${N}`;
 }
 wrap.addEventListener('scroll', onScroll, { passive: true });
@@ -2258,8 +2361,8 @@ onScroll();
 function scrollTo(i) {
   wrap.scrollTo({ top: i * wrap.clientHeight, behavior: 'smooth' });
 }
-dots.forEach(d     => d.addEventListener('click', () => scrollTo(+d.dataset.i)));
-navBtns.forEach(b  => b.addEventListener('click', () => scrollTo(+b.dataset.i)));
+dots.forEach(d => d.addEventListener('click', () => scrollTo(+d.dataset.i)));
+navGroups.forEach(g => g.topBtn.addEventListener('click', () => scrollTo(+g.topBtn.dataset.i)));
 drawerBtns.forEach(b => b.addEventListener('click', () => { scrollTo(+b.dataset.i); closeDrawer(); }));
 document.querySelectorAll('[data-jump]').forEach(el => {
   el.addEventListener('click', e => {
@@ -2319,6 +2422,46 @@ if (videoBtn) {
   demoVideo.addEventListener('pause', () => videoCard.classList.remove('playing'));
   demoVideo.addEventListener('ended', () => videoCard.classList.remove('playing'));
 }
+
+/* ── Demo tabs: video / chart examples ── */
+(function initDemoTabs() {
+  const tabs  = Array.from(document.querySelectorAll('.demo-tab'));
+  if (!tabs.length) return;
+  const panes = {
+    video: document.getElementById('demoPaneVideo'),
+    shots: document.getElementById('demoPaneShots'),
+  };
+
+  // loading="lazy" never fires inside a display:none pane, so the first tap on
+  // Charts would show empty frames. Warm them once the slide comes into view.
+  const shotsPane = panes.shots;
+  if (shotsPane) {
+    const warm = new IntersectionObserver(entries => {
+      if (!entries.some(e => e.isIntersecting)) return;
+      shotsPane.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        const pre = new Image();
+        pre.src = img.currentSrc || img.src;
+      });
+      warm.disconnect();
+    }, { root: wrap, threshold: 0.2 });
+    warm.observe(shotsPane.closest('.slide'));
+  }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const which = tab.dataset.demo;
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('act', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      Object.entries(panes).forEach(([k, pane]) => {
+        pane?.classList.toggle('act', k === which);
+      });
+      // Leaving the video pane shouldn't leave audio/CPU running behind a hidden pane.
+      if (which !== 'video' && demoVideo && !demoVideo.paused) demoVideo.pause();
+    });
+  });
+})();
 
 /* ═══════════════════════════════════════════
    PAYMENT + COOKIE CONSENT
