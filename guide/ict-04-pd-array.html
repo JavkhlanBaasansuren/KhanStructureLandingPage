@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PD Array Matrix — зургаан зурвас зэрэг байхад аль нь entry вэ. Old High → Rejection → Order Block → FVG → Liquidity Void → Breaker → EQ 50% эрэмбэ, доод талын толин тусгал, premium/discount контекст, MTF nesting ба эрэмбийг өөрөө хэмжих арга." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="PD Array Matrix — зурвасын эрэмбэ · ICT Хичээл 04" />
+<meta property="og:description" content="Зэрэглэл биш, төрлийн эрэмбэ: Old High → Rejection → OB → FVG → Void → Breaker → EQ 50%. Зургаан зурвас зэрэг байхад аль нь entry вэ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ict-04-pd-array.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PD Array Matrix — зурвасын эрэмбэ · ICT Хичээл 04" />
+<meta name="twitter:description" content="Зэрэглэл биш, төрлийн эрэмбэ: Old High → Rejection → OB → FVG → Void → Breaker → EQ 50%." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ict-04-pd-array.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>PD Array Matrix — зурвасын эрэмбэ · ICT Хичээл 04 | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "PD Array Matrix — зурвасын эрэмбэ",
+  "description": "Зургаан зурвас зэрэг байхад аль нь entry вэ. Old High → Rejection → Order Block → FVG → Liquidity Void → Breaker → EQ 50% эрэмбэ, доод талын толин тусгал, premium/discount контекст, MTF nesting.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ict-04-pd-array.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "learningResourceType": "lesson",
+  "educationalLevel": "Advanced",
+  "position": 4,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "ICT / Smart Money цуврал",
+    "url": "https://khanstructure.com/guide/ict-00-index.html"
+  },
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ICT цуврал", "item": "https://khanstructure.com/guide/ict-00-index.html" },
+    { "@type": "ListItem", "position": 4, "name": "PD Array Matrix — зурвасын эрэмбэ", "item": "https://khanstructure.com/guide/ict-04-pd-array.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT PRO · Хичээл 04</span>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker"><span>ICT / Smart Money</span><span>Хичээл 04</span><span>KHAN ICT PRO</span></div>
+    <h1>PD Array Matrix — <em>зурвасын эрэмбэ</em></h1>
+    <p class="standfirst">
+      Хичээл 03 “хаашаа” гэдгийг хэллээ. Одоо “хаанаас” гэдэг асуулт. Үнэ буцаж
+      ирэхэд замд нь зургаа, долоон зурвас зэрэг хэвтэж байдаг — Old High, rejection,
+      OB, FVG, void, breaker, EQ. Энэ хичээл нь тэднийг <strong>зэрэглэлээр биш,
+      төрлийн эрэмбээр</strong> байрлуулж, зэрэг байвал алийг авахыг 12 диаграммаар
+      тайлбарлана.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#basis">PD array гэж юу вэ — яагаад “matrix”</a></li>
+        <li><a href="#types">Долоон зурвасын төрөл</a></li>
+        <li><a href="#principle">Зэрэглэл биш, төрлийн эрэмбэ</a></li>
+        <li><a href="#r12">Old High/Low → Rejection block</a></li>
+        <li><a href="#r34">Order Block → FVG</a></li>
+        <li><a href="#r56">Liquidity Void → Breaker</a></li>
+        <li><a href="#r7">EQ 50% — яагаад хамгийн сүүлд</a></li>
+        <li><a href="#mirror">Доод талын толин тусгал</a></li>
+        <li><a href="#decide">Зургаан зурвас зэрэг байвал</a></li>
+        <li><a href="#distance">Зай — хэт ойр, хэт хол</a></li>
+        <li><a href="#confluence">Хоёр төрөл нэг үнэ дээр</a></li>
+        <li><a href="#context">Range-ыг хаанаас хэмжих</a></li>
+        <li><a href="#mtf">HTF array дотор LTF array</a></li>
+        <li><a href="#measure">Эрэмбийг өөрөө хэмжих</a></li>
+        <li><a href="#mistakes">Нийтлэг алдаанууд</a></li>
+        <li><a href="#checklist">Практик checklist</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- ============================================ 1 -->
+  <section id="basis">
+    <div class="eyebrow">Үндэс</div>
+    <h2>PD array гэж юу вэ — яагаад “matrix”</h2>
+
+    <p>
+      <strong>PD</strong> нь <em>Premium / Discount</em>. Аливаа хэлцлийн зурвас
+      (dealing range) нь хоёр цэгээр тодорхойлогддог — swing low ба swing high.
+      Тэр хоёрын <strong>дундаж нь equilibrium (EQ, 50%)</strong>. EQ-ээс дээших
+      бүх үнэ бол <em>premium</em> — “хэт үнэтэй”; доохи нь <em>discount</em> —
+      “хямд”.
+    </p>
+    <p>
+      Энгийн логик: <strong>худалдаж авахыг хямд талд, худалдахыг үнэтэй талд</strong>
+      хайна. Гэхдээ “хямд тал” нь 5 юанийн өргөн зай — тэр зайд нэг цэг байхгүй,
+      <strong>хэд хэдэн төрлийн зурвас</strong> байна. Тэр зурвасуудыг төрлөөрөө нь
+      эрэмбэлж, хоёр талд толин тусгал болгож тавьсныг <strong>PD array matrix</strong>
+      гэнэ. “Matrix” гэдэг нь ярвигтай математик биш — <em>эрэмбэлэгдсэн хоёр
+      багана</em> (premium тал, discount тал) гэсэн үг.
+    </p>
+
+    <figure class="duo" id="fig-arrays">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · Premium тал — EQ-ээс дээш</div>
+          <svg data-chart="arraysPrem" role="img" aria-label="Хэлцлийн зурвасын дээд хагаст Old High, rejection, order block, FVG, void, breaker гэсэн зурвасууд EQ 50 хувиас дээш эрэмбэлэгдэн байрласан"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · Discount тал — EQ-ээс доош</div>
+          <svg data-chart="arraysDisc" role="img" aria-label="Ижил зурвасын доод хагаст яг тэр төрлүүд толин тусгал болж EQ 50 хувиас доош эрэмбэлэгдэн байрласан"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Нэг л хэлцлийн зурвас, хоёр хагас. <b>A</b> дээр short хайна, <b>B</b> дээр
+        long. Төрлүүд нь хоёр талд <b>ижил</b> — зөвхөн дараалал нь эргэсэн.
+        EQ нь хоёрын хил.
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">Курстай холбоо</span>
+      <p>
+        <strong>PriceAction курс 6.1–6.3</strong> нь premium/discount-ыг аль хэдийн
+        заасан, <strong>5.2</strong> нь “бүх зурвас тэнцүү биш” гэдгийг. Энэ хичээл
+        нь тэр хоёрыг нэгтгэж <em>эрэмбэ</em> болгоно: аль зурвас хаана байрлах,
+        зэрэг байвал алийг авах.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 2 -->
+  <section id="types">
+    <div class="eyebrow">Тодорхойлолт</div>
+    <h2>Долоон зурвасын төрөл</h2>
+
+    <p>
+      Тодорхойлолтыг эндээс нэг мөрөөр авч, дараа нь тус бүрийг диаграмтай үзнэ.
+      Гурав нь <em>биет</em> (body) дээр, хоёр нь <em>сүүл</em> (wick) дээр, нэг нь
+      <em>хоосон зай</em> дээр, нэг нь <em>тооцоо</em> дээр тулгуурладаг —
+      энэ ялгаа нь дараа эрэмбийг тайлбарлана.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Зурвас</th><th>Юун дээр тулгуурладаг</th><th>Нэг мөрөөр</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Old High / Old Low</strong></td>
+            <td>Цэг (үнийн шугам)</td>
+            <td>Өмнөх swing оргил/底. Түүний цаана stop хуримтлагдсан — зурвас биш, <em>магнит</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Rejection block</strong></td>
+            <td>Сүүл (wick)</td>
+            <td>Урт сүүлээр түвшнийг эрс татгалзсан хэсэг. Зон нь <em>сүүлийн</em> хүрээ, биетийн биш.</td>
+          </tr>
+          <tr>
+            <td><strong>Order Block</strong></td>
+            <td>Биет (body)</td>
+            <td>Импульсийн өмнөх сүүлчийн эсрэг лаа. <a href="ict-01-order-block.html">Хичээл 01</a>-д бүтнээр.</td>
+          </tr>
+          <tr>
+            <td><strong>FVG</strong></td>
+            <td>Хоосон зай</td>
+            <td>Гурван барын тэнцвэргүй байдал — 1-ийн high ба 3-ийн low хооронд үлдсэн зай.</td>
+          </tr>
+          <tr>
+            <td><strong>Liquidity Void</strong></td>
+            <td>Хоосон зай (өргөн)</td>
+            <td>Эсрэг талын хэлцэл бараг байхгүй, өргөн бөгөөд нимгэн нэг чиглэлт зай. Дотроо FVG агуулж болно.</td>
+          </tr>
+          <tr>
+            <td><strong>Breaker</strong></td>
+            <td>Биет (эвдэрсэн)</td>
+            <td>Бүтэлгүйтсэн OB. Хаалтаар эвдэгдэж, дараа нь <em>үүргээ сольсон</em> — support → resistance.</td>
+          </tr>
+          <tr>
+            <td><strong>EQ 50%</strong></td>
+            <td>Тооцоо</td>
+            <td>Хэлцлийн зурвасын дундаж. Зурвас биш, <em>хил</em> — premium/discount-ыг хуваана.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн эхний андуурал</span>
+      <p>
+        <strong>Old High ба EQ нь “зурвас” биш.</strong> Нэг нь цэг, нөгөө нь
+        тооцоолсон хил. Гэхдээ тэднийг matrix-д тавьдаг шалтгаан бий: үнэ тэдэн дээр
+        <em>хариу үйлдэл гаргадаг</em>. Тиймээс энэ хичээлд “зурвас” гэдэг нь
+        “үнэ хүрэхэд шийдвэр гаргах цэг” гэсэн өргөн утгаар хэрэглэгдэнэ.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 3 -->
+  <section id="principle">
+    <div class="eyebrow">Зарчим</div>
+    <h2>Зэрэглэл биш, төрлийн эрэмбэ</h2>
+
+    <p>
+      Эрэмбийг хараад хамгийн түгээмэл гаргадаг дүгнэлт: <em>“Old High нь OB-ээс
+      хүчтэй”</em>. Энэ <strong>буруу</strong>. Эрэмбэ нь хүч хэмждэггүй — тэр нь
+      <strong>гүн</strong> хэмждэг.
+    </p>
+
+    <div class="formula">
+      Эрэмбэ = зурвасын гүн (extreme-ээс EQ хүртэл) &nbsp;—&nbsp; хүч биш
+    </div>
+
+    <p>
+      Өөрөөр хэлбэл эрэмбэ нь “<em>үнэ хилээс дотогш явахад ямар дарааллаар тааралдах
+      вэ</em>” гэсэн асуултын хариу. Old High нь хилийн яг дээр — тиймээс хамгийн
+      гүехэн. EQ нь дундаж — хамгийн гүн. Бусад нь хооронд.
+    </p>
+    <p>
+      Тэгэхээр эрэмбэ нь <strong>чиглэлээс хамаарна</strong>. Үнэ гаднаас дотогш
+      явж байвал Old High → … → EQ гэсэн дарааллаар тааралдана. Дотроос гадагш
+      явж байвал <strong>яг эсрэгээр</strong>: EQ → breaker → void → FVG → OB →
+      rejection → Old High. Энэ хоёрыг андуурвал “эрэмбэ ажиллахгүй байна” гэсэн
+      дүгнэлтэд хүрнэ — эрэмбэ ажиллаж байгаа, зөвхөн чиглэлээ бичээгүй.
+    </p>
+
+    <figure id="fig-order">
+      <div class="plate">
+        <div class="plate-hd">Долоон зурвас · гүнээр эрэмбэлсэн</div>
+        <svg data-chart="order" role="img" aria-label="Хэлцлийн зурвасын дээд хагаст долоон зурвас Old High-аас EQ хүртэл гүнээрээ дараалан байрлаж, үнэ дотогш ба гадагш явахад тааралдах дараалал эсрэг болохыг хоёр сумаар харуулсан"></svg>
+      </div>
+      <figcaption>
+        Нэг ба ижил зурвасууд. <b>Доош чиглэсэн сум</b> (гаднаас дотогш) нь
+        Old High-аас EQ руу; <b>дээш чиглэсэн сум</b> (дотроос гадагш) нь EQ-ээс
+        Old High руу. Зурвасууд хөдлөөгүй — <b>тааралдах дараалал</b> л эргэсэн.
+      </figcaption>
+    </figure>
+
+    <div class="tier">
+      <div class="t-a">
+        <span class="lab">✓</span>
+        <div>
+          <h3>Эрэмбийн зөв хэрэглээ</h3>
+          <p>
+            “Үнэ дээрээс доош ирж байна. Хамгийн эхний тааралдах зурвас нь rejection,
+            дараа нь OB. Тэгэхээр эхлээд rejection-ыг ажиглана.”
+          </p>
+        </div>
+      </div>
+      <div class="t-c">
+        <span class="lab">✗</span>
+        <div>
+          <h3>Эрэмбийн буруу хэрэглээ</h3>
+          <p>
+            “Old High нь эрэмбийн 1-т байна, тэгэхээр хамгийн найдвартай — түүн дээр
+            позици авна.” Эрэмбэ найдвартай байдлыг хэлээгүй.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 4 -->
+  <section id="r12">
+    <div class="eyebrow">Эрэмбэ · 1–2</div>
+    <h2>Old High/Low → Rejection block</h2>
+
+    <h3>1. Old High / Old Low — хамгийн гүехэн</h3>
+    <p>
+      Хэлцлийн зурвасын өөрийн хил. Түүний цаана хоёр зүйл хуримтлагддаг: нэг нь
+      <strong>stop-loss</strong> (breakout хүлээж байсан хүмүүсийн эсрэг тал), нөгөө нь
+      <strong>breakout order</strong>. Тиймээс үнэ түүнд хүрэхэд хамгийн эхлээд
+      <em>цоолох</em> хандлагатай — <a href="ict-03-draw-on-liquidity.html">Хичээл 03</a>-ын
+      магнит яг үүнийг хэлдэг.
+    </p>
+    <p>
+      Эрэмбийн 1-д байгаа шалтгаан нь: <strong>хилийн яг дээр</strong>. Гүн нь тэг.
+    </p>
+
+    <figure id="fig-oldhigh">
+      <div class="plate">
+        <div class="plate-hd">Old High · цоолж, дараа буцав</div>
+        <svg data-chart="oldhigh" role="img" aria-label="Үнэ өмнөх оргилыг сүүлээрээ бага зэрэг цоолж, тэр барын хаалт оргилын доор буцаж хаагдсанаар цоолсон боловч эргэсэн жишээ"></svg>
+      </div>
+      <figcaption>
+        Сүүл нь <b>оргилыг цоолсон</b> (stop-ууд авагдсан), гэвч хаалт нь оргилын
+        <b>доор</b> — эвдрэл болоогүй. Энэ бол Old High-ийн хамгийн түгээмэл зан.
+        Цоолох ба эвдэх хоёр өөр зүйл.
+      </figcaption>
+    </figure>
+
+    <h3>2. Rejection block — сүүлээр тодорхойлогддог</h3>
+    <p>
+      Rejection block нь OB-тай ойролцоо боловч <strong>сүүл</strong> дээр
+      тулгуурладгаараа ялгаатай. Түвшнийг урт сүүлээр эрс татгалзсан үед зон нь
+      биетийн бус, <em>сүүлийн</em> хүрээ болно.
+    </p>
+    <p>
+      Хэзээ хэрэглэх вэ: <strong>биет нь эргэлтийг тайлбарлахгүй байхад</strong>.
+      Жишээ нь лаа нь дээшээ урт сүүл гаргаад доогуур хаагдсан — тэр сүүлийн дотор
+      эсрэг талын ордер гүйцэтгэгдсэн, биет нь тэрийг харуулахгүй.
+    </p>
+
+    <figure id="fig-rejection">
+      <div class="plate">
+        <div class="plate-hd">Rejection block · зон = сүүлийн хүрээ</div>
+        <svg data-chart="rejection" role="img" aria-label="Урт дээд сүүлтэй хоёр барын сүүлийн хүрээгээр rejection зон тавигдаж, биетийн хүрээ нь зонноос хамаагүй жижиг болохыг харуулсан"></svg>
+      </div>
+      <figcaption>
+        Зон нь <b>сүүлийн дээд ба биетийн дээд</b> хооронд. Биетээр зурвал зон
+        хэтэрхий жижиг болж, үнэ дээгүүр гараад “ажиллаагүй” гэж харагдана.
+        Сүүлээр зурвал retest нь зонны дотор л болно.
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">Практик</span>
+      <p>
+        Rejection block-ыг <strong>дандаа хайх шаардлагагүй</strong>. Тэр нь OB-ийн
+        <em>нөөц хувилбар</em>: биет дээр тулгуурласан зон тодорхой байвал OB-ыг ав.
+        Зөвхөн сүүлээр л эргэлт тайлбарлагдаж байвал rejection руу ор.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 5 -->
+  <section id="r34">
+    <div class="eyebrow">Эрэмбэ · 3–4</div>
+    <h2>Order Block → FVG</h2>
+
+    <h3>3. Order Block</h3>
+    <p>
+      Импульсийн өмнөх сүүлчийн эсрэг лаа. Тодорхойлолт, хүчинтэй байдлын 3 нөхцөл,
+      зурах арга, CE 50% — бүгд <a href="ict-01-order-block.html">Хичээл 01</a>-д
+      бүтнээр байгаа тул энд давтахгүй. Matrix-ийн хувьд чухал нь зөвхөн
+      <strong>байрлал</strong>: OB нь rejection-оос гүн, FVG-ээс гүехэн байдаг.
+    </p>
+    <p>
+      Яагаад тэгж байрладаг вэ: OB нь <em>импульс эхлэхийн өмнөх</em> лаа. Импульс
+      нь FVG-ыг ард нь үлдээдэг. Тэгэхээр FVG нь дандаа OB-ээс <strong>импульсийн
+      дотор</strong>, өөрөөр хэлбэл гүн талд байна.
+    </p>
+
+    <figure id="fig-ob">
+      <div class="plate">
+        <div class="plate-hd">Order Block · импульсийн өмнөх сүүлчийн эсрэг лаа</div>
+        <svg data-chart="ob" role="img" aria-label="Бууралтын дараа сүүлчийн улаан лаа order block болж, түүнээс хойш displacement дээш гарч бүтэц эвдэрсэн"></svg>
+      </div>
+      <figcaption>
+        <b>4-р бар</b> нь импульсийн өмнөх сүүлчийн улаан лаа — OB. <b>5-р бар</b>
+        displacement. Зон нь OB-ийн биетийн хүрээ; CE нь түүний 50%.
+      </figcaption>
+    </figure>
+
+    <h3>4. FVG — гурван барын тэнцвэргүй байдал</h3>
+    <p>
+      Bullish FVG: <strong>1-р барын high</strong> ба <strong>3-р барын low</strong>
+      хооронд үлдсэн зай. 2-р бар тэр зайг нэг чиглэлд “давхиж” гарсан тул тэнд
+      хоёр талын хэлцэл болоогүй. Зах зээл тэр зайг дараа нь <em>дүүргэх</em>
+      хандлагатай.
+    </p>
+    <p>
+      <strong>PriceAction курс 4.1–4.6</strong> нь FVG-ыг гурван барын дүрэм, чанарын
+      шалгуур, CE дүрэм, BPR ба inversion хамт бүтнээр заасан. Matrix-д чухал нь:
+      FVG нь OB-ээс <strong>гүн</strong>, void-ээс <strong>гүехэн</strong>.
+    </p>
+
+    <figure id="fig-fvg">
+      <div class="plate">
+        <div class="plate-hd">FVG · 1-ийн high ↔ 3-ийн low</div>
+        <svg data-chart="fvg" role="img" aria-label="Гурван барын дунд бар том дээш хөдөлгөөн гаргаснаар нэгдүгээр барын дээд ба гуравдугаар барын доод хооронд дүүрээгүй зай үлдсэн"></svg>
+      </div>
+      <figcaption>
+        Зон нь <b>1-ийн high-аас 3-ийн low</b> хүртэл — 2-р барын биет бүхэлдээ биш.
+        Хэрэв 3-ийн low нь 1-ийн high-аас доогуур байвал <b>зай байхгүй</b>, FVG ч
+        байхгүй. Энэ хоёрыг нүдээр бус, тоогоор шалга.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 6 -->
+  <section id="r56">
+    <div class="eyebrow">Эрэмбэ · 5–6</div>
+    <h2>Liquidity Void → Breaker</h2>
+
+    <h3>5. Liquidity Void — өргөн, нимгэн</h3>
+    <p>
+      Void нь FVG-ийн “том ах”. Хэд хэдэн бар дараалан нэг чиглэлд, бараг эсрэг
+      сүүлгүйгээр давхисан хэсэг. Дотроо нэг эсвэл хэд хэдэн FVG агуулна.
+      <strong>PriceAction курс 3.4</strong>-д liquidity void бүтнээр байгаа.
+    </p>
+    <p>
+      Matrix-д void нь FVG-ээс гүн байрладаг шалтгаан: void нь <em>бүхэл хөдөлгөөн</em>,
+      FVG нь түүний <em>нэг хэсэг</em>. Хөдөлгөөний дундаж нь дандаа түүний эхний
+      цоорхойноос гүн байна.
+    </p>
+
+    <figure id="fig-void">
+      <div class="plate">
+        <div class="plate-hd">Liquidity Void · дотроо FVG агуулна</div>
+        <svg data-chart="void" role="img" aria-label="Дөрвөн бар дараалан дээш давхиж liquidity void үүсгэсэн бөгөөд түүний дотор жижиг FVG зон тусад нь тэмдэглэгдсэн"></svg>
+      </div>
+      <figcaption>
+        <b>Өргөн зон</b> нь void — бүхэл хөдөлгөөн. <b>Дотор нь зураастай жижиг зон</b>
+        нь FVG. Void-ыг entry болгож хэрэглэх нь хэтэрхий өргөн; түүний
+        <b>дотоод FVG эсвэл 50%</b>-ыг хэрэглэнэ.
+      </figcaption>
+    </figure>
+
+    <h3>6. Breaker — бүтэлгүйтсэн OB үүргээ солив</h3>
+    <p>
+      OB нь хаалтаар эвдэгдвэл тэр зон нас барсангүй — <strong>үүргээ солив</strong>.
+      Support байсан зон resistance болно. Үүнийг breaker гэнэ. Механикийг
+      <a href="ict-01-order-block.html#breaker">Хичээл 01</a>-ийн mitigation хэсэг
+      бүтнээр заасан.
+    </p>
+    <p>
+      Matrix-д breaker нь <strong>EQ-ийн хажууд</strong>, өөрөөр хэлбэл хамгийн гүн
+      зурвасуудын нэг байрладаг. Шалтгаан нь логик: breaker үүсэхийн тулд үнэ
+      <em>эхлээд зонг эвдэх</em> ёстой — эвдэх нь зурвасыг гүн тал руу шилжүүлнэ.
+    </p>
+
+    <figure id="fig-breaker">
+      <div class="plate">
+        <div class="plate-hd">Breaker · support → resistance</div>
+        <svg data-chart="breaker" role="img" aria-label="Bullish order block зоныг үнэ хаалтаар доогуур эвдэж, дараа нь тэр зон руу буцаж ирээд resistance болж татгалзсан"></svg>
+      </div>
+      <figcaption>
+        Зон эхлээд <b>support</b> (bullish OB). Үнэ доод ирмэгийн доор
+        <b>хаагдсаны дараа</b> үүрэг эргэв. Дараагийн retest нь short.
+        Эвдрэлийг <b>хаалтаар</b> шийд — сүүлээр биш.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 7 -->
+  <section id="r7">
+    <div class="eyebrow">Эрэмбэ · 7</div>
+    <h2>EQ 50% — яагаад хамгийн сүүлд</h2>
+
+    <p>
+      EQ нь зурвас биш, <strong>тооцоолсон хил</strong>: swing low ба swing high-ийн
+      дундаж. Эрэмбийн 7-д байгаа шалтгаан нь тодорхой — тэр нь <em>тодорхойлолтоороо</em>
+      хамгийн гүн цэг. Түүнээс гүнзгий орох нь premium/discount-ын талыг сольсон
+      гэсэн үг.
+    </p>
+
+    <div class="formula">
+      EQ = (swing high + swing low) ÷ 2 &nbsp;&nbsp;·&nbsp;&nbsp; дээш = premium, доош = discount
+    </div>
+
+    <p>
+      EQ-ийн практик хэрэглээ хоёр:
+    </p>
+
+    <ol class="steps">
+      <li>
+        <h3>Хил болгож — “аль талд байна”</h3>
+        <p>
+          Long хайж байгаа бол үнэ EQ-ээс <strong>доогуур</strong> байх ёстой. Premium-д
+          long авах нь “үнэтэй үед худалдан авах” — <strong>PriceAction курс 6.2</strong>-ын
+          OTE зурвас яг үүнийг нарийсгадаг.
+        </p>
+      </li>
+      <li>
+        <h3>Сүүлчийн хамгаалалт болгож — “эндээс гүнзгий бол буруу”</h3>
+        <p>
+          Discount талд байгаа зурвасууд бүгд бүтэлгүйтэж, үнэ EQ-ийг эсрэг
+          чиглэлд хаалтаар давбал <strong>санаа нь унасан</strong>. EQ нь зурвасуудын
+          сүүлчийн шат.
+        </p>
+      </li>
+    </ol>
+
+    <figure id="fig-eq">
+      <div class="plate">
+        <div class="plate-hd">EQ 50% · premium / discount-ын хил</div>
+        <svg data-chart="eq" role="img" aria-label="Swing low ба swing high хоорондын зурвасын дундаж EQ шугамаар тэмдэглэгдэж, дээд хагас premium доод хагас discount гэж хуваагдсан"></svg>
+      </div>
+      <figcaption>
+        EQ нь <b>тооцоо</b>, зурвас биш — тиймээс “хүчтэй/сул” гэж хэлэх зүйл байхгүй.
+        Түүний ач холбогдол нь <b>аль талд байгааг шийдэх</b>: дээш premium, доош
+        discount.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 8 -->
+  <section id="mirror">
+    <div class="eyebrow">Толин тусгал</div>
+    <h2>Доод талын толин тусгал</h2>
+
+    <p>
+      Дээрх бүхэн premium талыг (short) тайлбарлав. Discount тал нь
+      <strong>шинэ зүйл заадаггүй</strong> — яг тэр долоон төрөл, зөвхөн эсрэгээр.
+      Тиймээс тусад нь сурах шаардлагагүй, харин <em>дарааллыг эргүүлэхээ</em>
+      мартаж болохгүй.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Гүн</th><th>Premium тал (short хайна)</th><th>Discount тал (long хайна)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td><span class="swatch sw-bear"></span>Old <strong>High</strong></td><td><span class="swatch sw-bull"></span>Old <strong>Low</strong></td></tr>
+          <tr><td class="num">2</td><td>Rejection block (дээд сүүл)</td><td>Rejection block (доод сүүл)</td></tr>
+          <tr><td class="num">3</td><td>Bearish OB</td><td>Bullish OB</td></tr>
+          <tr><td class="num">4</td><td>Bearish FVG</td><td>Bullish FVG</td></tr>
+          <tr><td class="num">5</td><td>Void (доош давхисан)</td><td>Void (дээш давхисан)</td></tr>
+          <tr><td class="num">6</td><td>Breaker (resistance болсон)</td><td>Breaker (support болсон)</td></tr>
+          <tr><td class="num">7</td><td colspan="2" style="text-align:center"><strong>EQ 50%</strong> — хоёрын хил</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн үнэтэй эндүүрэл</span>
+      <p>
+        Discount талд long хайж байхдаа <strong>premium талын зурвасыг</strong>
+        target болгож хэрэглэх нь зөв. Гэвч <em>entry</em> болгож хэрэглэх нь
+        буруу — тэр нь “хямд авах” логикийг эсрэгээр эргүүлнэ. Entry нь өөрийн
+        талын зурвас дээр, target нь эсрэг талын зурвас дээр.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 9 -->
+  <section id="decide">
+    <div class="eyebrow">Шийдвэр</div>
+    <h2>Зургаан зурвас зэрэг байвал</h2>
+
+    <p>
+      Энэ бол хичээлийн гол асуулт. Бодит чарт дээр discount талд нэг зурвас байдаггүй —
+      OB, түүний доор FVG, түүний доор void, хамгийн доор breaker бүгд зэрэг байна.
+      Алийг авах вэ?
+    </p>
+    <p>
+      Хариу нь эрэмбээс <strong>шууд гарахгүй</strong> — эрэмбэ нь гүнийг л хэлнэ.
+      Гурван асуултыг <em>дарааллаараа</em> тавина:
+    </p>
+
+    <ol class="steps">
+      <li>
+        <h3>Үнэ хаанаас ирж байна?</h3>
+        <p>
+          Чиглэл нь тааралдах дарааллыг тодорхойлно. Дээрээс доош ирж байвал
+          хамгийн гүехэн зурвас <strong>хамгийн эхэлж</strong> тааралдана. Тэр нь
+          автоматаар “хамгийн сайн” гэсэн үг биш — зөвхөн “хамгийн эхний”.
+        </p>
+      </li>
+      <li>
+        <h3>Аль нь миний R-д багтаж байна?</h3>
+        <p>
+          Гүехэн зурвас = ойрхон entry = <strong>өргөн SL</strong> (structure-ийн
+          цаана тавих тул). Гүн зурвас = хол entry = <strong>нарийн SL</strong> ба
+          том RR, гэхдээ хүрэхгүй байх эрсдэлтэй. Энэ бол шууд <em>худалдаа</em>:
+          хүрэх магадлал ↔ RR.
+        </p>
+      </li>
+      <li>
+        <h3>Аль нь давхцалтай?</h3>
+        <p>
+          Хоёр төрөл нэг үнэ дээр давхцаж байвал тэр нь бусдаас <strong>илүү
+          олон шалтгаанаар</strong> зурвас болж байна. Давхцал нь эрэмбийг дийлдэг —
+          дараагийн хэсэг үүнийг тайлбарлана.
+        </p>
+      </li>
+    </ol>
+
+    <figure id="fig-stack">
+      <div class="plate">
+        <div class="plate-hd">Зургаан зурвас зэрэг · үнэ дээрээс ирж байна</div>
+        <svg data-chart="stack" role="img" aria-label="Discount талд order block FVG void breaker дөрвөн зурвас зэрэг байрлаж, дээрээс доош ирж байгаа үнэ тэдэнтэй гүехнээс гүн рүү дараалан тааралдахыг харуулсан"></svg>
+      </div>
+      <figcaption>
+        Дөрвөн зурвас зэрэг. Үнэ дээрээс ирж байгаа тул <b>OB-той хамгийн эхэлж</b>
+        тааралдана — тэр нь хамгийн ойр, тиймээс SL хамгийн өргөн. Хамгийн доод
+        <b>breaker</b> нь хамгийн нарийн SL, гэхдээ үнэ тэр хүртэл ирэх магадлал бага.
+        Аль нь “зөв” нь таны R-ээс шалтгаална, эрэмбээс биш.
+      </figcaption>
+    </figure>
+
+    <div class="tier">
+      <div class="t-a">
+        <span class="lab">A</span>
+        <div>
+          <h3>Давхцалтай зурвас</h3>
+          <p>Хоёр ба түүнээс дээш төрөл нэг үнэ дээр. Гүн нь ямар ч байсан — эхэлж үүнийг ав.</p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">B</span>
+        <div>
+          <h3>R-д багтсан нэг төрлийн зурвас</h3>
+          <p>Давхцалгүй, гэхдээ SL нь structure-ийн цаана багтаж, target хүртэл ≥ 2R.</p>
+        </div>
+      </div>
+      <div class="t-c">
+        <span class="lab">C</span>
+        <div>
+          <h3>R-д багтахгүй зурвас</h3>
+          <p>Хэт ойр (SL хэтэрхий өргөн) эсвэл хэт гүн (хүрэхгүй). Ажиглалт л бич — trade биш.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ 10 -->
+  <section id="distance">
+    <div class="eyebrow">Зай</div>
+    <h2>Зай — хэт ойр, хэт хол</h2>
+
+    <p>
+      <a href="ict-03-draw-on-liquidity.html">Хичээл 03</a>-д магнитыг зайгаар шүүх
+      зарчим гарсан. Зурвасын хувьд яг ижил логик, зөвхөн эсрэг талаас: магнит нь
+      <em>target</em>, зурвас нь <em>entry</em>. Хоёулаа хэтэрхий ойр эсвэл хэтэрхий
+      хол байвал хэрэггүй.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Тохиолдол</th><th>Юу болдог</th><th>Шийдэл</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Зурвас хэт ойр</strong> (үнэ бараг дотор)</td>
+            <td>SL нь structure-ийн цаана тавихад хэтэрхий өргөн болж RR унана</td>
+            <td>Алгасаад дараагийн гүн зурвасыг хүлээ</td>
+          </tr>
+          <tr>
+            <td><strong>Зурвас хэт хол</strong> (EQ-ийн цаана)</td>
+            <td>Үнэ хүрэхгүй байх магадлал өндөр; хүрвэл санаа аль хэдийн эвдэрсэн байж болно</td>
+            <td>Хүчинтэй эсэхийг EQ-ээр шалга — цаана бол хая</td>
+          </tr>
+          <tr>
+            <td><strong>Хоёр зурвас хэт нягт</strong> (бараг нэг үнэ)</td>
+            <td>Хоёр биш, нэг зурвас — давхцал гэж тоолж болно</td>
+            <td>Нэгтгээд <strong>давхцал</strong> болгож ав</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Тоог өөрөө тохируул</span>
+      <p>
+        “Хэт ойр” ба “хэт хол” гэдгийг <strong>ATR-ээр</strong> хэмжих нь хамгийн
+        зөөлөн: жишээ нь entry-ээс зурвас хүртэл 0.5 ATR-ээс бага бол ойр,
+        3 ATR-ээс их бол хол. Гэхдээ эдгээр тоог <em>надаас</em> бус, өөрийн
+        инструмент, TF дээр хэмжиж тогтоо — 14-р хэсэг тэр аргачлалыг заана.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 11 -->
+  <section id="confluence">
+    <div class="eyebrow">Давхцал</div>
+    <h2>Хоёр төрөл нэг үнэ дээр</h2>
+
+    <p>
+      Хамгийн хүчтэй зурвас нь эрэмбийн 1-т байгаа нь биш —
+      <strong>хоёр төрөл давхцсан</strong> нь. Логик нь энгийн: зурвас бүр нь
+      “яагаад тэнд ордер байна” гэсэн нэг шалтгаан. Хоёр шалтгаан нэг үнэ дээр
+      нийлбэл тэр үнэ дээр илүү олон оролцогч хүлээж байна.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Давхцал</th><th>Яагаад хүчтэй</th><th>Нэр</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>OB ∩ FVG</strong></td>
+            <td>Биет дээрх зон ба хоосон зай нэг үнэ дээр — хоёр өөр механик, ижил түвшин</td>
+            <td>Хичээл 05-д <em>Unicorn</em></td>
+          </tr>
+          <tr>
+            <td><strong>OB ∩ Old Low</strong></td>
+            <td>Зон нь liquidity цэг дээр үүссэн — институцийн зорилго ба зон давхцана</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Breaker ∩ FVG</strong></td>
+            <td>Үүргээ сольсон зон + дүүрээгүй зай</td>
+            <td>Хичээл 05-д <em>Unicorn</em>-ий хувилбар</td>
+          </tr>
+          <tr>
+            <td><strong>Зурвас ∩ EQ</strong></td>
+            <td>Зон нь premium/discount-ын хил дээр — хамгийн гүн боловч хамгийн тодорхой</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Зурвас ∩ OTE</strong></td>
+            <td>Зон нь 0.62–0.79 retrace зурвас дотор (<strong>PriceAction курс 6.2</strong>)</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure id="fig-confluence">
+      <div class="plate">
+        <div class="plate-hd">OB ∩ FVG · хоёр шалтгаан, нэг үнэ</div>
+        <svg data-chart="confluence" role="img" aria-label="Order block зон ба fair value gap зон ижил үнийн хүрээнд давхцаж, давхцсан хэсэг нь тусад нь тод тэмдэглэгдсэн"></svg>
+      </div>
+      <figcaption>
+        Хоёр зон давхцаж байна. <b>Давхцсан нарийн хэсэг</b> нь entry — хоёулангийн
+        дотор. Ингэж давхцуулах нь зонг <b>нарийсгах</b> ч гэсэн арга
+        (<b>PriceAction курс 5.3</b> refinement).
+      </figcaption>
+    </figure>
+
+    <div class="note warn">
+      <span class="tag">Хязгаар</span>
+      <p>
+        Давхцлыг <strong>хайх</strong> нь зөв, гэхдээ <strong>албадах</strong> нь буруу.
+        Хоёр зурвасыг зөрүүтэй байхад “бараг давхцаж байна” гэж нэгтгэж эхэлбэл
+        аль ч чарт дээр давхцал “олдоно”. Давхцал нь <em>тоогоор</em> шалгагдах
+        ёстой: зонны хүрээ бодитоор дайрч байна уу, үгүй үү.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 12 -->
+  <section id="context">
+    <div class="eyebrow">Контекст</div>
+    <h2>Range-ыг хаанаас хэмжих</h2>
+
+    <p>
+      Бүх matrix нь <strong>нэг л зүйлээс</strong> хамаарна: аль хэлцлийн зурвасыг
+      хэмжсэн. Range буруу бол EQ буруу, EQ буруу бол premium/discount буруу,
+      тэгвэл бүх зурвасын “гүн” буруу. Энэ бол хичээлийн хамгийн эмзэг цэг.
+    </p>
+    <p>
+      <strong>PriceAction курс 6.3</strong> нь “аль range-ийг хэмжих вэ” гэдгийг
+      хамгийн нийтлэг алдаа гэж тусад нь заасан. Гурван дүрмийг л сахина:
+    </p>
+
+    <ul class="check">
+      <li>Range нь <strong>дуусаж бүрэлдсэн</strong> swing хоёр цэгээр — хөгжиж байгаа сүүлчийн бар биш</li>
+      <li>Range нь миний арилжаалах <strong>TF-ийн бүтэц</strong> дээр — LTF дээр HTF range хэмжвэл EQ утгагүй</li>
+      <li>Structure эвдэрвэл range <strong>шинэчлэгдэнэ</strong> — хуучин EQ-ыг зүтгүүлэхгүй</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Шалгах хамгийн хурдан арга</span>
+      <p>
+        EQ зурсны дараа өөрөөсөө нэг асуулт: <em>“Үнэ хамгийн сүүлд энэ EQ-г хүндэтгэсэн
+        уу?”</em> Хэрэв үнэ EQ-ийг эргэлзэлгүй хэд хэдэн удаа дайрсан бол тэр range
+        одоо хүчинтэй биш — өөр range хэмжих цаг болсон.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 13 -->
+  <section id="mtf">
+    <div class="eyebrow">MTF</div>
+    <h2>HTF array дотор LTF array</h2>
+
+    <p>
+      <a href="ict-01-order-block.html#mtf">Хичээл 01</a>-д MTF nesting-ийн RR
+      математик гарсан. Matrix-ийн хувьд nesting нь бас нэг зүйл нэмнэ:
+      <strong>HTF-ийн зурвас нь LTF-ийн range-ыг тодорхойлно</strong>.
+    </p>
+    <p>
+      Практик дараалал: HTF (жишээ 4H) дээр аль зурвас руу үнэ явж байгааг тогтооно.
+      Дараа нь LTF (15m) дээр <em>тэр зурвасын дотор</em> шинэ, нарийн range хэмжиж,
+      түүний matrix-ыг зурна. Entry нь LTF-ийн зурвас дээр, гэхдээ
+      <strong>HTF-ийн зурвасын дотор</strong> байх ёстой.
+    </p>
+
+    <figure class="duo" id="fig-mtf">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · HTF — өргөн зурвас</div>
+          <svg data-chart="mtfHtf" role="img" aria-label="Дээд таймфрэйм дээр өргөн order block зон байрлаж, үнэ түүн рүү дөхөж байна"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · LTF — тэр зурвасын дотор</div>
+          <svg data-chart="mtfLtf" role="img" aria-label="Доод таймфрэйм дээр тэр өргөн зонны дотор жижиг order block ба FVG үүсч, нарийн entry болж байна"></svg>
+        </div>
+      </div>
+      <figcaption>
+        <b>A</b> нь чиглэл ба хүлээх түвшнийг өгнө. <b>B</b> нь entry-г нарийсгана.
+        Хоёрын аль нэг нь дутвал үлдэх нь: HTF-гүй бол чиглэлгүй, LTF-гүй бол
+        SL хэтэрхий өргөн.
+      </figcaption>
+    </figure>
+
+    <div class="note warn">
+      <span class="tag">Nesting-ийн хязгаар</span>
+      <p>
+        Хоёр давхар л хий — HTF + LTF. Гурав, дөрөв давхарлавал зурвас нь
+        <strong>хэтэрхий нарийн</strong> болж spread ба шуугиан нь SL-ийг
+        санамсаргүй цохино. Nesting нь SL нарийсгах хэрэгсэл, хязгааргүй
+        нарийсгах уралдаан биш.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 14 -->
+  <section id="measure">
+    <div class="eyebrow">Хэмжилт</div>
+    <h2>Эрэмбийг өөрөө хэмжих</h2>
+
+    <p>
+      Энэ хичээлд <strong>ямар ч win-rate тоо байхгүй</strong>, зориудаар. Эрэмбэ нь
+      <em>таамаглал</em> — “гүехэн зурвас эхэлж тааралдана, давхцалтай зурвас илүү
+      сайн” гэсэн. Таамаглалыг зөвхөн <strong>өөрийн</strong> инструмент, TF, цагийн
+      цонх дээр хэмжиж баталгаажуулна.
+    </p>
+
+    <h3>Юу бичиж авах</h3>
+    <p>
+      Trade тутамд дараах <strong>зургаан талбарыг</strong> л бич. Хоёр минут авна,
+      100 trade-ийн дараа эрэмбэ таны хувьд ажиллаж байгаа эсэхийг харна.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Талбар</th><th>Утга</th><th>Яагаад</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Зурвасын төрөл</strong></td><td>OB / FVG / void / breaker / rejection / EQ</td><td>Гол хувьсагч</td></tr>
+          <tr><td><strong>Гүн</strong></td><td>1–7</td><td>Эрэмбэ ажиллаж байгаа эсэх</td></tr>
+          <tr><td><strong>Давхцал</strong></td><td>Тийм / үгүй, хэрэв тийм бол ямар хоёр</td><td>Давхцал эрэмбийг дийлдэг гэсэн таамаг</td></tr>
+          <tr><td><strong>Зай</strong></td><td>Entry-ээс зурвас хүртэл ATR-ээр</td><td>“Хэт ойр/хол” босгыг өөрөө тогтоох</td></tr>
+          <tr><td><strong>EQ талд</strong></td><td>Discount / premium</td><td>Контекст зөв байсан эсэх</td></tr>
+          <tr><td><strong>Үр дүн</strong></td><td>R-ээр (зардал хассан)</td><td>Бүх дүгнэлтийн үндэс</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Хэдий sample хэрэгтэй</h3>
+    <p>
+      <strong>PriceAction курс 11.3</strong>-ын босго энд ч мөн хүчинтэй: <em>cohort
+      тутамд</em> 30-аас доош trade нь өгөгдөл биш. Энэ нь чухал зөрүү — 100 trade
+      нийтдээ байхад 7 гүнээр хуваавал cohort тутам 14 л болно.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Нийт trade</th><th>Юу хэмжиж болох</th><th>Юу хэмжиж БОЛОХГҮЙ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">&lt; 30</td><td>Юу ч биш — ажиглалт л бич</td><td>Бүх зүйл</td></tr>
+          <tr><td class="num">30 – 99</td><td>Давхцалтай ↔ давхцалгүй (2 cohort)</td><td>7 гүнийг тусад нь</td></tr>
+          <tr><td class="num">100 – 209</td><td>Гүехэн (1–3) ↔ гүн (4–7) (2 cohort)</td><td>Төрөл тутмыг тусад нь</td></tr>
+          <tr><td class="num">210+</td><td>Долоон төрлийг тусад нь</td><td>Төрөл × цонх × TF (хэт нарийн)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн хэцүү дүрэм</span>
+      <p>
+        Cohort-ыг <strong>урьдчилж</strong> шийд. “Өгөгдлөө хараад аль хуваалт
+        сайхан харагдаж байгааг сонгоно” гэдэг нь өөрийгөө хуурах хамгийн
+        боловсронгуй арга — 7 төрлийг хуваавал нэг нь <em>санамсаргүй</em> сайхан
+        харагдана. Аль хуваалтыг хэмжихээ бичиж авсны дараа л trade бүрт бүртгэл
+        хий.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 15 -->
+  <section id="mistakes">
+    <div class="eyebrow">Диагностик</div>
+    <h2>Нийтлэг алдаанууд</h2>
+
+    <ol class="steps">
+      <li>
+        <h3>Эрэмбийг зэрэглэл гэж уншсан</h3>
+        <p>
+          “Old High нь 1-т байна, тэгэхээр хамгийн найдвартай.” Эрэмбэ нь гүн хэмжинэ,
+          хүч биш. Хичээлийн 3-р хэсэг үүнийг л зассан.
+        </p>
+      </li>
+      <li>
+        <h3>Чиглэлээ бичээгүй</h3>
+        <p>
+          Тааралдах дараалал нь үнэ гаднаас дотогш, эсвэл дотроос гадагш явахаас
+          хамаарч <strong>эргэдэг</strong>. Чиглэлгүй эрэмбэ нь утгагүй.
+        </p>
+      </li>
+      <li>
+        <h3>Range буруу хэмжсэн</h3>
+        <p>
+          Хөгжиж байгаа swing-ээр range хэмжвэл EQ хөдөлсөөр байна — “зурвас
+          ажиллахгүй байна” гэсэн дүгнэлт эндээс л ихэвчлэн гардаг.
+        </p>
+      </li>
+      <li>
+        <h3>Бүх зурвасыг зурсан</h3>
+        <p>
+          Долоон төрлийг хоёр талд, гурван TF дээр зурвал чарт бүхэлдээ зон болно.
+          Тэгвэл үнэ <em>дандаа</em> ямар нэг зон дотор байна — шүүлтүүр устана.
+          Нэг range, хоёр TF, хамгийн ойрын гурван зурвас л хангалттай.
+        </p>
+      </li>
+      <li>
+        <h3>Давхцлыг албадсан</h3>
+        <p>
+          “Бараг давхцаж байна” гэж 20 пипсийн зөрүүтэй хоёр зонг нэгтгэх.
+          Давхцал нь тоогоор шалгагдана: зонны хүрээ бодитоор дайрсан эсэх.
+        </p>
+      </li>
+      <li>
+        <h3>Эсрэг талын зурвас дээр entry авсан</h3>
+        <p>
+          Discount талд long хайж байхдаа premium талын OB дээр long авах.
+          Эсрэг талын зурвас нь <strong>target</strong>, entry биш.
+        </p>
+      </li>
+      <li>
+        <h3>Void-ыг entry болгосон</h3>
+        <p>
+          Void нь хэтэрхий өргөн — түүний хаанаас ч “entry” болно, тэгвэл SL
+          хаана байх нь тодорхойгүй. Void-ийн <em>дотоод FVG</em> эсвэл
+          <em>50%</em>-ыг хэрэглэ.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================================ 16 -->
+  <section id="checklist">
+    <div class="eyebrow">Хэрэглэх</div>
+    <h2>Практик checklist</h2>
+
+    <p>
+      Чарт онгойлгосны дараа дарааллаараа. Аль нэг нь “үгүй” бол тэр нь trade биш —
+      ажиглалт.
+    </p>
+
+    <ul class="check">
+      <li><strong>Range</strong> — дуусаж бүрэлдсэн хоёр swing цэгээр хэмжсэн үү?</li>
+      <li><strong>EQ</strong> — зурсан уу, үнэ аль талд байна?</li>
+      <li><strong>Тал</strong> — миний хайж байгаа чиглэл EQ-ийн зөв талд байна уу? (long → discount)</li>
+      <li><strong>Чиглэл</strong> — үнэ гаднаас дотогш, эсвэл дотроос гадагш явж байна уу?</li>
+      <li><strong>Зурвасууд</strong> — хамгийн ойрын гурвыг л тэмдэглэсэн үү (бүгдийг биш)?</li>
+      <li><strong>Давхцал</strong> — тэр гурвын дунд хоёр төрөл давхцсан нь байна уу?</li>
+      <li><strong>Зай</strong> — сонгосон зурвас хэт ойр (SL өргөн) эсвэл хэт хол (хүрэхгүй) биш үү?</li>
+      <li><strong>SL</strong> — structure-ийн цаана багтаж байна уу?</li>
+      <li><strong>Target</strong> — <a href="ict-03-draw-on-liquidity.html">эсрэг талын магнит</a> хүртэл ≥ 2R байна уу?</li>
+      <li><strong>Бүртгэл</strong> — 14-р хэсгийн зургаан талбарыг бичсэн үү?</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Дараагийн хичээл</span>
+      <p>
+        <strong>Хичээл 05 — Нэрлэсэн моделууд.</strong> Давхцал нь энэ хичээлийн
+        хамгийн хүчтэй санаа байлаа. ICT нь тодорхой давхцлуудад <em>нэр</em>
+        өгсөн: OB ∩ FVG нь Unicorn, sweep → displacement → FVG нь 2022 Model.
+        Нэр нь шинэ механик биш — харилцааны хэрэгсэл.
+      </p>
+    </div>
+  </section>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="ict-03-draw-on-liquidity.html">← Хичээл 03 · Draw on Liquidity</a>
+    <a href="ict-00-index.html">Цувралын агуулга</a>
+    <span>Хичээл 05 · Нэрлэсэн моделууд (бэлтгэгдэж байна)</span>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT PRO · Хичээл 04</span>
+    <span>PD Array Matrix</span>
+  </footer>
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  /* ---------- figure data ----------
+     Prices are schematic, chosen so each geometric claim in the caption is
+     actually visible on the plate. The dealing range is deliberately
+     low = 100.0, high = 110.0 everywhere, so EQ = 105.0 exactly — that keeps
+     "which side of EQ" readable without arithmetic on the reader's part. */
+  const SPECS = {};
+
+  /* Base leg: 100 -> 110 with two pullbacks, then a retrace back toward EQ.
+     Reused by several plates so the same price action carries different
+     annotations (see figure.duo). */
+  const LEG = [
+    [100.2, 100.7, 99.9, 100.5],
+    [100.5, 102.0, 100.4, 101.8],   /* 1: displacement up */
+    [101.8, 103.5, 101.6, 103.2],
+    [103.2, 104.1, 102.3, 102.7],   /* 3: pullback — leaves OB/FVG behind */
+    [102.7, 106.3, 102.6, 106.0],   /* 4: displacement up */
+    [106.0, 108.2, 105.8, 107.9],
+    [107.9, 110.0, 107.7, 109.5],   /* 6: prints the high 110.0 */
+    [109.5, 109.7, 106.9, 107.1],   /* 7: retrace begins */
+    [107.1, 107.4, 105.3, 105.6]    /* 8: arrives just above EQ */
+  ];
+
+  /* 1 · premium / discount stacks (duo) */
+  SPECS.arraysPrem = {
+    w: 420, h: 320, padR: 96, candles: LEG,
+    levels: [
+      { y: 110.0, color: 'bear', w: 1.4, dash: '0', label: 'Old High · 1' },
+      { y: 109.2, color: 'bear', label: 'Rejection · 2' },
+      { y: 108.2, color: 'bear', label: 'OB · 3' },
+      { y: 107.4, color: 'amber', label: 'FVG · 4' },
+      { y: 106.6, color: 'amber', label: 'Void · 5' },
+      { y: 105.8, color: 'ink3', label: 'Breaker · 6' },
+      { y: 105.0, color: 'ink', w: 1.4, dash: '6 3', label: 'EQ 50% · 7' }
+    ]
+  };
+  SPECS.arraysDisc = {
+    w: 420, h: 320, padR: 96, candles: LEG,
+    levels: [
+      { y: 105.0, color: 'ink', w: 1.4, dash: '6 3', label: 'EQ 50% · 7' },
+      { y: 104.2, color: 'ink3', label: 'Breaker · 6' },
+      { y: 103.4, color: 'amber', label: 'Void · 5' },
+      { y: 102.6, color: 'amber', label: 'FVG · 4' },
+      { y: 101.8, color: 'bull', label: 'OB · 3' },
+      { y: 100.8, color: 'bull', label: 'Rejection · 2' },
+      { y: 100.0, color: 'bull', w: 1.4, dash: '0', label: 'Old Low · 1' }
+    ]
+  };
+
+  /* 3 · the ordering, with both directions of travel marked */
+  SPECS.order = {
+    w: 700, h: 400, padR: 128, candles: LEG,
+    levels: [
+      { y: 110.0, color: 'bear', w: 1.4, dash: '0', label: '1 · Old High' },
+      { y: 109.2, color: 'bear', label: '2 · Rejection' },
+      { y: 108.2, color: 'bear', label: '3 · OB' },
+      { y: 107.4, color: 'amber', label: '4 · FVG' },
+      { y: 106.6, color: 'amber', label: '5 · Void' },
+      { y: 105.8, color: 'ink3', label: '6 · Breaker' },
+      { y: 105.0, color: 'ink', w: 1.4, dash: '6 3', label: '7 · EQ 50%' }
+    ],
+    arrows: [
+      { from: 7, to: 8, y1: 109.8, y2: 105.2, color: 'bear', label: 'гаднаас дотогш: 1 → 7' },
+      { from: 4, to: 6, y1: 105.2, y2: 109.8, color: 'bull', label: 'дотроос гадагш: 7 → 1' }
+    ]
+  };
+
+  /* 4 · Old High swept by the wick, close back inside */
+  SPECS.oldhigh = {
+    w: 640, h: 300, padR: 104,
+    candles: [
+      [106.0, 107.2, 105.8, 107.0],
+      [107.0, 108.4, 106.9, 108.2],
+      [108.2, 109.6, 108.0, 109.4],
+      [109.4, 110.9, 109.2, 109.6],   /* 3: wick pierces 110.0, closes below */
+      [109.6, 109.8, 107.8, 108.0],
+      [108.0, 108.2, 106.2, 106.4]
+    ],
+    levels: [{ y: 110.0, color: 'bear', w: 1.4, dash: '0', label: 'Old High' }],
+    marks: [{ i: 3, text: 'цоолов, эвдээгүй', color: 'bear' }]
+  };
+
+  /* 5 · rejection block — zone is the wick range, not the body */
+  SPECS.rejection = {
+    w: 640, h: 300, padR: 112,
+    candles: [
+      [105.6, 106.4, 105.4, 106.2],
+      [106.2, 107.4, 106.0, 106.4],
+      [106.4, 109.4, 106.2, 106.8],   /* 2: long upper wick to 109.4, body ends 106.8 */
+      [106.8, 109.2, 106.6, 107.0],   /* 3: second long upper wick */
+      [107.0, 107.2, 105.2, 105.4],
+      [105.4, 105.6, 103.6, 103.8]
+    ],
+    zones: [
+      { from: 2, to: 5, top: 109.4, bot: 107.0, color: 'bear', label: 'Rejection · сүүл' },
+      { from: 2, to: 5, top: 106.9, bot: 106.4, color: 'ink3', fill: .08, dash: '3 3', label: 'биетээр бол' }
+    ],
+    marks: [{ i: 2, text: 'урт сүүл', color: 'bear' }]
+  };
+
+  /* 6 · order block */
+  SPECS.ob = {
+    w: 640, h: 300, padR: 104,
+    candles: [
+      [104.0, 104.6, 102.8, 103.2],
+      [103.2, 103.6, 101.8, 102.2],
+      [102.2, 102.6, 100.9, 101.2],
+      [101.2, 101.6, 100.4, 100.7],   /* 3: last down candle = OB */
+      [100.7, 104.8, 100.6, 104.5],   /* 4: displacement up */
+      [104.5, 106.2, 104.2, 105.9],
+      [105.9, 106.1, 103.4, 103.6]
+    ],
+    zones: [{ from: 3, to: 6, top: 101.2, bot: 100.7, color: 'bull', ce: true, label: 'OB' }],
+    levels: [{ y: 102.6, color: 'ink3', dash: '2 3', label: 'эвдэрсэн high' }],
+    marks: [{ i: 3, text: 'OB', pos: 'below', color: 'bull' }, { i: 4, text: 'displacement', color: 'ink' }]
+  };
+
+  /* 7 · FVG — bar1 high vs bar3 low */
+  SPECS.fvg = {
+    w: 640, h: 300, padR: 112,
+    candles: [
+      [100.6, 101.4, 100.4, 101.2],   /* 0: bar 1 — high 101.4 */
+      [101.4, 104.6, 101.3, 104.4],   /* 1: bar 2 — the displacement */
+      [104.4, 105.2, 102.6, 104.8],   /* 2: bar 3 — low 102.6 */
+      [104.8, 105.6, 104.4, 105.2],
+      [105.2, 105.4, 103.0, 103.2],
+      [103.2, 103.4, 102.4, 102.9]    /* 5: taps back into the gap */
+    ],
+    zones: [{ from: 0, to: 5, top: 102.6, bot: 101.4, color: 'amber', ce: true, label: 'FVG' }],
+    marks: [
+      { i: 0, text: '1-ийн high', color: 'ink3' },
+      { i: 2, text: '3-ийн low', pos: 'below', color: 'ink3' }
+    ]
+  };
+
+  /* 8 · liquidity void containing an FVG */
+  SPECS.void = {
+    w: 640, h: 320, padR: 112,
+    candles: [
+      [100.4, 100.9, 100.2, 100.7],
+      [100.7, 103.2, 100.6, 103.0],   /* 1 */
+      [103.0, 105.6, 102.9, 105.4],   /* 2 */
+      [105.4, 107.9, 105.3, 107.7],   /* 3 — four bars, almost no opposing wick */
+      [107.7, 108.4, 107.5, 108.1],
+      [108.1, 108.3, 106.0, 106.2]
+    ],
+    zones: [
+      { from: 1, to: 5, top: 107.7, bot: 100.7, color: 'ink3', fill: .09, label: 'Void · бүхэл' },
+      { from: 1, to: 5, top: 103.2, bot: 102.9, color: 'amber', fill: .3, dash: '3 2', label: 'дотоод FVG' }
+    ],
+    levels: [{ y: 104.2, color: 'ink', dash: '6 3', label: 'void 50%' }]
+  };
+
+  /* 9 · breaker — bullish OB fails, flips to resistance */
+  SPECS.breaker = {
+    w: 640, h: 320, padR: 112,
+    candles: [
+      [103.6, 104.2, 102.4, 102.8],
+      [102.8, 103.2, 101.6, 101.9],   /* 1: the OB candle */
+      [101.9, 104.6, 101.8, 104.4],   /* 2: displacement up — OB is now support */
+      [104.4, 104.8, 102.6, 102.9],
+      [102.9, 103.1, 101.2, 101.4],   /* 4: CLOSES below the OB low -> broken */
+      [101.4, 102.0, 100.2, 100.6],
+      [100.6, 102.1, 100.5, 101.0],   /* 6: retest from below */
+      [101.0, 101.3, 99.4, 99.7]      /* 7: rejected — now resistance */
+    ],
+    zones: [{ from: 1, to: 7, top: 102.8, bot: 101.6, color: 'bear', label: 'Breaker' }],
+    marks: [
+      { i: 1, text: 'OB', pos: 'below', color: 'ink3' },
+      { i: 4, text: 'хаалтаар эвдэв', pos: 'below', color: 'bear' },
+      { i: 6, text: 'retest → short', color: 'bear' }
+    ]
+  };
+
+  /* 10 · EQ as the premium/discount boundary */
+  SPECS.eq = {
+    w: 640, h: 340, padR: 116, candles: LEG,
+    zones: [
+      { from: 0, to: 8, top: 110.0, bot: 105.0, color: 'bear', fill: .07, label: 'Premium' },
+      { from: 0, to: 8, top: 105.0, bot: 100.0, color: 'bull', fill: .07, label: 'Discount' }
+    ],
+    levels: [
+      { y: 110.0, color: 'ink3', dash: '2 3', label: 'range high' },
+      { y: 105.0, color: 'ink', w: 1.4, dash: '6 3', label: 'EQ 50%' },
+      { y: 100.0, color: 'ink3', dash: '2 3', label: 'range low' }
+    ]
+  };
+
+  /* 11 · four arrays stacked on the discount side, price arriving from above */
+  SPECS.stack = {
+    w: 700, h: 380, padR: 132,
+    candles: [
+      [105.4, 105.8, 104.2, 104.5],
+      [104.5, 104.9, 103.4, 103.7],
+      [103.7, 104.0, 102.6, 102.9],
+      [102.9, 103.2, 102.0, 102.3],
+      [102.3, 102.6, 101.4, 101.7],
+      [101.7, 102.0, 100.9, 101.2]
+    ],
+    zones: [
+      { from: 0, to: 5, top: 103.4, bot: 102.9, color: 'bull', label: 'OB · гүн 3' },
+      { from: 0, to: 5, top: 102.6, bot: 102.2, color: 'amber', label: 'FVG · гүн 4' },
+      { from: 0, to: 5, top: 101.9, bot: 101.3, color: 'ink3', fill: .1, label: 'Void · гүн 5' },
+      { from: 0, to: 5, top: 100.9, bot: 100.5, color: 'bull', fill: .18, dash: '3 2', label: 'Breaker · гүн 6' }
+    ],
+    levels: [{ y: 105.0, color: 'ink', w: 1.4, dash: '6 3', label: 'EQ 50%' }],
+    arrows: [{ from: 0, to: 4, y1: 105.2, y2: 101.0, color: 'bear', label: 'үнэ дээрээс ирж байна' }]
+  };
+
+  /* 12 · OB and FVG overlapping — the narrow intersection is the entry */
+  SPECS.confluence = {
+    w: 640, h: 320, padR: 124,
+    candles: [
+      [104.2, 104.8, 103.0, 103.4],
+      [103.4, 103.8, 102.2, 102.5],   /* 1: OB candle, body 102.5–103.4 */
+      [102.5, 106.2, 102.4, 106.0],   /* 2: displacement — leaves a gap above 103.8 */
+      [106.0, 106.6, 105.4, 106.2],
+      [106.2, 106.4, 103.2, 103.5],   /* 4: returns into the overlap */
+      [103.5, 104.6, 103.1, 104.4]
+    ],
+    zones: [
+      { from: 1, to: 5, top: 103.4, bot: 102.5, color: 'bull', label: 'OB' },
+      { from: 2, to: 5, top: 104.0, bot: 103.0, color: 'amber', dash: '3 2', label: 'FVG' },
+      { from: 2, to: 5, top: 103.4, bot: 103.0, color: 'ink', fill: .34, label: 'давхцал = entry' }
+    ],
+    marks: [{ i: 4, text: 'давхцал дээр буцав', color: 'ink' }]
+  };
+
+  /* 13 · MTF nesting (duo): wide HTF zone, refined LTF entry inside it */
+  SPECS.mtfHtf = {
+    w: 420, h: 300, padR: 92,
+    candles: [
+      [108.0, 108.6, 106.4, 106.8],
+      [106.8, 107.2, 104.6, 105.0],
+      [105.0, 105.4, 103.0, 103.4],
+      [103.4, 103.8, 101.8, 102.2],
+      [102.2, 102.8, 101.2, 101.6]
+    ],
+    zones: [{ from: 0, to: 4, top: 101.2, bot: 98.6, color: 'bull', fill: .16, label: 'HTF OB · өргөн' }],
+    arrows: [{ from: 1, to: 4, y1: 106.0, y2: 100.4, color: 'ink3', label: 'үнэ дөхөж байна' }]
+  };
+  SPECS.mtfLtf = {
+    w: 420, h: 300, padR: 92,
+    candles: [
+      [101.1, 101.3, 100.4, 100.6],
+      [100.6, 100.8, 99.9, 100.1],
+      [100.1, 100.3, 99.2, 99.4],    /* 2: LTF OB inside the HTF zone */
+      [99.4, 100.9, 99.3, 100.7],    /* 3: LTF displacement */
+      [100.7, 101.2, 100.2, 101.0]
+    ],
+    zones: [
+      { from: 0, to: 4, top: 101.2, bot: 98.6, color: 'bull', fill: .08, dash: '4 3', label: 'HTF зон' },
+      { from: 2, to: 4, top: 99.4, bot: 99.2, color: 'bull', ce: true, label: 'LTF OB · нарийн' }
+    ],
+    marks: [{ i: 2, text: 'entry', pos: 'below', color: 'bull' }]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>
