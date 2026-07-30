@@ -148,15 +148,26 @@ ol.steps p { margin: 0; }
 .tier .t-c { border-left-color: var(--bear); }
 .tier .t-c .lab { color: var(--bear); }
 
-/* ---------- checklist ---------- */
+/* ---------- checklist ----------
+   FLEX, not grid — and that is load-bearing. A checklist item is usually
+   `<strong>Label</strong> — trailing sentence`, i.e. an element followed by a
+   bare text node. In a 2-column grid the ::before takes col 1, the <strong>
+   takes col 2, and the text node becomes an ANONYMOUS grid item that lands in
+   col 1 / row 2 — a 1.5rem track, so the sentence renders one word per line.
+   ol.steps solves the same problem with `> * { grid-column: 2 }`, but that
+   cannot work here: an anonymous item has no selector to target. In flex, all
+   contiguous inline content collapses into ONE anonymous flex item, so the
+   marker and the whole sentence are the only two items no matter how the
+   markup mixes elements and text. */
 ul.check { list-style: none; padding: 0; max-width: var(--measure); }
 ul.check li {
-  display: grid; grid-template-columns: 1.5rem 1fr; gap: var(--s2);
+  display: flex; gap: var(--s2);
   padding: var(--s2) 0; margin: 0;
   border-bottom: 1px solid var(--rule-soft);
 }
 ul.check li::before {
-  content: ""; width: 14px; height: 14px; margin-top: .38em;
+  content: ""; flex: none;
+  width: 14px; height: 14px; margin-top: .38em;
   border: 1px solid var(--accent); border-radius: 3px;
 }
 
