@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="IPDA data range ба standard deviation projection: 20/40/60 өдрийн хайрцаг, аль range-ыг хэзээ, range-ээс гадна target тавих проекц, CBDR-аас SD, эрэмбэ ба DOL-той хамт, SD хэзээ ажиллахгүй." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="IPDA + SD projection · ICT Хичээл 08" />
+<meta property="og:description" content="20/40/60 өдрийн data range ба range-ээс гадна target тавих standard deviation проекц. Цувралын хамгийн ахисан хэсэг." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ict-08-ipda-sd.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="IPDA + SD projection · ICT Хичээл 08" />
+<meta name="twitter:description" content="20/40/60 өдрийн data range ба range-ээс гадна target тавих проекц." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ict-08-ipda-sd.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>IPDA + SD projection · ICT Хичээл 08 | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "IPDA + SD projection",
+  "description": "IPDA data range (20/40/60 өдөр) ба standard deviation projection: range-ээс гадна target хэрхэн тавих, CBDR-аас SD, эрэмбэ ба DOL-той хамт, SD хэзээ ажиллахгүй.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ict-08-ipda-sd.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "learningResourceType": "lesson",
+  "educationalLevel": "Advanced",
+  "position": 8,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "ICT / Smart Money цуврал",
+    "url": "https://khanstructure.com/guide/ict-00-index.html"
+  },
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ICT цуврал", "item": "https://khanstructure.com/guide/ict-00-index.html" },
+    { "@type": "ListItem", "position": 4, "name": "IPDA + SD projection", "item": "https://khanstructure.com/guide/ict-08-ipda-sd.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT PRO · Хичээл 08</span>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker"><span>ICT / Smart Money</span><span>Хичээл 08</span><span>KHAN ICT PRO</span></div>
+    <h1>IPDA + SD projection — <em>range-ээс гадна target</em></h1>
+    <p class="standfirst">
+      Цувралын хамгийн ахисан хичээл. Хичээл 03 “аль магнит” гэдгийг заасан —
+      гэхдээ бүх магнит нь <strong>өнгөрсөн</strong> үнэ дээр байдаг.
+      Үнэ бүх магнитыг цоолж, range-ээс гадна гарвал target хаана? Хариу нь
+      <strong>проекц</strong>: байгаа range-ийн өргөнөөр цаашид хэмжих.
+      Энэ нь 01–05-ыг эзэмшсэн хүнд.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#basis">IPDA гэж юу вэ — хайрцгийн санаа</a></li>
+        <li><a href="#ranges">20 / 40 / 60 өдрийн хайрцаг</a></li>
+        <li><a href="#which">Аль хайрцгийг хэзээ</a></li>
+        <li><a href="#sd">SD projection — юу вэ</a></li>
+        <li><a href="#howto">Проекцыг хэрхэн зурах</a></li>
+        <li><a href="#cbdr">CBDR-аас SD — өдрийн хувилбар</a></li>
+        <li><a href="#beyond">Range-ээс гадна target</a></li>
+        <li><a href="#dol">SD ба DOL — аль нь дийлдэг</a></li>
+        <li><a href="#arrays">SD ба зурвасын эрэмбэ</a></li>
+        <li><a href="#fails">SD хэзээ ажиллахгүй</a></li>
+        <li><a href="#measure">Проекцыг хэрхэн хэмжих</a></li>
+        <li><a href="#mistakes">Нийтлэг алдаанууд</a></li>
+        <li><a href="#checklist">Практик checklist</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- ============================================ 1 -->
+  <section id="basis">
+    <div class="eyebrow">Үндэс</div>
+    <h2>IPDA гэж юу вэ — хайрцгийн санаа</h2>
+
+    <p>
+      <strong>IPDA</strong> = <em>Interbank Price Delivery Algorithm</em>. ICT-ийн
+      үзэл баримтлалаар үнэ нь санамсаргүй хөдөлдөггүй, харин <em>тодорхой
+      хугацааны өгөгдлийг</em> харгалзан хүргэгддэг. Практик хэрэглээний хувьд
+      философийг хажуу тийш тавьж, зөвхөн нэг санааг авна:
+    </p>
+
+    <div class="formula">
+      Үнэ нь <strong>сүүлийн N өдрийн хайрцаг</strong> дотор ажиллаж, тэр хайрцгийн хилийг цэвэрлэдэг
+    </div>
+
+    <p>
+      Өөрөөр хэлбэл “аль likvidnost хамаатай вэ” гэсэн асуултад хугацааны хязгаар
+      тавьж байна. 200 өдрийн өмнөх оргил нь өнөөдрийн арилжаанд бараг
+      хамааралгүй; сүүлийн 20 өдрийн оргил нь хамаатай.
+    </p>
+
+    <div class="note">
+      <span class="tag">Яагаад энэ санаа хэрэгтэй</span>
+      <p>
+        <a href="ict-03-draw-on-liquidity.html">Хичээл 03</a>-ын магнитын бүртгэл
+        нь “бүх магнитыг тэмдэглэ” гэвэл чарт бүхэлдээ шугам болно. IPDA нь
+        <strong>шүүлтүүр</strong>: зөвхөн хайрцаг дотор байгаа магнитыг л
+        тооцоолно. Энэ нь Хичээл 04-ийн “бүх зурвасыг зурсан” алдааны
+        цагийн хэмжээст хувилбар.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 2 -->
+  <section id="ranges">
+    <div class="eyebrow">Хайрцаг</div>
+    <h2>20 / 40 / 60 өдрийн хайрцаг</h2>
+
+    <p>
+      ICT-ийн конвенц нь гурван хайрцаг: <strong>20, 40, 60 өдөр</strong>.
+      Эдгээр нь <em>арилжааны</em> өдөр — өөрөөр хэлбэл ойролцоогоор нэг сар,
+      хоёр сар, гурван сар.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Хайрцаг</th><th>Ойролцоогоор</th><th>Юуг хэлнэ</th><th>Ямар TF-д</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>20 өдөр</strong></td>
+            <td>1 сар</td>
+            <td>Одоогийн хамаарал бүхий магнитууд</td>
+            <td>Өдөр тутмын арилжаа (15m–4H)</td>
+          </tr>
+          <tr>
+            <td><strong>40 өдөр</strong></td>
+            <td>2 сар</td>
+            <td>Дунд хугацааны бүтэц</td>
+            <td>Swing арилжаа (4H–D1)</td>
+          </tr>
+          <tr>
+            <td><strong>60 өдөр</strong></td>
+            <td>3 сар</td>
+            <td>Том зургийн хил</td>
+            <td>Position, чиглэл тодорхойлох (D1–W1)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure id="fig-ranges">
+      <div class="plate">
+        <div class="plate-hd">Гурван хайрцаг · нэг чарт дээр</div>
+        <svg data-chart="ranges" role="img" aria-label="Нэг чарт дээр 20 40 60 өдрийн хайрцгийн дээд ба доод хил гурван өөр өнгөөр тэмдэглэгдэж, том хайрцаг нь жижгийг агуулж байна"></svg>
+      </div>
+      <figcaption>
+        Гурван хайрцаг нь <b>үүрлэсэн</b> — 60 нь 40-ийг, 40 нь 20-ыг агуулна.
+        Тиймээс 20-ийн хил цоологдвол дараагийн зорилго нь 40-ийн хил болох
+        хандлагатай. Хайрцгийн хил нь <b>магнит</b>.
+      </figcaption>
+    </figure>
+
+    <div class="note warn">
+      <span class="tag">Тоог хэрхэн авах</span>
+      <p>
+        20/40/60 нь <strong>ICT-ийн конвенц</strong> — өөрөө хэмжиж гаргасан
+        оптимум биш. Тэднийг ингэж хэрэглэ: “эдгээр нь ажиллаж байна уу” гэдгийг
+        <em>өөрөө</em> шалга (11-р хэсэг). Хэрэв таны инструментэд 30 өдөр илүү
+        тодорхой хил өгдөг бол тэрийг хэрэглэхэд ямар ч буруу зүйл байхгүй.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 3 -->
+  <section id="which">
+    <div class="eyebrow">Сонголт</div>
+    <h2>Аль хайрцгийг хэзээ</h2>
+
+    <p>
+      Гурван хайрцгийг зэрэг зурвал дахин чарт шугамаар дүүрнэ. Дүрэм нь
+      <strong>арилжааны TF-ээс</strong> гарна:
+    </p>
+
+    <div class="tier">
+      <div class="t-a">
+        <span class="lab">1</span>
+        <div>
+          <h3>Арилжааны TF-д хамгийн ойрыг</h3>
+          <p>
+            15m–4H дээр арилжаалж байвал <strong>20 өдөр</strong>. Тэр нь
+            өнөөдрийн магнитуудыг агуулна.
+          </p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">2</span>
+        <div>
+          <h3>Нэг дээшийг чиглэлд</h3>
+          <p>
+            <strong>40 өдөр</strong> нь “том чиглэл” — 20-ийн хил цоологдоход
+            дараагийн target хаана байхыг хэлнэ.
+          </p>
+        </div>
+      </div>
+      <div class="t-c">
+        <span class="lab">3</span>
+        <div>
+          <h3>60-ыг зөвхөн хил болгож</h3>
+          <p>
+            <strong>60 өдөр</strong>-ийг өдөр тутам харахгүй. Долоо хоногт нэг
+            удаа шалгаж, “бид том хайрцгийн хаана байна” гэдгийг л мэднэ.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="tag">Хичээл 04-тэй холбоо</span>
+      <p>
+        Хайрцаг нь үнэндээ <strong>том дealing range</strong> —
+        <a href="ict-04-pd-array.html#context">Хичээл 04-ийн 12-р хэсэг</a>
+        “range-ыг хаанаас хэмжих” асуултын өөр хэлбэр. Тиймээс хайрцаг тус бүрт
+        өөрийн <strong>EQ 50%</strong> байна, premium/discount ч бий.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 4 -->
+  <section id="sd">
+    <div class="eyebrow">Проекц</div>
+    <h2>SD projection — юу вэ</h2>
+
+    <p>
+      <strong>SD</strong> = <em>standard deviation</em>, гэхдээ статистикийн
+      стандарт хазайлт <strong>биш</strong>. ICT-ийн хэллэгээр SD нь ердөө
+      “<em>range-ийн өргөнийг дахин дахин хэмжих</em>”. Хэрэв range нь 100 нэгж
+      бол 1 SD = 100 нэгж, 2 SD = 200 нэгж гэх мэт.
+    </p>
+
+    <div class="formula">
+      1 SD = range-ийн өргөн &nbsp;·&nbsp; 2 SD = 2 × өргөн &nbsp;·&nbsp; хилээс гадагш хэмжинэ
+    </div>
+
+    <p>
+      Санаа нь: үнэ range-ийн хилийг эвдвэл <strong>хаана зогсох талаар</strong>
+      өнгөрсөн үнэн дээр тулгуурласан магнит байхгүй — учир нь тэр газарт үнэ
+      хэзээ ч байгаагүй. Тэгвэл range-ийн өөрийн өргөнийг хэмжүүр болгон
+      хэрэглэнэ.
+    </p>
+
+    <div class="note warn">
+      <span class="tag">Нэрийн андуурал</span>
+      <p>
+        Энэ нь <strong>статистикийн стандарт хазайлт биш</strong>. Тархалт,
+        дундаж, магадлал гэсэн зүйл энд байхгүй. Нэр нь зөвхөн зээлдсэн.
+        Тиймээс “1 SD дотор 68% байна” гэх мэт статистикийн дүгнэлт
+        <em>хамаарахгүй</em> — тэр нь өөр зүйлийн тухай.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 5 -->
+  <section id="howto">
+    <div class="eyebrow">Практик</div>
+    <h2>Проекцыг хэрхэн зурах</h2>
+
+    <ol class="steps">
+      <li>
+        <h3>Range-ыг тодорхойл</h3>
+        <p>
+          Хоёр цэг: хайрцгийн (эсвэл өдрийн) <strong>дээд ба доод</strong>.
+          Range буруу бол бүх проекц буруу — энэ нь Хичээл 04-ийн адил
+          хамгийн эмзэг цэг.
+        </p>
+      </li>
+      <li>
+        <h3>Өргөнийг хэмж</h3>
+        <p>
+          <em>Өргөн = дээд − доод.</em> Энэ нь 1 SD.
+        </p>
+      </li>
+      <li>
+        <h3>Эвдрэх талаас гадагш хуулж тавь</h3>
+        <p>
+          Дээш эвдвэл дээд хилээс дээш 1, 2, 2.5, 3, 4 SD. Доош эвдвэл доод
+          хилээс доош. <strong>Эвдрээгүй тал руу проекц зурахгүй.</strong>
+        </p>
+      </li>
+      <li>
+        <h3>Хамгийн ойрын хоёрыг л ажилла</h3>
+        <p>
+          4 SD-г эхний өдөр зурах нь мэдээлэл биш, хүсэл. Хамгийн ойрын
+          1–2 SD л практик target.
+        </p>
+      </li>
+    </ol>
+
+    <figure id="fig-sd">
+      <div class="plate">
+        <div class="plate-hd">SD шат · range-ийн өргөнөөр</div>
+        <svg data-chart="sd" role="img" aria-label="Хэлцлийн зурвасын дээд хилээс дээш range-ийн өргөнтэй тэнцүү зайгаар нэг хоёр гурван SD түвшин дараалан тэмдэглэгдсэн"></svg>
+      </div>
+      <figcaption>
+        Range нь <b>100.0–105.0</b> тул өргөн нь 5.0 = 1 SD. Дээш эвдэрсэн тул
+        дээд хилээс дээш: <b>1 SD = 110.0</b>, <b>2 SD = 115.0</b>. Түвшин хоорондын
+        зай нь дандаа range-ийн өргөнтэй тэнцүү.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 6 -->
+  <section id="cbdr">
+    <div class="eyebrow">Өдөр</div>
+    <h2>CBDR-аас SD — өдрийн хувилбар</h2>
+
+    <p>
+      <a href="ict-02-time.html#cbdr">Хичээл 02</a> нь CBDR (Central Bank Dealers
+      Range) ба Flout-ыг бүтнээр заасан ба тэнд SD projection аль хэдийн
+      дурдагдсан. Энд зөвхөн <strong>IPDA хайрцагтай ялгааг</strong> тодруулна.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th></th><th>CBDR-аас SD</th><th>IPDA хайрцгаас SD</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Range-ийн үндэс</strong></td><td>Ази/шөнийн нарийн range</td><td>20/40/60 өдрийн хайрцаг</td></tr>
+          <tr><td><strong>Хугацаа</strong></td><td>Нэг өдөр</td><td>Сар–гурван сар</td></tr>
+          <tr><td><strong>Ямар target</strong></td><td>Өдрийн дотор</td><td>Долоо хоног–сар</td></tr>
+          <tr><td><strong>Хэр олон удаа зурна</strong></td><td>Өдөр тутам</td><td>Хайрцаг шинэчлэгдэх үед</td></tr>
+          <tr><td><strong>Нарийвчлал</strong></td><td>Өндөр (нарийн range)</td><td>Бага (өргөн range)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Аль нь ажиллах вэ</span>
+      <p>
+        Хоёулаа ижил арифметик, зөвхөн <em>range-ийн эх сурвалж</em> өөр.
+        Өдөр тутмын арилжаанд <strong>CBDR-аас SD</strong> илүү хэрэгтэй —
+        нарийн range нь нарийн target өгдөг. IPDA хайрцгаас SD нь
+        <em>долоо хоногийн зорилго</em> тодорхойлоход.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 7 -->
+  <section id="beyond">
+    <div class="eyebrow">Гол хэрэглээ</div>
+    <h2>Range-ээс гадна target</h2>
+
+    <p>
+      Энэ бол хичээлийн гол практик агуулга. Асуудлыг тодорхой хэлбэрээр
+      тавьвал:
+    </p>
+
+    <div class="note">
+      <span class="tag">Асуудал</span>
+      <p>
+        Long позици авлаа. Хамгийн ойрын магнит (PDH) цоологдов, дараагийн
+        магнит (PWH) ч цоологдов. Одоо дээр <strong>ямар ч магнит байхгүй</strong> —
+        учир нь үнэ хамгийн дээд түвшиндээ. TP хаана?
+      </p>
+    </div>
+
+    <p>
+      Гурван боломж, эрэмбээрээ:
+    </p>
+
+    <ol class="steps">
+      <li>
+        <h3>Дараагийн том хайрцгийн хил</h3>
+        <p>
+          20 өдрийн хил цоологдвол <strong>40 өдрийн хил</strong> дараагийн
+          магнит. Энэ нь <em>бодит өнгөрсөн үнэ</em> тул хамгийн найдвартай.
+        </p>
+      </li>
+      <li>
+        <h3>SD projection</h3>
+        <p>
+          Бүх хайрцгийн хил цоологдсон бол SD. Хамгийн ойрын
+          <strong>1 SD</strong>-г л ажилла.
+        </p>
+      </li>
+      <li>
+        <h3>Trailing — target тавихгүй</h3>
+        <p>
+          Проекц ч найдваргүй бол target тавихаа боль: TP1-д эрсдэл тэглээд
+          үлдсэнийг <strong>структураар</strong> хөтөл. Хамгийн шударга хувилбар —
+          “мэдэхгүй” гэдгийг хүлээн зөвшөөрөх.
+        </p>
+      </li>
+    </ol>
+
+    <figure id="fig-beyond">
+      <div class="plate">
+        <div class="plate-hd">Бүх магнит цоологдсон · дараа юу</div>
+        <svg data-chart="beyond" role="img" aria-label="Үнэ өмнөх өдрийн болон долоо хоногийн оргилыг цоолж range-ээс дээш гарсны дараа дараагийн том хайрцгийн хил ба нэг SD түвшин target болж тэмдэглэгдсэн"></svg>
+      </div>
+      <figcaption>
+        <b>PDH</b> ба <b>PWH</b> хоёулаа цоологдов. Дараагийн target нь
+        <b>40 өдрийн хил</b> — бодит өнгөрсөн үнэ. Түүнээс дээш зөвхөн
+        <b>1 SD</b> байна, тэр нь тооцоо. Эрэмбэ: бодит үнэ &gt; проекц.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 8 -->
+  <section id="dol">
+    <div class="eyebrow">Эрэмбэ</div>
+    <h2>SD ба DOL — аль нь дийлдэг</h2>
+
+    <p>
+      <a href="ict-03-draw-on-liquidity.html">Хичээл 03</a>-т магнит нь TP-ийн
+      үндэс байсан. SD нь өөр төрлийн target — тэгвэл хоёр зөрвөл алийг авах?
+    </p>
+
+    <div class="formula">
+      Бодит өнгөрсөн үнэ (магнит) &nbsp;&gt;&nbsp; тооцоолсон түвшин (SD)
+    </div>
+
+    <p>
+      Шалтгаан нь энгийн: магнит нь <strong>бодитоор likvidnost хуримтлагдсан</strong>
+      газар — тэнд ордер бий. SD түвшин нь зөвхөн арифметик — тэнд ямар нэг
+      онцгой зүйл байх шалтгаан байхгүй. Тиймээс:
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Тохиолдол</th><th>Target</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Магнит бий (хайрцгийн хил, PDH/PWH, зурвас)</td><td class="ok">Магнитыг ав</td></tr>
+          <tr><td>Магнит байхгүй, SD бий</td><td>SD-г ав, гэхдээ хамгийн ойрыг</td></tr>
+          <tr><td>Магнит ба SD бараг ижил түвшинд</td><td class="ok">Хамгийн хүчтэй target — хоёр шалтгаан</td></tr>
+          <tr><td>SD нь магнитаас <em>дотор</em> байна</td><td>SD-г ав (илүү ойр), магнитыг TP2 болго</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хичээл 03-ын дүрэм хэвээр</span>
+      <p>
+        Target нь SD байсан ч <strong>TP1 нь fixed 1R хэвээр</strong> — эрсдэл
+        тэглэх шат нь target-ийн төрлөөс хамаардаггүй. Мөн 1.2R-ээс дотор бол
+        fixed ladder хэвээр, 5R-ээс хол бол cap. SD нь тэр дүрмүүдийг
+        <em>өөрчлөхгүй</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 9 -->
+  <section id="arrays">
+    <div class="eyebrow">Нэгтгэл</div>
+    <h2>SD ба зурвасын эрэмбэ</h2>
+
+    <p>
+      <a href="ict-04-pd-array.html">Хичээл 04</a>-ийн эрэмбэ нь <em>entry</em>-ийн
+      тухай, SD нь <em>target</em>-ийн тухай — тиймээс тэд өрсөлддөггүй.
+      Гэхдээ нэг чухал холбоо бий: <strong>хайрцаг тус бүр өөрийн EQ-тэй</strong>.
+    </p>
+
+    <ul class="check">
+      <li>20 өдрийн хайрцгийн <strong>EQ</strong> нь өдөр тутмын premium/discount хилийг өгнө</li>
+      <li>Үнэ 20-ийн EQ-ээс доогуур байвал <strong>discount</strong> — long хайх талд</li>
+      <li>40 өдрийн EQ нь <strong>swing</strong> хэмжээний хил</li>
+      <li>Хоёр EQ нэг талд байвал контекст тодорхой; зөрвөл TF зөрчилтэй</li>
+      <li>SD түвшин дээр <strong>зурвас</strong> байвал (жишээ FVG) — тэр нь хамгийн тодорхой target</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Хамгийн хэрэгтэй хослол</span>
+      <p>
+        <strong>1 SD түвшин + тэнд байгаа зурвас</strong> нь хамгийн сайн target:
+        арифметик ба бодит зурвас хоёулаа ижил түвшинг заана. Энэ нь Хичээл 04-ийн
+        <em>давхцлын</em> логик, зөвхөн target талд.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 10 -->
+  <section id="fails">
+    <div class="eyebrow">Хязгаар</div>
+    <h2>SD хэзээ ажиллахгүй</h2>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Тохиолдол</th><th>Яагаад</th><th>Юу хийх</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Range буруу хэмжсэн</strong></td>
+            <td>Өргөн буруу ⇒ бүх SD түвшин буруу. Хамгийн нийтлэг бүтэлгүйтэл</td>
+            <td>Range-ыг дуусаж бүрэлдсэн цэгээр л хэмж</td>
+          </tr>
+          <tr>
+            <td><strong>Range хэтэрхий нарийн</strong></td>
+            <td>Нарийн range ⇒ SD түвшин хэт нягт ⇒ шуугиан</td>
+            <td>Том хайрцаг руу шилж</td>
+          </tr>
+          <tr>
+            <td><strong>Range хэтэрхий өргөн</strong></td>
+            <td>1 SD нь хүрэхгүй хол ⇒ target практик биш</td>
+            <td>Жижиг хайрцаг эсвэл CBDR-аас SD</td>
+          </tr>
+          <tr>
+            <td><strong>Хэт хол SD ажиллах</strong></td>
+            <td>3–4 SD нь ховор — хүлээх нь TP1-ийн ашгийг ч алдуулна</td>
+            <td>Хамгийн ойрын 1–2 SD л</td>
+          </tr>
+          <tr>
+            <td><strong>Том news / ЦБ-ны шийдвэр</strong></td>
+            <td>Range-ийн логик түр зуур хамаарахгүй болно</td>
+            <td>Тэр өдөр проекц хэрэглэхгүй (<strong>PriceAction курс 8.3</strong>)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн шударга байр суурь</span>
+      <p>
+        SD нь <strong>магнитын дараах хувилбар</strong> — бодит likvidnost
+        байхгүй үед хэрэглэх тооцоо. Тиймээс түүнд магнитынхтай ижил
+        итгэл хүлээх нь буруу. Хэрэв SD дээр TP тавих нь тогтмол бүтэлгүйтэж
+        байвал хамгийн зөв шийдэл нь <em>SD-г нарийсгах</em> биш,
+        <strong>trailing руу шилжих</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 11 -->
+  <section id="measure">
+    <div class="eyebrow">Хэмжилт</div>
+    <h2>Проекцыг хэрхэн хэмжих</h2>
+
+    <p>
+      Энэ хичээлд <strong>ямар ч хувь байхгүй</strong> — 20/40/60 ба SD түвшин нь
+      ICT-ийн конвенц, миний хэмжсэн тоо биш. Тэдгээр таны инструментэд
+      ажиллаж байгаа эсэхийг зөвхөн та хэмжинэ.
+    </p>
+
+    <h3>Юу бүртгэх</h3>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Талбар</th><th>Утга</th><th>Ямар асуулт</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Хайрцаг</strong></td><td>20 / 40 / 60</td><td>Аль хайрцгийн хил илүү тодорхой ажилладаг</td></tr>
+          <tr><td><strong>Target-ийн төрөл</strong></td><td>Магнит / хайрцгийн хил / SD / trailing</td><td>Аль төрөл хамгийн сайн R өгдөг</td></tr>
+          <tr><td><strong>SD түвшин</strong></td><td>1 / 2 / 2.5 / 3</td><td>Хэддүгээр SD нь практик хязгаар</td></tr>
+          <tr><td><strong>Хүрсэн эсэх</strong></td><td>Тийм / үгүй</td><td>Проекцын хүрэх давтамж</td></tr>
+          <tr><td><strong>MFE</strong></td><td>Хамгийн их хүрсэн R</td><td>Target хэт хол уу, эрт уу (<strong>PA 11.2</strong>)</td></tr>
+          <tr><td><strong>Range-ийн эх сурвалж</strong></td><td>IPDA хайрцаг / CBDR</td><td>Аль эх сурвалж нарийвчлалтай</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Хамгийн хурдан хариу өгөх нэг тоо</span>
+      <p>
+        <strong>MFE</strong> нь энэ хичээлд хамгийн үнэ цэнэтэй. Хэрэв trade-ууд
+        тогтмол 1.4R хүрээд буцаж байгаа бол 2 SD (жишээ 3R) дээр TP тавих нь
+        утгагүй — өгөгдөл нь “target хэт хол” гэж хэлж байна. MFE-гүйгээр энэ
+        дүгнэлтэд хүрэх арга байхгүй, зөвхөн “SD ажиллахгүй байна” гэсэн
+        бүрхэг мэдрэмж үлдэнэ.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 12 -->
+  <section id="mistakes">
+    <div class="eyebrow">Диагностик</div>
+    <h2>Нийтлэг алдаанууд</h2>
+
+    <ol class="steps">
+      <li>
+        <h3>SD-г статистик гэж уншсан</h3>
+        <p>
+          “1 SD дотор 68%” гэх мэт дүгнэлт хамаарахгүй. Энэ нь зөвхөн
+          range-ийн өргөнийг хуулж тавьсан тооцоо.
+        </p>
+      </li>
+      <li>
+        <h3>Range буруу хэмжсэн</h3>
+        <p>
+          Хөгжиж байгаа swing-ээр хэмжвэл бүх түвшин хөдөлсөөр байна.
+          Хамгийн нийтлэг бүтэлгүйтэл.
+        </p>
+      </li>
+      <li>
+        <h3>Хэт хол SD-г target болгосон</h3>
+        <p>
+          3–4 SD нь ховор. Хамгийн ойрын 1–2-ыг л ажилла.
+        </p>
+      </li>
+      <li>
+        <h3>SD-г магнитаас дээгүүр тавьсан</h3>
+        <p>
+          Бодит өнгөрсөн үнэ дандаа тооцооноос хүчтэй. Магнит бий бол магнитыг ав.
+        </p>
+      </li>
+      <li>
+        <h3>Гурван хайрцгийг зэрэг зурсан</h3>
+        <p>
+          Чарт шугамаар дүүрч шүүлтүүр устана. Арилжааны TF-д хамгийн ойрыг л.
+        </p>
+      </li>
+      <li>
+        <h3>Эвдрээгүй тал руу проекц зурсан</h3>
+        <p>
+          Проекц нь <strong>эвдэрсэн</strong> хилээс гадагш л зурагдана.
+        </p>
+      </li>
+      <li>
+        <h3>20/40/60-ыг шалгалтгүй хүлээн авсан</h3>
+        <p>
+          Эдгээр нь конвенц. Таны инструментэд өөр тоо илүү тодорхой байж
+          болно — хэмжиж мэд.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================================ 13 -->
+  <section id="checklist">
+    <div class="eyebrow">Хэрэглэх</div>
+    <h2>Практик checklist</h2>
+
+    <ul class="check">
+      <li><strong>Хайрцаг</strong> — арилжааны TF-д тохирох хайрцгийг л зурсан уу?</li>
+      <li><strong>Хил</strong> — хайрцгийн дээд/доод хилийг тэмдэглэсэн үү (магнит болгож)?</li>
+      <li><strong>EQ</strong> — хайрцгийн EQ-г зурсан уу, үнэ аль талд байна?</li>
+      <li><strong>Магнит эхлээд</strong> — SD-руу орохоос өмнө бодит магнит бүгд шалгагдсан уу?</li>
+      <li><strong>Range зөв</strong> — дуусаж бүрэлдсэн хоёр цэгээр хэмжсэн үү?</li>
+      <li><strong>Чиглэл</strong> — проекц эвдэрсэн талаас гадагш зурагдсан уу?</li>
+      <li><strong>Зөвхөн 1–2 SD</strong> — хэт хол түвшинг target болгоогүй биз?</li>
+      <li><strong>TP1</strong> — fixed 1R хэвээр үү (эрсдэл тэглэх шат)?</li>
+      <li><strong>News</strong> — том үйл явдлын өдөр биш үү (<strong>PA 8.3</strong>)?</li>
+      <li><strong>Бүртгэл</strong> — target-ийн төрөл ба MFE-г тэмдэглэсэн үү?</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Цуврал дууслаа</span>
+      <p>
+        Хичээл 01–08 нь бүтэн систем болов: <strong>01</strong> зурвас,
+        <strong>02</strong> цаг, <strong>03</strong> target, <strong>04</strong>
+        зурвасын эрэмбэ, <strong>05</strong> нэрлэсэн дараалал, <strong>06</strong>
+        батлалт, <strong>07</strong> контекст, <strong>08</strong> проекц.
+        Дараагийн ажил нь шинэ концепц сурах биш —
+        <a href="00-price-action.html">Price Action курсын 11-р модуль</a>-ын
+        journal-аар <strong>аль нь таны хувьд ажилладгийг хэмжих</strong>.
+        Мэдлэг нь бүрдсэн; үлдсэн нь давталт.
+      </p>
+    </div>
+  </section>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="ict-07-weekly-profile.html">← Хичээл 07 · Weekly / daily profile</a>
+    <a href="ict-00-index.html">Цувралын агуулга</a>
+    <a href="00-price-action.html">Түвшин 0 · Price Action →</a>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT PRO · Хичээл 08</span>
+    <span>IPDA + SD projection</span>
+  </footer>
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  /* ---------- figure data ----------
+     The dealing range is 100.0–105.0 everywhere in this lesson, so its width is
+     exactly 5.0 and each SD step lands on a round number (110, 115). That makes
+     the arithmetic in the captions checkable at a glance. */
+  const SPECS = {};
+
+  /* 2 · three nested data ranges */
+  SPECS.ranges = {
+    w: 700, h: 360, padR: 128,
+    candles: [
+      [103.0, 103.8, 102.2, 102.6],
+      [102.6, 104.2, 102.4, 104.0],
+      [104.0, 104.8, 103.2, 103.6],
+      [103.6, 104.4, 101.4, 101.8],
+      [101.8, 102.6, 100.6, 102.2],
+      [102.2, 103.4, 102.0, 103.2],
+      [103.2, 104.6, 103.0, 104.4]
+    ],
+    levels: [
+      { y: 105.0, color: 'blue', dash: '2 3', label: '20 өдөр · дээд' },
+      { y: 100.0, color: 'blue', dash: '2 3', label: '20 өдөр · доод' },
+      { y: 107.0, color: 'amber', dash: '5 3', label: '40 өдөр · дээд' },
+      { y: 98.0, color: 'amber', dash: '5 3', label: '40 өдөр · доод' },
+      { y: 109.0, color: 'ink3', dash: '8 4', label: '60 өдөр · дээд' },
+      { y: 96.0, color: 'ink3', dash: '8 4', label: '60 өдөр · доод' }
+    ]
+  };
+
+  /* 5 · SD ladder — range 100..105 (width 5.0), projected up from 105 */
+  SPECS.sd = {
+    w: 700, h: 380, padR: 120,
+    candles: [
+      [101.0, 101.6, 100.2, 100.6],
+      [100.6, 102.4, 100.4, 102.2],
+      [102.2, 104.0, 102.0, 103.6],
+      [103.6, 105.0, 103.4, 104.8],
+      [104.8, 106.6, 104.6, 106.4],   /* 4: closes above the range high -> break up */
+      [106.4, 108.2, 106.2, 108.0],
+      [108.0, 110.0, 107.8, 109.6]    /* 6: reaches 1 SD = 110.0 */
+    ],
+    zones: [{ from: 0, to: 6, top: 105.0, bot: 100.0, color: 'ink3', fill: .1, label: 'range · 1 SD = 5.0' }],
+    levels: [
+      { y: 105.0, color: 'blue', w: 1.4, dash: '0', label: 'range дээд' },
+      { y: 110.0, color: 'bull', dash: '4 3', label: '1 SD = 110.0' },
+      { y: 115.0, color: 'amber', dash: '4 3', label: '2 SD = 115.0' }
+    ],
+    marks: [{ i: 4, text: 'дээш эвдэв', color: 'ink' }]
+  };
+
+  /* 7 · every real magnet taken, so the next targets are a bigger box then 1 SD */
+  SPECS.beyond = {
+    w: 700, h: 380, padR: 132,
+    candles: [
+      [101.2, 101.8, 100.4, 100.8],
+      [100.8, 102.6, 100.6, 102.4],
+      [102.4, 103.2, 102.0, 103.0],   /* clears PDH 103.0 */
+      [103.0, 105.2, 102.8, 105.0],   /* clears PWH 105.0 */
+      [105.0, 106.4, 104.8, 106.2],
+      [106.2, 107.0, 106.0, 106.8],   /* stalls at the 40-day edge 107.0 */
+      [106.8, 107.2, 106.4, 106.9]
+    ],
+    levels: [
+      { y: 103.0, color: 'ink3', dash: '2 3', label: 'PDH · цоологдов' },
+      { y: 105.0, color: 'ink3', dash: '2 3', label: 'PWH · цоологдов' },
+      { y: 107.0, color: 'bull', w: 1.4, dash: '0', label: '40 өдрийн хил · бодит' },
+      { y: 110.0, color: 'amber', dash: '4 3', label: '1 SD · тооцоо' }
+    ],
+    marks: [{ i: 5, text: 'бодит хил дээр зогсов', color: 'bull' }]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>

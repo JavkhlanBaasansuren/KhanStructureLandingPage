@@ -61,6 +61,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://khanstructure.com/guide/ict-05-named-models.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-06-smt-divergence.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-07-weekly-profile.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://khanstructure.com/guide/ict-08-ipda-sd.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://khanstructure.com/guide/ref-trade-sessions.html</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SMT Divergence — хамааралтай хос инструментийн зөрүү. XAU/XAG, EURUSD/GBPUSD, DXY урвуу. Нэг нь шинэ оргил гаргаж нөгөө нь чадаагүй бол тэр оргил үнэн биш. Хос сонгох, sweep-тэй хослох, correlation эвдрэх үед хуурах." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="SMT Divergence · ICT Хичээл 06" />
+<meta property="og:description" content="Нэг нь шинэ оргил гаргаж, нөгөө нь чадаагүй → тэр оргил үнэн биш. XAU/XAG, EURUSD/GBPUSD, DXY урвуу." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ict-06-smt-divergence.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SMT Divergence · ICT Хичээл 06" />
+<meta name="twitter:description" content="Хамааралтай хос инструментийн зөрүү — sweep жинхэнэ эсэхийг өөр газраас шалгах арга." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ict-06-smt-divergence.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>SMT Divergence · ICT Хичээл 06 | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "SMT Divergence",
+  "description": "Хамааралтай хос инструментийн зөрүү: XAU/XAG, EURUSD/GBPUSD, DXY урвуу. Нэг нь шинэ оргил гаргаж нөгөө нь чадаагүй бол тэр оргил үнэн биш.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ict-06-smt-divergence.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "learningResourceType": "lesson",
+  "educationalLevel": "Advanced",
+  "position": 6,
+  "isPartOf": {
+    "@type": "Course",
+    "name": "ICT / Smart Money цуврал",
+    "url": "https://khanstructure.com/guide/ict-00-index.html"
+  },
+  "author": { "@type": "Organization", "name": "KHAN SNIPER PRO" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KHAN SNIPER PRO",
+    "logo": { "@type": "ImageObject", "url": "https://khanstructure.com/khan_logo_transparent.png" }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ICT цуврал", "item": "https://khanstructure.com/guide/ict-00-index.html" },
+    { "@type": "ListItem", "position": 4, "name": "SMT Divergence", "item": "https://khanstructure.com/guide/ict-06-smt-divergence.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT PRO · Хичээл 06</span>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker"><span>ICT / Smart Money</span><span>Хичээл 06</span><span>KHAN ICT PRO</span></div>
+    <h1>SMT Divergence — <em>хоёр чарт, нэг үнэн</em></h1>
+    <p class="standfirst">
+      Хичээл 01–05-ын бүх модель нэг л асуултаас хамаарна:
+      <em>“Энэ sweep жинхэнэ хууралт байсан уу, эсвэл эвдрэлийн эхлэл байсан уу?”</em>
+      Нэг чарт дээр тэр хариу байхгүй. SMT нь хариуг <strong>өөр инструментээс</strong>
+      авна: хамааралтай хос нэгэн зэрэг ижил зүйл хийх ёстой; хийхгүй бол
+      <strong>аль нэг нь хуурамч</strong>.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#basis">SMT гэж юу вэ, яагаад ажилладаг</a></li>
+        <li><a href="#logic">Логик — “тэр оргил үнэн биш”</a></li>
+        <li><a href="#pairs">Хос сонгох — гурван төрөл</a></li>
+        <li><a href="#bull">Bullish SMT — доод талд</a></li>
+        <li><a href="#bear">Bearish SMT — дээд талд</a></li>
+        <li><a href="#dxy">DXY — урвуу хамаарал</a></li>
+        <li><a href="#sweep">SMT + sweep — хамгийн хүчтэй хослол</a></li>
+        <li><a href="#fails">SMT хэзээ ХУУРДАГ</a></li>
+        <li><a href="#tf">Ямар TF, ямар цонх дээр</a></li>
+        <li><a href="#combine">Бусад хичээлтэй хамт</a></li>
+        <li><a href="#measure">SMT-г хэрхэн хэмжих</a></li>
+        <li><a href="#mistakes">Нийтлэг алдаанууд</a></li>
+        <li><a href="#checklist">Практик checklist</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- ============================================ 1 -->
+  <section id="basis">
+    <div class="eyebrow">Үндэс</div>
+    <h2>SMT гэж юу вэ, яагаад ажилладаг</h2>
+
+    <p>
+      <strong>SMT</strong> = <em>Smart Money Technique</em> (эсвэл Smart Money
+      Divergence). Санаа нь энгийн: хоорондоо <strong>хамааралтай</strong> хоёр
+      инструмент нэг чиглэлд хөдлөх ёстой. Хэрэв нэг нь шинэ оргил гаргаад
+      нөгөө нь <em>гаргаж чадаагүй</em> бол хоёулаа адилхан хүчтэй биш —
+      сул нь үнэнийг хэлж байна.
+    </p>
+    <p>
+      Яагаад ажилладаг вэ гэдэг нь бүтцийн шалтгаантай:
+    </p>
+
+    <ol class="steps">
+      <li>
+        <h3>Хамаарал нь суурьтай</h3>
+        <p>
+          XAU ба XAG хоёулаа үнэт металл, ижил макро хүчин зүйлээс хамаарна.
+          EURUSD ба GBPUSD хоёулаа USD-ийн эсрэг тал. Тэдний хамаарал нь
+          санамсаргүй биш — <strong>ижил хөтлөгч</strong>.
+        </p>
+      </li>
+      <li>
+        <h3>Хуурамч хөдөлгөөн бүх зах зээлд нэгэн зэрэг гардаггүй</h3>
+        <p>
+          Stop цуглуулах хөдөлгөөн нь тодорхой инструментийн тодорхой
+          түвшинд чиглэдэг. Тиймээс нэг чарт дээр оргил цоологдоод, хамааралтай
+          нөгөө дээр цоологдохгүй байж болно.
+        </p>
+      </li>
+      <li>
+        <h3>Зөрүү нь ажиглагдах ул мөр</h3>
+        <p>
+          Тэр зөрүү бол хууралтын <strong>шууд бус баримт</strong>. Нэг чарт
+          дээр “цоолов” гэдгийг харна, хоёр чарт дээр “<em>зөвхөн энд цоолов</em>”
+          гэдгийг харна — хоёр дахь нь илүү их мэдээлэл.
+        </p>
+      </li>
+    </ol>
+
+    <div class="note">
+      <span class="tag">Хамгийн эхний тодруулга</span>
+      <p>
+        SMT нь <strong>entry дохио биш</strong>. Тэр нь <em>батлах</em> хэрэгсэл.
+        SMT дээр өөр дээр нь позици авахгүй — байгаа setup-аа (зурвас, модель)
+        SMT-ээр батална эсвэл татгалзана. Энэ ялгааг мартвал SMT нь “хоёр чарт
+        харах” гэсэн ажил болж хувирна, шүүлтүүр болохгүй.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 2 -->
+  <section id="logic">
+    <div class="eyebrow">Логик</div>
+    <h2>Логик — “тэр оргил үнэн биш”</h2>
+
+    <p>
+      Хамгийн тодорхой хэлбэрээр:
+    </p>
+
+    <div class="formula">
+      A шинэ оргил гаргав &nbsp;·&nbsp; B гаргаж чадсангүй &nbsp;⇒&nbsp; A-ийн шинэ оргил <strong>үнэн биш</strong>
+    </div>
+
+    <p>
+      “Үнэн биш” гэдэг нь: тэр оргил нь <em>эрэлтээс</em> биш,
+      <strong>likvidnost цуглуулахаас</strong> үүссэн. Хэрэв жинхэнэ хүч байсан
+      бол хамааралтай нөгөө инструмент ч дагаж шинэ оргил гаргах байсан.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>A инструмент</th><th>B инструмент</th><th>Дүгнэлт</th><th>Хайх чиглэл</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Шинэ <strong>оргил</strong> гаргав</td>
+            <td>Оргил гаргаж чадсангүй</td>
+            <td>A-ийн оргил хуурамч</td>
+            <td class="warn">Short (bearish SMT)</td>
+          </tr>
+          <tr>
+            <td>Шинэ <strong>底</strong> гаргав</td>
+            <td>底 гаргаж чадсангүй</td>
+            <td>A-ийн底 хуурамч</td>
+            <td class="ok">Long (bullish SMT)</td>
+          </tr>
+          <tr>
+            <td>Шинэ оргил гаргав</td>
+            <td>Мөн шинэ оргил гаргав</td>
+            <td>Зөрүү байхгүй — хүч жинхэнэ</td>
+            <td>SMT байхгүй, эвдрэл гэж уншина</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Чиглэлийн эргэлт</span>
+      <p>
+        Зөрүү нь <strong>сул инструментийн</strong> талд арилжаалагдана гэж
+        ойлгох нь буруу. Арилжаа нь <em>хуурамч хөдөлгөөн гаргасан</em> инструмент
+        дээр, эсрэг чиглэлд. Аль нь хуурамч болохыг тодорхойлох нь энэ хичээлийн
+        гол ажил.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 3 -->
+  <section id="pairs">
+    <div class="eyebrow">Хос</div>
+    <h2>Хос сонгох — гурван төрөл</h2>
+
+    <p>
+      Дурын хоёр инструментийг харьцуулж болохгүй. Хамаарал нь
+      <strong>бүтцийн</strong> байх ёстой, статистик санамсаргүй биш.
+      Гурван ажиллах төрөл:
+    </p>
+
+    <div class="tier">
+      <div class="t-a">
+        <span class="lab">1</span>
+        <div>
+          <h3>Ижил төрлийн хос — XAU / XAG</h3>
+          <p>
+            Хоёулаа үнэт металл, ижил макро хөтлөгч. Хамаарал <strong>эерэг</strong>:
+            нэг нь дээш явбал нөгөө нь дээш. Хамгийн тодорхой SMT хос.
+          </p>
+        </div>
+      </div>
+      <div class="t-a">
+        <span class="lab">2</span>
+        <div>
+          <h3>Нэг эсрэг талтай хос — EURUSD / GBPUSD</h3>
+          <p>
+            Хоёулаа USD-ийн эсрэг. USD хүчтэй болбол хоёулаа буурна. Хамаарал
+            <strong>эерэг</strong>, гэхдээ EUR ба GBP-ийн өөрийн шинж чанар нь
+            зөрүү үүсгэдэг — тэр зөрүү л SMT.
+          </p>
+        </div>
+      </div>
+      <div class="t-b">
+        <span class="lab">3</span>
+        <div>
+          <h3>Урвуу хос — EURUSD / DXY</h3>
+          <p>
+            Хамаарал <strong>сөрөг</strong>: DXY дээш явбал EURUSD доош.
+            Тиймээс уншихдаа <em>эргүүлж</em> уншина — дараагийн хэсэг тусад нь.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="tag">Хос сонгох дүрэм</span>
+      <p>
+        Хосыг <strong>урьдчилж</strong> сонго, chart дээр “аль хос зөрүүтэй
+        харагдаж байна” гэж хайж болохгүй. Хайвал ямар ч өдөр ямар нэг хос
+        зөрүүтэй байна — тэр нь SMT биш, харин
+        <a href="ict-04-pd-array.html#mistakes">давхцлыг албадах</a>-тай ижил алдаа.
+        Нэг хос, нэг инструмент — тэр л хангалттай.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 4 -->
+  <section id="bull">
+    <div class="eyebrow">Bullish</div>
+    <h2>Bullish SMT — доод талд</h2>
+
+    <p>
+      Long хайж байгаа үед. <strong>A нь шинэ нам үнэ гаргаж, B нь гаргаж
+      чадаагүй</strong> — A-ийн нам үнэ нь stop цуглуулах хөдөлгөөн.
+    </p>
+
+    <figure class="duo" id="fig-bull">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · XAU — шинэ нам үнэ гаргав</div>
+          <svg data-chart="bullA" role="img" aria-label="Нэгдүгээр инструмент өмнөх нам үнээс доогуур шинэ нам үнэ гаргаж, дараа нь дээш эргэсэн"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · XAG — гаргаж ЧАДСАНГҮЙ</div>
+          <svg data-chart="bullB" role="img" aria-label="Хоёрдугаар инструмент өмнөх нам үнэд хүрч чадаагүй, түүнээс дээгүүр эргэсэн тул зөрүү үүссэн"></svg>
+        </div>
+      </div>
+      <figcaption>
+        <b>A</b> дээр шинэ нам үнэ (өмнөх намаас доогуур). <b>B</b> дээр нам үнэ
+        <b>хүрээгүй</b> — түүнээс дээгүүр эргэв. Зөрүү бий ⇒ A-ийн нам үнэ
+        хуурамч ⇒ <b>A дээр long</b> хайна.
+      </figcaption>
+    </figure>
+
+    <ul class="check">
+      <li>Хоёр чартын <strong>ижил цагийн хэсгийг</strong> харьцуулсан уу?</li>
+      <li>A-ийн шинэ нам үнэ нь <strong>өмнөх нам үнээс доогуур</strong> бодитоор байна уу?</li>
+      <li>B-ийн нам үнэ нь өмнөхөөсөө <strong>дээгүүр</strong> үлдсэн үү?</li>
+      <li>Entry нь <strong>A дээр</strong> — зөрүү гаргасан инструмент дээр</li>
+      <li>SL нь A-ийн шинэ нам үнийн цаана</li>
+    </ul>
+  </section>
+
+  <!-- ============================================ 5 -->
+  <section id="bear">
+    <div class="eyebrow">Bearish</div>
+    <h2>Bearish SMT — дээд талд</h2>
+
+    <p>
+      Толин тусгал. <strong>A нь шинэ оргил гаргаж, B нь гаргаж чадаагүй</strong>
+      ⇒ A-ийн оргил хуурамч ⇒ A дээр short.
+    </p>
+
+    <figure class="duo" id="fig-bear">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · шинэ оргил гаргав</div>
+          <svg data-chart="bearA" role="img" aria-label="Нэгдүгээр инструмент өмнөх оргилоос дээгүүр шинэ оргил гаргаж дараа нь доош эргэсэн"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · гаргаж ЧАДСАНГҮЙ</div>
+          <svg data-chart="bearB" role="img" aria-label="Хоёрдугаар инструмент өмнөх оргилд хүрч чадаагүй, түүнээс доогуур эргэсэн"></svg>
+        </div>
+      </div>
+      <figcaption>
+        <b>A</b> шинэ оргил гаргав, <b>B</b> хүрч чадсангүй. Short нь <b>A</b> дээр,
+        SL нь A-ийн шинэ оргилын цаана. B нь зөвхөн <b>батлах</b> зорилготой —
+        B дээр позици авахгүй.
+      </figcaption>
+    </figure>
+
+    <div class="note warn">
+      <span class="tag">Хамгийн нийтлэг эндүүрэл</span>
+      <p>
+        “B сул байна тул B дээр short авна” — <strong>буруу</strong>. B нь шинэ
+        оргил гаргаагүй, өөрөөр хэлбэл B дээр цоологдох likvidnost байхгүй,
+        setup ч байхгүй. Арилжаа нь <em>хуурамч хөдөлгөөн гарсан</em> газар —
+        A дээр.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 6 -->
+  <section id="dxy">
+    <div class="eyebrow">Урвуу</div>
+    <h2>DXY — урвуу хамаарал</h2>
+
+    <p>
+      DXY (доллар индекс) нь EURUSD, GBPUSD, XAU-тай <strong>сөрөг</strong>
+      хамааралтай. Тиймээс SMT-г уншихдаа <em>оргил ↔ 底 хөрвүүлнэ</em>.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>EURUSD дээр</th><th>DXY дээр “ижил зүйл” гэдэг нь</th><th>Зөрүү байвал</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Шинэ нам үнэ</td>
+            <td>Шинэ <strong>оргил</strong></td>
+            <td>DXY оргил гаргаагүй ⇒ EURUSD-ийн нам үнэ хуурамч ⇒ long</td>
+          </tr>
+          <tr>
+            <td>Шинэ оргил</td>
+            <td>Шинэ <strong>底</strong></td>
+            <td>DXY 底 гаргаагүй ⇒ EURUSD-ийн оргил хуурамч ⇒ short</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="duo" id="fig-dxy">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">EURUSD · шинэ нам үнэ</div>
+          <svg data-chart="dxyPair" role="img" aria-label="Валютын хос өмнөх нам үнээс доогуур шинэ нам үнэ гаргасан"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">DXY · шинэ оргил ГАРГААГҮЙ</div>
+          <svg data-chart="dxyIndex" role="img" aria-label="Доллар индекс өмнөх оргилд хүрч чадаагүй буюу урвуу хамаарлаар зөрүү үүссэн"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Урвуу хос тул “ижил зүйл” нь <b>эсрэг хэлбэр</b>. EURUSD шинэ нам үнэ
+        гаргахад DXY шинэ <b>оргил</b> гаргах ёстой байсан — гаргаагүй.
+        Зөрүү бий ⇒ EURUSD дээр long.
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">Практик зөвлөмж</span>
+      <p>
+        Урвуу хосыг эхлээд хэрэглэхгүй байх нь дээр — хөрвүүлэлт нь нэмэлт
+        эндүүрлийн эх үүсвэр. <strong>XAU/XAG</strong> эсвэл
+        <strong>EURUSD/GBPUSD</strong> шиг эерэг хосоор эхэл. DXY-г зөвхөн
+        эерэг хос дээр SMT уншиж дассаны дараа нэм.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 7 -->
+  <section id="sweep">
+    <div class="eyebrow">Хослол</div>
+    <h2>SMT + sweep — хамгийн хүчтэй хослол</h2>
+
+    <p>
+      SMT нь өөрөө entry биш. Хамгийн үнэ цэнэтэй нь <strong>sweep-тэй нэгдэх</strong>
+      үед: A дээр магнит цоологдож, тэр цоолол SMT-ээр “хуурамч” гэж батлагдана.
+      Дараа нь <a href="ict-05-named-models.html">Хичээл 05</a>-ын скелет
+      хэвийн үргэлжилнэ.
+    </p>
+
+    <div class="formula">
+      Sweep (A) + SMT зөрүү (B) + Displacement + Зурвасын retrace ⇒ entry
+    </div>
+
+    <ol class="steps">
+      <li>
+        <h3>A дээр магнит цоологдов</h3>
+        <p>
+          <a href="ict-03-draw-on-liquidity.html">Хичээл 03</a>-ын магнит —
+          PDL, PWL, Азийн нам үнэ гэх мэт.
+        </p>
+      </li>
+      <li>
+        <h3>B дээр тэр магнит цоологдоогүй</h3>
+        <p>
+          Энэ л SMT. Хоёулаа цоологдвол зөрүү байхгүй — sweep нь жинхэнэ
+          эвдрэл байж магадгүй.
+        </p>
+      </li>
+      <li>
+        <h3>A дээр displacement</h3>
+        <p>
+          Хууралт батлагдана. Displacement байхгүй бол SMT нь зөвхөн
+          <em>ажиглалт</em> — trade биш.
+        </p>
+      </li>
+      <li>
+        <h3>Зурвасын retrace дээр entry</h3>
+        <p>
+          <a href="ict-04-pd-array.html">Хичээл 04</a>-ын эрэмбээр зурвас сонгоно.
+          SMT нь зурвасын сонголтыг өөрчлөхгүй — зөвхөн setup-ыг батална.
+        </p>
+      </li>
+    </ol>
+
+    <figure id="fig-sweep">
+      <div class="plate">
+        <div class="plate-hd">A · sweep + displacement + зурвас</div>
+        <svg data-chart="smtSweep" role="img" aria-label="Магнит цоологдож, дараа нь эрс дээш хөдөлгөөн гарч цоорхой үлдээн, үнэ тэр цоорхой руу буцаж entry болсон"></svg>
+      </div>
+      <figcaption>
+        SMT нь зөвхөн <b>“sweep хуурамч”</b> гэдгийг баталсан. Гүйцэтгэл нь
+        яг Хичээл 05-ын скелет: displacement → зурвасын retrace → target.
+        SMT нь <b>шинэ гүйцэтгэл заадаггүй</b>.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================ 8 -->
+  <section id="fails">
+    <div class="eyebrow">Хязгаар</div>
+    <h2>SMT хэзээ ХУУРДАГ</h2>
+
+    <p>
+      SMT-ийн бүх үндэс нь <strong>хамаарал хүчинтэй</strong> гэсэн таамаг дээр
+      тогтдог. Тэр таамаг эвдрэх үе бий — тэр үед SMT нь зөвхөн шуугиан.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Тохиолдол</th><th>Яагаад SMT ажиллахгүй</th><th>Юу хийх</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Нэг инструментэд өөрийн news</strong></td>
+            <td>Хамаарал түр зуур эвдэрнэ — зөрүү нь хууралт биш, тухайн news</td>
+            <td>Тэр өдөр SMT уншихгүй</td>
+          </tr>
+          <tr>
+            <td><strong>Хөрвөх чадвар зөрүүтэй цаг</strong></td>
+            <td>Ази session-д XAG нь XAU-ээс хамаагүй нимгэн — зөрүү нь техникийн</td>
+            <td>Зөвхөн London/NY цонхонд уншина (<a href="ict-02-time.html">Хичээл 02</a>)</td>
+          </tr>
+          <tr>
+            <td><strong>Хэт жижиг зөрүү</strong></td>
+            <td>2–3 пипсийн зөрүү нь spread-ийн дотор — өгөгдөл биш</td>
+            <td>Зөрүү нь тодорхой харагдахуйц байх ёстой</td>
+          </tr>
+          <tr>
+            <td><strong>Өөр өөр цагийн хэсэг харьцуулсан</strong></td>
+            <td>Хоёр чартын бар ижил цагт таарахгүй бол харьцуулалт утгагүй</td>
+            <td>Ижил TF, ижил цагийн хэсэг</td>
+          </tr>
+          <tr>
+            <td><strong>Хамаарал бүтцээрээ эвдэрсэн үе</strong></td>
+            <td>Урт хугацаанд хос салж явдаг үе байдаг (жишээ: ЦБ-ны шийдвэрийн дараа)</td>
+            <td>Хамаарлыг үе үе шалга — доорх хэсэг</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хамаарлыг хэрхэн шалгах</span>
+      <p>
+        Тоон correlation коэффициент хэрэггүй. Нүдээр л хангалттай:
+        <em>сүүлийн 20 өдөрт хоёр чарт ерөнхийдөө ижил хэлбэртэй байсан уу?</em>
+        Хэрэв нэг нь дээш, нөгөө нь доош тренд байсан бол хамаарал одоо
+        <strong>ажиллахгүй</strong> — SMT-г тэр хос дээр хэрэглэхгүй.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 9 -->
+  <section id="tf">
+    <div class="eyebrow">Хүрээ</div>
+    <h2>Ямар TF, ямар цонх дээр</h2>
+
+    <ul class="check">
+      <li><strong>Ижил TF</strong> — хоёр чарт ижил timeframe дээр байх (15m ↔ 15m)</li>
+      <li><strong>Ижил цагийн хэсэг</strong> — ижил session, ижил барууд</li>
+      <li><strong>London / NY цонх</strong> — хөрвөх чадвар хоёуланд хүрэлцээтэй байх цаг</li>
+      <li><strong>Магнитын цоолол дээр</strong> — санамсаргүй барууд дээр биш, тодорхой түвшин дээр</li>
+      <li><strong>15m–1H</strong> — доогуур TF-д зөрүү нь шуугиан болно, дээгүүр TF-д хэтэрхий ховор</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Яагаад 1m дээр SMT уншихгүй</span>
+      <p>
+        1m дээр хоёр инструмент <em>байнга</em> зөрүүтэй байна — tick-ийн
+        цаг зөрүү, spread, хөрвөх чадварын зөрүү бүгд зөрүү үүсгэнэ. Тэр зөрүү нь
+        smart money-ийн ул мөр биш, <strong>механик шуугиан</strong>. SMT нь
+        тодорхой түвшин дээр, тодорхой цонхонд л мэдээлэл агуулна.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 10 -->
+  <section id="combine">
+    <div class="eyebrow">Нэгтгэл</div>
+    <h2>Бусад хичээлтэй хамт</h2>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Хичээл</th><th>SMT юуг нэмнэ</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="ict-03-draw-on-liquidity.html">03 · DOL</a></td>
+            <td>Магнит цоологдсоны дараа “цоолол хуурамч эсэх”-ийг батална. Магнит сонголтыг өөрчлөхгүй</td>
+          </tr>
+          <tr>
+            <td><a href="ict-04-pd-array.html">04 · PD Array</a></td>
+            <td>Зурвасын эрэмбийг өөрчлөхгүй. Гэхдээ SMT-тэй давхацсан зурвас нь нэмэлт шалтгаантай</td>
+          </tr>
+          <tr>
+            <td><a href="ict-05-named-models.html">05 · Моделууд</a></td>
+            <td>Скелетийн <strong>1-р шат (sweep)</strong>-ыг батална. Turtle Soup ба 2022 Model-д хамгийн хэрэгтэй</td>
+          </tr>
+          <tr>
+            <td><a href="ict-02-time.html">02 · Цаг</a></td>
+            <td>Аль цонхонд SMT унших боломжтойг тодорхойлно (хөрвөх чадвар)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Гол зарчим</span>
+      <p>
+        SMT нь <strong>шүүлтүүр</strong>, эх сурвалж биш. Тэр нь setup үүсгэдэггүй,
+        зөвхөн байгаа setup-ыг <em>нэвтрүүлдэг эсвэл татгалздаг</em>. Тиймээс
+        journal дээр SMT нь өөрийн cohort биш, <strong>байгаа моделийн нэмэлт
+        талбар</strong> байх ёстой.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 11 -->
+  <section id="measure">
+    <div class="eyebrow">Хэмжилт</div>
+    <h2>SMT-г хэрхэн хэмжих</h2>
+
+    <p>
+      SMT нь шүүлтүүр учраас хэмжих арга нь бусад хичээлээс өөр:
+      <strong>нэг хувьсагчийн туршилт</strong> (<strong>PriceAction курс 11.4</strong>).
+      Ижил модель, SMT-тэй ба SMT-гүй хоёр cohort болгож харьцуулна.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Талбар</th><th>Утга</th><th>Юуг хариулна</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SMT</strong></td><td>Тийм / үгүй / шалгаагүй</td><td>Гол хувьсагч</td></tr>
+          <tr><td><strong>Хос</strong></td><td>XAU/XAG, EU/GU, DXY</td><td>Аль хос ажилладаг</td></tr>
+          <tr><td><strong>Зөрүүний хэмжээ</strong></td><td>Тодорхой / бага зэрэг</td><td>“Хэт жижиг зөрүү” хязгаарыг тогтоох</td></tr>
+          <tr><td><strong>Цонх</strong></td><td>London / NY / бусад</td><td>Хөрвөх чадварын нөлөө</td></tr>
+          <tr><td><strong>Модел</strong></td><td>Хичээл 05-ын аль нэг</td><td>Cohort-ыг тэнцүү болгох</td></tr>
+          <tr><td><strong>Үр дүн</strong></td><td>R, зардал хассан</td><td>Харьцуулалтын үндэс</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Туршилтын зөв бүтэц</span>
+      <p>
+        Харьцуулалт зөв болохын тулд <strong>зөвхөн SMT л зөрөх</strong> ёстой —
+        модель, TF, цонх, зурвасын төрөл бүгд ижил байх. Хэрэв “SMT-тэй” cohort нь
+        зөвхөн NY цонхонд, “SMT-гүй” нь бүх цонхонд байвал та SMT-г хэмжээгүй,
+        <em>цагийг</em> хэмжсэн. Хоёр cohort тутам <strong>≥ 30 trade</strong>
+        (<strong>PA 11.3</strong>) — тэгэхээр SMT-г хэмжихэд дор хаяж 60 trade.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ 12 -->
+  <section id="mistakes">
+    <div class="eyebrow">Диагностик</div>
+    <h2>Нийтлэг алдаанууд</h2>
+
+    <ol class="steps">
+      <li>
+        <h3>SMT-г entry дохио гэж хэрэглэх</h3>
+        <p>
+          Зөрүү харагдмагц позици авах. SMT нь батлах хэрэгсэл — displacement ба
+          зурвасын retrace хэвээр шаардлагатай.
+        </p>
+      </li>
+      <li>
+        <h3>Сул инструмент дээр арилжаалах</h3>
+        <p>
+          Зөрүү гаргасан (хуурамч хөдөлгөөн хийсэн) инструмент дээр арилжаална,
+          сул нөгөө дээр биш.
+        </p>
+      </li>
+      <li>
+        <h3>Хосыг chart дээр хайх</h3>
+        <p>
+          Ямар ч өдөр ямар нэг хос зөрүүтэй байна. Хосыг урьдчилж сонго.
+        </p>
+      </li>
+      <li>
+        <h3>Өөр цагийн хэсэг харьцуулах</h3>
+        <p>
+          Хоёр чартын барууд ижил цагт таарахгүй бол зөрүү нь хиймэл.
+        </p>
+      </li>
+      <li>
+        <h3>Ази session-д XAU/XAG унших</h3>
+        <p>
+          XAG нь тэр цагт нимгэн — зөрүү нь хөрвөх чадварын, smart money-ийн биш.
+        </p>
+      </li>
+      <li>
+        <h3>Хамаарал эвдэрсэнийг анзаараагүй</h3>
+        <p>
+          Хос салж явж байгаа үед SMT нь байнга “дохио” өгнө. Сүүлийн 20 өдрийн
+          хэлбэрийг үе үе хар.
+        </p>
+      </li>
+      <li>
+        <h3>SMT-г тусдаа cohort болгох</h3>
+        <p>
+          SMT нь шүүлтүүр — байгаа моделийн нэмэлт талбар байх ёстой, өөрийн
+          модель биш.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================================ 13 -->
+  <section id="checklist">
+    <div class="eyebrow">Хэрэглэх</div>
+    <h2>Практик checklist</h2>
+
+    <ul class="check">
+      <li><strong>Хос</strong> — урьдчилж сонгосон хос уу (chart дээр хайсан биш)?</li>
+      <li><strong>Хамаарал</strong> — сүүлийн 20 өдөрт хос ерөнхийдөө ижил хэлбэртэй байсан уу?</li>
+      <li><strong>Цонх</strong> — London эсвэл NY уу (хөрвөх чадвар хүрэлцээтэй)?</li>
+      <li><strong>Ижил хүрээ</strong> — ижил TF, ижил цагийн хэсэг үү?</li>
+      <li><strong>Магнит</strong> — тодорхой түвшин цоологдсон уу (санамсаргүй бар биш)?</li>
+      <li><strong>Зөрүү</strong> — тодорхой харагдахуйц уу (spread-ийн дотор биш)?</li>
+      <li><strong>Чиглэл</strong> — арилжаа нь <em>зөрүү гаргасан</em> инструмент дээр уу?</li>
+      <li><strong>Displacement</strong> — хууралт батлагдсан уу (SMT дээр өөр дээр нь орохгүй)?</li>
+      <li><strong>Зурвас</strong> — Хичээл 04-ийн эрэмбээр entry зурвас сонгосон уу?</li>
+      <li><strong>Бүртгэл</strong> — SMT талбарыг тэмдэглэсэн үү (тийм/үгүй/шалгаагүй)?</li>
+    </ul>
+
+    <div class="note">
+      <span class="tag">Дараагийн хичээл</span>
+      <p>
+        <strong>Хичээл 07 — Weekly / daily profile.</strong> Одоо хүртэл бүх зүйл
+        “хаана” ба “аль нь” гэсэн асуултууд байлаа. Дараагийн асуулт нь
+        <em>хэзээ</em> — долоо хоногийн болон өдрийн давтагдах хэлбэр. Тэр нь
+        баталгаа биш, хэмжих загвар.
+      </p>
+    </div>
+  </section>
+
+  <nav class="series" aria-label="Цуврал">
+    <a href="ict-05-named-models.html">← Хичээл 05 · Нэрлэсэн моделууд</a>
+    <a href="ict-00-index.html">Цувралын агуулга</a>
+    <a href="ict-07-weekly-profile.html">Хичээл 07 · Weekly / daily profile →</a>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT PRO · Хичээл 06</span>
+    <span>SMT Divergence</span>
+  </footer>
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  /* ---------- figure data ----------
+     SMT needs two plates side by side, so every duo shares a timeline: the
+     same bar index means the same moment on both charts. The divergence is
+     built into the numbers — A breaches its prior extreme, B does not. */
+  const SPECS = {};
+
+  /* 4 · bullish SMT — A makes a lower low, B holds above its prior low */
+  SPECS.bullA = {
+    w: 420, h: 300, padR: 100,
+    candles: [
+      [102.6, 102.9, 101.8, 102.0],
+      [102.0, 102.2, 101.0, 101.2],
+      [101.2, 101.4, 100.4, 100.6],   /* 2: prints the prior low 100.4 */
+      [100.6, 101.0, 100.4, 100.9],
+      [100.9, 101.1, 99.6, 100.2],    /* 4: LOWER low — 99.6 < 100.4 */
+      [100.2, 101.6, 100.1, 101.4],
+      [101.4, 102.6, 101.3, 102.4]
+    ],
+    levels: [{ y: 100.4, color: 'bull', w: 1.4, dash: '0', label: 'өмнөх нам' }],
+    marks: [{ i: 4, text: 'шинэ нам ✓', pos: 'below', color: 'bull' }]
+  };
+  SPECS.bullB = {
+    w: 420, h: 300, padR: 100,
+    candles: [
+      [102.4, 102.7, 101.6, 101.8],
+      [101.8, 102.0, 100.9, 101.1],
+      [101.1, 101.3, 100.4, 100.6],   /* 2: same prior low 100.4 */
+      [100.6, 101.0, 100.5, 100.9],
+      [100.9, 101.1, 100.7, 100.9],   /* 4: low 100.7 — does NOT reach 100.4 */
+      [100.9, 102.0, 100.8, 101.8],
+      [101.8, 102.8, 101.7, 102.6]
+    ],
+    levels: [{ y: 100.4, color: 'bull', w: 1.4, dash: '0', label: 'өмнөх нам' }],
+    marks: [{ i: 4, text: 'хүрсэнгүй ✗', color: 'bear' }]
+  };
+
+  /* 5 · bearish SMT — mirror image */
+  SPECS.bearA = {
+    w: 420, h: 300, padR: 100,
+    candles: [
+      [101.4, 102.2, 101.2, 102.0],
+      [102.0, 103.0, 101.9, 102.8],
+      [102.8, 103.6, 102.7, 103.4],   /* 2: prints the prior high 103.6 */
+      [103.4, 103.5, 103.0, 103.1],
+      [103.1, 104.4, 103.0, 103.8],   /* 4: HIGHER high — 104.4 > 103.6 */
+      [103.8, 103.9, 102.4, 102.6],
+      [102.6, 102.8, 101.4, 101.6]
+    ],
+    levels: [{ y: 103.6, color: 'bear', w: 1.4, dash: '0', label: 'өмнөх оргил' }],
+    marks: [{ i: 4, text: 'шинэ оргил ✓', color: 'bear' }]
+  };
+  SPECS.bearB = {
+    w: 420, h: 300, padR: 100,
+    candles: [
+      [101.6, 102.4, 101.4, 102.2],
+      [102.2, 103.1, 102.1, 102.9],
+      [102.9, 103.6, 102.8, 103.4],   /* 2: same prior high 103.6 */
+      [103.4, 103.5, 103.0, 103.2],
+      [103.2, 103.3, 103.0, 103.1],   /* 4: high 103.3 — does NOT reach 103.6 */
+      [103.1, 103.2, 102.0, 102.2],
+      [102.2, 102.4, 101.0, 101.2]
+    ],
+    levels: [{ y: 103.6, color: 'bear', w: 1.4, dash: '0', label: 'өмнөх оргил' }],
+    marks: [{ i: 4, text: 'хүрсэнгүй ✗', pos: 'below', color: 'bull' }]
+  };
+
+  /* 6 · inverse pair — the FX pair makes a lower low while the index fails to
+     make the higher high that the inverse correlation would require */
+  SPECS.dxyPair = {
+    w: 420, h: 300, padR: 104,
+    candles: [
+      [101.8, 102.0, 101.2, 101.4],
+      [101.4, 101.6, 100.8, 100.9],
+      [100.9, 101.1, 100.2, 100.4],   /* 2: prior low 100.2 */
+      [100.4, 100.7, 100.3, 100.6],
+      [100.6, 100.8, 99.5, 100.1],    /* 4: LOWER low 99.5 */
+      [100.1, 101.2, 100.0, 101.0],
+      [101.0, 102.0, 100.9, 101.8]
+    ],
+    levels: [{ y: 100.2, color: 'bull', w: 1.4, dash: '0', label: 'өмнөх нам' }],
+    marks: [{ i: 4, text: 'шинэ нам ✓', pos: 'below', color: 'bull' }]
+  };
+  SPECS.dxyIndex = {
+    w: 420, h: 300, padR: 104,
+    candles: [
+      [102.2, 102.9, 102.0, 102.7],
+      [102.7, 103.4, 102.6, 103.2],
+      [103.2, 103.8, 103.1, 103.6],   /* 2: prior high 103.8 */
+      [103.6, 103.7, 103.2, 103.4],
+      [103.4, 103.5, 103.1, 103.2],   /* 4: high 103.5 — does NOT reach 103.8 */
+      [103.2, 103.3, 102.2, 102.4],
+      [102.4, 102.5, 101.4, 101.6]
+    ],
+    levels: [{ y: 103.8, color: 'bear', w: 1.4, dash: '0', label: 'өмнөх оргил' }],
+    marks: [{ i: 4, text: 'гаргасангүй ✗', pos: 'below', color: 'bull' }]
+  };
+
+  /* 7 · SMT confirms the sweep; execution is the ordinary skeleton */
+  SPECS.smtSweep = {
+    w: 700, h: 340, padR: 124,
+    candles: [
+      [102.8, 103.2, 102.0, 102.2],
+      [102.2, 102.4, 101.2, 101.4],
+      [101.4, 101.6, 99.4, 100.3],    /* 2: sweeps the magnet at 100.0 */
+      [100.3, 103.9, 100.2, 103.7],   /* 3: displacement, gap above 101.6 */
+      [103.7, 104.5, 103.4, 104.3],
+      [104.3, 104.6, 102.2, 102.5],   /* 5: retrace into the gap */
+      [102.5, 105.4, 102.4, 105.2],
+      [105.2, 106.9, 105.0, 106.7]
+    ],
+    zones: [{ from: 3, to: 7, top: 103.4, bot: 101.6, color: 'amber', ce: true, label: 'зурвас' }],
+    levels: [
+      { y: 100.0, color: 'bull', w: 1.4, dash: '0', label: 'магнит' },
+      { y: 107.0, color: 'bear', w: 1.4, dash: '0', label: 'target' }
+    ],
+    marks: [
+      { i: 2, text: 'sweep + SMT батлав', pos: 'below', color: 'bull' },
+      { i: 5, text: 'entry', pos: 'below', color: 'amber' }
+    ]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>
