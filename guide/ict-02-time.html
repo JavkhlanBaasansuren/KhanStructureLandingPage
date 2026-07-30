@@ -88,8 +88,8 @@
       ICT-ийн бүх сургаалын хамгийн үл тоомсорлогддог хэсэг нь цаг. Ижил setup нь
       02:15-д ажиллаж, 12:30-д бүтэлгүйтдэг — учир нь эхнийх дээр институцийн эрчим
       байгаа, хоёрдугаарт байхгүй. Энэ хичээл нь <em>тодорхой цагийн тоо</em>,
-      DST-ийн математик, CBDR, Silver Bullet, Macro цонх, мөн эдгээрийг кодоор
-      хэрхэн шийддэгийг 4 диаграммаар тайлбарлана.
+      DST-ийн математик, CBDR, Silver Bullet ба Macro цонхыг 4 диаграммаар
+      тайлбарлана.
     </p>
 
     <nav class="toc" aria-label="Агуулга">
@@ -101,7 +101,6 @@
         <li><a href="#silver">Silver Bullet</a></li>
         <li><a href="#macro">Macro цонх :50–:10</a></li>
         <li><a href="#amd">AMD-ийг цаг дээр буулгах</a></li>
-        <li><a href="#code">Кодод хэрхэн хийгдсэн</a></li>
         <li><a href="#sheet">Өдрийн цагийн хуудас</a></li>
       </ol>
     </nav>
@@ -176,9 +175,10 @@
     <div class="note warn">
       <span class="tag">Засал — нэг мөр</span>
       <p>
-        Session-ийг цагийн бүсийн <em>нэрээр</em> шийдүүл, тоогоор биш. Pine-д
-        <code>time(timeframe.period, "0700-1000", "America/New_York")</code> нь
-        07:00 NY-г 1 сард ч, 7 сард ч 07:00 NY гэж уншина. Бүх цонхыг
+        Session-ийг цагийн бүсийн <em>нэрээр</em> шийдүүл, UTC-ээс тоогоор
+        зөрүүлж биш. “America/New_York” гэсэн бүсийн нэрээр бичсэн цонх нь
+        DST-ийг өөрөө дагадаг тул 1 сард ч, 7 сард ч зөв 07:00 NY-г заана —
+        харин “UTC+12” гэж хатуу бичвэл зун 1 цагаар алдана. Бүх цонхыг
         <strong>NY цагаар</strong> бичих нь ICT-ийн өөрийн конвенц ч (тэр бүхнийг
         NY цагаар заадаг) — тиймээс London killzone хүртэл NY цагаар.
       </p>
@@ -471,62 +471,6 @@
       </p>
     </div>
   </section>
-
-  <!-- =============================== 8 -->
-  <section id="code">
-    <div class="eyebrow">Хэрэгжүүлэлт</div>
-    <h2>Кодод хэрхэн хийгдсэн</h2>
-
-    <p>
-      <code>KHAN ICT PRO v1.0.pine</code>-ийн <strong>§I1 ICT TIME ENGINE</strong> нь
-      дээрх бүх цонхыг session string-ээр тодорхойлдог. Гол шийдвэр: бүх цонх
-      <code>America/New_York</code> календарь дээр шийдэгддэг.
-    </p>
-
-<pre><code><span class="kw">string</span> ICT_TZ    = <span class="cmt">"America/New_York"</span>
-<span class="kw">string</span> KZ_ASIA   = <span class="cmt">"2000-0000:1234567"</span>
-<span class="kw">string</span> KZ_LONDON = <span class="cmt">"0200-0500:23456"</span>
-<span class="kw">string</span> KZ_NYAM   = <span class="cmt">"0700-1000:23456"</span>
-<span class="kw">string</span> KZ_LUNCH  = <span class="cmt">"1200-1300:23456"</span>
-<span class="kw">string</span> KZ_NYPM   = <span class="cmt">"1330-1600:23456"</span>
-<span class="kw">string</span> KZ_SILVER = <span class="cmt">"1000-1100:23456"</span>
-
-<span class="cmt">// Macro-г session string-ээр бичих боломжгүй — цаг тутам давтагддаг.</span>
-<span class="kw">int</span>  ictMinNY = minute(time, ICT_TZ)
-<span class="kw">bool</span> inMacro  = ictMinNY &gt;= 50 <span class="kw">or</span> ictMinNY &lt;= 10</code></pre>
-
-    <h3>Хоёр шийдвэр тайлбартай</h3>
-    <div class="tbl-scroll">
-      <table>
-        <thead><tr><th>Код</th><th>Яагаад</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><code>kzRoleEff</code> нь 1H+ дээр <code>"Context"</code></td>
-            <td>Killzone-ийн хил барын нээлт дээр л тохионо. 4H дээр 07:00–10:00 нь
-              нэг бар — хатуу шүүлтүүр нь sample-ыг устгана.</td>
-          </tr>
-          <tr>
-            <td><code>sessionOK</code> нь <em>ижил нэрээр</em> дахин тодорхойлогдсон</td>
-            <td>v3.2-ийн дөрвөн consumer нь тэр нэрийг уншдаг. Нэрийг хадгалснаар
-              тэдэнд ямар ч засвар шаардагдаагүй; Off mode-д
-              <code>sessionLegacyOK</code> руу буцна.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="note">
-      <span class="tag">Нэг bgcolor</span>
-      <p>
-        Killzone-ийн дэвсгэр өнгө нь <strong>файл дахь цорын ганц</strong>
-        <code>bgcolor()</code> дуудлагаар HTF bias cloud-тай нэгтгэгдсэн. Pine нь
-        тааралдсан бүх <code>bgcolor()</code>-ыг render хийдэг тул хоёр дахь дуудлага
-        нь хэрэглэгчийн уншиж байгаа дэвсгэрийг дарж арчина —
-        <code>bgcolor(na(bgICT) ? bgHTF : bgICT)</code> нь тэр зөрчлийг таслав.
-      </p>
-    </div>
-  </section>
-
   <!-- =============================== 9 -->
   <section id="sheet">
     <div class="eyebrow">Практик</div>

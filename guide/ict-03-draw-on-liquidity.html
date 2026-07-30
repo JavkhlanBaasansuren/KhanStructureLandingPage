@@ -100,7 +100,6 @@
         <li><a href="#weekly">Долоо хоногийн H/L-ийг ажиллуулах</a></li>
         <li><a href="#rank">Магнитыг эрэмбэлэх</a></li>
         <li><a href="#tp">TP: DOL vs fixed R</a></li>
-        <li><a href="#code">Кодод хэрхэн хийгдсэн</a></li>
         <li><a href="#sheet">Өдрийн DOL хуудас</a></li>
       </ol>
     </nav>
@@ -410,56 +409,6 @@
       </p>
     </div>
   </section>
-
-  <!-- =============================== 7 -->
-  <section id="code">
-    <div class="eyebrow">Хэрэгжүүлэлт</div>
-    <h2>Кодод хэрхэн хийгдсэн</h2>
-
-    <p>
-      <strong>§I7 ICT LIQUIDITY</strong> нь бүх магнитыг цуглуулж, нэг
-      сонгогчоор эрэмбэлдэг. Pine-д closure байхгүй тул “илүү сайн нэрийг сонго”
-      гэсэн 2-argument helper-ийг эх сурвалж тутамд нэг удаа дуудна.
-    </p>
-
-<pre><code><span class="cmt">// lookahead_off + expression дотор [1] = өмнөх БҮРЭН session.
-// Файлд lookahead_on ТЭГ байна — тэр хэвээр байх ёстой.</span>
-[pdh, pdl] = request.security(syminfo.tickerid, ictDtf, [high[1], low[1]],
-     barmerge.gaps_off, barmerge.lookahead_off)
-
-<span class="cmt">// na буцвал caller нь fixed-R ladder руу fallback хийнэ.</span>
-f_ict_liq_target(<span class="kw">int</span> _dir, <span class="kw">float</span> _px, <span class="kw">float</span> _skipBeyond) =&gt;
-    <span class="cmt">// pdh/pdl → pwh/pwl → asianHiFrz/LoFrz → ictMajorHi/Lo → ictPools</span>
-    <span class="cmt">// minD = atr × 1.0  (2 тик зайд target тавихгүй)</span>
-    <span class="cmt">// maxD = atr × 6.0  (хүрэшгүй target тавихгүй)</span></code></pre>
-
-    <div class="tbl-scroll">
-      <table>
-        <thead><tr><th>Хичээлийн дүрэм</th><th>Кодод</th></tr></thead>
-        <tbody>
-          <tr><td>Гурван магнит, зайгаар эрэмбэлсэн</td><td><code>liqTargetUp/Up2/Up3</code> · <code>liqTargetDn…</code></td></tr>
-          <tr><td>Хэт ойр / хэт хол магнитыг хаях</td><td><code>ictLiqMinDistATREff</code> · <code>ictLiqMaxDistATREff</code></td></tr>
-          <tr><td>1.2R-ээс дотор бол fixed R хэвээр</td><td><code>ictLiqMinR = 1.20</code></td></tr>
-          <tr><td>5R-ээс хол бол cap</td><td><code>ictLiqMaxR = 5.00</code></td></tr>
-          <tr><td>Rung монотон байх</td><td><code>ictRungMinGapR = 0.25</code></td></tr>
-          <tr><td>Realized R-ийг бичиж авах</td><td><code>rTP1R…rTP3R</code> · <code>gTP1R…gTP3R</code></td></tr>
-          <tr><td>Хаанаас гарсныг тэмдэглэх</td><td><code>rTPSrcMask</code> (bit i = liquidity)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="note warn">
-      <span class="tag">Lookahead — нэг мөрөөр эвдэрдэг зүйл</span>
-      <p>
-        <code>request.security</code>-д <code>lookahead_on</code> хэрэглэвэл өмнөх
-        өдрийн H/L нь <em>тэр өдөр дуусахаас өмнө</em> мэдэгдэж, backtest нь
-        боломжгүй сайн болно. Зөв хэлбэр нь <strong>хоёулаа</strong>:
-        expression дотор <code>[1]</code> <em>ба</em> <code>lookahead_off</code>.
-        Ганцаараа хоёулаа хангалтгүй.
-      </p>
-    </div>
-  </section>
-
   <!-- =============================== 8 -->
   <section id="sheet">
     <div class="eyebrow">Практик</div>

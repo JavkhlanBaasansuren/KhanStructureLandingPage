@@ -88,8 +88,8 @@
       Order Block нь “ялгаатай өнгөтэй лаа” биш. Энэ нь том оролцогч позици барьсан
       бөгөөд үнэ тэр рүү <em>эргэж ирэх</em> бүтцийн шалтгаан бүхий үнийн зурвас юм.
       Энэ хичээл нь институцийн логикоос эхлээд тодорхойлолт, хүчинтэй байдлын
-      нөхцөл, block-ийн бүх төрөл, MTF nesting, A/B/C зэрэглэл, regime-ийн хамаарал,
-      edge-ийг хэмжих арга зүй, мөн кодоор илрүүлэхийг 14 диаграммаар тайлбарлана.
+      нөхцөл, block-ийн бүх төрөл, MTF nesting, A/B/C зэрэглэл, regime-ийн хамаарал
+      ба edge-ийг хэмжих арга зүйг 14 диаграммаар тайлбарлана.
     </p>
 
     <nav class="toc" aria-label="Агуулга">
@@ -109,7 +109,6 @@
         <li><a href="#regime">Бүтэлгүйтэл ба regime</a></li>
         <li><a href="#backtest">Edge-ийг хэрхэн хэмжих</a></li>
         <li><a href="#mistakes">7 нийтлэг алдаа</a></li>
-        <li><a href="#code">Кодод хэрхэн хийгдсэн</a></li>
         <li><a href="#checklist">Практик checklist</a></li>
       </ol>
     </nav>
@@ -408,8 +407,7 @@
       <figcaption>
         Зон эхлээд <b>bullish OB</b> (support) байсан. Үнэ доод
         ирмэгийн доор <b>хаагдмагц</b> role flip болж <b>breaker</b> (resistance)
-        болно. Дараагийн retest нь short setup. KHAN ICT PRO-д энэ нь
-        <code>ictBreakerOn = true</code> үед автоматаар өнгөө сольдог.
+        болно. Дараагийн retest нь short setup.
       </figcaption>
     </figure>
 
@@ -418,8 +416,9 @@
       <p>
         Mitigation-ийг <strong>зөвхөн хаалтаар</strong> шийд, wick-ээр биш.
         Хөгжиж байгаа лааны түр зуурын wick нь зоныг “эвдсэн” гэж бариад, тэр лаа
-        эцэстээ зөв талдаа хаагдсан ч сэргэдэггүй — энэ бол хамгийн түгээмэл
-        кодын bug. Индикаторт үүнийг <code>barstate.isconfirmed</code>-аар л шийднэ.
+        эцэстээ зөв талдаа хаагдсан ч сэргэдэггүй. Тиймээс <strong>лаа бүрэн
+        хаагдтал шийдвэрээ хойшлуул</strong> — хагас хаагдсан лаа дээр зоныг
+        нас барсан гэж бүртгэх нь хамгийн түгээмэл алдаа.
       </p>
     </div>
   </section>
@@ -693,9 +692,10 @@
         + цоорхойтой + хямд/үнэтэй зөв хэсэгт + дээд TF дэмжсэн + хүрээгүй</em>,
         мөн ижил үр дагавартай (<em>trade хий / жижиг размер / ХАЯ</em>).
         Доорх хүснэгтийн <strong>цорын хоёр нэмэлт</strong> нь:
-        (1) <code>Killzone дотор</code> шалгуур, (2) тоон оноо — тус бүр 1 оноо,
-        нийлбэрээр tier. Тоон болгосон шалтгаан нь <em>кодод шилжүүлэх</em>:
-        оноо бүр аль хэдийн байгаа boolean.
+        (1) <strong>Killzone дотор</strong> шалгуур, (2) тоон оноо — тус бүр 1 оноо,
+        нийлбэрээр tier. Тоон болгосон шалтгаан нь <em>хэмжиж болдог болгох</em>:
+        шалгуур бүр “тийм / үгүй” хоёрын нэг тул журналд бичихэд хялбар, дараа нь
+        аль оноо үнэхээр edge нэмснийг cohort-оор шалгаж болно.
       </p>
     </div>
 
@@ -706,14 +706,14 @@
 
     <div class="tbl-scroll">
       <table>
-        <thead><tr><th>Шалгуур</th><th>Яагаад edge нэмдэг</th><th>Кодод</th></tr></thead>
+        <thead><tr><th>Шалгуур</th><th>Яагаад edge нэмдэг</th></tr></thead>
         <tbody>
-          <tr><td><strong>Virgin</strong> — CE-д хүрээгүй</td><td>Ордер дүүрээгүй хэвээр; 2 дахь touch статистикаар сул</td><td><code>not z.ceHit</code></td></tr>
-          <tr><td><strong>FVG давхцах</strong></td><td>Хоёр өөр шалтгаанаар ижил үнэ дээр ордер хүлээж байна</td><td><code>ictFvgBullNear</code></td></tr>
-          <tr><td><strong>Liquidity түвшинд</strong></td><td>PDH/PDL/EQH дээр үүссэн OB нь институцийн зорилготой давхцана</td><td><code>ictPools</code> · <code>pdh/pdl</code></td></tr>
-          <tr><td><strong>Killzone дотор</strong></td><td>Institutional эрчим байгаа цагт үүссэн</td><td><code>inKillzone</code></td></tr>
-          <tr><td><strong>HTF bias таарна</strong></td><td>Урсгалын эсрэг OB нь statistically counter-trend</td><td><code>biasHTFBuy</code></td></tr>
-          <tr><td><em>Бонус:</em> HTF зон дотор (nested)</td><td>MTF nesting — RR-ийг олон дахин</td><td>—</td></tr>
+          <tr><td><strong>Virgin</strong> — CE-д хүрээгүй</td><td>Ордер дүүрээгүй хэвээр; 2 дахь touch статистикаар сул</td></tr>
+          <tr><td><strong>FVG давхцах</strong></td><td>Хоёр өөр шалтгаанаар ижил үнэ дээр ордер хүлээж байна</td></tr>
+          <tr><td><strong>Liquidity түвшинд</strong></td><td>PDH/PDL/EQH дээр үүссэн OB нь институцийн зорилготой давхцана</td></tr>
+          <tr><td><strong>Killzone дотор</strong></td><td>Institutional эрчим байгаа цагт үүссэн</td></tr>
+          <tr><td><strong>HTF bias таарна</strong></td><td>Урсгалын эсрэг OB нь statistically counter-trend</td></tr>
+          <tr><td><em>Бонус:</em> HTF зон дотор (nested)</td><td>MTF nesting — RR-ийг олон дахин</td></tr>
         </tbody>
       </table>
     </div>
@@ -753,14 +753,13 @@
     </div>
 
     <div class="note">
-      <span class="tag">KHAN ICT PRO-той холбоо</span>
+      <span class="tag">Хэрхэн хэрэглэх</span>
       <p>
-        Файлд <strong>scoring layer одоохондоо БАЙХГҮЙ</strong> — entry нь цэвэр
-        boolean AND-chain. Гэхдээ дээрх таван шалгуурын <em>тав нь бүгд аль хэдийн
-        кодод бий</em> (<code>ceHit</code>, <code>ictFvgBullNear</code>,
-        <code>ictPools</code>, <code>inKillzone</code>, <code>biasHTFBuy</code>).
-        Тэгэхээр tier нь шинэ хэмжилт биш — байгаа боolean-уудыг нэмж, cohort-оор
-        хагалахад л хангалттай. Энэ хүснэгт нь тэр давхаргын спек.
+        Дээрх таван шалгуур нь <strong>шинэ хэмжилт биш</strong> — тэд бүгд чарт
+        дээрээс шууд харагддаг зүйл. Тиймээс зэрэглэлийг журналдаа хөтлөх нь
+        хамгийн хямд: trade тутамд тав нь тохирсон эсэхийг тэмдэглээд, дараа нь
+        cohort-оор хагалж <em>аль шалгуур үнэхээр edge нэмснийг</em> өөрөө хэмж.
+        Таамаглахын оронд бичиж ав.
       </p>
     </div>
   </section>
@@ -902,14 +901,14 @@
     </div>
 
     <div class="note">
-      <span class="tag">Кодод аль хэдийн бий</span>
+      <span class="tag">Практик шүүлтүүр</span>
       <p>
-        Файлд <code>regimeBull</code> / <code>regimeBear</code> нь 1H SR zone
-        break-ээс тооцогддог бөгөөд <code>requireRegimeForEntry</code> нь түүнийг
-        entry-д шаардах эсэхийг шийддэг. Мөн <code>ictStructDir</code> нь chart-TF
-        структурын чиглэлийг хэлнэ. <strong>OB-ыг тэр хоёрын аль нэгтэй нь таарсан
-        үед л ав</strong> — энэ нь дээрх хүснэгтийн “аль нь шуугиан” баганыг кодоор
-        шүүх хамгийн хямд арга.
+        Regime-ыг хоёр зүйлээр л уншиж болно: <strong>1H дээрх SR зоны эвдрэл</strong>
+        (дээш эвдвэл bullish regime, доош эвдвэл bearish) ба <strong>чартын өөрийн
+        TF-ийн структурын чиглэл</strong>. <strong>OB-ыг тэр хоёрын аль нэгтэй нь
+        таарсан үед л ав</strong> — энэ нь дээрх хүснэгтийн “аль нь шуугиан” баганыг
+        шүүх хамгийн хямд арга. Аль нь ч таарахгүй бол тэр OB нь counter-trend, зон
+        сайхан харагдсан ч хамаагүй.
       </p>
     </div>
   </section>
@@ -971,12 +970,11 @@
 
     <h3>Sample size — хоёр өөр босго, андуурч болохгүй</h3>
     <p>
-      <strong>PriceAction 11.3</strong> нь маш тодорхой: <code>&lt;30 trade</code> нь
+      <strong>PriceAction 11.3</strong> нь маш тодорхой: 30-аас доош trade нь
       <em>“өгөгдөл БИШ, шум”</em>. Тэр нь <strong>шийдвэр гаргах</strong> босго.
-      Индикаторын <code>ictStatsMinSample = 8</code> нь өөр зүйл —
-      <strong>харуулах</strong> босго: 8-аас доош cohort-ыг panel нь бүдэг
-      өнгөөр зурж “энэ тоонд бүү найд” гэж хэлдэг. Хоёрыг андуурвал 12 trade-ийн
-      cohort-ыг шийдвэрийн үндэс болгож эхэлнэ.
+      Түүнээс тусад нь <strong>харуулах</strong> босго байдаг: 8-аас доош cohort-ыг
+      “энэ тоонд бүү найд” гэж тэмдэглэх. Хоёрыг андуурвал 12 trade-ийн cohort-ыг
+      шийдвэрийн үндэс болгож эхэлнэ — тэр нь хамгийн нийтлэг өөрийгөө хуурах арга.
     </p>
     <div class="tbl-scroll">
       <table>
@@ -1005,15 +1003,15 @@
     </div>
 
     <div class="note">
-      <span class="tag">KHAN ICT PRO-той холбоо</span>
+      <span class="tag">Дараагийн алхам — cohort</span>
       <p>
-        Stats engine нь <code>R</code>, <code>BE</code>, <code>Rsv</code>, <code>Net%</code>
-        дөрвүүлээ аль хэдийн бодож, cost-ыг <code>f_trade_cost_pct()</code>-аар
-        хасдаг — тэгэхээр дээрх математик хийгдсэн. Дутуу нь <strong>cohort</strong>:
-        <code>ictStatsSplit</code> нь Killzone / Setup / Sweep гэсэн хуваалтыг
-        төлөвлөсөн, <code>f_ict_tag()</code> нь trade тутмын шинжийг нэг int-д
-        хийхээр бэлдсэн. Мөн <code>ictStatsMinSample = 8</code> нь “бүдэг харуул”
-        босго — <em>шийдвэр гаргах</em> босго нь 30, тэр хоёрыг андуурч болохгүй.
+        <code>WR</code>, <code>R</code>, <code>BE</code>, <code>Rsv</code> дөрвийг
+        нийт дүнгээр бодох нь хялбар. Гол ажил нь <strong>cohort</strong>: журналдаа
+        trade тутамд <em>Killzone</em> (аль цонх), <em>Setup</em> (OB, breaker,
+        nested) ба <em>Sweep</em> (магнит цоолсон эсэх) гэсэн гурван шинжийг бичиж
+        аваад тэднээр хагалж бод. Ингэвэл “OB ажилладаг уу” гэсэн хэтэрхий том
+        асуулт нь <strong>“аль цонхны, ямар төрлийн OB ажилладаг”</strong> гэсэн
+        хэмжиж болох асуулт болно. Зардлыг хассан <code>Net%</code>-ээр л дүгнэ.
       </p>
     </div>
   </section>
@@ -1040,60 +1038,6 @@
         <p>Зоны гадна тавих ёстой SL-ыг хиймлээр нарийсгавал дээрмийн зурвас дотор орно.</p></li>
     </ol>
   </section>
-
-  <!-- ============================================ 11 -->
-  <section id="code">
-    <div class="eyebrow">Хэрэгжүүлэлт</div>
-    <h2>KHAN ICT PRO дотор хэрхэн хийгдсэн</h2>
-
-    <p>
-      §I6 хэсэг нь дээрх бүх дүрмийг кодоор шалгадаг. Гол функц нь
-      <code>f_ict_ob_offset()</code> — эвдрэлийн барнаас хойш явж
-      <strong>сүүлчийн эсрэг лааг</strong> хайна, олдохгүй бол
-      <strong>хамгийн эрс лаа</strong> руу fallback хийнэ.
-    </p>
-
-<pre><code><span class="cmt">// Сүүлчийн эсрэг лаа = ICT; олдохгүй бол хамгийн эрс лаа = fallback.
-// 300 бар нь runaway хамгаалалт, тохируулга биш.</span>
-f_ict_ob_offset(<span class="kw">bool</span> _wantDownCandle, <span class="kw">int</span> _fromBar) =&gt;
-    <span class="kw">int</span> scan = math.min(bar_index - _fromBar, 300)
-    <span class="kw">int</span> off  = na
-    <span class="kw">if</span> scan &gt;= 0
-        <span class="kw">for</span> i = 0 <span class="kw">to</span> scan          <span class="cmt">// 0 = эвдрэлийн бар, хойш явна</span>
-            <span class="kw">if</span> na(off) <span class="kw">and</span> (_wantDownCandle ? close[i] &lt; open[i] : close[i] &gt; open[i])
-                off := i
-        <span class="kw">if</span> na(off)                     <span class="cmt">// цэвэр нэг чиглэлт импульс</span>
-            <span class="cmt">// ... хамгийн эрс low/high-тай лааг ол</span>
-    off</code></pre>
-
-    <h3>Дүрэм → код</h3>
-    <div class="tbl-scroll">
-      <table>
-        <thead><tr><th>Хичээлийн дүрэм</th><th>Кодод хаана</th></tr></thead>
-        <tbody>
-          <tr><td>Displacement ≥ N×ATR, биет ≥60%</td><td><code>ictDispATRmultEff</code> · <code>ictDispBodyPctEff</code></td></tr>
-          <tr><td>Зөвхөн BOS/CHoCH дээр OB үүснэ</td><td><code>if (ictBosUp or ictChochUp)</code></td></tr>
-          <tr><td>Бүтэн хүрээгээр зурна</td><td><code>high[_off]</code> · <code>low[_off]</code></td></tr>
-          <tr><td>CE = 50%</td><td><code>ce = (high+low)/2</code></td></tr>
-          <tr><td>Mitigation зөвхөн хаалтаар</td><td><code>if barstate.isconfirmed</code> дотор</td></tr>
-          <tr><td>Breaker role flip</td><td><code>ictBreakerOn</code> · <code>f_ict_paint()</code></td></tr>
-          <tr><td>Зоны хугацаа хэтрэлт</td><td><code>ictObMaxBarsEff</code> · <code>f_ict_prune()</code></td></tr>
-          <tr><td>Хэт олон зон хуримтлахгүй</td><td><code>ictObKeepEff</code> (keep-N)</td></tr>
-          <tr><td>Үнэ зон дотор байна уу</td><td><code>f_ict_zone_touch()</code></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="note">
-      <span class="tag">Яагаад keep-N зайлшгүй вэ</span>
-      <p>
-        Event дээр, түүх дээр зурдаг модуль нь keep-N байхгүй бол хэдэн мянган бар
-        дотор TradingView-ийн 500 объектын хязгаарыг дүүргэнэ. Энэ нь
-        оптимизаци биш — <strong>шаардлага</strong>.
-      </p>
-    </div>
-  </section>
-
   <!-- ============================================ 12 -->
   <section id="checklist">
     <div class="eyebrow">Хэрэглэх</div>

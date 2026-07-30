@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох." />
+<meta name="description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, аль хичээл юуг хамрах." />
 <meta name="robots" content="index, follow" />
 
 <!-- Social previews -->
 <meta property="og:title" content="ICT цуврал — агуулга ба хамрах хүрээ" />
-<meta property="og:description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох." />
+<meta property="og:description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, аль хичээл юуг хамрах." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://khanstructure.com/guide/ict-00-index.html" />
 <meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ICT цуврал — агуулга ба хамрах хүрээ" />
-<meta name="twitter:description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох." />
+<meta name="twitter:description" content="ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, аль хичээл юуг хамрах." />
 <meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
 
 <meta name="theme-color" content="#0a0e14" />
@@ -35,7 +35,7 @@
   "@context": "https://schema.org",
   "@type": "Course",
   "name": "ICT цуврал — агуулга ба хамрах хүрээ",
-  "description": "ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, KHAN ICT PRO кодтой хэрхэн холбогдох.",
+  "description": "ICT / Smart Money цувралын агуулга ба хамрах хүрээ: Order Block, ICT-ийн цаг, Draw on Liquidity, PD Array Matrix, нэрлэсэн моделууд, SMT divergence. Хаанаас эхлэх, ямар дарааллаар үзэх, аль хичээл юуг хамрах.",
   "inLanguage": "mn",
   "url": "https://khanstructure.com/guide/ict-00-index.html",
   "image": "https://khanstructure.com/khan_sniper_cover.jpg",
@@ -92,7 +92,6 @@
         <li><a href="#lessons">Хичээлүүд</a></li>
         <li><a href="#coverage">Хамрах хүрээний зураг</a></li>
         <li><a href="#path">Хаанаас эхлэх вэ</a></li>
-        <li><a href="#code">Кодтой холбоо</a></li>
       </ol>
     </nav>
   </header>
@@ -297,33 +296,6 @@
       </p>
     </div>
   </section>
-
-  <!-- =============================== -->
-  <section id="code">
-    <div class="eyebrow">Хэрэгжүүлэлт</div>
-    <h2>Кодтой холбоо</h2>
-
-    <p>
-      Хичээл бүр <code>KHAN ICT PRO v1.0.pine</code>-ийн тодорхой хэсэгтэй
-      холбогдоно. Онолыг кодоос салгаж уншихад дүрэм нь “яагаад тийм” гэдгээ
-      алддаг тул хичээл тутам “Кодод хэрхэн хийгдсэн” бүлэг бий.
-    </p>
-
-    <div class="tbl-scroll">
-      <table>
-        <thead><tr><th>Хичээл</th><th>Кодын хэсэг</th><th>Гол функц / параметр</th></tr></thead>
-        <tbody>
-          <tr><td>01 Order Block</td><td>§I6</td><td><code>f_ict_ob_offset</code> · <code>ictBreakerOn</code> · <code>f_ict_paint</code></td></tr>
-          <tr><td>02 Цаг</td><td>§I1</td><td><code>KZ_*</code> session string · <code>kzRoleEff</code> · <code>inMacro</code></td></tr>
-          <tr><td>03 DOL</td><td>§I7</td><td><code>f_ict_liq_target</code> · <code>liqTargetUp/Dn</code> · <code>rTP1R…</code></td></tr>
-          <tr><td>04 PD Array</td><td>§I4 · §I6 · §I7</td><td><code>ictFvgs</code> · <code>ictObs</code> · <code>ictPools</code> эрэмбэ</td></tr>
-          <tr><td>05 Моделууд</td><td>§I9</td><td>Sequence machine = 2022 model</td></tr>
-          <tr><td>06 SMT</td><td>—</td><td>2-р ticker дээр <code>request.security</code></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <nav class="series" aria-label="Цуврал">
     <a href="00-price-action.html">← Түвшин 0 · Price Action</a>
     <span class="cur">ICT цуврал · Агуулга</span>
