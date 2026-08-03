@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="KHAN ICT VISUAL индикаторын ARMED ZONE ба 5 alert-ийг ашиглаж хэзээ, яаж орох вэ: MSS → SETUP ARMED → ZONE TOUCHED дараалал, limit захиалгын дүрэм, хэзээ орохгүй байх, TradingView дээр alert асаах заавар." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="ARMED ZONE ба 5 alert — хэзээ, яаж орох вэ" />
+<meta property="og:description" content="KHAN ICT VISUAL-ын ARMED ZONE ба 5 alert: MSS → ARMED → TOUCHED дараалал, limit захиалгын дүрэм, хэзээ орохгүй байх, TradingView alert асаах заавар." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ref-armed-zone.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ARMED ZONE ба 5 alert — хэзээ, яаж орох вэ" />
+<meta name="twitter:description" content="KHAN ICT VISUAL-ын ARMED ZONE ба 5 alert: MSS → ARMED → TOUCHED дараалал, limit захиалгын дүрэм, хэзээ орохгүй байх." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ref-armed-zone.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>ARMED ZONE ба 5 alert — хэзээ, яаж орох вэ | KHAN SNIPER PRO</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "ARMED ZONE ба 5 alert — хэзээ, яаж орох вэ",
+  "description": "KHAN ICT VISUAL индикаторын ARMED ZONE ба 5 alert-ийг ашиглаж хэзээ, яаж орох вэ: MSS → SETUP ARMED → ZONE TOUCHED дараалал, limit захиалгын дүрэм, хэзээ орохгүй байх.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ref-armed-zone.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "publisher": { "@type": "Organization", "name": "KHAN SNIPER PRO", "url": "https://khanstructure.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "ARMED ZONE ба 5 alert", "item": "https://khanstructure.com/guide/ref-armed-zone.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT VISUAL · Гарын авлага</span>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker"><span>Индикатор ашиглах</span><span>ARMED ZONE</span><span>KHAN ICT VISUAL</span></div>
+    <h1>ARMED ZONE ба 5 alert — <em>хэзээ, яаж орох вэ</em></h1>
+    <p class="standfirst">
+      KHAN ICT VISUAL нь entry гаргадаггүй — <strong>оролт хайх зөвшөөрөл ба
+      хүлээх газрыг</strong> зурдаг. Энэ хуудас нь тэр зөвшөөрлийг утсан дээрх
+      мессежээс эхлээд брокер дээрх захиалга хүртэл яаж ажиллуулахыг, ямар ч
+      туршлагагүй хүнд ойлгогдохоор, нэг бодит жишээгээр тайлбарлана.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#what">ARMED ZONE гэж юу вэ</a></li>
+        <li><a href="#alerts">5 alert — юу хэлдэг вэ</a></li>
+        <li><a href="#story">Ажлын урсгал — нэг түүхээр</a></li>
+        <li><a href="#rules">Алтан гурван дүрэм</a></li>
+        <li><a href="#skip">Хэзээ ОРОХГҮЙ вэ</a></li>
+        <li><a href="#setup-types">Хоёр төрлийн setup</a></li>
+        <li><a href="#tv">TradingView дээр alert асаах</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- =============================== 1 -->
+  <section id="what">
+    <div class="eyebrow">Үндэс</div>
+    <h2>ARMED ZONE гэж юу вэ</h2>
+
+    <p>
+      ICT 2022 model-ийн дараалал: <strong>liquidity sweep → displacement →
+      MSS → retrace → оролт.</strong> Эхний гурав нь болчихсон, дөрөв дэх нь
+      (retrace) хараахан болоогүй тэр мөчид индикатор график дээр
+      <strong>улбар шар хүрээтэй хайрцаг</strong> зурна — тэр нь ARMED ZONE.
+      Утга нь: <em>"Дараалал бүрэн боллоо. Одоо битгий ор — үнэ энэ хайрцаг
+      руу буцаж ирэхийг хүлээ."</em>
+    </p>
+
+    <pre>
+                                              ┌─ ПАНЕЛЬ ────────────────┐
+   үнэ                                        │ SETUP  WAIT  BUY  FVG   │
+    │      MSS                                │ 14бар  DISC  CE 4032.15 │
+    │    ┌─────┐  ← sweep-ийн дараах          └─────────────────────────┘
+    │    │ MSS │    огцом дээшлэлт
+4040┤  ▂▃█████▃
+    │  █████    ▆▄
+    │ ██          ▃▂      үнэ буцаж
+4036┤ █             ▄▂     бууж байна ↘
+    │
+    │  ╔══════════════════════════════╗ ← 4034.2  УЛБАР ШАР хүрээ
+4032┤  ║ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─╫─────  ▲ FVG CE 4032.150  14бар
+    │  ╚══════════════════════════════╝ ← 4030.1
+4028┤ ─┄┄┄✕┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄  PDL 4028.690 ← sweep болсон цэг
+    </pre>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Бүрэлдэхүүн</th><th>Хэлбэр</th><th>Утга</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Хайрцаг</strong></td><td>Улбар шар 2px хүрээ, дотор нь бүдэг ногоон (BUY) / ягаан (SELL)</td><td>Displacement-ийн үлдээсэн FVG/OB зурвас — retrace-ийг ЭНД хүлээнэ</td></tr>
+          <tr><td><strong>Тасархай шугам</strong></td><td>Хайрцгийн голоор, баруун тийш сунасан</td><td><strong>CE = 50%</strong> — хүлээх ЯГ ТЭР үнэ</td></tr>
+          <tr><td><strong>Шошго</strong></td><td><code>▲ FVG CE 4032.150 · 14бар</code></td><td>Чиглэл · зоны төрөл · хүлээх үнэ · хугацаа дуусахад үлдсэн бар</td></tr>
+          <tr><td><strong>Панелийн SETUP мөр</strong></td><td><code>WAIT · BUY · FVG · 14бар · CE 4032.150</code></td><td>Ижил мэдээлэл, тоогоор</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Онцлог</span>
+      <p>
+        ARMED ZONE нь <strong>үргэлж ганцхан</strong> — түүх үлдээдэггүй, зөвхөн
+        ОДООГИЙН амьд setup. График дээр улбар шар хайрцаг байхгүй бол амьд setup
+        байхгүй гэсэн үг (панель <code>NO SETUP</code>). Үнэ CE-д хүрэхэд хайрцаг
+        тодорч, шошго <code>✓хүрэв</code> болж, панель <code>TOUCH</code> гэж
+        ногоон болно.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 2 -->
+  <section id="alerts">
+    <div class="eyebrow">Мэдэгдэл</div>
+    <h2>5 alert — юу хэлдэг вэ</h2>
+
+    <p>
+      Индикатор ICT дарааллын мөч бүрд утас руу чинь мессеж явуулна.
+      Мессеж бүр <strong>"юу хийх вэ" биш "юу болов"</strong> гэж хэлдэг —
+      юу хийхээ дараагийн хэсгийн урсгалаас хар.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Alert</th><th>Хэзээ ирэх</th><th>Дотор нь юу байх</th></tr></thead>
+        <tbody>
+          <tr><td>🎯 <strong>MSS</strong></td><td>Бүтэц эргэх мөчид (sweep + displacement + CHoCH)</td><td>Чиглэл · хагарсан түвшин · P/D</td></tr>
+          <tr><td>⏳ <strong>SETUP ARMED</strong></td><td>Улбар шар хайрцаг үүсэхэд</td><td>Зоны төрөл · <strong>CE үнэ</strong> · sweep туйл · хэдэн бар хүчинтэй · killzone</td></tr>
+          <tr><td>✅ <strong>ZONE TOUCHED</strong></td><td>Үнэ CE-д хүрэх мөчид</td><td>"Үнэ зурваст ирлээ — баталгаа хай" ← <strong>жинхэнэ дуудлага энэ</strong></td></tr>
+          <tr><td>⌛ <strong>SETUP EXPIRED</strong></td><td>Setup үхэхэд</td><td>Шалтгаантайгаа: зон цоологдов / хугацаа дуусав / эсрэг setup</td></tr>
+          <tr><td>⇅ <strong>SMT</strong></td><td>Хамтрагч символтой зөрүү гарахад</td><td>Зөвхөн SMT хамтрагч (XAGUSD г.м) тохируулсан үед ирнэ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Яагаад sweep дангаараа alert өгдөггүй вэ</span>
+      <p>
+        Sweep (ягаан ✕) нь MSS-гүйгээр олон гардаг тул alert болговол спам болно.
+        Sweep нь дараалал болж чадсан үедээ л ⏳ ARMED alert-аар дамжин ирнэ.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 3 -->
+  <section id="story">
+    <div class="eyebrow">Урсгал</div>
+    <h2>Ажлын урсгал — нэг түүхээр</h2>
+
+    <p>
+      Жишээ нөхцөл: XAU даваа гарагт gap-аар доош нээгдэж, PDL 4028.69-ийг
+      тестлээд буцаж өснө гэсэн таамагтай байя. Утсан дээр мессежүүд
+      дарааллаараа ирнэ.
+    </p>
+
+    <h3>🎯 MSS мессеж ирлээ <em>(жишээ нь өглөө 06:30)</em></h3>
+    <p>
+      Утга нь: <strong>"Зах зээл эргэлээ."</strong> Чи юу хийх вэ —
+      <strong>ЮУ Ч ХИЙХГҮЙ.</strong> Зүгээр л графикаа нээгээд хар. Энэ бол
+      "хоол болж байна" гэсэн үнэр — хоол болоогүй. Одоо орвол хөөж орж
+      байгаа юм.
+    </p>
+
+    <h3>⏳ SETUP ARMED мессеж ирлээ <em>(хэдэн минутын дараа)</em></h3>
+    <p>
+      Утга нь: <strong>"Хүлээх газар чинь бэлэн боллоо. CE 4032.15."</strong>
+      Чи юу хийх вэ — мессежин доторх гурван тоог брокер дээрээ хуулж
+      захиалга тавь:
+    </p>
+
+    <pre>
+MT5 / брокер дээр:
+  Захиалгын төрөл:  Buy Limit         ← зах зээлийн үнээр БИШ
+  Үнэ:              4032.15           ← мессежийн "CE" гэсэн тоо
+  SL:               4028.20 орчим     ← мессежийн "Sweep туйл"-аас жаахан цааш
+  TP:               4048 / 4071.5     ← дараагийн likvidnost (EQ pool · PDH · NWOG CE)
+    </pre>
+
+    <p>Тавьчихаад <strong>утсаа тавь.</strong> Хүлээх ажлыг захиалга чинь хийнэ. Одоо хоёрхон зам бий:</p>
+
+    <h3>Зам А — ✅ ZONE TOUCHED ирлээ</h3>
+    <p>
+      Утга нь: "Үнэ хүлээж байсан газарт чинь ирлээ." Графикаа нэг хараад
+      хоёр л асуулт:
+    </p>
+    <ul>
+      <li>Панель дээр SCORE <strong>4-өөс дээш үү?</strong> → Тайван суу, trade явж байна.</li>
+      <li>SCORE <strong>2–3 уу</strong>, эсвэл лаанууд зурвасыг гүнзгий огтолж байна уу? → Захиалгаа цуцалж болно. Заавал орох албагүй.</li>
+    </ul>
+
+    <h3>Зам Б — ⌛ SETUP EXPIRED ирлээ</h3>
+    <p>
+      Утга нь: "Setup үхлээ." Брокер дээрх Buy Limit-ээ <strong>цуцал</strong> —
+      тэгээд л боллоо. <strong>Trade алдсан ≠ мөнгө алдсан.</strong> Дараагийн
+      ARMED-ыг хүлээ.
+    </p>
+
+    <h3>Яагаад хүлээж орох нь хөөж орохоос дээр вэ</h3>
+    <pre>
+хөөж орвол:    оролт 4036 · SL 4028 = 8 оноо эрсдэл · TP 4048 = 12 ашиг → 1.5R
+хүлээж орвол:  оролт 4032 · SL 4028 = 4 оноо эрсдэл · TP 4048 = 16 ашиг → 4R
+    </pre>
+    <p>
+      Ижил setup, ижил TP — гэхдээ хүлээснээр эрсдэл <strong>хоёр дахин бага</strong>,
+      ашиг <strong>хоёр дахин их</strong>. ARMED ZONE-ы ганц үүрэг нь тэр
+      "хүлээх цэгийг" урьдчилж, тоогоор нь хэлж өгөх.
+    </p>
+  </section>
+
+  <!-- =============================== 4 -->
+  <section id="rules">
+    <div class="eyebrow">Дүрэм</div>
+    <h2>Алтан гурван дүрэм</h2>
+
+    <pre>
+🎯 MSS ирвэл      →  ХАРНА, орохгүй
+⏳ ARMED ирвэл    →  ЗАХИАЛГА ТАВИАД утсаа тавина
+✅ TOUCHED ирвэл  →  SCORE шалгаад ТАЙВАН СУУНА
+    </pre>
+
+    <p>
+      Оролтын товчлуурыг чи хэзээ ч "яг одоо аваяа" гэсэн мэдрэмжээр дардаггүй —
+      <strong>ARMED мессежийн тоог хуулж limit тавьдаг.</strong> Ганц энэ л
+      зуршил чамайг хөөж орохоос бүрэн хамгаална.
+    </p>
+
+    <div class="note">
+      <span class="tag">Чухал</span>
+      <p>
+        Индикатор <strong>цаг барьдаг, чи шийдвэр гаргадаг.</strong> ARMED нь
+        оролт биш — оролт хайх зөвшөөрөл. Орох эсэхээ killzone, SCORE, HTF
+        гурвыг хараад өөрөө шийднэ.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 5 -->
+  <section id="skip">
+    <div class="eyebrow">Хориг</div>
+    <h2>Хэзээ ОРОХГҮЙ вэ</h2>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Нөхцөл</th><th>Яах вэ</th></tr></thead>
+        <tbody>
+          <tr><td>⏳ ARMED ирсэн ч панель дээр <code>KZ —</code> (killzone хаалттай, жишээ нь шөнө)</td><td>Алгас, эсвэл багассан хэмжээгээр ор</td></tr>
+          <tr><td>⏳ ARMED-ын чиглэл <code>↓TDO</code>-гийн эсрэг BUY (өдрийн bias-ын эсрэг)</td><td>Сэжигтэй — SCORE-оор хатуу шүү</td></tr>
+          <tr><td>✅ TOUCHED ирээгүй байхад "бараг хүрчихлээ" гээд гараар зах зээлийн үнээр орох</td><td><strong>ХОРИОТОЙ.</strong> Хүрээгүй нь хүрэхгүй байж магадгүйн шинж</td></tr>
+          <tr><td>Нэг өдөр 3–4 EXPIRED дараалан ирэх</td><td>Зах зээл чиглэлгүй байна — өнөөдөр амар</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="tag">Хавх</span>
+      <p>
+        Хамгийн их мөнгө алддаг мөч нь alert ирсний дараах <em>тэвчээргүйдэл</em>:
+        MSS хараад шууд орох, TOUCHED болоогүй байхад хөөж орох. Alert-ууд яг энэ
+        хоёр алдаанаас хамгаалахын тулд <strong>дарааллаар</strong> ирдэг — дарааллыг
+        нь алгасвал систем ажиллахгүй.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 6 -->
+  <section id="setup-types">
+    <div class="eyebrow">Төрөл</div>
+    <h2>Хоёр төрлийн setup</h2>
+
+    <p>Engine автоматаар хоёр загварыг таньдаг — хоёулаа ижил ARMED ZONE, ижил alert-аар дамжина:</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Setup</th><th>Гох</th><th>ICT нэршил</th><th>Хэрхэн ялгах</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Эргэлт</strong></td><td>sweep → displacement → <strong>CHoCH</strong></td><td>ICT 2022 reversal model</td><td>🎯 MSS alert ХАМТ ирнэ</td></tr>
+          <tr><td><strong>Үргэлжлэл</strong></td><td>эсрэг sweep → displacement → <strong>BOS</strong></td><td>Continuation — тренд дундах таталтаас</td><td>MSS alert-гүй, шууд ⏳ ARMED ирнэ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Зөвхөн зурагддаг, alert-гүй нөхцөлүүд ч бий — NWOG/NDOG CE тест, Breaker
+      retest, OTE + FVG давхцал, PDH/PDL хүрэлт. Эдгээрийг нүдээрээ олно;
+      тэдгээрийн онолыг <a href="ict-03-draw-on-liquidity.html">Хичээл 03</a> ба
+      <a href="ict-04-pd-array.html">Хичээл 04</a>-өөс үз.
+    </p>
+  </section>
+
+  <!-- =============================== 7 -->
+  <section id="tv">
+    <div class="eyebrow">Тохиргоо</div>
+    <h2>TradingView дээр alert асаах — 2 минут</h2>
+
+    <pre>
+1. График дээр KHAN ICT VISUAL ачаалсан байх
+2. Alert (⏰) товч → Condition: "KHAN ICT VISUAL v1.0"
+3. Доод сонголтоос: "Any alert() function call"   ← ЭНЭ ЧУХАЛ
+4. Expiration: Open-ended · Create
+    </pre>
+
+    <p>
+      <strong>Нэг alert таван event-ийг бүгдийг барина</strong> — тус тусад нь
+      үүсгэх шаардлагагүй. Индикаторын settings-д <code>🔔 ALERT</code> toggle
+      default асаалттай.
+    </p>
+
+    <h3>Telegram-д авах бол</h3>
+    <p>
+      Alert-ийн Notifications → Webhook URL-д Telegram bot-ынхоо
+      <code>sendMessage</code> endpoint-ийг тавь. Индикаторын
+      <code>Alert payload</code> тохиргоо <code>Telegram JSON</code> горимд
+      байвал мессеж шууд илгээгдэхэд бэлэн JSON хэлбэрээр гарна
+      (<code>chat_id</code>-гаа settings-ээс солино).
+    </p>
+
+    <div class="note">
+      <span class="tag">Хоцролт</span>
+      <p>
+        Бүх alert <strong>бар хаагдахад</strong> л гарна (repaint-аас хамгаалсан
+        зориудын шийдвэр). 15m график дээр event болсноос мэссэж иртэл 15 минут
+        хүртэл хоцролт байж болно — хурдан мэдэгдэл хэрэгтэй бол alert-аа 5m
+        графикаас үүсгэж болно.
+      </p>
+    </div>
+  </section>
+
+  <div class="footer">
+    KHAN SNIPER PRO · Сургалтын номын сан — бүх материал монгол хэлээр<br>
+    Энэ материал нь боловсролын зорилготой; арилжааны зөвлөгөө биш.
+    <a href="index.html">Номын сан</a> ·
+    <a href="../index.html">Нүүр</a> ·
+    <a href="../privacy.html">Нууцлал</a> ·
+    <a href="../terms.html">Үйлчилгээний нөхцөл</a>
+  </div>
+
+</div>
+</body>
+</html>
