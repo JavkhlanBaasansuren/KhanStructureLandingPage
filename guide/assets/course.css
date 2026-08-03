@@ -198,6 +198,20 @@ figure {
   border-radius: 14px; overflow: hidden;
 }
 figure svg { width: 100%; height: auto; display: block; }
+
+/* ---------- candlestick plates (assets/chart.js) ----------
+   The price-action diagrams used to be hand-plotted pixel coordinates; they
+   are now declared as OHLC data and drawn by the shared renderer, so the
+   geometry cannot drift from what the caption claims. A plate scrolls rather
+   than shrinks: at 360px a squeezed 820-wide plate renders its 10.5px labels
+   at ~4.6px, which is not readable at any age.
+
+   Side-by-side comparisons are ONE plate with a null candle as the gap, not
+   two plates: a single plate shares one price scale, so "big body" vs "long
+   wick" is a true comparison rather than two independently autoscaled panels
+   that happen to look the same size. */
+.plate { overflow-x: auto; }
+.plate svg { min-width: 560px; }
 figcaption {
   color: var(--muted); font-size: 13px;
   margin-top: 10px; padding-top: 10px;
@@ -222,12 +236,13 @@ svg text { font-family: var(--f-body); }
 .lvlg { stroke: var(--bull);  stroke-width: 1.6; stroke-dasharray: 7 5; fill: none; }
 .lvlr { stroke: var(--bear);  stroke-width: 1.6; stroke-dasharray: 7 5; fill: none; }
 .path { fill: none; stroke: #93b4d8; stroke-width: 2.4; stroke-linejoin: round; }
+/* the fat swing-trend band under the jagged internal path (Диаграм 5) */
+.swingband { fill: none; stroke: var(--bull); stroke-width: 10; stroke-linecap: round; opacity: .3; }
 .arw  { stroke: var(--gold); stroke-width: 2; fill: none; marker-end: url(#ah); }
 .arwg { stroke: var(--bull); stroke-width: 2; fill: none; marker-end: url(#ahg); }
 .arwr { stroke: var(--bear); stroke-width: 2; fill: none; marker-end: url(#ahr); }
-.zn  { fill: rgba(0,209,143,.17);  stroke: var(--bull);   stroke-width: 1.4; }
-.znr { fill: rgba(246,70,93,.17);  stroke: var(--bear);   stroke-width: 1.4; }
-.zg  { fill: rgba(245,158,11,.16); stroke: var(--amber);  stroke-width: 1.4; stroke-dasharray: 4 3; }
+/* .zn / .znr / .zg (hand-drawn zone rects) are gone: every zone is now a
+   `zones:` entry on a plate spec, drawn by chart.js from the shared tokens. */
 .zv  { fill: rgba(167,139,250,.2); stroke: var(--violet); stroke-width: 1.4; }
 
 /* ==================== SETUP CARDS ==================== */
@@ -330,6 +345,9 @@ ul.ck li.on::after {
 
 @media print {
   #prog, .toc { display: none; }
+  /* paper has no horizontal scroll — let the plate fit the page instead */
+  .plate { overflow: visible; }
+  .plate svg { min-width: 0; }
   body { padding: 0; }
   body > .wrap { padding: 0; }
   header.hero {

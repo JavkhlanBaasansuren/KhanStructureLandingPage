@@ -56,6 +56,7 @@
 </script>
 
 <link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
 </head>
 <body>
 <div class="wrap">
@@ -102,21 +103,25 @@
       руу буцаж ирэхийг хүлээ."</em>
     </p>
 
+    <figure id="fig-armed">
+      <div class="plate-hd">XAU · 15m — ARMED ZONE үүсэх мөч</div>
+      <div class="plate">
+        <svg data-chart="armed" role="img" aria-label="Үнэ PDL 4028.69-ийн доогуур сүүл гаргаж likvidnost цэвэрлээд буцаж, огцом дээшлэлтээр өмнөх оргилыг эвдэж MSS хийж, ард нь 4030.1-4034.2 зурвасын ARMED ZONE үлдээгээд одоо тэр зон руу буцаж байна"></svg>
+      </div>
+      <figcaption>
+        <b>1</b> Үнэ PDL-ийн доогуур сүүл гаргаад буцав (sweep · ягаан ✕).
+        <b>2</b> Огцом дээшлэлт өмнөх оргилыг <em>хаалтаараа</em> эвдэв (MSS).
+        <b>3</b> Тэр хөдөлгөөний үлдээсэн цоорхой = <b>ARMED ZONE</b> (улбар шар),
+        голоороо тасархай <b>CE 4032.15</b>. Одоо үнэ буцаж бууж байна —
+        захиалга CE дээр хүлээж байна. <b>Оролт энд БИШ, зон дээр.</b>
+      </figcaption>
+    </figure>
+
     <pre>
-                                              ┌─ ПАНЕЛЬ ────────────────┐
-   үнэ                                        │ SETUP  WAIT  BUY  FVG   │
-    │      MSS                                │ 14бар  DISC  CE 4032.15 │
-    │    ┌─────┐  ← sweep-ийн дараах          └─────────────────────────┘
-    │    │ MSS │    огцом дээшлэлт
-4040┤  ▂▃█████▃
-    │  █████    ▆▄
-    │ ██          ▃▂      үнэ буцаж
-4036┤ █             ▄▂     бууж байна ↘
-    │
-    │  ╔══════════════════════════════╗ ← 4034.2  УЛБАР ШАР хүрээ
-4032┤  ║ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─╫─────  ▲ FVG CE 4032.150  14бар
-    │  ╚══════════════════════════════╝ ← 4030.1
-4028┤ ─┄┄┄✕┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄  PDL 4028.690 ← sweep болсон цэг
+┌─ ПАНЕЛЬ ─────────────────────────────┐
+│ SETUP   WAIT   BUY   FVG             │   ← мөн ижил мэдээлэл, тоогоор
+│ 14бар   DISC   CE 4032.15   KZ LDN   │
+└──────────────────────────────────────┘
     </pre>
 
     <div class="tbl-scroll">
@@ -230,6 +235,26 @@ MT5 / брокер дээр:
       ARMED-ыг хүлээ.
     </p>
 
+    <figure class="duo" id="fig-paths">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">Зам А · ✅ ZONE TOUCHED</div>
+          <svg data-chart="pathTouched" role="img" aria-label="Үнэ ARMED ZONE-ы CE рүү буцаж хүрч, тавьсан Buy Limit биелээд дээшээ явж байна, стоп нь зоны доор ойрхон"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">Зам Б · ⌛ SETUP EXPIRED</div>
+          <svg data-chart="pathExpired" role="img" aria-label="Үнэ ARMED ZONE руу буцаж ирэлгүй дээгүүрээ хэлбэлзэж, зоны хүчинтэй бар дуусаж setup устав"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Яг ижил ARMED ZONE, хоёр өөр төгсгөл. <b>Зүүн:</b> үнэ CE-д хүрч
+        захиалга биеллээ — чи юу ч хийгээгүй, суусан. <b>Баруун:</b> үнэ буцаж
+        ирсэнгүй, хүчинтэй бар дуусаж зон <em>устав</em> — Buy Limit-ээ цуцлаад
+        дараагийнхыг хүлээнэ. <b>Хоёулаа зөв ажилласан хэрэг</b> — Зам Б бол
+        алдаа биш, харин хамгаалалт.
+      </figcaption>
+    </figure>
+
     <h3>Яагаад хүлээж орох нь хөөж орохоос дээр вэ</h3>
     <pre>
 хөөж орвол:    оролт 4036 · SL 4028 = 8 оноо эрсдэл · TP 4048 = 12 ашиг → 1.5R
@@ -240,6 +265,26 @@ MT5 / брокер дээр:
       ашиг <strong>хоёр дахин их</strong>. ARMED ZONE-ы ганц үүрэг нь тэр
       "хүлээх цэгийг" урьдчилж, тоогоор нь хэлж өгөх.
     </p>
+
+    <figure class="duo" id="fig-chase">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">A · Хөөж орлоо — 1.5R</div>
+          <svg data-chart="chase" role="img" aria-label="MSS-ийн дараа шууд зах зээлийн үнээр 4036 дээр орсон тохиолдол: стоп хүртэл 8 оноо эрсдэл, TP хүртэл 12 оноо ашиг"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">B · Хүлээж орлоо — 4R</div>
+          <svg data-chart="wait" role="img" aria-label="ARMED ZONE-ы CE 4032 дээр limit-ээр орсон тохиолдол: ижил стоп дээр 4 оноо эрсдэл, ижил TP хүртэл 16 оноо ашиг"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Ижил лаанууд, ижил SL, ижил TP — ялгаа нь <b>зөвхөн оролтын үнэ</b>.
+        <b>A</b> нь MSS хараад шууд 4036 дээр орсон: эрсдэл өргөн, ашиг богино.
+        <b>B</b> нь ARMED мессежийн CE 4032.15-ыг хуулж limit тавьсан: ижил
+        санаа, гэхдээ <b>хоёр дахин бага эрсдэлээр</b>. Тэр зөрүү нь чадвар биш —
+        <b>тэвчээр</b>.
+      </figcaption>
+    </figure>
   </section>
 
   <!-- =============================== 4 -->
@@ -314,6 +359,26 @@ MT5 / брокер дээр:
       </table>
     </div>
 
+    <figure class="duo" id="fig-setup-types">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">Эргэлт · CHoCH</div>
+          <svg data-chart="reversal" role="img" aria-label="Буурч байсан тренд доод likvidnostiig цэвэрлээд дээшээ огцом хөдөлж сүүлчийн доод оргилыг эвдэж CHoCH хийн ARMED ZONE үлдээв"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">Үргэлжлэл · BOS</div>
+          <svg data-chart="continuation" role="img" aria-label="Дээшилж байсан тренд дундаа татаж доод жижиг likvidnostiig цэвэрлээд дахин дээшээ огцом хөдөлж өмнөх оргилыг эвдэж BOS хийн ARMED ZONE үлдээв"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Хоёулаа <b>ижилхэн улбар шар хайрцаг</b>, ижил CE, ижил alert. Ялгаа нь
+        зөвхөн <em>өмнөх нь</em>: <b>зүүн</b> талд тренд эргэсэн (сүүлчийн доод
+        оргил эвдэрсэн → 🎯 MSS alert хамт ирнэ), <b>баруун</b> талд тренд
+        үргэлжилсэн (таталт дээрх sweep-ээс оргил эвдэрсэн → MSS-гүй, шууд ⏳
+        ARMED). Гүйцэтгэлийн дүрэм хоёуланд нь адилхан — <b>CE дээр limit</b>.
+      </figcaption>
+    </figure>
+
     <p>
       Зөвхөн зурагддаг, alert-гүй нөхцөлүүд ч бий — NWOG/NDOG CE тест, Breaker
       retest, OTE + FVG давхцал, PDH/PDL хүрэлт. Эдгээрийг нүдээрээ олно;
@@ -370,5 +435,151 @@ MT5 / брокер дээр:
   </div>
 
 </div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  /* Бүх зурган дээрх тоо нь хуудсан дээрх түүхтэй ижил:
+     PDL 4028.69 sweep → MSS → ARMED ZONE 4030.10–4034.20 → CE 4032.15 */
+  const SETUP = [
+    [4036.00, 4036.60, 4034.20, 4034.60],
+    [4034.60, 4035.00, 4031.40, 4031.80],
+    [4031.80, 4032.20, 4028.20, 4029.60],   /* 2: PDL-ийн доогуур sweep */
+    [4029.60, 4030.10, 4029.20, 4029.90],   /* 3: цоорхойн доод ирмэг 4030.10 */
+    [4029.90, 4038.40, 4029.80, 4038.00],   /* 4: displacement → MSS */
+    [4038.00, 4039.60, 4034.20, 4035.00],   /* 5: цоорхойн дээд ирмэг 4034.20 */
+    [4035.00, 4036.20, 4034.60, 4034.80],
+    [4034.80, 4035.00, 4034.30, 4034.40]    /* 7: зон руу буцаж байна, хүрээгүй */
+  ];
+  const TOUCH = [
+    [4034.40, 4034.60, 4031.60, 4032.30],   /* 8: CE 4032.15-д хүрэв */
+    [4032.30, 4035.60, 4032.20, 4035.20],
+    [4035.20, 4039.00, 4035.00, 4038.60],
+    [4038.60, 4042.20, 4038.40, 4041.80]
+  ];
+  const ZONE = { top: 4034.20, bot: 4030.10 };
+
+  const SPECS = {};
+
+  /* 1 — ARMED ZONE үүсэх мөч */
+  SPECS.armed = {
+    w: 760, h: 330, padR: 132,
+    candles: SETUP,
+    zones: [{ from: 3, to: 7, top: ZONE.top, bot: ZONE.bot, color: 'accent', ce: true, label: 'ARMED' }],
+    levels: [
+      { y: 4036.60, color: 'ink3', label: 'MSS 4036.60' },
+      { y: 4028.69, from: 0, to: 3, color: 'bear', dash: '3 3', label: 'PDL 4028.69' }
+    ],
+    marks: [
+      { i: 2, text: '1 sweep', pos: 'below', color: 'bear' },
+      { i: 4, text: '2 MSS', color: 'ink' },
+      { i: 7, text: '3 хүлээнэ', pos: 'below', color: 'accent' }
+    ]
+  };
+
+  /* 2 — Зам А: үнэ CE-д хүрэв */
+  SPECS.pathTouched = {
+    w: 470, h: 320, padR: 96,
+    candles: SETUP.concat(TOUCH),
+    zones: [{ from: 3, to: 11, top: ZONE.top, bot: ZONE.bot, color: 'accent', ce: true, label: 'ARMED' }],
+    levels: [{ y: 4028.20, color: 'bear', dash: '3 3', label: 'SL' }],
+    marks: [
+      { i: 4, text: 'MSS', color: 'ink' },
+      { i: 8, text: '✅ хүрэв', pos: 'below', color: 'bull' }
+    ]
+  };
+
+  /* 3 — Зам Б: үнэ буцаж ирсэнгүй, хугацаа дуусав */
+  SPECS.pathExpired = {
+    w: 470, h: 320, padR: 96,
+    candles: SETUP.concat([
+      [4034.40, 4035.80, 4034.30, 4035.40],
+      [4035.40, 4036.60, 4034.90, 4035.10],
+      [4035.10, 4035.60, 4034.50, 4034.90],
+      [4034.90, 4035.40, 4034.40, 4034.70]
+    ]),
+    zones: [{ from: 3, to: 11, top: ZONE.top, bot: ZONE.bot, color: 'ink3', fill: .07, dash: '4 3', ce: true, label: 'ДУУСАВ' }],
+    levels: [{ y: 4028.20, color: 'bear', dash: '3 3', label: 'SL' }],
+    marks: [
+      { i: 4, text: 'MSS', color: 'ink' },
+      { i: 10, text: '⌛ хүрсэнгүй', color: 'amber' }
+    ]
+  };
+
+  /* 4 — хөөж орох vs хүлээж орох (ижил лаа, өөр оролт) */
+  const RUN = SETUP.concat(TOUCH, [
+    [4041.80, 4045.40, 4041.40, 4045.00],
+    [4045.00, 4048.40, 4044.80, 4048.00]
+  ]);
+  const TARGETS = [
+    { y: 4048.00, color: 'bull', dash: '3 3', label: 'TP 4048' },
+    { y: 4028.20, color: 'bear', dash: '3 3', label: 'SL 4028' }
+  ];
+
+  SPECS.chase = {
+    w: 490, h: 350, padR: 96,
+    candles: RUN,
+    levels: TARGETS.concat([{ y: 4036.00, from: 5, to: 13, color: 'amber', dash: '2 3', label: 'оролт 4036' }]),
+    marks: [{ i: 5, text: 'хөөв', color: 'amber' }]
+  };
+
+  SPECS.wait = {
+    w: 490, h: 350, padR: 96,
+    candles: RUN,
+    zones: [{ from: 3, to: 13, top: ZONE.top, bot: ZONE.bot, color: 'accent', ce: true, label: 'ARMED' }],
+    levels: TARGETS,
+    marks: [{ i: 8, text: 'оролт', pos: 'below', color: 'bull' }]
+  };
+
+  /* 5 — эргэлт (CHoCH) vs үргэлжлэл (BOS) */
+  SPECS.reversal = {
+    w: 440, h: 300, padR: 104,
+    candles: [
+      [100.0, 100.4, 98.6, 98.8],
+      [98.8, 99.0, 97.0, 97.3],
+      [97.3, 97.6, 95.8, 96.0],
+      [96.0, 96.3, 94.2, 95.4],      /* 3: доод likvidnost sweep */
+      [95.4, 95.6, 94.9, 95.2],      /* 4: цоорхойн доод ирмэг */
+      [95.2, 99.4, 95.0, 99.2],      /* 5: displacement → CHoCH */
+      [99.2, 100.2, 97.2, 97.6],     /* 6: цоорхойн дээд ирмэг */
+      [97.6, 98.0, 97.0, 97.2]
+    ],
+    zones: [{ from: 4, to: 7, top: 97.2, bot: 95.6, color: 'accent', ce: true, label: 'ARMED' }],
+    levels: [
+      { y: 97.6, color: 'ink3', label: 'сүүлчийн LH' },
+      { y: 95.8, from: 0, to: 3, color: 'bear', dash: '3 3', label: 'liq' }
+    ],
+    marks: [
+      { i: 3, text: 'sweep', pos: 'below', color: 'bear' },
+      { i: 5, text: 'CHoCH', color: 'ink' }
+    ]
+  };
+
+  SPECS.continuation = {
+    w: 440, h: 300, padR: 104,
+    candles: [
+      [96.0, 97.6, 95.8, 97.4],
+      [97.4, 99.0, 97.2, 98.8],
+      [98.8, 99.0, 98.0, 98.3],
+      [98.3, 98.6, 97.0, 98.2],      /* 3: таталт дээрх эсрэг sweep */
+      [98.2, 98.6, 97.9, 98.1],      /* 4: цоорхойн доод ирмэг */
+      [98.1, 101.8, 98.0, 101.6],    /* 5: displacement → BOS */
+      [101.6, 102.4, 100.6, 101.0],  /* 6: цоорхойн дээд ирмэг */
+      [101.0, 101.2, 100.0, 100.3]
+    ],
+    zones: [{ from: 4, to: 7, top: 100.6, bot: 98.6, color: 'accent', ce: true, label: 'ARMED' }],
+    levels: [
+      { y: 99.0, color: 'ink3', label: 'оргил' },
+      { y: 98.0, from: 2, to: 4, color: 'bear', dash: '3 3', label: 'liq' }
+    ],
+    marks: [
+      { i: 3, text: 'sweep', pos: 'below', color: 'bear' },
+      { i: 5, text: 'BOS', color: 'ink' }
+    ]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
 </body>
 </html>
