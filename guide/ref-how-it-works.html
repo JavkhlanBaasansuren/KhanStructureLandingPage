@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="KHAN ICT VISUAL хэрхэн ажилладаг вэ — бүтэн тойм: панель (KZ/ribbon/SCORE/ARMED), 6 zone төрөл (FVG·OB·Breaker·RB·VI·кластер), BOS/CHoCH/MSS бүтэц, likvidnost зураглал, killzone/Silver Bullet цаг, SMT divergence, OTE/Premium-Discount, SCORE checklist, ARMED зоны A/B/C зэрэглэл." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social previews -->
+<meta property="og:title" content="KHAN ICT VISUAL хэрхэн ажилладаг вэ — бүтэн тойм" />
+<meta property="og:description" content="Панель, 6 zone төрөл, бүтэц, likvidnost, killzone, SMT, OTE, SCORE, ARMED зон — бүгд нэг хуудсанд, диаграмтай." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ref-how-it-works.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_ict_visual_cover.jpg" />
+<meta property="og:site_name" content="KHAN ICT VISUAL" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KHAN ICT VISUAL хэрхэн ажилладаг вэ — бүтэн тойм" />
+<meta name="twitter:description" content="Панель, 6 zone төрөл, бүтэц, likvidnost, killzone, SMT, OTE, SCORE, ARMED зон — бүгд нэг хуудсанд, диаграмтай." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_ict_visual_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ref-how-it-works.html" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>KHAN ICT VISUAL хэрхэн ажилладаг вэ — бүтэн тойм | KHAN ICT VISUAL</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "KHAN ICT VISUAL хэрхэн ажилладаг вэ — бүтэн тойм",
+  "description": "Панель, 6 zone төрөл, BOS/CHoCH/MSS бүтэц, likvidnost зураглал, killzone/Silver Bullet цаг, SMT divergence, OTE/Premium-Discount, SCORE checklist, ARMED зоны A/B/C зэрэглэл.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ref-how-it-works.html",
+  "image": "https://khanstructure.com/khan_ict_visual_cover.jpg",
+  "publisher": { "@type": "Organization", "name": "KHAN ICT VISUAL", "url": "https://khanstructure.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "Хэрхэн ажилладаг вэ", "item": "https://khanstructure.com/guide/ref-how-it-works.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT VISUAL · Гарын авлага</span>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker"><span>Индикатор ашиглах</span><span>Тойм</span><span>KHAN ICT VISUAL</span></div>
+    <h1>KHAN ICT VISUAL хэрхэн ажилладаг вэ — <em>бүтэн тойм</em></h1>
+    <p class="standfirst">
+      Энэ хуудас нь ICT-ийн онолыг ЗААХГҮЙ (тэр нь <a href="ict-00-index.html">ICT цуврал</a>-д бий) —
+      харин индикатор өөрөө <strong>юуг ЗУРДАГ, юуг ЗУРДАГГҮЙ</strong> гэдгийг нэг дороос харуулна.
+      Панелиас эхэлж, 6 zone төрөл, бүтэц, likvidnost, цаг, SMT, OTE, SCORE, ARMED зон хүртэл —
+      бүгдийг диаграмтай, товч.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#philosophy">Юу зурдаг, юу зурдаггүй</a></li>
+        <li><a href="#panel">Панель — 5 мөрийн тойм</a></li>
+        <li><a href="#zones">Zone Store — 6 төрөл</a></li>
+        <li><a href="#structure">Бүтэц: sweep → MSS → ARMED</a></li>
+        <li><a href="#liquidity">Likvidnost зураглал</a></li>
+        <li><a href="#time">Цаг: killzone · Silver Bullet · macro</a></li>
+        <li><a href="#smt">SMT Divergence</a></li>
+        <li><a href="#ote">OTE · Premium/Discount · Equilibrium</a></li>
+        <li><a href="#score">SCORE checklist (0–7)</a></li>
+        <li><a href="#armed">ARMED зон — A/B/C зэрэглэл</a></li>
+        <li><a href="#next">Дараа нь юу үзэх</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- =============================== 1 -->
+  <section id="philosophy">
+    <div class="eyebrow">Зарчим</div>
+    <h2>Юу зурдаг, юу зурдаггүй</h2>
+    <p>
+      KHAN ICT VISUAL нь <strong>цэвэр зураглалын</strong> индикатор. Entry, stop-loss,
+      take-profit, winrate — эдгээрийн <strong>НЭГ Ч байхгүй</strong>, зориудаар.
+    </p>
+    <ul class="check">
+      <li><strong>Байхгүй:</strong> автомат entry/SL/TP engine, нийтэлсэн winrate эсвэл backtest тоо.</li>
+      <li><strong>Байдаг:</strong> FVG/OB/Breaker zone, BOS/CHoCH/MSS бүтэц, likvidnost, killzone,
+        SMT, OTE/P-D, амьд SCORE (0–7) checklist, ARMED зоны A/B/C латч, 6 TradingView alert.</li>
+      <li><strong>Repaint:</strong> тэг. Бүх зурвас, тэмдэглэгээ, alert зөвхөн ХААГДСАН бар дээр,
+        <code>lookahead_off</code>-тойгоор тооцоологддог.</li>
+    </ul>
+    <div class="note">
+      <span class="tag">Яагаад ийм</span>
+      <p>
+        Механик entry-г хэмжсэн — 1m XAU дээр ердөө ~6,880 бар өгдөг, дээжийн хэмжээ
+        статистикийн хувьд найдваргүй. Тиймээс "автомат хожих систем" зарахын оронд
+        <strong>юу хаана байгааг зурж, одоогийн setup-ыг үнэлж</strong> өгдөг —
+        шийдвэрийг ЧИ гаргана.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 2 -->
+  <section id="panel">
+    <div class="eyebrow">Дэлгэц</div>
+    <h2>Панель — 5 мөрийн тойм</h2>
+    <p>
+      Баруун дээд буланд байрлах хүснэгт нь график дээрх бүх давхаргыг НЭГ дороос
+      уншдаг товчлол. Мөр бүр өөрийн асуултад хариулна:
+    </p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Мөр</th><th>Юу харуулдаг</th><th>Асуулт</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0 · KZ / Sp/ATR</strong></td><td>Одоогийн killzone, дараагийн event хүртэлх хугацаа, TDO bias, зардлын мэдрэмж</td><td>Одоо хаана байна?</td></tr>
+          <tr><td><strong>1–2 · Ribbon</strong></td><td>7 TF-ийн Supertrend (15m·1H·2H·4H·12H·1D·1W)</td><td>Тренд ямар байна?</td></tr>
+          <tr><td><strong>3 · SCORE</strong></td><td>0–7 checklist: HTF·P/D·ROOM·SWP·ADX·BAR</td><td>Setup хэр сайн бэ?</td></tr>
+          <tr><td><strong>4 · SETUP</strong></td><td>ARMED зоны төлөв, чиглэл, CE үнэ, A/B/C зэрэглэл</td><td>Юу хүлээж байна?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="tag">Панель зөвхөн ОДООГИЙН мөч</span>
+      <p>
+        Түүх биш — <code>barstate.islast</code> дотор амьдардаг тул зөвхөн хамгийн сүүлийн
+        баталгаажсан төлөвийг харуулна. Хуучин барыг эргэж харахад панель харагдахгүй,
+        харин график дээрх zone/тэмдэглэгээ (доор) бүгд түүхээрээ үлдэнэ.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 3 -->
+  <section id="zones">
+    <div class="eyebrow">Zone Store</div>
+    <h2>6 zone төрөл — FVG · OB · Breaker/IFVG · RB · VI · Кластер</h2>
+    <p>
+      Зурвас бүр <strong>хайрцаг + дунд цэгтэй CE (50%) шугам</strong> хэлбэртэй.
+      ХИЛ (дээд/доод зах) нь зөвхөн хязгаар — оролт, "энэ зурвас ажилласан уу" гэсэн
+      бүх шийдвэр яг ДУНД шугам дээр гардаг.
+    </p>
+
+    <figure class="duo" id="fig-fvg-ob">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">FVG — 3 барын тэнцвэргүй байдал</div>
+          <svg data-chart="fvgDemo" role="img" aria-label="Гурван барын дунд хурдан импульс өнгөрч, эхний ба гуравдугаар барын хооронд гэп үлдэнэ, үнэ буцаж ирж CE дээр аукцион хийнэ"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">OB → BREAKER — үүрэг сольсон түвшин</div>
+          <svg data-chart="obBreakerDemo" role="img" aria-label="Order Block үүсэж BOS батлагдсаны дараа, зурвас бүрэн эвдэрч эсрэг үүрэг авсан Breaker болно"></svg>
+        </div>
+      </div>
+      <figcaption>
+        <b>Зүүн:</b> дунд бар (impulse) хэт хурдан явсан тул 1-р ба 3-р барын хооронд аукцион
+        болоогүй зай үлдсэн — FVG. Үнэ буцаж CE дээр ирвэл тэр л оролт хайх ЯГ ТЭР үнэ.<br>
+        <b>Баруун:</b> OB (импульсийн өмнөх сүүлчийн эсрэг лаа) үүсээд BOS батлагдав. Хожим
+        үнэ буцаад OB-г БҮРЭН давж хаагдвал (мөнгөн лаа) зурвас "үхэхгүй" — <strong>BREAKER</strong>
+        болж эсрэг үүрэг авна. FVG дээр яг ижил механизм ажиллавал нэр нь <strong>IFVG</strong>
+        (эсвэл GAP дээр IGAP) болно.
+      </figcaption>
+    </figure>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Төрөл</th><th>Тодорхойлолт</th><th>Онцлог</th></tr></thead>
+        <tbody>
+          <tr><td><strong>RB</strong> (Rejection Block)</td><td>Likvidnost цохисон лааны сүүл</td><td>OB нь "энд ордер тавьсан", RB нь "энд татгалзсан". Цэгтэй хүрээ, ягаан ✕ sweep-тэй хамт гарна.</td></tr>
+          <tr><td><strong>VI</strong> (Volume Imbalance)</td><td>2 барын БИЕ хоорондын зай, сүүл давхцсан</td><td>FVG-ээс сул имбаланс — аукцион ХЭСЭГЧЛЭН болсон газар. OB/FVG-тэй давхцаж confluence үүсгэвэл л хүчтэй.</td></tr>
+          <tr><td><strong>Кластер</strong></td><td>Ойрхон/давхцсан зурвасуудыг НЭГ хайрцаг болгож нэгтгэнэ</td><td>Шошго: <code>OB+FVG ↓ ⬚3</code>. Virgin (шинэ) ба Flipped (Breaker/IFVG) хольцолдсон бол хүрээ нь <strong>зурлагатай + улбар шар</strong> болж тусад ялгарна.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">Бүх шошгын бүрэн жагсаалт</span>
+      <p>
+        Дээрх нь тойм — GAP, SUPPORT/RESIST, ×N/✓N тэмдэг, зурвас бүрийн ЯГ өнгө/хэлбэрийн
+        конвенц зэрэг дэлгэрэнгүйг <a href="ref-labels.html">Шошгын толь бичиг</a>-ээс үз.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 4 -->
+  <section id="structure">
+    <div class="eyebrow">Бүтэц</div>
+    <h2>Sweep → Displacement → MSS → ARMED зон</h2>
+    <p>
+      ICT 2022 model-ийн дараалал. Гурван нөхцөл ЗЭРЭГ таарсан үед л "ARMED" латч гарна —
+      дараа нь displacement-ийн үлдээсэн зурвас руу retrace хүлээнэ:
+    </p>
+
+    <figure id="fig-structure">
+      <div class="plate-hd">Bullish MSS → ARMED zone дараалал</div>
+      <div class="plate">
+        <svg data-chart="structureSeq" role="img" aria-label="Доод likvidnost sweep, дараа нь хүчтэй displacement swing high-г эвдэж MSS батлагдав, үнэ буцаж ARMED зоны CE рүү ирнэ"></svg>
+      </div>
+      <figcaption>
+        <b>① Sweep</b> — доод swing-ийг сүүлээр давж, дотор хаагдав (stop цуглуулав, ягаан ✕).
+        <b>② MSS</b> — CHoCH + хүчтэй displacement + саяхны sweep гурав зэрэг таарч, бүтэц
+        батлагдан эргэв (BOS бол трендийн ДАГУУ ижил гурвал). <b>③ ARMED touch</b> — үнэ
+        displacement-ийн үлдээсэн FVG/OB руу буцаж CE-д хүрнэ — энэ бол <strong>оролт БИШ,
+        оролт хайх ЗӨВШӨӨРӨЛ.</strong>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- =============================== 5 -->
+  <section id="liquidity">
+    <div class="eyebrow">Likvidnost</div>
+    <h2>Likvidnost зураглал — институцийн ажигладаг түвшин</h2>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Бүлэг</th><th>Түвшин</th><th>Утга</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pool</strong></td><td>EQH / EQL</td><td>2+ swing нэг түвшинд буусан — stop бөөгнөрсөн TP-ийн бай.</td></tr>
+          <tr><td><strong>Өмнөх туйл</strong></td><td>PDH/PDL · PWH/PWL · PMH/PML</td><td>Өдөр→7 хоног→сар дарааллаар зузаарна. TP тавих сайн, entry хайх муу газар.</td></tr>
+          <tr><td><strong>Нээлт</strong></td><td>TDO · NDOG · WO · NWOG · MO · NYO</td><td>Bias-ийн тэнхлэг. NWOG хамгийн хүчтэй ганц соронз (амралтын өдрийн цоорхой).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="tag">SCORE-ийн ROOM яг үүнийг ашигладаг</span>
+      <p>
+        Хамгийн ойрын ЭСРЭГ талын likvidnost хүртэл ≥2 ATR зай байгаа эсэхийг шалгана
+        (эрэмбэ: EQ pool → PDH/PDL → dealing range). Дэлгэрэнгүй утга бүрийг
+        <a href="ref-labels.html">Шошгын толь бичиг</a>-ээс үз.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 6 -->
+  <section id="time">
+    <div class="eyebrow">Цаг</div>
+    <h2>Killzone · Silver Bullet · Macro — Нью-Йоркийн цагаар</h2>
+    <p>Бүх цонх NY цагаар (DST зөв тооцоолсон). Хар/шар тэмдэглэгээ — доогуур:</p>
+
+    <div class="tl">
+      <div class="tl-scroll"><div class="tl-inner">
+        <div class="tl-axis">
+          <span>00</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+          <span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span>
+          <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+          <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+        </div>
+        <div class="tl-row">
+          <div class="tl-band tl-prep" style="grid-column:21/25">ASIA →</div>
+          <div class="tl-band tl-go" style="grid-column:3/6">LONDON</div>
+          <div class="tl-band tl-go" style="grid-column:8/11">NY AM</div>
+          <div class="tl-band tl-stop" style="grid-column:13/14">LUNCH</div>
+          <div class="tl-band tl-go" style="grid-column:14/17">NY PM</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-band tl-warn" style="grid-column:4/5">SB·LN</div>
+          <div class="tl-band tl-warn" style="grid-column:11/12">SB·AM</div>
+          <div class="tl-band tl-warn" style="grid-column:15/16">SB·PM</div>
+        </div>
+        <div class="tl-lbl">
+          <span class="tl-key"><i class="tl-go"></i> Killzone — sweep/setup хайх цонх</span>
+          <span class="tl-key"><i class="tl-stop"></i> Lunch — чиглэлгүй, ихэвчлэн алгас</span>
+          <span class="tl-key"><i class="tl-prep"></i> Asia — хуримтлал (20:00–00:00)</span>
+          <span class="tl-key"><i class="tl-warn"></i> Silver Bullet — өдрийн 24 цагаас ердөө 3</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="note">
+      <span class="tag">ICT Macro — 20–30 минутын богино цонх (15m ба доош TF)</span>
+      <p>
+        02:33–03:00 · 04:03–04:30 · 08:50–09:10 · 09:50–10:10 · 10:50–11:10 · 11:50–12:10 ·
+        13:10–13:40 · 15:15–15:45 — graph дээр цэнхэр • тэмдэгтэй. Дохио биш, "яг одоо
+        savлагаа хүлээгдэж байна" гэсэн ICT-ийн ажиглалт.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 7 -->
+  <section id="smt">
+    <div class="eyebrow">Хамтрагч</div>
+    <h2>SMT Divergence — бие даасан хоёр дахь баталгаа</h2>
+    <p>
+      Хоёр хамааралтай хэрэглүүр НЭГ зэрэг likvidnost цохих ЁСТОЙ. Нэг нь шинэ туйл
+      тавиад нөгөө нь тавиагүй бол тэр хөдөлгөөн жинхэнэ БИШ:
+    </p>
+
+    <figure class="duo" id="fig-smt">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">XAU — шинэ ОРГИЛ тавив</div>
+          <svg data-chart="smtA" role="img" aria-label="XAU өмнөх оргилыг цоолж шинэ дээд түвшин тогтоов"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">XAG — ДАГААГҮЙ</div>
+          <svg data-chart="smtB" role="img" aria-label="Хамтрагч XAG адил оргилыг цоолж чадаагүй — SMT divergence"></svg>
+        </div>
+      </div>
+      <figcaption>
+        XAU шинэ оргил тавьсан атлаа хамаарал бүхий XAG (эсвэл DXY урвуугаар) түүнийг
+        ДАГААГҮЙ — өөрөөр хэлбэл өсөлт нь жинхэнэ эрэлт БИШ, зөвхөн likvidnost цуглуулалт.
+        <strong>BEARISH SMT.</strong> Энэ нь ОРОЛТ биш — дараа нь MSS/BOS ба FVG/OB
+        retrace-ыг ердийнхөөрөө хүлээх ёстой.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- =============================== 8 -->
+  <section id="ote">
+    <div class="eyebrow">Байршил</div>
+    <h2>OTE · Premium/Discount · Equilibrium</h2>
+    <p>
+      Гурвуулаа <strong>НЭГ dealing range</strong>-ээс (сүүлийн батлагдсан major swing хос)
+      гардаг тул хэзээ ч зөрчилдөхгүй:
+    </p>
+
+    <figure id="fig-ote">
+      <div class="plate-hd">Dealing range → EQ → OTE (62–79%)</div>
+      <div class="plate">
+        <svg data-chart="oteDemo" role="img" aria-label="Swing high-swing low хоёрын хоорондох ажлын хүрээ, түүний дунд EQ шугам, дээд 62-79 хувь дэх OTE бүс, үнэ тэр бүс рүү буцаж ирнэ"></svg>
+      </div>
+      <figcaption>
+        <b>EQ (50%)</b> — Premium (дээр)/Discount (доор)-ийн хил: ICT дүрэм — discount дээр
+        BUY, premium дээр SELL хай. <b>OTE (62–79%)</b> — хамгийн сайн buцалтын цонх:
+        &lt;50% оргилын дэргэд, &gt;79% хөдөлгөөн бүтэлгүйтэж байна. Хайрцаг өөрөө
+        <strong>дохио БИШ</strong> — байршлын шүүлтүүр, дотор нь FVG/OB давхцаж sweep+MSS
+        гарсан үед л setup болно.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- =============================== 9 -->
+  <section id="score">
+    <div class="eyebrow">Үнэлгээ</div>
+    <h2>SCORE checklist (0–7) — одоогийн setup хэр сайн бэ</h2>
+    <ul class="check">
+      <li><strong>HTF +1</strong> — график TF-ээс дээшх ribbon баганын ≥60% нь тал зөв.</li>
+      <li><strong>P/D +1</strong> — BUY бол discount, SELL бол premium талд байна.</li>
+      <li><strong>ROOM +1</strong> — хамгийн ойрын эсрэг likvidnost хүртэл ≥2 ATR зай.</li>
+      <li><strong>SWP +2</strong> (хамгийн хүнд жин) — сүүлийн N барын дотор эсрэг талын sweep болсон.</li>
+      <li><strong>ADX +1</strong> — тренд хүчээ авч байна (ADX өсч байна).</li>
+      <li><strong>BAR +1</strong> — одоогийн лаа тал зүгт хүчтэй (бие/range ≥50%).</li>
+    </ul>
+    <div class="note">
+      <span class="tag">Checklist, шүүлтүүр биш</span>
+      <p>
+        SCORE өндөр байх нь "ашиг батлагдсан" гэсэн үг БИШ — хэдэн нөхцөл зэрэг нийцэж
+        байгааг тоолсон л зураг. 5+ ногоон, 3–4 teal/улбар шар, ≤2 улаан гэж
+        панелийн дэвсгэр өнгөөр шууд харагдана.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 10 -->
+  <section id="armed">
+    <div class="eyebrow">Латч</div>
+    <h2>ARMED зон — A/B/C зэрэглэл</h2>
+    <p>Setup ҮҮССЭН барын нөхцөлөөс НЭГ УДАА тооцогдож, хөдөлдөггүй:</p>
+
+    <div class="tier">
+      <div class="t-a"><div class="lab">A</div><div>
+        <h3>Killzone дотор + P/D зөв тал + SCORE ≥5</h3>
+        <p><strong>Бүтэн хэмжээ.</strong> Бүх гол нөхцөл зэрэг тохирсон.</p>
+      </div></div>
+      <div class="t-b"><div class="lab">B</div><div>
+        <h3>Killzone дотор + SCORE ≥3</h3>
+        <p><strong>Хагас хэмжээ.</strong> Цаг зөв ч бусад нөхцөл дунджаас доогуур.</p>
+      </div></div>
+      <div class="t-c"><div class="lab">C</div><div>
+        <h3>Killzone гадна, эсвэл P/D буруу тал, эсвэл SCORE сул</h3>
+        <p><strong>Алгас.</strong> Setup хэдий ARMED болсон ч нөхцөл хангалтгүй.</p>
+      </div></div>
+    </div>
+
+    <div class="note">
+      <span class="tag">6 alert + limit захиалгын дүрэм</span>
+      <p>
+        MSS → SETUP ARMED → ZONE TOUCHED → EXPIRED дараалал, TradingView дээр alert
+        хэрхэн асаах, хэзээ орохгүй байх зэрэг дэлгэрэнгүйг
+        <a href="ref-armed-zone.html">ARMED ZONE гарын авлага</a>-аас бүрэн үз.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 11 -->
+  <section id="next">
+    <div class="eyebrow">Дараа нь</div>
+    <h2>Дараа нь юу үзэх</h2>
+    <p>
+      Энэ хуудас бол ТОЙМ — гүнзгий зохицуулга бүрд өөрийн тусдаа хуудас бий:
+    </p>
+    <div class="lib-grid" style="margin:14px 0">
+      <a class="lib-card" href="ref-armed-zone.html">
+        <div class="icon">🎯</div>
+        <div class="h">ARMED ZONE ба 6 alert</div>
+        <p class="p">Limit захиалгын дүрэм, alert тохируулга, бодит жишээ.</p>
+      </a>
+      <a class="lib-card" href="ref-labels.html">
+        <div class="icon">🏷️</div>
+        <div class="h">Шошгын толь бичиг</div>
+        <p class="p">График дээрх бүх тэмдэглэгээ, нэг нэгээр нь.</p>
+      </a>
+      <a class="lib-card" href="ict-00-index.html">
+        <div class="icon">🗂️</div>
+        <div class="h">ICT цуврал (онол)</div>
+        <p class="p">Order Block, цаг, Draw on Liquidity — ICT-ийн үндэс.</p>
+      </a>
+    </div>
+    <p>
+      Гол зарчим өөрчлөгдөхгүй: <strong>индикатор шийдвэр гаргадаггүй.</strong> Бүх зурвас,
+      тэмдэглэгээ, checklist нь чиний өөрийн шийдвэрт хэрэгтэй мэдээллийг бэлэн болгож
+      өгдөг — шийдвэр чинийх.
+    </p>
+  </section>
+
+  <nav class="series">
+    <a href="index.html">← Номын сан</a>
+    <span class="cur">Хэрхэн ажилладаг вэ</span>
+    <a href="ref-armed-zone.html">ARMED ZONE →</a>
+  </nav>
+
+  <footer>
+    <span>KHAN ICT VISUAL · Гарын авлага</span>
+    <span>Хэрхэн ажилладаг вэ — бүтэн тойм</span>
+  </footer>
+
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  const SPECS = {};
+
+  /* FVG — 3-bar imbalance, price returns to tag the CE */
+  SPECS.fvgDemo = {
+    w: 380, h: 300, padR: 70,
+    candles: [
+      [99.6, 100.6, 99.2, 100.0],
+      [100.0, 104.4, 99.8, 104.0],
+      [104.0, 104.6, 103.6, 104.2],
+      [104.2, 104.4, 101.2, 101.6],
+      [101.6, 105.0, 101.4, 104.8]
+    ],
+    zones: [{ from: 0, to: 4, top: 103.6, bot: 100.6, color: 'blue', ce: true, label: 'FVG' }],
+    marks: [
+      { i: 1, text: 'impulse', color: 'ink3' },
+      { i: 3, text: 'CE tag', pos: 'below', color: 'blue' }
+    ]
+  };
+
+  /* OB forms, BOS confirms, later price closes fully through → breaker flip */
+  SPECS.obBreakerDemo = {
+    w: 380, h: 300, padR: 70,
+    candles: [
+      [100, 101.4, 98.8, 99.4],
+      [99.4, 100.2, 96.9, 97.4],
+      [97.4, 98.1, 95.2, 95.8],
+      [95.8, 100.4, 95.6, 100.0],
+      [100.0, 103.6, 99.7, 103.2],
+      [103.2, 104.0, 100.4, 101.0],
+      [101.0, 101.4, 94.0, 94.4]
+    ],
+    zones: [{ from: 2, to: 6, top: 98.1, bot: 95.2, color: 'blue', ce: true, label: 'OB → BREAKER' }],
+    marks: [
+      { i: 2, text: 'OB', pos: 'below', color: 'blue' },
+      { i: 3, text: 'BOS', color: 'ink' },
+      { i: 6, text: 'flip', pos: 'below', color: 'bear' }
+    ]
+  };
+
+  /* sweep -> displacement/MSS -> retrace into ARMED zone */
+  SPECS.structureSeq = {
+    w: 740, h: 340,
+    candles: [
+      [100, 100.8, 99.0, 99.3], [99.3, 99.8, 97.6, 97.9],
+      [97.9, 98.3, 95.4, 96.6],
+      [96.6, 97.0, 96.0, 96.2],
+      [96.2, 101.4, 96.0, 101.0],
+      [101.0, 102.2, 100.6, 101.8],
+      [101.8, 102.0, 98.4, 98.8],
+      [98.8, 99.2, 96.8, 97.1],
+      [97.1, 99.6, 97.0, 99.4],
+      [99.4, 102.4, 99.2, 102.0]
+    ],
+    zones: [{ from: 3, to: 9, top: 97.0, bot: 96.0, color: 'blue', ce: true, label: 'ARMED zone' }],
+    levels: [
+      { y: 100.8, color: 'ink3', label: 'prior high' },
+      { y: 95.9, from: 0, to: 2, color: 'bear', dash: '3 3', label: 'liquidity' }
+    ],
+    marks: [
+      { i: 2, text: '① sweep', pos: 'below', color: 'bear' },
+      { i: 4, text: '② MSS', color: 'ink' },
+      { i: 7, text: '③ ARMED touch', pos: 'below', color: 'blue' }
+    ]
+  };
+
+  /* SMT: XAU sweeps a new high... */
+  SPECS.smtA = {
+    w: 340, h: 260, padR: 50,
+    candles: [
+      [100, 100.6, 99.4, 100.2], [100.2, 101.4, 99.8, 101.0],
+      [101.0, 101.2, 99.6, 99.9], [99.9, 102.6, 99.7, 102.3]
+    ],
+    levels: [{ y: 101.4, color: 'ink3', label: 'prior high' }],
+    marks: [{ i: 3, text: 'NEW HIGH', color: 'bull' }]
+  };
+
+  /* ...correlated symbol fails to confirm -> bearish SMT */
+  SPECS.smtB = {
+    w: 340, h: 260, padR: 50,
+    candles: [
+      [50, 50.3, 49.7, 50.1], [50.1, 50.7, 49.9, 50.5],
+      [50.5, 50.6, 49.8, 49.95], [49.95, 50.55, 49.7, 50.2]
+    ],
+    levels: [{ y: 50.7, color: 'ink3', label: 'prior high' }],
+    marks: [{ i: 3, text: 'NO NEW HIGH', color: 'bear' }]
+  };
+
+  /* dealing range -> EQ -> OTE 62-79% */
+  SPECS.oteDemo = {
+    w: 700, h: 320, padR: 110,
+    candles: [
+      [104, 104.4, 103.0, 103.4], [103.4, 103.6, 100.6, 100.9],
+      [100.9, 101.2, 97.0, 97.4], [97.4, 97.8, 96.0, 96.3],
+      [96.3, 98.0, 96.1, 97.8], [97.8, 99.6, 97.6, 99.4],
+      [99.4, 101.6, 99.2, 101.3], [101.3, 101.9, 100.8, 101.0]
+    ],
+    zones: [{ from: 0, to: 7, top: 102.636, bot: 101.208, color: 'amber', label: 'OTE 62-79%' }],
+    levels: [
+      { y: 104.4, color: 'ink3', label: 'swing high' },
+      { y: 96.0, color: 'ink3', label: 'swing low' },
+      { y: 100.2, color: 'blue', dash: '2 3', label: 'EQ (50%)' }
+    ],
+    marks: [
+      { i: 3, text: 'swing low', pos: 'below', color: 'ink3' },
+      { i: 6, text: 'OTE tag', color: 'amber' }
+    ]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>
