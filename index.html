@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="KHAN ICT VISUAL — pure ICT structure &amp; liquidity mapping indicator for XAU, FX, and Crypto. FVG/OB/Breaker zones, BOS/CHoCH/MSS, liquidity pools, killzones, SMT — no fake entry signals, no repaint." />
 <meta property="og:title" content="KHAN ICT VISUAL — See Every ICT Level on One Chart" />
-<meta property="og:image" content="https://khanstructure.com/khan_ict_visual_cover.jpg" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
 <meta property="og:description" content="FVG, Order Blocks, structure shifts, liquidity, killzones, and a live SCORE checklist — mapped, not signaled. You read the chart, you make the call." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://khanstructure.com" />
@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="KHAN ICT VISUAL — See Every ICT Level on One Chart" />
 <meta name="twitter:description" content="FVG, Order Blocks, structure shifts, liquidity, killzones, and a live SCORE checklist — mapped, not signaled. You read the chart, you make the call." />
-<meta name="twitter:image" content="https://khanstructure.com/khan_ict_visual_cover.jpg" />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
 <meta name="theme-color" content="#0a0e14" />
 <link rel="canonical" href="https://khanstructure.com/" />
 <link rel="alternate" hreflang="en" href="https://khanstructure.com/?lang=en" />
@@ -26,22 +26,22 @@
 <link rel="apple-touch-icon" href="khan_logo_transparent.png" />
 <link rel="mask-icon" href="khan_logo_transparent.png" color="#ff9c1a" />
 <link rel="preload" as="image" href="khan_logo_transparent.png" />
-<link rel="preload" as="image" href="khan_ict_visual_cover.jpg" />
+<link rel="preload" as="image" href="khan_sniper_cover.jpg" />
 <title>KHAN ICT VISUAL — ICT Structure &amp; Liquidity Map</title>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "KHAN ICT VISUAL - ICT Structure & Liquidity Mapping Indicator",
-  "description": "A pure ICT structure & liquidity map for XAU, FX, and Crypto. FVG/GAP/Order Block/Breaker zones, BOS/CHoCH/MSS structure, liquidity pools, killzones, SMT divergence, and a live SCORE checklist — no automated entries, no repaint.",
+  "name": "KHAN ICT VISUAL + KHAN SNIPER PRO - TradingView Indicator Bundle",
+  "description": "Two TradingView indicators in one subscription. KHAN ICT VISUAL maps ICT structure & liquidity for XAU, FX, and Crypto — FVG/GAP/Order Block/Breaker zones, BOS/CHoCH/MSS structure, liquidity pools, killzones, SMT divergence, and a live SCORE checklist, no repaint. KHAN SNIPER PRO executes — confluence-scored entries (0-7), a TP1-TP4 ladder with milestone tracking, and breakeven/TP1-lock stop protection.",
   "brand": { "@type": "Brand", "name": "KHAN ICT VISUAL" },
   "url": "https://khanstructure.com",
-  "image": "https://khanstructure.com/khan_ict_visual_cover.jpg",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
   "offers": [
     {
       "@type": "Offer",
-      "name": "KHAN ICT VISUAL - TradingView Full Access",
+      "name": "KHAN ICT VISUAL + KHAN SNIPER PRO - TradingView Full Access",
       "price": "10.00",
       "priceCurrency": "USD",
       "priceSpecification": {
@@ -102,7 +102,7 @@
     {
       "@type": "Question",
       "name": "How much does it cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "One plan: KHAN ICT VISUAL (TradingView) is $10/month with all features unlocked. Pay with USDT on BEP20." }
+      "acceptedAnswer": { "@type": "Answer", "text": "One plan: $10/month includes BOTH TradingView indicators - KHAN ICT VISUAL and KHAN SNIPER PRO - with all features unlocked. Pay with USDT on BEP20." }
     },
     {
       "@type": "Question",
@@ -132,63 +132,67 @@
 /* ━━━━━━━━━━━━━━━ RESET ━━━━━━━━━━━━━━━ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
-  height: 100%; overflow: hidden;
-  background: var(--bg); color: var(--text);
+  color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color-scheme: dark;
 }
+/* ONE ambient backdrop for the whole page, pinned to the viewport
+   (background-attachment:fixed) instead of painted per-section. Individual
+   .sN backgrounds used to each restart their own glow at their own top edge —
+   even with matching tail colors and no clipping, that restart itself reads
+   as a seam at every section boundary. A single fixed backdrop has no
+   boundary to restart at, so scrolling through it is seamless by
+   construction. Section elements themselves are transparent (see SLIDE
+   BACKGROUNDS below) so this shows through everywhere. */
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60vw 60vh at 8% 6%,  rgba(255,156,26,.14), transparent 60%),
+    radial-gradient(50vw 55vh at 95% 92%, rgba(255,156,26,.10), transparent 60%);
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+}
+/* Horizontal safety net for the bleeding ambient blobs — lives on `html`
+   ONLY, never on both html AND body. Setting the same overflow value on both
+   at once defeats the browser's "body scroll propagates to the viewport"
+   rule, so body/html each end up as their own independent scroll box —
+   exactly the double-scrollbar bug this single-element version avoids. */
+html { overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 a:focus-visible, button:focus-visible {
   outline: 2px solid rgba(255,156,26,.9); outline-offset: 3px; border-radius: 6px;
 }
 
-/* ━━━━━━━━━━━━━━━ SCROLL WRAP ━━━━━━━━━━━━━━━ */
-#wrap {
-  height: 100dvh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-#wrap::-webkit-scrollbar { display: none; }
+/* ━━━━━━━━━━━━━━━ PAGE WRAP ━━━━━━━━━━━━━━━ */
+/* #wrap is a plain block container — the page scrolls normally on the window. */
 
-/* ━━━━━━━━━━━━━━━ SLIDE BASE ━━━━━━━━━━━━━━━ */
+/* ━━━━━━━━━━━━━━━ SECTION BASE ━━━━━━━━━━━━━━━ */
 .slide {
-  height: 100dvh;
-  scroll-snap-align: start;
   display: flex;
-  /* NOT align-items:center — see the margin-block rule below */
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
-  /* top padding clears fixed nav */
-  padding: calc(var(--nav-h) + clamp(16px,3vw,32px)) clamp(18px,5vw,64px) clamp(20px,3vw,36px);
+  /* NOT overflow:hidden — a hard per-section clip guillotines the soft ambient
+     blobs mid-blur right at the section boundary (visible seam once sections
+     scroll continuously instead of snapping). Bleed is now allowed to fade
+     naturally into the next/prev section; html's overflow-x:hidden above
+     is the only clip that still matters (keeps bleed from widening the page). */
+  padding-inline: clamp(18px,5vw,64px);
+  padding-block: clamp(72px, 12vh, 140px);
+  /* anchor jumps land below the fixed nav */
+  scroll-margin-top: calc(var(--nav-h) + 12px);
 }
-
-/* Centre the content when it fits, let it start at the top when it doesn't.
-   With align-items:center a flex item taller than the slide has its overflow
-   split above and below — and the part above the start edge is unreachable by
-   scrolling, so on short phones (iPhone X ≈ 635px of usable height) the
-   headings were simply cut off with no way to see them. Auto block margins
-   centre exactly like align-items:center while there is free space, then
-   collapse to 0 once the content overflows, which keeps the top reachable.
-   .scroll-cue is position:absolute so this does not affect it. */
-.slide > *:not(.deco) { margin-block: auto; }
+/* first section additionally clears the fixed nav */
+.slide:first-child { padding-top: calc(var(--nav-h) + clamp(40px, 8vh, 96px)); }
 
 /* ━━━━━━━━━━━━━━━ AMBIENT BLOBS ━━━━━━━━━━━━━━━ */
-/* Decoration layer. The blobs bleed past the slide edge on purpose, and
-   blobFloat scales them further out — but an absolutely positioned descendant
-   still counts toward its scroll container's scrollable area. On the slides
-   that opt into overflow-y:auto (.s6 .s7 .s12 .s14) that bleed showed up as a
-   scrollbar with nothing to scroll to: measured content overflow on every
-   slide is 0px, while the blob alone added 34–177px, growing with viewport
-   height (it is a percentage offset). Clipping the blobs in their own layer
-   keeps the look identical and leaves slide scroll height driven by content. */
+/* Decoration layer. The blobs bleed past the section edge ON PURPOSE — no
+   overflow:hidden here either (see .slide above); the bleed is what makes
+   the ambient glow read as continuous across section boundaries instead of
+   being sliced flat at each edge. */
 .deco {
   position: absolute; inset: 0;
-  overflow: hidden; pointer-events: none;
+  pointer-events: none;
 }
 .blob {
   position: absolute; border-radius: 50%;
@@ -682,14 +686,6 @@ a:focus-visible, button:focus-visible {
 
 /* ━━━━━━━━━━━━━━━ FAQ ━━━━━━━━━━━━━━━ */
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 820px; text-align: left; }
-.faq-grid {
-  /* Shares the slide with the folded-in integrity block, so the scroll
-     window is shorter than when FAQ owned the whole viewport. */
-  max-height: min(44vh, 420px);
-  overflow: auto;
-  padding-right: 4px;
-  scrollbar-width: thin;
-}
 /* Integrity block, folded into the FAQ slide */
 .faq-int { width: 100%; max-width: 820px; }
 .int-tag {
@@ -703,21 +699,23 @@ a:focus-visible, button:focus-visible {
 .faq-int .int-box p { font-size: 12.5px; line-height: 1.55; }
 .faq-item {
   border: 1px solid var(--line); border-radius: 14px;
-  background: rgba(255,255,255,.04); padding: 13px 15px;
+  background: rgba(255,255,255,.04); padding: 4px 15px;
   transition: border-color .2s, background .2s;
 }
 .faq-item[open] { border-color: rgba(255,156,26,.3); background: rgba(255,156,26,.05); }
 .faq-item summary {
   cursor: pointer; font-weight: 780; font-size: 14px; line-height: 1.45;
-  list-style: none; display: flex; justify-content: space-between; gap: 10px;
+  list-style: none; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding-block: 12px; /* only <summary> itself is the click target — ~44px tall */
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after { content: '+'; color: var(--gold); font-weight: 900; flex-shrink: 0; }
 .faq-item[open] summary::after { content: '−'; }
-.faq-item p { margin-top: 9px; font-size: 13px; color: var(--muted); line-height: 1.62; }
+.faq-item p { margin-top: 9px; padding-bottom: 9px; font-size: 13px; color: var(--muted); line-height: 1.62; }
 
 /* ━━━━━━━━━━━━━━━ GUIDES ━━━━━━━━━━━━━━━ */
-.guides-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; width: 100%; max-width: 860px; }
+/* four single-guide cards → 2×2, with the course library spanning below */
+.guides-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; width: 100%; max-width: 860px; }
 .guide-card {
   padding: 22px 18px; border-radius: var(--r);
   border: 1px solid var(--line); background: rgba(255,255,255,.04);
@@ -748,23 +746,14 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ━━━━━━━━━━━━━━━ SLIDE BACKGROUNDS ━━━━━━━━━━━━━━━ */
-.s1 { background: radial-gradient(ellipse 780px 580px at 12% 58%, rgba(255,156,26,.18) 0%, var(--bg) 62%); }
-.s2 { background: radial-gradient(ellipse 880px 480px at 88% 28%, rgba(255,156,26,.14) 0%, #060a12 68%); }
-.s3 { background: radial-gradient(ellipse 680px 560px at 50% 82%, rgba(31,41,55,.48) 0%, #080b14 68%); }
-.s4 { background: radial-gradient(ellipse 780px 480px at 22% 18%, rgba(255,156,26,.10) 0%, #0a0e16 68%); }
-.s5 { background: radial-gradient(ellipse 680px 480px at 78% 68%, rgba(255,156,26,.09) 0%, #060910 68%); }
-.s6 { background: radial-gradient(ellipse 780px 580px at 50% 32%, rgba(255,156,26,.22) 0%, #07080e 62%); }
-.s7 { background: radial-gradient(ellipse 680px 480px at 38% 62%, rgba(31,41,55,.42) 0%, #070a12 68%); }
-.s8  { background: radial-gradient(ellipse 760px 520px at 50% 22%, rgba(255,156,26,.12) 0%, #060910 66%); }
-/* .s9 (examples) merged into .s8, .s11 (integrity) merged into .s12 */
-.s10 { background: radial-gradient(ellipse 700px 520px at 20% 30%, rgba(0,209,143,.07) 0%, #070a12 68%); }
-.s12 { background: radial-gradient(ellipse 760px 540px at 30% 70%, rgba(31,41,55,.42) 0%, #080b13 68%); }
-.s13 { background: radial-gradient(ellipse 780px 520px at 60% 28%, rgba(255,156,26,.13) 0%, #0a0e16 66%); }
-.s14 { background: radial-gradient(ellipse 820px 560px at 50% 40%, rgba(255,156,26,.18) 0%, #070a12 66%); }
-/* Every .slide now carries overflow-y:auto (see the .slide rule), so the old
-   per-slide list is redundant. Safe only because .deco keeps the decorative
-   blobs out of the scrollable area — otherwise this would put a scrollbar on
-   every slide at every window size. */
+/* Section-ууд зориудаар TRANSPARENT — дэвсгэр одоо `body`-д ГАНЦХАН,
+   fixed-attachment-тайгаар зурагдана (дээш RESET хэсгийг үз). Өмнө нь
+   section тус бүр өөрийн `background` (X% Y% анкер + tail өнгө) авдаг байсан
+   бол, тэр tail өнгийг бүгдийг ижилхэн болгож, blob clip-ийг арилгасан ч,
+   section бүр ӪӪРИЙН glow-оо ШИНЭЭР ЭХЛҮҮЛДЭГ асаа хэвээр — яг тэр "шинээр
+   эхлэх" мөч нь хил бүр дээр "зураас" мэт мэдрэгддэг байв (blob-ын clip биш,
+   gradient-ийн ЭХЛЭЛ). Ганц fixed дэвсгэрт ямар ч хил байхгүй тул энэ бүрмөсөн
+   арилна. */
 
 /* COOKIE CONSENT */
 .cookie-banner {
@@ -854,7 +843,8 @@ a:focus-visible, button:focus-visible {
 .lang-btn {
   background: none; border: 1px solid var(--line); border-radius: 9px;
   color: var(--muted); font-size: 12px; font-weight: 900;
-  padding: 5px 10px; cursor: pointer; letter-spacing: .04em;
+  padding: 5px 10px; min-height: 38px; display: inline-flex; align-items: center;
+  cursor: pointer; letter-spacing: .04em;
   transition: color .14s, background .14s, border-color .14s;
 }
 .lang-btn:hover { color: var(--text); background: rgba(255,255,255,.06); }
@@ -863,7 +853,7 @@ a:focus-visible, button:focus-visible {
 }
 .burger-btn {
   display: none; background: none; border: 1px solid var(--line);
-  border-radius: 10px; color: var(--text); width: 36px; height: 36px;
+  border-radius: 10px; color: var(--text); width: 44px; height: 44px;
   place-items: center; cursor: pointer; font-size: 16px;
 }
 
@@ -890,67 +880,22 @@ a:focus-visible, button:focus-visible {
 .drawer-head img { height: 26px; }
 .drawer-close {
   background: none; border: 1px solid var(--line); border-radius: 10px;
-  color: var(--text); width: 34px; height: 34px;
+  color: var(--text); width: 44px; height: 44px;
   display: grid; place-items: center; cursor: pointer; font-size: 16px;
 }
 .drawer-lang { display: flex; gap: 8px; }
-.drawer-lang .lang-btn { flex: 1; justify-content: center; text-align: center; }
+.drawer-lang .lang-btn { flex: 1; justify-content: center; text-align: center; min-height: 44px; }
 .drawer-nav {
   display: flex; flex-direction: column; gap: 4px;
   border: 1px solid var(--line); border-radius: var(--r);
   padding: 8px; background: rgba(255,255,255,.03);
 }
 .drawer-nav .nav-btn {
-  width: 100%; text-align: left; padding: 10px 12px;
+  width: 100%; text-align: left; padding: 12px; min-height: 44px;
   border-radius: 10px; font-size: 14px;
-}
-/* The drawer mirrors the grouped top nav but keeps every slide reachable:
-   the group head is the jump target, sub-items address the slides inside it. */
-.drawer-group { display: flex; flex-direction: column; gap: 2px; }
-.drawer-group + .drawer-group { margin-top: 4px; }
-.drawer-nav .nav-sub {
-  padding: 7px 12px 7px 24px; font-size: 12.5px;
-  color: var(--muted2); position: relative;
-}
-.drawer-nav .nav-sub::before {
-  content: ''; position: absolute; left: 13px; top: 50%;
-  width: 4px; height: 4px; border-radius: 50%;
-  background: currentColor; opacity: .55; transform: translateY(-50%);
 }
 .drawer-cta { display: flex; flex-direction: column; gap: 8px; }
 .drawer-foot { margin-top: auto; font-size: 11px; color: var(--muted2); line-height: 1.5; }
-
-/* ━━━━━━━━━━━━━━━ NAV DOTS ━━━━━━━━━━━━━━━ */
-#dots {
-  position: fixed; right: 14px; top: 50%;
-  transform: translateY(-50%);
-  display: flex; flex-direction: column; gap: 12px; z-index: 120;
-}
-.dot {
-  position: relative; width: 8px; height: 8px;
-  border-radius: 50%; padding: 0; border: none; cursor: pointer;
-  background: rgba(255,255,255,.2);
-  transition: background .22s, transform .22s;
-}
-.dot::after {
-  content: attr(aria-label);
-  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-  background: rgba(7,10,18,.9); color: rgba(255,255,255,.82);
-  font-size: 11px; font-weight: 700; letter-spacing: .04em;
-  padding: 4px 8px; border-radius: 8px; border: 1px solid var(--line);
-  white-space: nowrap; pointer-events: none;
-  opacity: 0; transition: opacity .18s;
-}
-.dot:hover::after { opacity: 1; }
-.dot.a { background: var(--gold); transform: scale(1.7); }
-.dot:hover:not(.a) { background: rgba(255,255,255,.5); }
-
-/* ━━━━━━━━━━━━━━━ SLIDE COUNTER ━━━━━━━━━━━━━━━ */
-#slideNum {
-  position: fixed; left: 16px; bottom: 20px; z-index: 120;
-  font-size: 11px; font-weight: 900; letter-spacing: .1em;
-  color: var(--muted2);
-}
 
 /* ━━━━━━━━━━━━━━━ SCROLL CUE ━━━━━━━━━━━━━━━ */
 .scroll-cue {
@@ -983,7 +928,11 @@ a:focus-visible, button:focus-visible {
 /* ━━━━━━━━━━━━━━━ RESPONSIVE ━━━━━━━━━━━━━━━ */
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
+  /* Was display:none — hid the product screenshot + score/repaint/alert
+     metrics from every phone visitor. Shown below the copy instead, at a
+     shorter height so it reads as supporting proof, not the lead visual. */
+  .hero-right { width: 100%; max-width: 480px; margin: 0 auto; }
+  .hero-cover { height: 220px; }
   .hero-left { text-align: center; }
   .hero-left .btn-row { justify-content: center; }
   .trust-strip { justify-content: center; }
@@ -999,11 +948,19 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 760px) {
   .topnav-center { display: none; }
   .burger-btn { display: grid; }
-  .feat-grid  { grid-template-columns: 1fr 1fr; }
-  .steps-grid { grid-template-columns: 1fr 1fr; }
+  /* 1 col (not 2) — matches every other grid's 760px cutoff below; sections
+     auto-height now so there's no reason to cram Features/Process into 2col
+     while everything else on the page already goes 1col here. */
+  .feat-grid  { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
   .review-grid { grid-template-columns: 1fr 1fr; }
   .review-grid .review-card:nth-child(n+5) { display: none; }
   .support-grid { grid-template-columns: 1fr; }
+  /* iOS Safari has a long history of jank/repaint bugs with a fixed-attachment
+     background during fast momentum scroll — mobile is also where there's
+     least GPU headroom for it. `scroll` looks identical at rest, just
+     doesn't try to stay pinned to the viewport while scrolling. */
+  body { background-attachment: scroll, scroll; }
   /* Behind a tab the gallery is opt-in, so hiding 2 of 3 examples (as the old
      standalone slide did) would waste a deliberate tap. Swipe them instead —
      all three stay reachable without adding slide height. */
@@ -1022,13 +979,13 @@ a:focus-visible, button:focus-visible {
   .payment-actions { justify-content: center; }
   .cookie-banner { align-items: stretch; flex-direction: column; }
   .cookie-actions { justify-content: flex-end; }
-  #dots { right: 6px; }
-  .dot::after { display: none; }
 }
 @media (max-width: 480px) {
-  .feat-grid  { grid-template-columns: 1fr; }
-  .feat-card:nth-child(n+4) { display: none; }
-  .steps-grid { grid-template-columns: 1fr; }
+  /* feat/steps already 1fr from the 760px block above — no nth-child hiding
+     here anymore. That rule used to hide 3 of 6 Features cards on every
+     phone; it was a leftover from the old 100dvh-per-slide constraint (a
+     Features slide had to fit one screen). Sections auto-height now, so
+     hiding real content (Killzone/SMT/SCORE cards) has no reason left. */
   .review-grid { grid-template-columns: 1fr; }
   .review-grid .review-card:nth-child(n+4) { display: none; }
   .topnav-brand img { height: 22px; }
@@ -1036,6 +993,16 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .reveal, .blob, .scroll-cue, .hero-right { animation: none; transition: none; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ━━━━━━━━━━━━━━━ COMBO SECTION ━━━━━━━━━━━━━━━ */
+/* Reuses .feat-grid/.feat-card and .steps-grid/.step-card; these two classes
+   only change the column count. Declared last so they win over the generic
+   .feat-grid/.steps-grid responsive rules above. */
+.combo-grid  { grid-template-columns: repeat(2,1fr); max-width: 860px; }
+.combo-steps { grid-template-columns: repeat(3,1fr); max-width: 860px; }
+@media (max-width: 760px) {
+  .combo-grid, .combo-steps { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1053,9 +1020,6 @@ a:focus-visible, button:focus-visible {
     <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
   </div>
 </nav>
-
-<div id="dots"></div>
-<div id="slideNum"></div>
 
 <!-- Mobile drawer -->
 <div id="drawer">
@@ -1086,9 +1050,9 @@ a:focus-visible, button:focus-visible {
 <div id="wrap">
 
   <!-- ── S1 · HERO ── -->
-  <section class="slide s1" data-label-key="nav.home">
-    <div class="deco"><div class="blob" style="width:640px;height:640px;background:#ff9c1a;opacity:.12;top:-18%;left:-14%"></div></div>
-    <div class="deco"><div class="blob" style="width:360px;height:360px;background:#ffc266;opacity:.07;bottom:-10%;right:5%;animation-delay:4s"></div></div>
+  <section class="slide s1" id="home" data-label-key="nav.home">
+    <div class="deco"><div class="blob" style="width:640px;height:640px;background:#ff9c1a;opacity:.12;top:-150px;left:-14%"></div></div>
+    <div class="deco"><div class="blob" style="width:360px;height:360px;background:#ffc266;opacity:.07;bottom:-80px;right:5%;animation-delay:4s"></div></div>
 
     <div class="hero-grid">
       <div class="hero-left">
@@ -1106,7 +1070,7 @@ a:focus-visible, button:focus-visible {
       </div>
 
       <div class="hero-right reveal d3">
-        <img class="hero-cover" src="khan_ict_visual_cover.jpg"
+        <img class="hero-cover" src="khan_sniper_cover.jpg"
           alt="KHAN ICT VISUAL on TradingView showing FVG, Order Block, BOS/CHoCH structure, liquidity levels, and the SCORE panel on XAU"
           width="1600" height="1066" fetchpriority="high" decoding="async" />
         <div class="hero-overlay"></div>
@@ -1139,8 +1103,8 @@ a:focus-visible, button:focus-visible {
   </section>
 
   <!-- ── S2 · COVERAGE ── -->
-  <section class="slide s2" data-label-key="nav.numbers">
-    <div class="deco"><div class="blob" style="width:520px;height:520px;background:#ff9c1a;opacity:.12;bottom:-12%;right:-8%"></div></div>
+  <section class="slide s2" id="numbers" data-label-key="nav.numbers">
+    <div class="deco"><div class="blob" style="width:520px;height:520px;background:#ff9c1a;opacity:.12;bottom:-100px;right:-8%"></div></div>
 
     <div class="s-inner">
       <div class="eyebrow reveal d1" data-t="nums.eyebrow"></div>
@@ -1182,7 +1146,7 @@ a:focus-visible, button:focus-visible {
   </section>
 
   <!-- ── S · DEMO (VIDEO + EXAMPLES, tabbed) ── -->
-  <section class="slide s8" data-label-key="nav.demo">
+  <section class="slide s8" id="demo" data-label-key="nav.demo">
     <div class="deco"><div class="blob" style="width:480px;height:480px;background:#ff9c1a;opacity:.10;top:50%;right:-8%;transform:translateY(-50%)"></div></div>
 
     <div class="s-inner">
@@ -1241,8 +1205,8 @@ a:focus-visible, button:focus-visible {
   </section>
 
   <!-- ── S3 · HOW IT WORKS ── -->
-  <section class="slide s3" data-label-key="nav.process">
-    <div class="deco"><div class="blob" style="width:500px;height:500px;background:#1f2937;opacity:.5;top:-10%;left:50%;transform:translateX(-50%)"></div></div>
+  <section class="slide s3" id="process" data-label-key="nav.process">
+    <div class="deco"><div class="blob" style="width:500px;height:500px;background:#1f2937;opacity:.5;top:-90px;left:50%;transform:translateX(-50%)"></div></div>
 
     <div class="s-inner">
       <div class="eyebrow reveal d1" data-t="proc.eyebrow"></div>
@@ -1274,8 +1238,8 @@ a:focus-visible, button:focus-visible {
   </section>
 
   <!-- ── S4 · FEATURES ── -->
-  <section class="slide s4" data-label-key="nav.features">
-    <div class="deco"><div class="blob" style="width:460px;height:460px;background:#ff9c1a;opacity:.09;bottom:-6%;left:-6%"></div></div>
+  <section class="slide s4" id="features" data-label-key="nav.features">
+    <div class="deco"><div class="blob" style="width:460px;height:460px;background:#ff9c1a;opacity:.09;bottom:-50px;left:-6%"></div></div>
 
     <div class="s-inner">
       <div class="eyebrow reveal d1" data-t="feat.eyebrow"></div>
@@ -1316,9 +1280,52 @@ a:focus-visible, button:focus-visible {
     </div>
   </section>
 
+  <!-- ── S · COMBO (both indicators, one system) ── -->
+  <section class="slide s5c" id="combo" data-label-key="nav.combo">
+    <div class="deco"><div class="blob" style="width:500px;height:500px;background:#ff9c1a;opacity:.10;top:-90px;right:-8%"></div></div>
+
+    <div class="s-inner">
+      <div class="eyebrow reveal d1" data-t="combo.k"></div>
+      <h2 class="headline reveal d2" data-t="combo.h"></h2>
+      <p class="sub reveal d3" data-t="combo.p"></p>
+
+      <div class="feat-grid combo-grid reveal d4">
+        <div class="feat-card">
+          <div class="feat-icon">▤</div>
+          <div class="step-n" data-t="combo.c1r"></div>
+          <div class="feat-h" style="margin-top:6px" data-t="combo.c1h"></div>
+          <p class="feat-p" data-t="combo.c1p"></p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⌖</div>
+          <div class="step-n" data-t="combo.c2r"></div>
+          <div class="feat-h" style="margin-top:6px" data-t="combo.c2h"></div>
+          <p class="feat-p" data-t="combo.c2p"></p>
+        </div>
+      </div>
+
+      <div class="steps-grid combo-steps reveal d5">
+        <div class="step-card">
+          <div class="step-n" data-t="combo.w1t"></div>
+          <div class="step-d" data-t="combo.w1p"></div>
+        </div>
+        <div class="step-card">
+          <div class="step-n" data-t="combo.w2t"></div>
+          <div class="step-d" data-t="combo.w2p"></div>
+        </div>
+        <div class="step-card">
+          <div class="step-n" data-t="combo.w3t"></div>
+          <div class="step-d" data-t="combo.w3p"></div>
+        </div>
+      </div>
+
+      <div class="reveal d6"><span class="pill" data-t="combo.note"></span></div>
+    </div>
+  </section>
+
   <!-- ── S · FIT CHECK ── -->
-  <section class="slide s10" data-label-key="nav.fit">
-    <div class="deco"><div class="blob" style="width:460px;height:460px;background:#00d18f;opacity:.06;top:-10%;left:-6%"></div></div>
+  <section class="slide s10" id="fit" data-label-key="nav.fit">
+    <div class="deco"><div class="blob" style="width:460px;height:460px;background:#00d18f;opacity:.06;top:-90px;left:-6%"></div></div>
 
     <div class="s-inner">
       <div class="eyebrow reveal d1" data-t="fit.eyebrow"></div>
@@ -1349,8 +1356,8 @@ a:focus-visible, button:focus-visible {
   </section>
 
   <!-- ── S · FAQ + INTEGRITY ── -->
-  <section class="slide s12" data-label-key="nav.faq">
-    <div class="deco"><div class="blob" style="width:480px;height:480px;background:#1f2937;opacity:.42;bottom:-10%;left:-6%"></div></div>
+  <section class="slide s12" id="faq" data-label-key="nav.faq">
+    <div class="deco"><div class="blob" style="width:480px;height:480px;background:#1f2937;opacity:.42;bottom:-90px;left:-6%"></div></div>
 
     <div class="s-inner">
       <div class="eyebrow reveal d1" data-t="faq.eyebrow"></div>
@@ -1387,7 +1394,7 @@ a:focus-visible, button:focus-visible {
 
   <!-- ── S · GUIDES ── -->
   <section class="slide s13" id="guides" data-label-key="nav.guides">
-    <div class="deco"><div class="blob" style="width:480px;height:480px;background:#ff9c1a;opacity:.10;top:-10%;right:50%;transform:translateX(50%)"></div></div>
+    <div class="deco"><div class="blob" style="width:480px;height:480px;background:#ff9c1a;opacity:.10;top:-90px;right:50%;transform:translateX(50%)"></div></div>
 
     <div class="s-inner">
       <div class="eyebrow reveal d1" data-t="gd.eyebrow"></div>
@@ -1413,6 +1420,12 @@ a:focus-visible, button:focus-visible {
           <p class="guide-p" data-t="gd.c3p"></p>
           <a class="btn btn-gold" href="guide/ref-labels.html" target="_blank" rel="noopener" style="justify-content:center;font-size:13px" data-t="gd.c3cta"></a>
         </div>
+        <div class="guide-card">
+          <div class="guide-icon">🧩</div>
+          <div class="guide-h" data-t="gd.c4h"></div>
+          <p class="guide-p" data-t="gd.c4p"></p>
+          <a class="btn btn-gold" href="guide/ref-combo.html" target="_blank" rel="noopener" style="justify-content:center;font-size:13px" data-t="gd.c4cta"></a>
+        </div>
 
         <a class="guide-card guide-feature" href="guide/index.html" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
           <div class="guide-icon">🎓</div>
@@ -1427,8 +1440,8 @@ a:focus-visible, button:focus-visible {
   </section>
 
   <!-- ── S6 · PRICING ── -->
-  <section class="slide s6" data-label-key="nav.pricing">
-    <div class="deco"><div class="blob" style="width:600px;height:600px;background:#ff9c1a;opacity:.16;bottom:-18%;right:-10%"></div></div>
+  <section class="slide s6" id="pricing" data-label-key="nav.pricing">
+    <div class="deco"><div class="blob" style="width:600px;height:600px;background:#ff9c1a;opacity:.16;bottom:-150px;right:-10%"></div></div>
 
     <div class="pricing-wrap">
       <div class="pricing-left">
@@ -1455,6 +1468,7 @@ a:focus-visible, button:focus-visible {
           <span class="per" data-t="pay.per"></span>
         </div>
         <ul class="plan-feats">
+          <li data-t="pay.f0"></li>
           <li data-t="pay.f1"></li>
           <li data-t="pay.f2"></li>
           <li data-t="pay.f3"></li>
@@ -1477,7 +1491,7 @@ a:focus-visible, button:focus-visible {
   <!-- ── S7 · SUPPORT ── -->
   <!-- USDT PAYMENT -->
   <section class="slide s14" id="payment" data-label-key="nav.payment">
-    <div class="deco"><div class="blob" style="width:560px;height:560px;background:#ff9c1a;opacity:.12;top:-18%;right:-8%"></div></div>
+    <div class="deco"><div class="blob" style="width:560px;height:560px;background:#ff9c1a;opacity:.12;top:-150px;right:-8%"></div></div>
 
     <div class="payment-wrap">
       <div class="payment-copy">
@@ -1512,7 +1526,7 @@ a:focus-visible, button:focus-visible {
     </div>
   </section>
 
-  <section class="slide s7" data-label-key="nav.support">
+  <section class="slide s7" id="support" data-label-key="nav.support">
     <div class="deco"><div class="blob" style="width:440px;height:440px;background:#1f2937;opacity:.45;top:50%;left:-8%;transform:translateY(-50%)"></div></div>
 
     <div class="s-inner">
@@ -1578,18 +1592,13 @@ en: {
   'nav.demo':      'Demo',
   'nav.process':   'Process',
   'nav.features':  'Features',
+  'nav.combo':     'Combo',
   'nav.fit':       'Fit Check',
   'nav.faq':       'FAQ',
   'nav.guides':    'Guides',
   'nav.pricing':   'Plan',
   'nav.payment':   'Payment',
   'nav.support':   'Support',
-
-  // Grouped top-nav labels (one button covers several slides)
-  'navg.results':  'Overview',
-  'navg.system':   'System',
-  'navg.trust':    'Trust',
-  'navg.pay':      'Pricing',
 
   'demo.eyebrow':  'See The Map Live',
   'demo.h':        'Watch it live, or read the chart yourself.',
@@ -1612,7 +1621,7 @@ en: {
   'fit.g2':      'Comfortable making their own entry, stop, and target calls',
   'fit.g3':      'Can wait for a killzone and confluence zone to line up',
   'fit.g4':      'Values an honest, no-repaint map over a fake win rate',
-  'fit.badh':    'Not a fit — look at KHAN SNIPER PRO instead',
+  'fit.badh':    'Prefer ready-made signals? Your plan already includes KHAN SNIPER PRO — run it alongside for scored entries and TP/SL.',
   'fit.b1':      'Wants an automated entry, stop-loss, and take-profit engine',
   'fit.b2':      'Expects a published win-rate or backtest number',
   'fit.b3':      'Is not willing to study structure before trading it',
@@ -1643,7 +1652,7 @@ en: {
   'faq.q8':      'How do I get support?',
   'faq.a8':      'Use official Telegram channels listed below. Be careful of impersonator accounts.',
   'faq.q9':      'How much does it cost?',
-  'faq.a9':      'One plan: KHAN ICT VISUAL (TradingView) — $10/month with all features unlocked. Pay with USDT on BEP20.',
+  'faq.a9':      'One plan: $10/month includes BOTH indicators — KHAN ICT VISUAL + KHAN SNIPER PRO — with all features unlocked on TradingView. Pay with USDT on BEP20.',
 
   'gd.eyebrow': 'Knowledge Base',
   'gd.h':       'Guides and how to use the indicator',
@@ -1657,6 +1666,9 @@ en: {
   'gd.c3h':     'Label Dictionary',
   'gd.c3p':     'Every mark on the chart in one page — zone tags, right-edge levels, structure marks, and the killzone strip — what each one means.',
   'gd.c3cta':   'Open Label guide',
+  'gd.c4h':     'Combo guide — two indicators together',
+  'gd.c4p':     'How ICT VISUAL and SNIPER PRO work as one system on a 1m chart.',
+  'gd.c4cta':   'Open Combo guide',
   'gd.libh':    'Course library — Price Action &amp; ICT',
   'gd.libp':    'Price Action full course (14 modules) &middot; ICT / Smart Money series 01&ndash;03 &middot; Trade Sessions and XAU lot size reference. In Mongolian, in learning order.',
   'gd.libcta':  'All lessons &rarr;',
@@ -1717,6 +1729,23 @@ en: {
   'feat.c6h':     'SCORE Checklist · ARMED Zone',
   'feat.c6p':     'A live 0–7 setup grade and an ARMED-zone latch graded A/B/C. The panel tells you how strong the current setup is — you decide whether to take it.',
 
+  'combo.k':    'POWER COMBO',
+  'combo.h':    'Two indicators. One system.',
+  'combo.p':    'KHAN ICT VISUAL maps the market\'s structure — where liquidity sits and when a setup is armed. KHAN SNIPER PRO executes — scored entries, TP1–4 ladder, protected stops. Loaded together on one chart, they are designed to complement each other with zero visual overlap.',
+  'combo.c1h':  'KHAN ICT VISUAL',
+  'combo.c1r':  'WHERE · WHEN',
+  'combo.c1p':  'FVG / Order Block zones, market structure (BOS · CHoCH · MSS), ARMED setup engine with A/B/C grades, killzones and a live spread-cost gauge.',
+  'combo.c2h':  'KHAN SNIPER PRO',
+  'combo.c2r':  'IN · OUT',
+  'combo.c2p':  'Confluence-scored entries (0–7), TP1–TP4 ladder with milestone tracking, breakeven and TP1-lock protection, ready-made alerts.',
+  'combo.w1t':  '1 · Context',
+  'combo.w1p':  'ICT VISUAL shows an ARMED zone in an active killzone',
+  'combo.w2t':  '2 · Confluence',
+  'combo.w2p':  'A high-score SNIPER entry fires at that zone',
+  'combo.w3t':  '3 · Execution',
+  'combo.w3p':  'Follow the TP1–4 ladder with the protected stop',
+  'combo.note': 'One subscription includes both indicators.',
+
   'pay.eyebrow':  'Pricing',
   'pay.h':        'One plan.<br/>All features.',
   'pay.sub':      'Monthly billing. USDT (BEP20) accepted. 24-hour verification after on-chain confirmation.',
@@ -1730,6 +1759,7 @@ en: {
   'pay.planname': 'TradingView · Full Access',
   'pay.planhead': 'KHAN ICT VISUAL',
   'pay.per':      '/ month',
+  'pay.f0':       'Both indicators included — KHAN ICT VISUAL + KHAN SNIPER PRO',
   'pay.f1':       'FVG · GAP · OB zones with breaker/IFVG role-flip',
   'pay.f2':       'Rejection Block (RB) &amp; Volume Imbalance (VI) zones',
   'pay.f3':       'BOS · CHoCH · MSS structure with liquidity sweep',
@@ -1789,17 +1819,12 @@ mn: {
   'nav.demo':      'Демо',
   'nav.process':   'Процесс',
   'nav.features':  'Боломжууд',
+  'nav.combo':     'Хослол',
   'nav.fit':       'Тохирол',
   'nav.faq':       'Асуулт',
   'nav.guides':    'Гарын авлага',
   'nav.pricing':   'Багц',
   'nav.support':   'Холбоо',
-
-  // Бүлэглэсэн top-nav (нэг товч хэд хэдэн слайдыг хамарна)
-  'navg.results':  'Тойм',
-  'navg.system':   'Систем',
-  'navg.trust':    'Итгэл',
-  'navg.pay':      'Үнэ',
 
   'demo.eyebrow':  'Зураглалыг амьд харах',
   'demo.h':        'Live демо үз, эсвэл графикийг өөрөө унш.',
@@ -1822,7 +1847,7 @@ mn: {
   'fit.g2':      'Entry, stop, target-ыг өөрөө шийдэхэд бэлэн',
   'fit.g3':      'Killzone ба confluence зон тохирохыг хүлээж чаддаг',
   'fit.g4':      'Хуурамч winrate-ээс илүү үнэн, repaint-гүй зураглалыг үнэлдэг',
-  'fit.badh':    'Тохирохгүй — KHAN SNIPER PRO-г үзээрэй',
+  'fit.badh':    'Бэлэн дохио илүүд үздэг үү? Багцад чинь KHAN SNIPER PRO аль хэдийн багтсан — оноотой entry болон TP/SL-ийн төлөө зэрэгцүүлэн ажиллуул.',
   'fit.b1':      'Автомат entry/stop-loss/take-profit engine хайдаг',
   'fit.b2':      'Нийтэлсэн winrate эсвэл backtest тоо хүлээдэг',
   'fit.b3':      'Бүтцийг судлахаас өмнө арилжаа хийхэд бэлэн бус',
@@ -1861,6 +1886,9 @@ mn: {
   'gd.c3h':     'Шошгын толь бичиг',
   'gd.c3p':     'График дээрх бүх тэмдэглэгээ нэг хуудсанд — зоны tag, баруун захын түвшин, бүтцийн тэмдэглэгээ, killzone тууз — тус бүр юу гэсэн үг.',
   'gd.c3cta':   'Шошгын гайд нээх',
+  'gd.c4h':     'Combo гарын авлага — хоёр indicator хамтдаа',
+  'gd.c4p':     'ICT VISUAL ба SNIPER PRO нэг систем болж 1m chart дээр хэрхэн ажилладаг вэ.',
+  'gd.c4cta':   'Combo гайд нээх',
   'gd.libh':    'Сургалтын номын сан — Price Action ба ICT',
   'gd.libp':    'Price Action цогц сургалт (14 модуль) &middot; ICT / Smart Money цуврал 01&ndash;03 &middot; Trade Sessions ба XAU lot size лавлах. Бүгд монголоор, дэс дараалалаар.',
   'gd.libcta':  'Бүх хичээл &rarr;',
@@ -1921,6 +1949,23 @@ mn: {
   'feat.c6h':     'SCORE Checklist · ARMED зон',
   'feat.c6p':     'Амьд 0–7 setup үнэлгээ ба A/B/C зэрэглэлтэй ARMED зоны латч — панель одоогийн setup хэр хүчтэйг хэлнэ, чи авах эсэхээ шийднэ.',
 
+  'combo.k':    'ХОСОЛСОН ХЭРЭГСЭЛ',
+  'combo.h':    'Хоёр indicator. Нэг систем.',
+  'combo.p':    'KHAN ICT VISUAL зах зээлийн бүтцийг зурна — liquidity хаана байгаа, setup хэзээ бэлэн болохыг. KHAN SNIPER PRO гүйцэтгэнэ — оноожуулсан entry, TP1–4 ладдер, хамгаалалттай stop. Нэг chart дээр хамт ачаалахад бие биенээ давхардалгүй нөхөхөөр зохиомжлогдсон.',
+  'combo.c1h':  'KHAN ICT VISUAL',
+  'combo.c1r':  'ХААНА · ХЭЗЭЭ',
+  'combo.c1p':  'FVG / Order Block бүсүүд, зах зээлийн бүтэц (BOS · CHoCH · MSS), A/B/C зэрэглэлтэй ARMED setup engine, killzone болон spread-зардлын амьд хэмжүүр.',
+  'combo.c2h':  'KHAN SNIPER PRO',
+  'combo.c2r':  'ОРОХ · ГАРАХ',
+  'combo.c2p':  'Confluence оноотой entry (0–7), milestone хяналттай TP1–TP4 ладдер, breakeven ба TP1-түгжээний хамгаалалт, бэлэн alert-ууд.',
+  'combo.w1t':  '1 · Контекст',
+  'combo.w1p':  'ICT VISUAL идэвхтэй killzone дотор ARMED зон харуулна',
+  'combo.w2t':  '2 · Давхцал',
+  'combo.w2p':  'Яг тэр зон дээр өндөр оноотой SNIPER entry гарна',
+  'combo.w3t':  '3 · Гүйцэтгэл',
+  'combo.w3p':  'Хамгаалалттай stop-той TP1–4 ладдерыг дагана',
+  'combo.note': 'Нэг эрхэд хоёр indicator хоёул багтана.',
+
   'pay.eyebrow':  'Үнийн санал',
   'pay.h':        'Нэг багц.<br/>Бүх боломж.',
   'pay.sub':      'Сар бүрийн төлбөртэй. USDT (BEP20) хүлээн авна. On-chain баталгаажсаны дараа 24 цагийн дотор шалгана.',
@@ -1934,6 +1979,7 @@ mn: {
   'pay.planname': 'TradingView · Full Access',
   'pay.planhead': 'KHAN ICT VISUAL',
   'pay.per':      '/ сар',
+  'pay.f0':       'Хоёр indicator хоёул багтана — KHAN ICT VISUAL + KHAN SNIPER PRO',
   'pay.f1':       'FVG · GAP · OB zone, breaker/IFVG role-flip-тэй',
   'pay.f2':       'Rejection Block (RB) ба Volume Imbalance (VI) zone',
   'pay.f3':       'BOS · CHoCH · MSS бүтэц, likvidnost sweep-тэй',
@@ -1968,7 +2014,7 @@ mn: {
   'faq.q8':          'Support яаж авах вэ?',
   'faq.a8':          'Доор жагсаасан албан Telegram сувгуудаар холбогдоно. Хуурамч account болон impersonator-оос болгоомжил.',
   'faq.q9':          'Үнэ хэд вэ?',
-  'faq.a9':          'Нэг багц: KHAN ICT VISUAL (TradingView) — сард $10, бүх боломж нээлттэй. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
+  'faq.a9':          'Нэг багц: сард $10-д ХОЁР indicator хоёул багтана — KHAN ICT VISUAL + KHAN SNIPER PRO — TradingView дээр бүх боломж нээлттэй. Төлбөрийг BEP20 дээрх USDT-ээр хийнэ.',
   'pay.f10':         'Кластер нэгтгэл — virgin ба flipped тусдаа харагдана',
   'pay.f11':         'Амьд SCORE (0–7) + A/B/C зэрэглэлтэй ARMED зон',
   'pay.f12':         '6 TradingView alert: MSS · ARMED · TOUCHED · EXPIRED · SMT · SB-FVG',
@@ -1997,86 +2043,36 @@ mn: {
 /* ═══════════════════════════════════════════
    BOOTSTRAP
 ═══════════════════════════════════════════ */
-const wrap    = document.getElementById('wrap');
 const prog    = document.getElementById('prog');
-const dotsEl  = document.getElementById('dots');
 const lbox    = document.getElementById('lbox');
 const lboxImg = document.getElementById('lboxImg');
 const drawer  = document.getElementById('drawer');
-const slides  = Array.from(document.querySelectorAll('.slide'));
-const N       = slides.length;
-
-// ── Build nav dots ──
-slides.forEach((s, i) => {
-  const d = document.createElement('button');
-  d.className = 'dot';
-  d.dataset.i = i;
-  dotsEl.appendChild(d);
-});
-const dots = Array.from(dotsEl.querySelectorAll('.dot'));
+const sections = Array.from(document.querySelectorAll('section.slide'));
 
 /* ── Build top nav + drawer nav ──
-   The nav used to be 1:1 with slides, which meant 14 buttons overflowing the
-   top bar. Slides are now grouped: the top bar shows one button per group and
-   jumps to the group's first slide, staying active for every slide in it. The
-   drawer keeps the full list as sub-items so mobile can still reach any slide
-   directly. Group order must follow DOM slide order. */
-const NAV_GROUPS = [
-  { key: 'nav.home',     slides: ['nav.home'] },
-  { key: 'navg.results', slides: ['nav.numbers', 'nav.demo'] },
-  { key: 'navg.system',  slides: ['nav.process', 'nav.features', 'nav.fit'] },
-  { key: 'navg.trust',   slides: ['nav.faq'] },
-  { key: 'nav.guides',   slides: ['nav.guides'] },
-  { key: 'navg.pay',     slides: ['nav.pricing', 'nav.payment'] },
-  { key: 'nav.support',  slides: ['nav.support'] },
-];
-
-const slideIndexOf = key => slides.findIndex(s => s.dataset.labelKey === key);
-
-const navGroups = NAV_GROUPS
-  .map(g => ({ key: g.key, idxs: g.slides.map(slideIndexOf).filter(i => i >= 0) }))
-  .filter(g => g.idxs.length);
-
-// Any slide missing from NAV_GROUPS would be unreachable from the nav — keep it
-// addressable by appending it as its own group rather than dropping it silently.
-slides.forEach((s, i) => {
-  if (navGroups.some(g => g.idxs.includes(i))) return;
-  navGroups.push({ key: s.dataset.labelKey, idxs: [i] });
-});
-
+   Flat list: one anchor button per section, in DOM order. The same list is
+   rendered twice — once in the top bar, once in the mobile drawer. */
 const navLinksEl = document.getElementById('navLinks');
 const drawerNav  = document.getElementById('drawerNav');
+const navBtns    = [];
 
-navGroups.forEach(g => {
-  const top = document.createElement('button');
-  top.className = 'nav-btn';
-  top.dataset.i = g.idxs[0];
-  navLinksEl.appendChild(top);
-  g.topBtn = top;
+function jumpTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
 
-  const row = document.createElement('div');
-  row.className = 'drawer-group';
-
-  const head = document.createElement('button');
-  head.className = 'nav-btn';
-  head.dataset.i = g.idxs[0];
-  row.appendChild(head);
-  g.drawerBtn = head;
-
-  // Only groups that actually bundle slides need sub-items.
-  g.subBtns = g.idxs.length > 1 ? g.idxs.map(i => {
-    const sub = document.createElement('button');
-    sub.className = 'nav-btn nav-sub';
-    sub.dataset.i = i;
-    sub.dataset.labelKey = slides[i].dataset.labelKey;
-    row.appendChild(sub);
-    return sub;
-  }) : [];
-
-  drawerNav.appendChild(row);
+sections.forEach(s => {
+  if (!s.id || !s.dataset.labelKey) return;
+  [navLinksEl, drawerNav].forEach(parent => {
+    const b = document.createElement('button');
+    b.className = 'nav-btn';
+    b.dataset.target = s.id;
+    b.dataset.labelKey = s.dataset.labelKey;
+    b.addEventListener('click', () => { closeDrawer(); jumpTo(s.id); });
+    parent.appendChild(b);
+    navBtns.push(b);
+  });
 });
-
-const drawerBtns = navGroups.flatMap(g => [g.drawerBtn, ...g.subBtns]);
 
 /* ═══════════════════════════════════════════
    i18n
@@ -2093,17 +2089,9 @@ function applyLang(l) {
     if (v !== undefined) el.innerHTML = v;
   });
 
-  // Dot tooltips stay per-slide; nav buttons are per-group.
-  slides.forEach((s, i) => {
-    dots[i].setAttribute('aria-label', T[l][s.dataset.labelKey] || s.dataset.labelKey);
-  });
-  navGroups.forEach(g => {
-    const label = T[l][g.key] || g.key;
-    g.topBtn.textContent    = label;
-    g.drawerBtn.textContent = label;
-    g.subBtns.forEach(b => {
-      b.textContent = T[l][b.dataset.labelKey] || b.dataset.labelKey;
-    });
+  // Nav labels (top bar + drawer)
+  navBtns.forEach(b => {
+    b.textContent = T[l][b.dataset.labelKey] || b.dataset.labelKey;
   });
 
   // Lang button active states (all lang buttons: topnav + drawer)
@@ -2165,7 +2153,8 @@ function triggerSlide(section) {
   });
 }
 
-// IntersectionObserver
+// IntersectionObserver (viewport root; threshold is lower than the old
+// slide-deck value because sections are no longer capped at one viewport)
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting && !e.target.dataset.done) {
@@ -2173,67 +2162,75 @@ const io = new IntersectionObserver(entries => {
       triggerSlide(e.target);
     }
   });
-}, { root: wrap, threshold: 0.38 });
-slides.forEach(s => io.observe(s));
-triggerSlide(slides[0]);
+}, { root: null, threshold: 0.15 });
+sections.forEach(s => io.observe(s));
+triggerSlide(sections[0]);
 
 /* ═══════════════════════════════════════════
-   SCROLL STATE
+   SCROLL STATE (progress bar + active nav)
 ═══════════════════════════════════════════ */
-const slideNum = document.getElementById('slideNum');
-
 function onScroll() {
-  const st = wrap.scrollTop;
-  const sh = wrap.scrollHeight - wrap.clientHeight;
-  prog.style.width = (sh > 0 ? (st / sh) * 100 : 0) + '%';
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
 
-  const idx = Math.round(st / wrap.clientHeight);
-  dots.forEach((d, i) => d.classList.toggle('a', i === idx));
-  navGroups.forEach(g => {
-    const on = g.idxs.includes(idx);
-    g.topBtn.classList.toggle('act', on);
-    g.drawerBtn.classList.toggle('act', on);
-    g.subBtns.forEach(b => b.classList.toggle('act', +b.dataset.i === idx));
-  });
-  slideNum.textContent = `${idx + 1} / ${N}`;
+  // Active section = the last one whose top has passed the reading line.
+  const probe = window.scrollY + window.innerHeight * 0.35;
+  let active = sections[0];
+  for (const s of sections) {
+    if (s.offsetTop <= probe) active = s; else break;
+  }
+  const id = active ? active.id : '';
+  navBtns.forEach(b => b.classList.toggle('act', b.dataset.target === id));
 }
-wrap.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
 onScroll();
 
 /* ═══════════════════════════════════════════
-   DOT / NAV CLICK
+   IN-PAGE JUMP LINKS
 ═══════════════════════════════════════════ */
-function scrollTo(i) {
-  wrap.scrollTo({ top: i * wrap.clientHeight, behavior: 'smooth' });
-}
-dots.forEach(d => d.addEventListener('click', () => scrollTo(+d.dataset.i)));
-navGroups.forEach(g => g.topBtn.addEventListener('click', () => scrollTo(+g.topBtn.dataset.i)));
-drawerBtns.forEach(b => b.addEventListener('click', () => { scrollTo(+b.dataset.i); closeDrawer(); }));
 document.querySelectorAll('[data-jump]').forEach(el => {
   el.addEventListener('click', e => {
-    const key = el.dataset.jump;
-    const idx = slides.findIndex(s => s.dataset.labelKey === key);
-    if (idx < 0) return;
+    const target = sections.find(s => s.dataset.labelKey === el.dataset.jump);
+    if (!target) return;
     e.preventDefault();
-    scrollTo(idx);
+    target.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
 /* ═══════════════════════════════════════════
-   KEYBOARD NAVIGATION
+   KEYBOARD
 ═══════════════════════════════════════════ */
 document.addEventListener('keydown', e => {
-  const cur = Math.round(wrap.scrollTop / wrap.clientHeight);
-  if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); scrollTo(cur + 1); }
-  if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); scrollTo(cur - 1); }
   if (e.key === 'Escape') { closeLbox(); closeDrawer(); }
 });
 
 /* ═══════════════════════════════════════════
    MOBILE DRAWER
 ═══════════════════════════════════════════ */
-function openDrawer()  { drawer.classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeDrawer() { drawer.classList.remove('open'); document.body.style.overflow = ''; }
+/* position:fixed (not just overflow:hidden) on body while the drawer is open —
+   iOS Safari is known to let the background page keep touch-scrolling behind
+   an overflow:hidden body; pinning it via position:fixed is the reliable fix.
+   Scroll position is saved/restored manually since fixed positioning drops it. */
+let drawerScrollY = 0;
+function openDrawer() {
+  drawerScrollY = window.scrollY;
+  drawer.classList.add('open');
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${drawerScrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+}
+function closeDrawer() {
+  drawer.classList.remove('open');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, drawerScrollY);
+}
 
 document.getElementById('burgerBtn').addEventListener('click', openDrawer);
 document.getElementById('drawerClose').addEventListener('click', closeDrawer);
@@ -2288,7 +2285,7 @@ if (videoBtn) {
         pre.src = img.currentSrc || img.src;
       });
       warm.disconnect();
-    }, { root: wrap, threshold: 0.2 });
+    }, { root: null, threshold: 0.2 });
     warm.observe(shotsPane.closest('.slide'));
   }
   tabs.forEach(tab => {
@@ -2366,16 +2363,10 @@ copyWalletBtn?.addEventListener('click', async () => {
 (function () {
   const btn = document.getElementById('toTop');
   if (!btn) return;
-  const scroller = document.getElementById('wrap') || window;
-  function onScroll() {
-    const y = scroller === window ? window.scrollY : scroller.scrollTop;
-    btn.classList.toggle('show', y > 300);
-  }
-  scroller.addEventListener('scroll', onScroll, { passive: true });
-  btn.addEventListener('click', () => {
-    if (scroller === window) window.scrollTo({ top: 0, behavior: 'smooth' });
-    else scroller.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  function onTopScroll() { btn.classList.toggle('show', window.scrollY > 300); }
+  window.addEventListener('scroll', onTopScroll, { passive: true });
+  onTopScroll();
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
 /* ═══════════════════════════════════════════
