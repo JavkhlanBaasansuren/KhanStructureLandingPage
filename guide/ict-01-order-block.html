@@ -122,7 +122,7 @@
     <p>
       Том оролцогч 100 лот худалдаж авах гэж байна гэж бодъё. Тэр зах зээл дээр нэг дор
       market order тавьж чадахгүй — тавибал өөрөө үнийг эсрэгээ хөөрөгдөж, дундаж
-      entry-гээ сүйтгэнэ. Тиймээс тэр <strong>эсрэг талын likvидность</strong> хэрэгтэй:
+      entry-гээ сүйтгэнэ. Тиймээс тэр <strong>эсрэг талын liquidity</strong> хэрэгтэй:
       худалдан авахын тулд <em>худалдагчид</em> хэрэгтэй.
     </p>
     <p>
@@ -264,10 +264,10 @@
     <figure id="fig-form">
       <div class="plate-hd">Bullish Order Block — бүрэн дараалал</div>
       <div class="plate">
-        <svg data-chart="bullish" role="img" aria-label="Likvидность цэвэрлэх, сүүлчийн бууралтын лаа буюу Order Block, ATR-аас том импульс swing-ийг эвдэх, зон руу буцах, entry авах дараалал"></svg>
+        <svg data-chart="bullish" role="img" aria-label="Liquidity цэвэрлэх, сүүлчийн бууралтын лаа буюу Order Block, ATR-аас том импульс swing-ийг эвдэх, зон руу буцах, entry авах дараалал"></svg>
       </div>
       <figcaption>
-        <b>1</b> Likvидность цэвэрлэлт (доод swing-ийн wick авалт) ·
+        <b>1</b> Liquidity цэвэрлэлт (доод swing-ийн wick авалт) ·
         <b>2</b> Сүүлчийн бууралтын лаа = <b>OB</b> ·
         <b>3</b> Displacement, swing high-г хаалтаараа эвдэх (BOS) ·
         <b>4</b> Зон руу retrace ·
@@ -277,10 +277,10 @@
 
     <ol class="steps">
       <li>
-        <h3>Likvидность цэвэрлэлт</h3>
+        <h3>Liquidity цэвэрлэлт</h3>
         <p>
           Үнэ өмнөх low-г wick-ээр давж stop цуглуулаад хаалтаараа буцна. Энэ бол
-          том оролцогчийн “түлш” — эсрэг талын likvидность.
+          том оролцогчийн “түлш” — эсрэг талын liquidity.
         </p>
       </li>
       <li>
@@ -310,7 +310,7 @@
         <h3>Entry</h3>
         <p>
           Зоны дээд ирмэг (aggressive) эсвэл CE = 50% (тэнцвэртэй) дээр limit.
-          SL нь зоны доод ирмэгээс доогуур. TP нь эсрэг талын likvидность.
+          SL нь зоны доод ирмэгээс доогуур. TP нь эсрэг талын liquidity.
         </p>
       </li>
     </ol>
@@ -330,10 +330,10 @@
     <figure id="fig-bear">
       <div class="plate-hd">Bearish Order Block</div>
       <div class="plate">
-        <svg data-chart="bearish" role="img" aria-label="Дээд swing-ийн likvидностийг цэвэрлэж, сүүлчийн өсөлтийн лаа Order Block болж, доошоо импульс swing low-г эвдэж, зон руу буцаж short entry гарна"></svg>
+        <svg data-chart="bearish" role="img" aria-label="Дээд swing-ийн liquidity-ийг цэвэрлэж, сүүлчийн өсөлтийн лаа Order Block болж, доошоо импульс swing low-г эвдэж, зон руу буцаж short entry гарна"></svg>
       </div>
       <figcaption>
-        Дээд likvидность цэвэрлэгдэнэ → <b>сүүлчийн ногоон лаа = OB</b> →
+        Дээд liquidity цэвэрлэгдэнэ → <b>сүүлчийн ногоон лаа = OB</b> →
         доошоо displacement swing low-г хаалтаараа эвдэнэ → зон руу retrace →
         SL зоны дээд ирмэгээс дээгүүр.
       </figcaption>
@@ -456,7 +456,7 @@
           </tr>
           <tr>
             <td><strong>Mitigation Block</strong></td>
-            <td>Likvидность <em>цэвэрлэгдээгүй</em> бүтэлгүйтсэн HH/LL-ийн сүүлчийн эсрэг лаа</td>
+            <td>Liquidity <em>цэвэрлэгдээгүй</em> бүтэлгүйтсэн HH/LL-ийн сүүлчийн эсрэг лаа</td>
             <td>Эргэлтийн retest</td>
             <td class="num">★★★</td>
           </tr>
@@ -504,7 +504,7 @@
     <div class="note">
       <span class="tag">MB vs OB — шийдвэрлэх ялгаа</span>
       <p>
-        Хэрэв импульсийн өмнө <strong>likvидность цэвэрлэгдсэн</strong> бол энэ нь
+        Хэрэв импульсийн өмнө <strong>liquidity цэвэрлэгдсэн</strong> бол энэ нь
         <strong>Order Block</strong>. Цэвэрлэгдээгүй, зүгээр л шинэ оргил гарч
         чадаагүй бол <strong>Mitigation Block</strong>. Хоёрын ялгаа нь “түлш байсан
         уу” — MB нь түлшгүй, тиймээс статистикаар сул. Нэг зурвасыг MB эсэх нь
@@ -566,7 +566,7 @@
     <figure id="fig-trade">
       <div class="plate-hd">Гүйцэтгэлийн зураглал</div>
       <div class="plate">
-        <svg data-chart="execution" role="img" aria-label="Entry нь CE дээр, SL зоны доор, TP1 TP2 TP3 нь дараалсан likvидностийн түвшнүүд дээр"></svg>
+        <svg data-chart="execution" role="img" aria-label="Entry нь CE дээр, SL зоны доор, TP1 TP2 TP3 нь дараалсан liquidity-ийн түвшнүүд дээр"></svg>
       </div>
       <figcaption>
         Зон, CE, entry, SL, гурван TP-ийн харилцан байрлал. <b>Risk</b> нь entry–SL
@@ -838,7 +838,7 @@
       <li><strong>HTF контекст хувирсан</strong> — зон үүсэх үед 4H bullish, entry-ийн
         үед bearish. <em>Засал:</em> үүссэн үеийн bias-ыг биш, <strong>entry-ийн
         үеийн</strong> bias-ыг шалга.</li>
-      <li><strong>Likvидность цэвэрлэгдээгүй</strong> — түлш байгаагүй тул тэр импульс
+      <li><strong>Liquidity цэвэрлэгдээгүй</strong> — түлш байгаагүй тул тэр импульс
         нь retail momentum. <em>Засал:</em> sweep-гүй OB-ыг Mitigation Block гэж
         зэрэглэ, бүтэн risk-ээр орохгүй.</li>
       <li><strong>Range-ийн дундад байсан</strong> — <em>Засал:</em> хилээс гуравны
@@ -848,8 +848,8 @@
     <div class="note">
       <span class="tag">Курстай холбоо</span>
       <p>
-        Режимийн таксономи нь курст бүрэн бий: <strong>PriceAction 2.5</strong>
-        (TRENDING → EXHAUSTION → REVERSAL гурван үе), <strong>2.6</strong> (range
+        Режимийн таксономи нь курст бүрэн бий: <strong>PriceAction 2.4</strong>
+        (TRENDING → EXHAUSTION → REVERSAL гурван үе), <strong>2.5</strong> (range
         таних checklist), мөн бүх зүйлийг захирдаг тэр мөр —
         <em>“Эхлээд режимийг тодорхойл, дараа нь хэрэгслээ сонго.”</em>
         Доорх хүснэгт нь түүний <strong>OB-д онцгой</strong> тохиолдол:
@@ -1045,7 +1045,7 @@
 
     <h3>А. Хүчинтэй эсэх — бүгд “тийм” байх ёстой</h3>
     <ul class="check">
-      <li>Likvидность цэвэрлэгдсэн үү (PDH/PDL, equal high/low, эсвэл swing wick)?</li>
+      <li>Liquidity цэвэрлэгдсэн үү (PDH/PDL, equal high/low, эсвэл swing wick)?</li>
       <li>Displacement нь ATR-аас том, биет ≥60% байсан уу?</li>
       <li>Тэр импульс swing-ийг <strong>хаалтаараа</strong> эвдсэн үү (wick биш)?</li>
       <li>Зон нь дүүрээгүй (CE-д хүрээгүй) хэвээр байна уу?</li>

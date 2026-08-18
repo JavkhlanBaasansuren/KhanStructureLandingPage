@@ -164,7 +164,7 @@
 <div class="l-mn">
 
 <h1>KHAN | Sniper Pro — Хэзээ арилжаа хийх вэ?</h1>
-<div class="subtitle">Indicator-ийн дохиог хэзээ авах, хэзээ алгасах вэ — практик гарын авлага · 2026-06-17</div>
+<div class="subtitle">Indicator-ийн дохиог хэзээ авах, хэзээ алгасах вэ — практик гарын авлага · 2026-08-18</div>
 
 <p>Бүх зүйл indicator өөрөө график дээр харуулдаг — энд зөвхөн "юуг нь хараад
 шийдэх вэ" гэдгийг эмхэлж өгөв.</p>
@@ -177,37 +177,48 @@
 болж магадгүй. Хаагдсан барын дохиог л ажил болго.
 </div>
 
-<h2>1. Эхлэх дараалал — "Get ready" → "LONG/SHORT"</h2>
-<table>
-  <tr><th>Дохио</th><th>Утга</th><th>Үйлдэл</th></tr>
-  <tr><td>▲ Get ready to long / short</td><td>Pre-signal: ханш trail руу ойртож байна</td><td>Бэлдэ — захиалга бэлэн болго, гэхдээ <b>ОРОХГҮЙ</b></td></tr>
-  <tr><td><b>LONG / SHORT</b> шошго</td><td>Баталгаажсан flip entry</td><td><span class="ok">Энэ үед л орно</span></td></tr>
-</table>
-<p>"Get ready" нь зөвхөн <b>анхааруулга</b> — заавал entry болно гэсэн үг биш.
-ADX/HTF/Session филтер дараа нь дохиог хааж болно.</p>
+<h2>1. Дохио — баталгаажсан LONG/SHORT + SNIPER SCORE</h2>
+<p>Indicator-т урьдчилсан "Get ready" анхааруулга байхгүй болсон — гарч ирсэн
+<b>LONG/SHORT</b> label бүр аль хэдийн бар хаагдсан, баталгаажсан flip.</p>
+<p>Label дээр confluence оноо <code>X/7</code> хамт харагдана:</p>
+<ul>
+  <li>Оноо <b>4/7</b> ба түүнээс дээш → 🎯 <b>SNIPER</b> угтвартай, том, тод label</li>
+  <li>Оноо <b>4/7</b>-оос доош → угтваргүй, бүдэг, жижиг label (гарсан ч чанар султай)</li>
+  <li>Sweep-reversal engine-ийн орход → <b>◆ SWEEP</b> угтвартай label</li>
+</ul>
+<p>Label дээр хулгана хөвүүлбэл оноог задлан харуулна: <code>HTF · Loc · Head · Sweep · ADX · Candle</code>
+— аль тал нь тоологдож, аль нь тоологдоогүйг ✓/✗-аар шалгаж болно.</p>
+<div class="note">
+⚙️ <b>Settings → SNIPER score filter.</b> Default OFF — бүх flip label-тайгаараа гарна, оноог өөрөө шалгана.
+ON бол 4/7-оос доош оноотой flip-ийг indicator өөрөө гаргахгүй.
+</div>
+<p>Settings → <b>Entry engine</b>-ээр гурван горим сэлгэнэ: <b>Trail flip</b> (trend дагах, үндсэн горим),
+<b>Sweep reversal</b> (зөвхөн liquidity sweep-ийн эргэлт), <b>Auto (regime)</b> (trend үед trail, range үед sweep).</p>
 
 <h2>2. Орохоосоо өмнө шалгах CHECKLIST</h2>
-<h3>✅ Тренд ба хүч</h3>
+<h3>✅ Оноо ба чиглэл</h3>
 <ul class="check">
-  <li>Баталгаажсан LONG/SHORT шошго гарсан (бар хаагдсан)</li>
-  <li>ADX <code>OK</code> — Stats panel дээр ADX утга босгоосоо дээш (chop биш)</li>
-  <li>HTF тренд нийцсэн — 4H supertrend дохиотой ижил чиглэлд (HTF cut <code>On</code> үед автоматаар шалгагдана)</li>
+  <li>Label дээрх оноо <b>4/7+</b> — 🎯 SNIPER угтвартай, том label</li>
+  <li>Оноо задаргаанд <b>HTF ✓</b> байгаа (Settings → HTF trend filter ON бол зөрсөн flip аль хэдийн блоклогдсон)</li>
 </ul>
 <h3>✅ Байршил (location)</h3>
 <ul class="check">
-  <li>LONG бол <b>discount</b> (ATR range-ийн доод хагас), SHORT бол <b>premium</b> (дээд хагас)</li>
-  <li>Том macro Support/Resistance-д наалдаагүй (LONG нь Macro R дор биш)</li>
+  <li>LONG бол <b>discount</b>, SHORT бол <b>premium</b> — задаргаанд <b>Loc ✓</b></li>
+  <li>Оноо задаргаанд <b>Head ✓</b> — macro Support/Resistance-д шууд наалдаагүй</li>
 </ul>
-<h3>✅ Цаг хугацаа</h3>
+<h3>✅ Цаг хугацаа (гар шалгалт)</h3>
 <ul class="check">
   <li><b>London (07–16 UTC)</b> эсвэл <b>NY (12–21 UTC)</b> session дотор — likviditi өндөр</li>
-  <li>Asia (00–07 UTC) session биш (хажуу зах зээл их, чанар муу)</li>
-  <li>News цонх биш (default: 12:30 / 14:00 / 18:00 UTC орчим)</li>
-  <li>Баасан 18:00 UTC-ээс хойш биш (Friday cutoff автоматаар хаана)</li>
+  <li>Asia (00–07 UTC) session-д боломжоор алгас (chop, fake flip их)</li>
 </ul>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">
+Session-ийг indicator өөрөө автоматаар шүүхийг хүсвэл Settings → <b>Session filter</b>-ийг ON болго
+(Frankfurt–NY 06–21 UTC-ээс гадна entry гаргахгүй болно). Default: OFF — session-ээ өөрөө хараад шийднэ.
+</p>
 
 <h2>3. Хамгийн сайн арилжааны цаг (XAU / Gold)</h2>
-<p>Session panel графикийн баруун доод буланд <code>Now</code> / <code>Next</code> гэж харагдана.</p>
+<p>Indicator дээр session-ийн UI панель байхгүй тул доорхи цагийн мэдлэгийг өөрөө хэрэглэнэ
+(эсвэл дээрх Session filter-ийг ON болгож автоматжуулж болно):</p>
 <table>
   <tr><th>Session (UTC)</th><th>Чанар</th><th>Тэмдэглэл</th></tr>
   <tr><td>Asia 00:00–07:00</td><td><span class="warn">⚠️ Сул</span></td><td>Range их, fake flip олон. Боломжоор алгас</td></tr>
@@ -219,41 +230,46 @@ ADX/HTF/Session филтер дараа нь дохиог хааж болно.</
 ⭐ <b>London/NY давхцал (12:00–16:00 UTC)</b> — trend-following дохионы хамгийн өндөр чанартай цонх.
 </div>
 
-<h2>4. Stats panel-аар "энэ зах зээл арилжаалахад тохиромжтой юу?"</h2>
-<table>
-  <tr><th>Үзүүлэлт</th><th>Ногоон гэрэл (арилжаална)</th><th>Улаан гэрэл (болгоомжил)</th></tr>
-  <tr><td>Win%</td><td class="ok">≥ 55–60%</td><td class="warn">&lt; 50%</td></tr>
-  <tr><td>Loss% / R</td><td class="ok">R ≥ 1.0</td><td class="warn">R &lt; 1.0</td></tr>
-  <tr><td>Max DD</td><td class="ok">&lt; 10–15%</td><td class="warn">хэт том</td></tr>
-  <tr><td>ADX</td><td class="ok">OK</td><td class="warn">босгоос доош</td></tr>
-  <tr><td>Weak %</td><td class="ok">бага / ногоон</td><td class="warn">өндөр → weak filter асаа</td></tr>
-  <tr><td>Fav WR</td><td class="ok">нийт Win-ээс өндөр</td><td class="warn">доогуур</td></tr>
-</table>
-<p style="font-size:13px;color:rgba(255,255,255,.6);">(Дэлгэрэнгүй: <a href="KhanSniperPro_Stats_Guide.html" style="color:#ff9c1a;"><i>KhanSniperPro_Stats_Guide</i></a> баримтаас үзнэ үү.)</p>
+<h2>4. Setup бүрийн үр дүнг chart дээрээс шууд харах — TP milestone ба Printed/Stopped badge</h2>
+<p>Нэгдсэн Stats хүснэгт байхгүй болсон — үүний оронд indicator setup БҮР дээрээ
+үр дүнгийн label шууд зурдаг:</p>
+<ul>
+  <li><b>TP1–TP4 шугам</b> — entry-ээс ATR-аар тооцсон 4 түвшин</li>
+  <li><b>Deepest-TP milestone label</b> — үнэ TP1→TP4 руу гүнзгийрэх тусам ГАНЦ label шинэчлэгдэж,
+  setup дуустал хамгийн гүн хүрсэн TP-гээ л харуулна (жиш нь TP3 хүрч зогсвол label дээр "TP3" үлдэнэ)</li>
+  <li><b>Printed badge</b> — TP4-өөс цаашаа ATR-ийн 0.25 дахин давбал гарч, тухайн setup-ийн эцсийн
+  бодит ашгийг хувиар (%) харуулна (жиш: "LONG Printed +2.4%")</li>
+  <li><b>Stopped badge</b> — SL-д хүрч хаагдвал тухайн setup-ийн бодит алдагдлыг хувиар харуулна
+  (жиш: "SHORT Stopped −0.8%")</li>
+</ul>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">
+Эдгээр badge нь setup ТУС БҮРийн үр дүн — нийт win rate/aggregate тооцдог төв хүснэгт одоо байхгүй.
+Нийт гүйцэтгэлээ хянахыг хүсвэл badge-үүдийг өөрөө бүртгэж нэгтгэнэ үү.
+</p>
 
 <h2>5. ХЭЗЭЭ АРИЛЖАА ХИЙХГҮЙ ВЭ (алгасах нөхцөл)</h2>
 <div class="danger">
 ❌ Дараах үед дохиог <b>алгас</b> — winrate-ийг чирэх магадлалтай:
 <ul>
-  <li><b>ADX босгоосоо доош</b> (<code>OK</code> биш) → тренд сул, chop</li>
-  <li><b>HTF эсрэг чиглэлд</b> → counter-trend flip</li>
-  <li><b>News цонхонд</b> (12:30/14:00/18:00 UTC ±) → огцом spike, fake flip</li>
-  <li><b>Баасан орой / амралтын өмнө</b> (18:00 UTC+) → gap эрсдэл</li>
+  <li>Label дээрх оноо <b>4/7-оос доош</b> (бүдэг, 🎯 угтваргүй) → чанар султай</li>
+  <li>Оноо задаргаанд <b>HTF ✗</b> → counter-trend flip (HTF filter OFF үед л ийм label харагдана)</li>
   <li><b>Asia session дунд</b> болон likviditi сул үед</li>
-  <li><b>Macro R/S-д шууд наалдсан</b> entry</li>
-  <li><b>"Get ready" гарсан ч баталгаажсан LONG/SHORT гараагүй</b> → орохгүй</li>
-  <li>Stats дээр <b>Win% бага + R &lt; 1.0</b> хосолсон → энэ зах зээл/тохиргоо тааруу</li>
+  <li>Оноо задаргаанд <b>Head ✗</b> → Macro R/S-д шууд наалдсан entry</li>
 </ul>
 </div>
 
 <h2>6. Орсны дараа — менежмент (indicator өөрөө хийнэ)</h2>
 <ol>
-  <li><b>TP1–TP4 шугам</b> entry-ээс зурагдана — хэсэгчлэн ашиг авах түвшингүүд</li>
+  <li><b>TP1–TP4 шугам</b> entry-ээс зурагдана — Section 4-т дүрсэлсэн deepest-TP milestone label-аар хянана</li>
   <li><b>TP1 хүрэхэд</b> → SL breakeven руу шилжинэ (эрсдэлгүй болно)</li>
   <li><b>TP2 хүрэхэд</b> → SL-ийг TP1 түвшинд lock (runner ашиг хамгаална)</li>
-  <li><b>Trailing Stop (улаан тасархай)</b> → эсрэг flip эсвэл SL хүртэл байрлана</li>
+  <li><b>Trend Line / Trailing Stop</b> (баруун ирмэгийн label) → эсрэг flip эсвэл SL хүртэл байрлана</li>
   <li><b>Эсрэг flip</b> гарвал → позицийг хаах дохио</li>
 </ol>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">
+SL-д хүрэхэд хоёр тэмдэг гарна: бор дугуй <b>"SL?"</b> (SL watch — үнэ хүрсэн ч хаалт баталгаажаагүй)
+болон улаан X <b>"SL"</b> (SL hit — хаалт баталгаажсан).
+</p>
 <div class="note">
 Гол дүрэм: <b>SL-ийг гар аргаар бүү ухраа.</b> Indicator-ийн trailing/lock логик
 алдагдлыг хязгаарлахаар зохиогдсон.
@@ -262,16 +278,17 @@ ADX/HTF/Session филтер дараа нь дохиог хааж болно.</
 <h2>Товч дүгнэлт — "GO / NO-GO"</h2>
 <div class="gobox">
 <b>GO ✅</b> (бүгд таарвал):<br>
-Баталгаажсан flip + ADX OK + HTF нийц + London/NY session + News биш + таатай байршил
+Баталгаажсан flip + оноо 4/7+ (🎯 SNIPER) + HTF нийц + London/NY session + таатай байршил
 </div>
 <div class="nogobox">
 <b>NO-GO ❌</b> (аль нэг нь):<br>
-Бар хаагдаагүй · ADX сул · HTF эсрэг · News цонх · Баасан орой · Asia chop · Macro S/R-д наалдсан
+Оноо 4/7-оос доош · HTF эсрэг (задаргаанд ✗) · Asia chop · Macro S/R-д наалдсан (Head ✗)
 </div>
 
 <div class="footer">
-KHAN | Sniper Pro — When To Trade · Бүх филтер тохиргооноос асаах/унтраах боломжтой ·
-Default: HTF + News + Friday On, Session + D1 EMA Off · Зах зээл, timeframe-ээ Stats panel дээр туршиж тохируул.
+KHAN | Sniper Pro — When To Trade · Бүх филтер Settings-ээс асаах/унтраах боломжтой ·
+Default: HTF filter On · Entry engine = Trail flip · SNIPER score filter Off · Session filter Off ·
+Label дээрх оноо задаргаа болон Printed/Stopped badge-аар chart дээрээсээ шууд шалгаж тохируул.
 </div>
 
 </div><!-- /.l-mn -->
@@ -280,7 +297,7 @@ Default: HTF + News + Friday On, Session + D1 EMA Off · Зах зээл, timefr
 <div class="l-en">
 
 <h1>KHAN | Sniper Pro — When to Trade?</h1>
-<div class="subtitle">When to take a signal, when to skip it — practical guide · 2026-06-17</div>
+<div class="subtitle">When to take a signal, when to skip it — practical guide · 2026-08-18</div>
 
 <p>The indicator displays everything on the chart itself — this document organises "what to look at before deciding".</p>
 
@@ -290,36 +307,48 @@ Default: HTF + News + Friday On, Session + D1 EMA Off · Зах зээл, timefr
 ⏳ <b>Don't act before the bar closes.</b> A signal that appears mid-bar may disappear when the bar closes. Only act on a signal from a fully closed bar.
 </div>
 
-<h2>1. Signal sequence — "Get ready" → "LONG/SHORT"</h2>
-<table>
-  <tr><th>Signal</th><th>Meaning</th><th>Action</th></tr>
-  <tr><td>▲ Get ready to long / short</td><td>Pre-signal: price is approaching the trail</td><td>Prepare — get your order ready, but <b>DON'T ENTER</b></td></tr>
-  <tr><td><b>LONG / SHORT</b> label</td><td>Confirmed flip entry</td><td><span class="ok">Enter only now</span></td></tr>
-</table>
-<p>"Get ready" is only an <b>alert</b> — it doesn't guarantee entry. ADX/HTF/Session filters may block the signal afterwards.</p>
+<h2>1. The signal — confirmed LONG/SHORT + SNIPER SCORE</h2>
+<p>The indicator no longer has a "Get ready" pre-signal warning — every
+<b>LONG/SHORT</b> label you see is already a confirmed, bar-closed flip.</p>
+<p>The label carries a confluence score <code>X/7</code> alongside the direction:</p>
+<ul>
+  <li>Score <b>4/7</b> or higher → 🎯 <b>SNIPER</b>-prefixed, large, bright label</li>
+  <li>Score below <b>4/7</b> → no prefix, dim, small label (fires, but lower quality)</li>
+  <li>Sweep-reversal engine entries → <b>◆ SWEEP</b>-prefixed label</li>
+</ul>
+<p>Hover the label to see the score breakdown: <code>HTF · Loc · Head · Sweep · ADX · Candle</code>
+— check by eye which components scored (✓) and which didn't (✗).</p>
+<div class="note">
+⚙️ <b>Settings → SNIPER score filter.</b> Default OFF — every flip fires with its label, you judge the score yourself.
+ON blocks any flip scoring below 4/7 from firing at all.
+</div>
+<p>Settings → <b>Entry engine</b> switches between three modes: <b>Trail flip</b> (trend-following, the main engine),
+<b>Sweep reversal</b> (fades liquidity-sweep reversals only), <b>Auto (regime)</b> (trail in trend, sweep in range).</p>
 
 <h2>2. Pre-entry CHECKLIST</h2>
-<h3>✅ Trend &amp; Strength</h3>
+<h3>✅ Score &amp; direction</h3>
 <ul class="check">
-  <li>Confirmed LONG/SHORT label present (bar closed)</li>
-  <li>ADX <code>OK</code> — Stats panel shows ADX value above threshold (not chop)</li>
-  <li>HTF trend aligned — same direction as 4H supertrend signal (auto-checked when HTF cut is <code>On</code>)</li>
+  <li>Label score is <b>4/7+</b> — 🎯 SNIPER-prefixed, large label</li>
+  <li><b>HTF ✓</b> in the breakdown (with HTF trend filter ON, a misaligned flip is already blocked)</li>
 </ul>
 <h3>✅ Location</h3>
 <ul class="check">
-  <li>LONG in <b>discount</b> (lower half of ATR range), SHORT in <b>premium</b> (upper half)</li>
-  <li>Not stacked directly at a major macro Support/Resistance (LONG not directly below Macro R)</li>
+  <li>LONG in <b>discount</b>, SHORT in <b>premium</b> — <b>Loc ✓</b> in the breakdown</li>
+  <li><b>Head ✓</b> in the breakdown — not stacked directly at a major macro Support/Resistance</li>
 </ul>
-<h3>✅ Timing</h3>
+<h3>✅ Timing (manual check)</h3>
 <ul class="check">
   <li>Within <b>London (07–16 UTC)</b> or <b>NY (12–21 UTC)</b> session — high liquidity</li>
-  <li>Not Asia (00–07 UTC) session (choppy market, lower quality)</li>
-  <li>Not a News window (default: around 12:30 / 14:00 / 18:00 UTC)</li>
-  <li>Not after Friday 18:00 UTC (Friday cutoff auto-blocks)</li>
+  <li>Skip Asia (00–07 UTC) session when possible (choppy, more fake flips)</li>
 </ul>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">
+To have the indicator enforce session timing automatically, turn on Settings → <b>Session filter</b>
+(blocks entries outside Frankfurt–NY 06–21 UTC). Default: OFF — you judge the session yourself.
+</p>
 
 <h2>3. Best trading times (XAU / Gold)</h2>
-<p>The session panel shows <code>Now</code> / <code>Next</code> in the bottom-right corner of the chart.</p>
+<p>There is no built-in session panel anymore, so apply this timing knowledge yourself
+(or turn on the Session filter above to automate it):</p>
 <table>
   <tr><th>Session (UTC)</th><th>Quality</th><th>Notes</th></tr>
   <tr><td>Asia 00:00–07:00</td><td><span class="warn">⚠️ Weak</span></td><td>Wide range, many fake flips. Skip when possible</td></tr>
@@ -331,41 +360,46 @@ Default: HTF + News + Friday On, Session + D1 EMA Off · Зах зээл, timefr
 ⭐ <b>London/NY overlap (12:00–16:00 UTC)</b> — the highest-quality window for trend-following signals.
 </div>
 
-<h2>4. Using the Stats panel — "Is this market worth trading?"</h2>
-<table>
-  <tr><th>Metric</th><th>Green light (trade)</th><th>Red light (caution)</th></tr>
-  <tr><td>Win%</td><td class="ok">≥ 55–60%</td><td class="warn">&lt; 50%</td></tr>
-  <tr><td>Loss% / R</td><td class="ok">R ≥ 1.0</td><td class="warn">R &lt; 1.0</td></tr>
-  <tr><td>Max DD</td><td class="ok">&lt; 10–15%</td><td class="warn">too large</td></tr>
-  <tr><td>ADX</td><td class="ok">OK</td><td class="warn">below threshold</td></tr>
-  <tr><td>Weak %</td><td class="ok">low / green</td><td class="warn">high → enable weak filter</td></tr>
-  <tr><td>Fav WR</td><td class="ok">above overall Win%</td><td class="warn">below overall Win%</td></tr>
-</table>
-<p style="font-size:13px;color:rgba(255,255,255,.6);">(Details: see the <a href="KhanSniperPro_Stats_Guide.html" style="color:#ff9c1a;"><i>KhanSniperPro_Stats_Guide</i></a> document.)</p>
+<h2>4. Reading each setup's result straight off the chart — TP milestone &amp; Printed/Stopped badges</h2>
+<p>There's no more consolidated Stats table — instead, the indicator draws each setup's
+own result label directly on the chart:</p>
+<ul>
+  <li><b>TP1–TP4 lines</b> — four ATR-based levels drawn from entry</li>
+  <li><b>Deepest-TP milestone label</b> — as price advances through TP1→TP4, a SINGLE label
+  keeps updating to show the deepest level reached so far (e.g. if price stalls at TP3, the label reads "TP3")</li>
+  <li><b>Printed badge</b> — appears once price extends 0.25×ATR past TP4, showing the setup's
+  final realized result as a percentage (e.g. "LONG Printed +2.4%")</li>
+  <li><b>Stopped badge</b> — appears when a trade closes at the stop, showing the realized loss
+  as a percentage (e.g. "SHORT Stopped −0.8%")</li>
+</ul>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">
+These badges are PER-SETUP results — there is no longer a central table aggregating win rate
+across all setups. To track overall performance, log the badges yourself.
+</p>
 
 <h2>5. WHEN NOT TO TRADE (skip conditions)</h2>
 <div class="danger">
 ❌ <b>Skip the signal</b> in these cases — likely to drag down win rate:
 <ul>
-  <li><b>ADX below threshold</b> (<code>OK</code> not showing) → weak trend, chop</li>
-  <li><b>HTF in opposite direction</b> → counter-trend flip</li>
-  <li><b>News window</b> (12:30 / 14:00 / 18:00 UTC ±) → sharp spike, fake flip</li>
-  <li><b>Friday evening / before weekend</b> (18:00 UTC+) → gap risk</li>
+  <li>Label score is <b>below 4/7</b> (dim, no 🎯 prefix) → lower-quality setup</li>
+  <li><b>HTF ✗</b> in the breakdown → counter-trend flip (only visible with HTF filter OFF)</li>
   <li><b>Mid-Asia session</b> or other low-liquidity periods</li>
-  <li><b>Entry stacked directly at a Macro R/S level</b></li>
-  <li><b>"Get ready" appeared but no confirmed LONG/SHORT</b> → do not enter</li>
-  <li>Stats show <b>low Win% + R &lt; 1.0</b> together → poor market/settings combination</li>
+  <li><b>Head ✗</b> in the breakdown → entry stacked directly at a Macro R/S level</li>
 </ul>
 </div>
 
 <h2>6. After entry — management (the indicator handles it)</h2>
 <ol>
-  <li><b>TP1–TP4 lines</b> are drawn from entry — partial profit levels</li>
+  <li><b>TP1–TP4 lines</b> are drawn from entry — tracked by the deepest-TP milestone label described in Section 4</li>
   <li><b>When TP1 is hit</b> → SL moves to breakeven (risk-free)</li>
   <li><b>When TP2 is hit</b> → SL locked at TP1 (protects runner profit)</li>
-  <li><b>Trailing Stop (red dashed)</b> → stays in place until counter-flip or SL hit</li>
+  <li><b>Trend Line / Trailing Stop</b> (right-edge label) → stays in place until counter-flip or SL hit</li>
   <li><b>Counter-flip</b> → signal to close the position</li>
 </ol>
+<p style="font-size:13px;color:rgba(255,255,255,.6);">
+Two markers can appear at the stop: an amber circle <b>"SL?"</b> (SL watch — price touched
+the stop but the close hasn't confirmed it yet) and a red X <b>"SL"</b> (SL hit — close confirmed).
+</p>
 <div class="note">
 Key rule: <b>Never manually move the SL back.</b> The indicator's trailing/lock logic is designed to limit losses.
 </div>
@@ -373,16 +407,17 @@ Key rule: <b>Never manually move the SL back.</b> The indicator's trailing/lock 
 <h2>Quick Summary — GO / NO-GO</h2>
 <div class="gobox">
 <b>GO ✅</b> (all conditions met):<br>
-Confirmed flip + ADX OK + HTF aligned + London/NY session + no News + favorable location
+Confirmed flip + score 4/7+ (🎯 SNIPER) + HTF aligned + London/NY session + favorable location
 </div>
 <div class="nogobox">
 <b>NO-GO ❌</b> (any one of these):<br>
-Bar not closed · ADX weak · HTF opposing · News window · Friday evening · Asia chop · Stacked at Macro S/R
+Score below 4/7 · HTF opposing (✗ in breakdown) · Asia chop · Stacked at Macro S/R (Head ✗)
 </div>
 
 <div class="footer">
-KHAN | Sniper Pro — When To Trade · All filters can be toggled in settings ·
-Default: HTF + News + Friday On, Session + D1 EMA Off · Test your market and timeframe in the Stats panel to calibrate.
+KHAN | Sniper Pro — When To Trade · All filters can be toggled in Settings ·
+Default: HTF filter On · Entry engine = Trail flip · SNIPER score filter Off · Session filter Off ·
+Use the label's score breakdown and the Printed/Stopped badges to calibrate straight from the chart.
 </div>
 
 </div><!-- /.l-en -->

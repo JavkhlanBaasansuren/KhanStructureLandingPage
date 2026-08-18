@@ -71,9 +71,9 @@
     <h1>ARMED ZONE ба 6 alert — <em>хэзээ, яаж орох вэ</em></h1>
     <p class="standfirst">
       KHAN ICT VISUAL нь entry гаргадаггүй — <strong>оролт хайх зөвшөөрөл ба
-      хүлээх газрыг</strong> зурдаг. Энэ хуудас нь тэр зөвшөөрлийг утсан дээрх
-      мессежээс эхлээд брокер дээрх захиалга хүртэл яаж ажиллуулахыг, ямар ч
-      туршлагагүй хүнд ойлгогдохоор, нэг бодит жишээгээр тайлбарлана.
+      хүлээх газрыг</strong> зурдаг. Энэ хуудас тэр зөвшөөрлийг утсан дээрх
+      мессежээс брокерын захиалга хүртэл хэрхэн ашиглахыг нэг бодит жишээгээр,
+      ямар ч туршлагагүй хүнд ойлгомжтой тайлбарлана.
     </p>
 
     <nav class="toc" aria-label="Агуулга">
@@ -189,7 +189,7 @@
 
     <p>
       Жишээ нөхцөл: XAU даваа гарагт gap-аар доош нээгдэж, PDL 4028.69-ийг
-      тестлээд буцаж өснө гэсэн таамагтай байя. Утсан дээр мессежүүд
+      тестлээд буцаж өснө гэж таамаглая. Утсан дээр мессежүүд
       дарааллаараа ирнэ.
     </p>
 
@@ -400,19 +400,93 @@ MT5 / брокер дээр:
     </pre>
 
     <p>
-      <strong>Нэг alert таван event-ийг бүгдийг барина</strong> — тус тусад нь
+      <strong>Нэг alert зургаан event-ийг бүгдийг барина</strong> — тус тусад нь
       үүсгэх шаардлагагүй. Индикаторын settings-д <code>🔔 ALERT</code> toggle
       default асаалттай.
     </p>
+
+    <p>Зургаан event тус бүрд яг ийм бодит текст ирнэ:</p>
+
+    <p style="margin-bottom:6px;"><strong>🎯 MSS</strong> — бүтэц эргэсэн мөч</p>
+    <pre>
+KHAN ICT 🎯 MSS — бүтэц эргэв
+TF: 15
+Symbol: OANDA:XAUUSD
+Чиглэл: SELL (Богино)
+Түвшин: 4142.300
+P/D: PREMIUM
+→ Одоо displacement-ийн FVG/OB зурвас руу retrace хүлээнэ.
+    </pre>
+
+    <p style="margin-bottom:6px;"><strong>⏳ SETUP ARMED</strong> — retrace хүлээж байна</p>
+    <pre>
+KHAN ICT ⏳ SETUP ARMED — retrace хүлээж байна
+TF: 15
+Symbol: OANDA:XAUUSD
+Зэрэглэл: A (KZ+P/D+SCORE≥5)
+→ A = бүтэн · B = хагас · C = алгас
+Чиглэл: BUY (Урт)
+Зурвас: FVG  4128.400 – 4132.800
+CE (хүлээх үнэ): 4130.600
+Sweep туйл: 4126.900
+Хүчинтэй: 40 бар
+Killzone: LONDON · P/D: DISCOUNT
+    </pre>
+
+    <p style="margin-bottom:6px;"><strong>✅ ZONE TOUCHED</strong> — үнэ CE-д хүрсэн (setup бүрд ГАНЦ удаа)</p>
+    <pre>
+KHAN ICT ✅ ZONE TOUCHED — үнэ зурваст ирлээ
+TF: 15
+Symbol: OANDA:XAUUSD
+Чиглэл: BUY (Урт)
+CE: 4130.600
+Одоогийн үнэ: 4130.550
+Killzone: LONDON
+→ Баталгаа хай: зурвасаас үсрэх урвал, доод TF-ийн CHoCH. Сохроор бүү ор.
+    </pre>
+
+    <p style="margin-bottom:6px;"><strong>⌛ SETUP EXPIRED</strong> — setup хүчингүй болсон (шалтгаан: хугацаа дуусав / зон цоологдов / эсрэг setup)</p>
+    <pre>
+KHAN ICT ⌛ SETUP EXPIRED
+TF: 15
+Symbol: OANDA:XAUUSD
+Шалтгаан: хугацаа дуусав
+    </pre>
+
+    <p style="margin-bottom:6px;"><strong>⇅ SMT DIVERGENCE</strong> — хамтрагч symbol дээр sweep баталгаажив</p>
+    <pre>
+KHAN ICT ⇅ SMT DIVERGENCE
+TF: 15
+Symbol: OANDA:XAUUSD
+Хамтрагч: MSTR (эерэг)
+Чиглэл: SELL (Богино)
+Түвшин: 4142.300
+Killzone: NY AM · P/D: PREMIUM
+→ Sweep нь БИЕ ДААСАН хоёр дахь хэрэглүүрээр баталгаажив. Одоо MSS/BOS ба FVG/OB retrace-ыг ердийнхөөрөө хүлээ.
+    </pre>
+
+    <p style="margin-bottom:6px;"><strong>⚡ SILVER BULLET FVG</strong> — killzone цонхны эхний имбаланс</p>
+    <pre>
+KHAN ICT ⚡ SILVER BULLET FVG — цонхны эхний имбаланс
+TF: 15
+Symbol: OANDA:XAUUSD
+Цонх: NY AM
+Чиглэл: BUY (Урт)
+Зурвас: 4135.200 – 4137.800
+CE (хүлээх үнэ): 4136.500
+P/D: DISCOUNT
+→ Цонхны ДОТОР энэ CE рүү retrace ирвэл Silver Bullet оролт. Цонх хаагдвал (нэг цаг) setup хүчингүй.
+    </pre>
 
     <h3>Telegram-д авах бол</h3>
     <p>
       Alert-ийн Notifications → Webhook URL-д Telegram bot-ынхоо
       <code>sendMessage</code> endpoint-ийг тавь. Индикаторын
       <code>Alert payload</code> тохиргоо <code>Telegram JSON</code> горимд
-      байвал мессеж шууд илгээгдэхэд бэлэн JSON хэлбэрээр гарна
-      (<code>chat_id</code>-гаа settings-ээс солино).
+      байвал дээрх мессежүүд бэлэн JSON хэлбэрээр ийм маягаар гарна
+      (<code>chat_id</code>-гаа settings-ээс солино, 6 event бүр адил бүтэцтэй):
     </p>
+    <pre>{"chat_id":"@khanstructurealert","text":"KHAN ICT ⏳ SETUP ARMED — retrace хүлээж байна\nTF: 15\n..."}</pre>
 
     <div class="note">
       <span class="tag">Хоцролт</span>
