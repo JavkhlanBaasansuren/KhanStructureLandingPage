@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="KHAN ICT VISUAL индикаторын SMT DIVERGENCE: DXY-тэй хосолсон анхны тохиргоо, график дээрх SMT шошгыг унших, alert-ийн тайлбар, sweep-SMT-MSS ажлын урсгал, SMT хэзээ худал хэлдэг - бодит жишээ, диаграмтай." />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:title" content="SMT — ⇅ хоёр дахь бие даасан баримт" />
+<meta property="og:description" content="KHAN ICT VISUAL-ын ⇅ SMT: DXY анхны хос, шошго ба alert-ийн тайлбар, sweep→SMT→MSS урсгал, хэзээ худал хэлдэг." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://khanstructure.com/guide/ref-smt.html" />
+<meta property="og:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+<meta property="og:site_name" content="KHAN SNIPER PRO" />
+<meta property="og:locale" content="mn_MN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SMT — ⇅ хоёр дахь бие даасан баримт" />
+<meta name="twitter:description" content="KHAN ICT VISUAL-ын ⇅ SMT: DXY анхны хос, шошго ба alert-ийн тайлбар, sweep→SMT→MSS урсгал, хэзээ худал хэлдэг." />
+<meta name="twitter:image" content="https://khanstructure.com/khan_sniper_cover.jpg" />
+
+<meta name="theme-color" content="#0a0e14" />
+<link rel="canonical" href="https://khanstructure.com/guide/ref-smt.html" />
+
+<link rel="icon" type="image/png" sizes="any" href="../khan_logo_transparent.png" />
+<link rel="shortcut icon" href="../khan_logo_transparent.png" />
+<link rel="apple-touch-icon" href="../khan_logo_transparent.png" />
+
+<title>SMT — ⇅ хоёр дахь бие даасан баримт | KHAN ICT VISUAL</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "SMT — хоёр дахь бие даасан баримт",
+  "description": "KHAN ICT VISUAL индикаторын SMT DIVERGENCE: DXY-тэй хосолсон анхны тохиргоо, график дээрх шошгыг унших, alert-ийн тайлбар, sweep-SMT-MSS-retrace ажлын урсгал, SMT хэзээ худал хэлдэг.",
+  "inLanguage": "mn",
+  "url": "https://khanstructure.com/guide/ref-smt.html",
+  "image": "https://khanstructure.com/khan_sniper_cover.jpg",
+  "publisher": { "@type": "Organization", "name": "KHAN SNIPER PRO", "url": "https://khanstructure.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Нүүр", "item": "https://khanstructure.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Сургалтын номын сан", "item": "https://khanstructure.com/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "SMT — хоёр дахь баримт", "item": "https://khanstructure.com/guide/ref-smt.html" }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/guide.css" />
+<link rel="stylesheet" href="assets/plate.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="index.html">← Номын сан</a>
+    <span class="brand">KHAN ICT VISUAL · Гарын авлага</span>
+  </div>
+
+  <header class="masthead">
+    <div class="kicker"><span>Индикатор ашиглах</span><span>SMT</span><span>KHAN ICT VISUAL</span></div>
+    <h1>SMT — <em>⇅ хоёр дахь бие даасан баримт</em></h1>
+    <p class="standfirst">
+      Индикатор дээрх бусад БҮХ хэрэгсэл — FVG, OB, sweep, BOS, liquidity pool —
+      <strong>яг нэг үнийн цуваанаас</strong> тооцоологддог. Тиймээс тэд бие биенээ
+      баталгаажуулж чаддаггүй: хоёр нь нийлсэн ч тэр нь нэг өгөгдлийн хоёр уншилт
+      хэвээр. <strong>SMT бол цорын ганц үл хамаарах зүйл</strong> — өөр хэрэглүүр,
+      ижил цаг, ижил хөдөлгөгч хүч. Онолыг нь
+      <a href="ict-06-smt-divergence.html">Хичээл 06</a> заасан; энэ хуудас харин
+      <strong>индикатор дээр яаж ажилладгийг</strong> тайлбарлана.
+    </p>
+
+    <nav class="toc" aria-label="Агуулга">
+      <ol>
+        <li><a href="#why">Яагаад SMT бусдаас өөр вэ</a></li>
+        <li><a href="#setup">Тохиргоо — DXY анхны хос</a></li>
+        <li><a href="#read">Графикт юу харагдах вэ</a></li>
+        <li><a href="#alert">⇅ мессежийн тайлбар</a></li>
+        <li><a href="#flow">Ажлын урсгал — sweep → SMT → MSS</a></li>
+        <li><a href="#lies">SMT хэзээ ХУДАЛ хэлдэг</a></li>
+        <li><a href="#rules">Нарийн дүрмүүд — нэг хуудсанд</a></li>
+        <li><a href="#next">Дараа нь юу унших</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- =============================== 1 -->
+  <section id="why">
+    <div class="eyebrow">Үндэс</div>
+    <h2>Яагаад SMT бусдаас өөр вэ</h2>
+
+    <p>
+      Хэрэв нэг график дээр FVG, OB, RB, VI, sweep, BOS зэрэг зургаан зүйл
+      “нийлээд” байвал энэ нь зургаан <em>бие даасан</em> санал биш. Бүгд нь
+      <strong>ижил лаанаас</strong> гаралтай тул нэг л зүйлийг зургаан өөр нэрээр
+      хэлж байна. Хуурамч хөдөлгөөн гарвал зургуулаа хамт хуурна.
+    </p>
+
+    <p>
+      SMT харин өөр асуулт тавьдаг: <strong>“Ижил хөдөлгөгч хүчээр явдаг НӨГӨӨ
+      хэрэглүүр яг одоо юу гэж байна?”</strong> Хэрэв алт шинэ оргил тавьж дээд
+      талын liquidity-г цоолсон атлаа доллар түүнийг дагаагүй бол — тэр өсөлт нь
+      жинхэнэ эрэлт БИШ, зөвхөн stop цуглуулалт байсан гэсэн бие даасан нотолгоо.
+      Энэ бол ганц графикаас ХЭЗЭЭ Ч гарч ирэхгүй мэдээлэл.
+    </p>
+
+    <div class="note">
+      <span class="tag">Гол санаа</span>
+      <p>
+        Sweep дангаараа “магадгүй” гэдэг. Sweep + SMT нь <strong>“тийм, тэр
+        цоолол хуурамч байсан”</strong> гэдэг. Яг энэ шалтгаанаар ICT SMT-г
+        хамгийн найдвартай баталгаажуулалтуудын нэг гэж үздэг.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 2 -->
+  <section id="setup">
+    <div class="eyebrow">Тохиргоо</div>
+    <h2>Тохиргоо — DXY анхны хос</h2>
+
+    <p>
+      SMT бол индикаторын <strong>ӨӨР СИМВОЛ шаарддаг цорын ганц</strong> хэрэгсэл
+      тул түүнийг тохиргоогүйгээр хэрэгжүүлэх боломжгүй. Анхны утга нь одоо
+      <code>TVC:DXY</code> + <strong>урвуу хамаарал АСААЛТТАЙ</strong> — доллар нь
+      алт, евро, фунт, BTC-ийн аль алинтай урвуу хөддөг тул энэ хос ассет солиход ч
+      утгатай хэвээр байдаг.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Таны график</th><th>Хамтрагч символ</th><th>↕ Урвуу</th><th>Тайлбар</th></tr></thead>
+        <tbody>
+          <tr><td><strong>XAUUSD</strong></td><td><code>TVC:DXY</code></td><td class="num">ON</td><td>Анхны утга — алт ↔ доллар сонгодог урвуу хос</td></tr>
+          <tr><td><strong>XAUUSD</strong></td><td><code>OANDA:XAGUSD</code></td><td class="num">OFF</td><td>Мөнгө — алттай эерэг, илүү мэдрэмтгий</td></tr>
+          <tr><td>EURUSD</td><td><code>TVC:DXY</code></td><td class="num">ON</td><td>Урвуу</td></tr>
+          <tr><td>EURUSD</td><td><code>GBPUSD</code></td><td class="num">OFF</td><td>Нэг эсрэг талтай хос</td></tr>
+          <tr><td>ES / SPX</td><td><code>NQ / NDX</code></td><td class="num">OFF</td><td>Индексийн хос</td></tr>
+          <tr><td>BTCUSD</td><td><code>ETHUSD</code></td><td class="num">OFF</td><td>Криптын хос</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn">
+      <span class="tag">Хамгийн түгээмэл алдаа</span>
+      <p>
+        <strong>Урвуу тохируулгыг буруу тавих.</strong> <code>XAGUSD</code> сонгоод
+        урвууг АСААЛТТАЙ хэвээр үлдээвэл SMT нь <em>яг эсрэгээрээ</em> уншигдана —
+        bullish байх ёстой газар bearish гэж хэлнэ. Дүрэм энгийн:
+        <strong>доллартай холбоотой бол ON, бусад бүх тохиолдолд OFF.</strong>
+      </p>
+    </div>
+
+    <p>
+      SMT хэрэггүй бол символын талбарыг <strong>хоослоход</strong> бүрэн унтарна.
+      Хамтрагч нэмэх нь <code>request.security</code> дуудлагыг
+      <strong>нэмэгдүүлэхгүй</strong> — хоосон үедээ ч индикатор өөрийгөө хүсдэг
+      байсан тул гүйцэтгэлийн зардал ижил.
+    </p>
+  </section>
+
+  <!-- =============================== 3 -->
+  <section id="read">
+    <div class="eyebrow">Уншлага</div>
+    <h2>Графикт юу харагдах вэ</h2>
+
+    <p>
+      SMT илрэхэд график дээр <strong><code>SMT</code> гэсэн шошго</strong> гарна —
+      bullish бол доороос дээш заасан ногоон, bearish бол дээрээс доош заасан улаан.
+      Шошго нь <strong>зөрүү үүсгэсэн swing-ийн түвшин дээр</strong> суух бөгөөд
+      hover хийхэд юу болсныг бүтнээр тайлбарлана.
+    </p>
+
+    <h3>Bearish SMT — дээд талд</h3>
+    <figure class="duo" id="fig-bear">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">XAUUSD · шинэ оргил ГАРГАСАН</div>
+          <svg data-chart="bearSmtXau" role="img" aria-label="Алт өмнөх оргилоос дээгүүр сүүлээрээ давж, дотор нь хаагдсан буюу sweep хийсэн"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">DXY · шинэ ёроол ГАРГААГҮЙ</div>
+          <svg data-chart="bearSmtDxy" role="img" aria-label="Доллар индекс өмнөх ёроолд хүрч чадаагүй тул урвуу хамаарлаар баталгаа өгөөгүй"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Урвуу хос учраас баталгаа гэдэг нь <b>эсрэг хэлбэр</b>: алт шинэ оргил
+        тавихад доллар шинэ ЁРООЛ тавих ЁСТОЙ. Тавиагүй тул тэр оргил
+        <b>дэмжигдээгүй</b> — bearish SMT.
+      </figcaption>
+    </figure>
+
+    <h3>Bullish SMT — доод талд</h3>
+    <figure class="duo" id="fig-bull">
+      <div class="plate">
+        <div>
+          <div class="plate-hd">XAUUSD · шинэ ёроол ГАРГАСАН</div>
+          <svg data-chart="bullSmtXau" role="img" aria-label="Алт өмнөх ёроолоос доогуур сүүлээрээ давж, дотор нь хаагдсан"></svg>
+        </div>
+        <div>
+          <div class="plate-hd">DXY · шинэ оргил ГАРГААГҮЙ</div>
+          <svg data-chart="bullSmtDxy" role="img" aria-label="Доллар индекс өмнөх оргилд хүрч чадаагүй тул баталгаа өгөөгүй"></svg>
+        </div>
+      </div>
+      <figcaption>
+        Толин тусгал: алт шинэ ёроол тавихад доллар шинэ ОРГИЛ тавих ёстой байв.
+        Тавиагүй тул тэр уналт нь жинхэнэ нийлүүлэлт биш — bullish SMT.
+      </figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">Хэзээ шалгагддаг вэ</span>
+      <p>
+        SMT нь бар бүрд биш, <strong>swing sweep баталгаажсан ЯГ ТЭР мөчид</strong>
+        нэг удаа шалгагдана. Тиймээс “яагаад SMT гарахгүй байна” гэдгийн хамгийн
+        түгээмэл хариулт нь: <em>тэр хооронд sweep болоогүй байна</em>. Ягаан
+        <b>✕</b> тэмдэг график дээр гарсан үед л SMT шалгагдана.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 4 -->
+  <section id="alert">
+    <div class="eyebrow">Мэдэгдэл</div>
+    <h2>⇅ мессежийн тайлбар</h2>
+
+    <p>
+      SMT нь alert-тай <strong>цөөхөн хэрэгслийн нэг</strong>, бөгөөд үүнд тодорхой
+      шалтгаан бий: бусад дохио график дээр өөрсдөө харагддаг бол SMT нь
+      <strong>ӨӨР символ дээр</strong> болж байгаа зүйлээс хамаардаг — та ганц
+      график ширтэж байгаад хэзээ ч харахгүй.
+    </p>
+
+    <pre><code>🗺️ KHAN ICT — ⇅ SMT DIVERGENCE
+TF: 1 мин
+Symbol: OANDA:XAUUSD
+Хамтрагч: TVC:DXY (урвуу)
+Чиглэл: SELL (Богино)
+Түвшин: 4442.000
+Killzone: NY AM · P/D: PREMIUM
+→ Sweep нь БИЕ ДААСАН хоёр дахь хэрэглүүрээр
+  баталгаажив. Одоо MSS/BOS ба FVG/OB retrace-ыг
+  ердийнхөөрөө хүлээ.</code></pre>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Мөр</th><th>Утга</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Хамтрагч</strong></td><td>Аль символтой харьцуулсан ба ямар хамааралтайгаар. Хаалтанд <code>урвуу</code> гэж бичигдвэл ↕ тохиргоо асаалттай гэсэн үг — буруу бол энд шууд харагдана.</td></tr>
+          <tr><td><strong>Чиглэл</strong></td><td>SMT ямар талыг заасан бэ. <code>SELL</code> = дээд талын цоолол дэмжигдээгүй.</td></tr>
+          <tr><td><strong>Түвшин</strong></td><td>Зөрүү үүсгэсэн swing-ийн үнэ — график дээрх <code>SMT</code> шошго яг энд суусан байна.</td></tr>
+          <tr><td><strong>Killzone · P/D</strong></td><td>Контекст: аль цонхонд, premium/discount-ийн аль талд. NY AM-ийн premium дээрх bearish SMT нь Ази session-ийхээс хамаагүй жинтэй.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn">
+      <span class="tag">Анхаар</span>
+      <p>
+        SMT нь панелийн <strong>SCORE (0–7) оноог ӨӨРЧЛӨХГҮЙ</strong>. Шалтгаан:
+        score нь бүх хэрэглэгчид ижил утгатай байх ёстой, гэтэл хамтрагч символ нь
+        хүн бүрд өөр. Тиймээс ⇅ ирсэн ч оноо хөдлөхгүйг алдаа гэж бүү бод.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================== 5 -->
+  <section id="flow">
+    <div class="eyebrow">Практик</div>
+    <h2>Ажлын урсгал — sweep → SMT → MSS</h2>
+
+    <p>
+      SMT бол <strong>оролт БИШ</strong>. Тэр бол чиглэлийн хүчтэй санал — дараа нь
+      ердийн ICT дараалал үргэлжилнэ. Доорх диаграм бүтэн гинжийг харуулж байна.
+    </p>
+
+    <figure id="fig-flow">
+      <div class="plate">
+        <svg data-chart="smtFlow" role="img" aria-label="Алт өмнөх оргилыг сүүлээрээ цоолж SMT зөрүү үүсгээд, дараа нь хүчтэй доошоо displacement гарч bearish FVG үлдээж, үнэ тэр зурвасын CE рүү буцаж ирээд татгалзаж дахин уналаа"></svg>
+      </div>
+      <figcaption>
+        <b>✕ sweep</b> дээр SMT шалгагдаж зөрүү олдов (<b>⇅</b>). Дараа нь доошоо
+        <b>displacement</b> гарч <b>FVG ↓</b> үлдээв. Үнэ тэр зурвасын
+        <b>CE (50%)</b> рүү буцаж ирэхэд оролт хийгдэнэ.
+      </figcaption>
+    </figure>
+
+    <ol class="steps">
+      <li><h3>⇅ ирлээ — шууд орохгүй</h3>
+        <p>SMT нь “тэр цоолол хуурамч байлаа” гэж хэлж байгаа болохоос “яг одоо
+        ор” гэж хэлээгүй. Чиглэлээ тэмдэглээд <em>бүтцийн баталгаа</em> хүлээ.</p></li>
+      <li><h3>MSS эсвэл BOS хүлээ</h3>
+        <p>Үнэ эсрэг тал руу бүтцээ хагалж (CHoCH/BOS), хүчтэй displacement
+        гаргах ёстой. Энэ мөчид индикатор өөрөө <code>SETUP ARMED</code>
+        латч гаргаж, хаана хүлээхийг хэлнэ.</p></li>
+      <li><h3>ARMED зурвасын CE дээр ажилла</h3>
+        <p>Displacement-ийн үлдээсэн FVG/OB руу буцахыг хүлээ. Оролт нь зурвасын
+        <strong>50% (CE)</strong> — дэлгэрэнгүйг
+        <a href="ref-armed-zone.html">ARMED zone гарын авлага</a> заасан.</p></li>
+      <li><h3>SL — sweep-ийн сүүлний цаана</h3>
+        <p>SMT-ийн бүх санаа нь “тэр сүүл хуурамч байсан” гэдэгт байгаа. Хэрэв үнэ
+        тэр сүүлнээс цааш явбал <strong>санаа буруу байсан</strong> — тиймээс SL
+        яг тэнд байх ёстой, түүнээс ойр биш.</p></li>
+    </ol>
+  </section>
+
+  <!-- =============================== 6 -->
+  <section id="lies">
+    <div class="eyebrow">Хязгаарлалт</div>
+    <h2>SMT хэзээ ХУДАЛ хэлдэг</h2>
+
+    <p>
+      SMT-ийн бүх хүч нь <strong>хамаарал үнэн байх</strong> гэсэн нэг таамаг дээр
+      тогтдог. Тэр таамаг эвдэрвэл SMT нь мэдээлэл биш, чимээ болно.
+    </p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Нөхцөл</th><th>Юу болдог</th><th>Яах вэ</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Хамаарал эвдэрсэн үе</strong></td>
+            <td>Эрсдэлээс зугтах (risk-off) үед алт ба доллар <em>хамт</em> өсдөг. Тэр үед “зөрүү” байнга гарах ч утгагүй.</td>
+            <td>Хоёр графикийг зэрэгцүүлж 1–2 өдөр ажигла. Хамт хөдөж байвал SMT-г түр үл тоо.</td>
+          </tr>
+          <tr>
+            <td><strong>Буруу ↕ тохиргоо</strong></td>
+            <td>SMT бүх дохиогоо эсрэгээр өгнө — хамгийн аюултай алдаа, учир нь бүх зүйл “ажиллаж” байгаа мэт харагдана.</td>
+            <td>Alert-ийн “Хамтрагч” мөрийг шалга: доллартай бол <code>урвуу</code> гэж бичигдсэн байх ёстой.</td>
+          </tr>
+          <tr>
+            <td><strong>Ази session, нимгэн зах зээл</strong></td>
+            <td>DXY бараг хөдөлгөөнгүй үед “зөрүү” нь санаатай биш, зүгээр л хөрвөх чадвар дутсаны илрэл.</td>
+            <td>London / NY AM цонхны SMT-д л жин өг.</td>
+          </tr>
+          <tr>
+            <td><strong>Мэдээний мөч</strong></td>
+            <td>NFP · CPI · FOMC үед хоёр хэрэглүүр өөр өөр хурдаар үсэрдэг тул зөрүү зохиомлоор үүснэ.</td>
+            <td>Мэдээний өмнөх 15 мин, дараах 30 минутад SMT-г тооцохгүй.</td>
+          </tr>
+          <tr>
+            <td><strong>Хоёр major swing алга</strong></td>
+            <td>Индикатор дөнгөж ачаалагдсан эсвэл шинэ график дээр харьцуулах хос хараахан бүрдээгүй байхад SMT огт гарахгүй.</td>
+            <td>Панелийн <code>WARM</code> тэмдэг унтартал хүлээ.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =============================== 7 -->
+  <section id="rules">
+    <div class="eyebrow">Лавлах</div>
+    <h2>Нарийн дүрмүүд — нэг хуудсанд</h2>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Асуулт</th><th>Хариулт</th></tr></thead>
+        <tbody>
+          <tr><td>Хэзээ шалгагддаг вэ</td><td>Swing sweep баталгаажсан бар дээр, sweep тутамд <strong>яг нэг удаа</strong> (давталт шүүгдсэн).</td></tr>
+          <tr><td>Юуг харьцуулдаг вэ</td><td>Сүүлийн <strong>хоёр MAJOR swing</strong> (ITH/ITL) — BOS/CHoCH хэмждэг яг тэр түвшнүүд.</td></tr>
+          <tr><td>Нэмэлт нөхцөл</td><td>Бид ҮНЭХЭЭР шинэ туйл тавьсан байх ёстой (шинэ оргил нь өмнөхөөсөө өндөр). Үгүй бол харьцуулах утга байхгүй.</td></tr>
+          <tr><td>Хамтрагчийг яаж уншдаг вэ</td><td>Тэр ХОЁР swing-ийн бар дээрх хамтрагчийн туйлыг авна — ойролцоо утга биш, яг тэр агшныхыг.</td></tr>
+          <tr><td>Бар хаагдахаас өмнө гарах уу</td><td>Үгүй. Зөвхөн <strong>хаагдсан бар</strong> дээр — тик тутам анивчихгүй.</td></tr>
+          <tr><td>SCORE-д ордог уу</td><td><strong>Үгүй.</strong> Оноо 0–7 хэвээр (дээрх тайлбарыг үз).</td></tr>
+          <tr><td>Хэдэн шошго үлддэг вэ</td><td>Compact горимд 8, Full горимд 16. Хуучин нь автоматаар цэвэрлэгдэнэ.</td></tr>
+          <tr><td>Alert хэзээ явахгүй вэ</td><td>Warmup дуусаагүй үед (панель дээр <code>WARM</code>) — тодорхойгүй үед чимээгүй байхыг сонгосон.</td></tr>
+          <tr><td>Унтраах</td><td>Хамтрагч символын талбарыг хоослоно.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =============================== 8 -->
+  <section id="next">
+    <div class="eyebrow">Үргэлжлэл</div>
+    <h2>Дараа нь юу унших</h2>
+    <ul>
+      <li><a href="ict-06-smt-divergence.html"><strong>Хичээл 06 — SMT Divergence</strong></a>: онолын бүрэн хувилбар, хосын төрлүүд, хамаарлын суурь.</li>
+      <li><a href="ref-armed-zone.html"><strong>ARMED zone</strong></a>: SMT-ийн дараа ирэх MSS → SETUP ARMED → ZONE TOUCHED дараалал.</li>
+      <li><a href="ict-03-draw-on-liquidity.html"><strong>Хичээл 03 — Draw on liquidity</strong></a>: sweep яагаад болдог, зорилтот liquidity хаана байдаг.</li>
+      <li><a href="ref-combo.html"><strong>Хосолсон ажиллагаа</strong></a>: KHAN ICT VISUAL + KHAN Sniper Pro хамт ашиглах.</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    KHAN SNIPER PRO · Сургалтын номын сан — бүх материал монгол хэлээр<br>
+    Энэ материал нь боловсролын зорилготой; арилжааны зөвлөгөө биш.
+    <a href="index.html">Номын сан</a> ·
+    <a href="../index.html">Нүүр</a> ·
+    <a href="../privacy.html">Нууцлал</a> ·
+    <a href="../terms.html">Үйлчилгээний нөхцөл</a>
+  </div>
+
+</div>
+
+<script src="assets/chart.js"></script>
+<script>
+(function () {
+  const SPECS = {};
+
+  /* 1 — bearish SMT: XAU sweeps above the prior major high */
+  SPECS.bearSmtXau = {
+    w: 420, h: 300, padR: 104,
+    candles: [
+      [4432.0, 4436.0, 4430.5, 4435.2],
+      [4435.2, 4440.0, 4434.0, 4439.0],
+      [4439.0, 4442.0, 4437.5, 4438.2],   /* 2: prior high 4442.0 */
+      [4438.2, 4439.5, 4433.0, 4434.0],
+      [4434.0, 4436.0, 4431.0, 4435.5],
+      [4435.5, 4440.5, 4434.8, 4440.0],
+      [4440.0, 4446.5, 4439.2, 4441.0],   /* 6: HIGHER high, closed back inside */
+      [4441.0, 4441.8, 4435.0, 4436.0],
+      [4436.0, 4437.0, 4430.0, 4431.0]
+    ],
+    levels: [{ y: 4442.0, color: 'bear', w: 1.4, dash: '0', label: 'өмнөх оргил' }],
+    marks: [{ i: 6, text: 'шинэ оргил ✓', pos: 'above', color: 'bear' }]
+  };
+
+  /* 2 — partner DXY fails to make the confirming LOWER low */
+  SPECS.bearSmtDxy = {
+    w: 420, h: 300, padR: 104,
+    candles: [
+      [99.85, 99.95, 99.60, 99.65],
+      [99.65, 99.72, 99.35, 99.40],
+      [99.40, 99.48, 99.20, 99.28],       /* 2: prior low 99.20 */
+      [99.28, 99.55, 99.25, 99.50],
+      [99.50, 99.68, 99.44, 99.60],
+      [99.60, 99.66, 99.40, 99.44],
+      [99.44, 99.54, 99.42, 99.52],       /* 6: low 99.42 — NOT below 99.20 */
+      [99.52, 99.75, 99.50, 99.72],
+      [99.72, 99.95, 99.68, 99.90]
+    ],
+    levels: [{ y: 99.20, color: 'bear', w: 1.4, dash: '0', label: 'өмнөх ёроол' }],
+    marks: [{ i: 6, text: 'шинэ ёроол ✗', pos: 'below', color: 'bear' }]
+  };
+
+  /* 3 — bullish SMT: XAU sweeps below the prior major low */
+  SPECS.bullSmtXau = {
+    w: 420, h: 300, padR: 104,
+    candles: [
+      [4432.0, 4433.5, 4427.0, 4428.0],
+      [4428.0, 4429.0, 4421.0, 4422.0],
+      [4422.0, 4424.0, 4418.0, 4420.5],   /* 2: prior low 4418.0 */
+      [4420.5, 4427.0, 4419.8, 4426.0],
+      [4426.0, 4429.5, 4424.0, 4425.0],
+      [4425.0, 4426.0, 4420.0, 4420.8],
+      [4420.8, 4421.5, 4413.5, 4419.5],   /* 6: LOWER low, closed back above */
+      [4419.5, 4426.0, 4418.8, 4425.5],
+      [4425.5, 4432.0, 4424.8, 4431.0]
+    ],
+    levels: [{ y: 4418.0, color: 'bull', w: 1.4, dash: '0', label: 'өмнөх ёроол' }],
+    marks: [{ i: 6, text: 'шинэ ёроол ✓', pos: 'below', color: 'bull' }]
+  };
+
+  /* 4 — partner DXY fails to make the confirming HIGHER high */
+  SPECS.bullSmtDxy = {
+    w: 420, h: 300, padR: 104,
+    candles: [
+      [99.40, 99.62, 99.36, 99.58],
+      [99.58, 99.85, 99.55, 99.80],
+      [99.80, 100.10, 99.76, 100.02],     /* 2: prior high 100.10 */
+      [100.02, 100.05, 99.72, 99.78],
+      [99.78, 99.86, 99.60, 99.66],
+      [99.66, 99.92, 99.62, 99.88],
+      [99.88, 100.02, 99.84, 99.92],      /* 6: high 100.02 — NOT above 100.10 */
+      [99.92, 99.96, 99.66, 99.70],
+      [99.70, 99.74, 99.42, 99.48]
+    ],
+    levels: [{ y: 100.10, color: 'bull', w: 1.4, dash: '0', label: 'өмнөх оргил' }],
+    marks: [{ i: 6, text: 'шинэ оргил ✗', pos: 'above', color: 'bull' }]
+  };
+
+  /* 5 — full chain: sweep + SMT -> displacement -> FVG -> CE retrace */
+  SPECS.smtFlow = {
+    w: 620, h: 330, padR: 112,
+    candles: [
+      [4432.0, 4436.0, 4430.5, 4435.2],
+      [4435.2, 4440.0, 4434.0, 4439.0],
+      [4439.0, 4442.0, 4437.5, 4438.2],   /* 2: prior high */
+      [4438.2, 4439.5, 4433.0, 4434.0],
+      [4434.0, 4436.0, 4431.0, 4435.5],
+      [4435.5, 4440.5, 4434.8, 4440.0],
+      [4440.0, 4446.5, 4439.2, 4441.0],   /* 6: sweep + SMT */
+      [4441.0, 4441.5, 4433.0, 4433.5],   /* 7: displacement bar 1 */
+      [4433.5, 4434.0, 4424.0, 4424.8],   /* 8: displacement bar 2 */
+      [4424.8, 4428.5, 4423.0, 4427.5],   /* 9: FVG = 4428.5 .. 4433.0 */
+      [4427.5, 4431.5, 4426.8, 4430.8],   /* 10: retrace tags CE 4430.75 */
+      [4430.8, 4431.0, 4423.0, 4424.0],
+      [4424.0, 4425.0, 4416.0, 4417.0]
+    ],
+    zones: [
+      { from: 8, to: 12, top: 4433.0, bot: 4428.5, color: 'bear', fill: .14, ce: true, label: 'FVG ↓' }
+    ],
+    levels: [
+      { y: 4442.0, color: 'ink3', dash: '4 3', label: 'өмнөх оргил' }
+    ],
+    arrows: [
+      { from: 7, to: 9, y1: 4440.0, y2: 4426.0, color: 'bear', label: 'displacement' }
+    ],
+    marks: [
+      { i: 6, text: '✕ sweep', pos: 'above', color: 'accent' },
+      { i: 6, text: '⇅ SMT', pos: 'below', color: 'bear' },
+      { i: 10, text: 'CE ✓', pos: 'above', color: 'amber' },
+      { i: 12, text: 'T1', pos: 'below', color: 'bull' }
+    ]
+  };
+
+  KhanPlate.draw(SPECS);
+})();
+</script>
+</body>
+</html>
