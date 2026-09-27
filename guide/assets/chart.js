@@ -62,6 +62,17 @@
     const esc = s => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;');
     let o = '';
 
+    /* vertical bands (phases, sessions): a faint column behind everything,
+       labelled in the top margin so it never collides with candle marks */
+    (spec.bands || []).forEach(b => {
+      const x1 = X(b.from) - step / 2, x2 = X(b.to) + step / 2;
+      const c = col(b.color || 'ink3');
+      o += `<rect x="${x1.toFixed(1)}" y="${padT - 16}" width="${(x2 - x1).toFixed(1)}" height="${H - padT - padB + 16}" fill="${c}" fill-opacity="${b.fill ?? .07}"/>`;
+      if (b.label) {
+        o += `<text x="${(x1 + 6).toFixed(1)}" y="${padT - 5}" fill="${c}" font-size="10.5" font-weight="700" font-family="${mono}">${esc(b.label)}</text>`;
+      }
+    });
+
     /* zones behind candles */
     (spec.zones || []).forEach(z => {
       const x1 = X(z.from) - step / 2, x2 = X(z.to) + step / 2;
